@@ -25,6 +25,9 @@ npm run dev
 | `NEXT_PUBLIC_SUPABASE_URL` | público | URL do projeto Supabase |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | público | chave publicável |
 | `SUPABASE_SERVICE_ROLE_KEY` | só servidor | criação de alunos e reancoragem de grifos |
+| `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | público | chave pública dos avisos no celular (Web Push) |
+| `VAPID_PRIVATE_KEY` | só servidor | chave privada dos avisos; gere o par com `npx web-push generate-vapid-keys` |
+| `VAPID_SUBJECT` | só servidor | contato dos avisos, ex.: `mailto:equipe@cursosduo.com.br` |
 | `ALUNO_SENHA_PADRAO` | só servidor | senha inicial dos alunos criados em Equipe › Alunos (não versionar) |
 
 Os ebooks do curso **não** são versionados neste repositório (direitos autorais).
