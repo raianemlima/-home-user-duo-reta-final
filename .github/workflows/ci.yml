@@ -12,11 +12,6 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    env:
-      # Valores de mentira só para o build compilar; nenhum serviço é acessado.
-      NEXT_PUBLIC_SUPABASE_URL: https://exemplo.supabase.co
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: chave-de-teste
-      NEXT_PUBLIC_PIPELINE_V2: "true"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,3 +23,8 @@ jobs:
       - run: npx tsc --noEmit
       - run: npm test
       - run: npm run build
+        env:
+          # Valores de mentira só para o build compilar; nenhum serviço é acessado. Ficam fora dos testes, que controlam as próprias variáveis.
+          NEXT_PUBLIC_SUPABASE_URL: https://exemplo.supabase.co
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: chave-de-teste
+          NEXT_PUBLIC_PIPELINE_V2: "true"
