@@ -6,6 +6,7 @@ import { ensureNotDuplicate, fingerprintFile, suggestDocumentTitle, validateDocu
 import { advanceJobStep, startJob } from "@/lib/pipeline/client";
 import { createClient } from "@/lib/supabase/client";
 import { uploadDocumentSecurely } from "@/lib/supabase/secure-documents";
+import { isVadeDiscipline } from "@/lib/vade";
 
 export type Discipline = { id: string; slug: string; title: string; published: { id: string; label: string; publishedAt: string } | null; drafts: { id: string; label: string; createdAt: string }[] };
 type Preview = { version: { id: string; label: string; status: string }; toc: { id: string; level: number; numbering: string | null; title: string | null }[]; stats: { sections: number; paragraphs: number; tips: number }; sample: { id: string; numbering: string | null; title: string | null; paragraphs: string[] }[] };
@@ -85,9 +86,19 @@ export function DisciplineRow({ discipline, onChange }: { discipline: Discipline
     } catch (failure) { setStatus(failure instanceof Error ? failure.message : "Falha ao excluir."); }
     finally { setBusy(false); }
   }
+  // Sem material publicado, a disciplina inteira (com os rascunhos) pode sair da lista.
+  async function removeDiscipline() {
+    const drafts = discipline.drafts.length ? ` ${discipline.drafts.length} rascunho(s) também serão apagados.` : "";
+    if (!window.confirm(`Excluir a disciplina “${discipline.title}”?${drafts} Esta ação não pode ser desfeita.`)) return;
+    setBusy(true); setStatus("");
+    try { await api(`/api/equipe/disciplinas/${discipline.id}`, { method: "DELETE" }); onChange(); }
+    catch (failure) { setStatus(failure instanceof Error ? failure.message : "Falha ao excluir."); setBusy(false); }
+  }
   return <li className="staff-row">
     <div className="staff-row-head"><div><strong>{discipline.title}</strong><span className="muted"> /{discipline.slug}</span><p className="muted">{discipline.published ? `Publicado: ${discipline.published.label}` : "Ainda sem versão publicada"}</p></div>
-      {discipline.published && <button className="button danger" onClick={removePublished} disabled={busy}>Excluir material publicado</button>}</div>
+      {discipline.published
+        ? <button className="button danger" onClick={removePublished} disabled={busy}>Excluir material publicado</button>
+        : !isVadeDiscipline(discipline.slug) && <button className="button danger" onClick={removeDiscipline} disabled={busy}>Excluir disciplina</button>}</div>
     {discipline.drafts.map((draft) => <p key={draft.id}>Rascunho “{draft.label}” <button className="button ghost" onClick={() => setPreview(draft.id)}>Revisar</button></p>)}
     <div className="staff-upload"><label>Rótulo da nova versão<input value={labelText} onChange={(event) => setLabelText(event.target.value)} maxLength={120} /></label><label className="button">{busy ? "Aguarde…" : "Enviar ebook (PDF ou DOCX)"}<input type="file" accept=".pdf,.docx" onChange={send} disabled={busy} className="visually-hidden" /></label></div>
     {status && <p role="status">{status}</p>}

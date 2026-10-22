@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   item: { flexDirection: "row", marginBottom: 10 },
   bar: { width: 4, borderRadius: 2, marginRight: 10 },
   body: { flex: 1 },
-  quote: { fontSize: 11 },
+  quote: { fontSize: 11, textAlign: "justify", lineHeight: 1.5 },
   note: { fontStyle: "italic", marginTop: 3 },
   meta: { fontSize: 8.5, color: MUTED, marginTop: 3 },
   footer: { position: "absolute", bottom: 24, left: 48, right: 48, flexDirection: "row", justifyContent: "space-between", fontSize: 8, color: MUTED },
@@ -54,8 +54,8 @@ export async function renderPdf(doc: ExportDoc): Promise<Uint8Array> {
           <View style={styles.body}>
             <Text style={styles.quote}>{printable(item.quote)}</Text>
             {item.note && <Text style={styles.note}>{printable(item.note)}</Text>}
+            {/* Sem linha de referência: a seção já está no título acima, e o caderno fica só com o texto, no padrão dos e-books. */}
             {item.orphanedNotice && <Text style={styles.meta}>{item.orphanedNotice}</Text>}
-            <Text style={styles.meta}>{printable(item.reference)}{item.reviewed ? " · revisado" : ""}</Text>
           </View>
         </View>)}
       </View>)}
