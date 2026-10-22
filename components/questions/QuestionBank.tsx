@@ -16,19 +16,20 @@ function Select({ label, name, value, options, onChange }: { label: string; name
   </select></label>;
 }
 
-function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnswered: (id: string, choice: Letter, correct: boolean, gabarito: Letter | null) => void }) {
-  const [busy, setBusy] = useState(false); const [error, setError] = useState(""); const [retry, setRetry] = useState(false);
+function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnswered: (id: string, choice: Letter, correct: boolean) => void }) {
+  const [error, setError] = useState(""); const [retry, setRetry] = useState(false);
   const answer = retry ? null : question.resposta;
-  async function choose(choice: Letter) {
-    if (answer || busy) return;
-    setBusy(true); setError("");
-    try {
-      const response = await fetch("/api/questoes/responder", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: question.id, choice }) });
-      const payload = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(payload?.error?.message ?? "Não foi possível salvar a resposta.");
-      setRetry(false); onAnswered(question.id, choice, payload.correct, payload.gabarito);
-    } catch (failure) { setError(failure instanceof Error ? failure.message : "Não foi possível salvar a resposta."); }
-    finally { setBusy(false); }
+  // Corrige na hora, no aparelho; a resposta é salva em seguida sem prender a tela.
+  function save(choice: Letter) {
+    setError("");
+    fetch("/api/questoes/responder", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id: question.id, choice }) })
+      .then(async (response) => { if (!response.ok) { const payload = await response.json().catch(() => ({})); throw new Error(payload?.error?.message ?? ""); } })
+      .catch((failure: Error) => setError(`Sua resposta não foi salva${failure.message ? ` (${failure.message})` : ""}. Confira a conexão e responda de novo.`));
+  }
+  function choose(choice: Letter) {
+    if (answer) return;
+    const correct = question.anulada || choice === question.gabarito;
+    setRetry(false); onAnswered(question.id, choice, correct); save(choice);
   }
   const letters = Object.keys(question.alternativas) as Letter[];
   return <article className="q-card" aria-labelledby={`q-${question.id}`}>
@@ -39,13 +40,14 @@ function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnsw
       {letters.map((letter) => {
         const chosen = answer?.choice === letter, isAnswer = Boolean(answer) && question.gabarito === letter;
         const state = !answer ? "" : isAnswer ? "is-answer" : chosen ? "is-wrong" : "is-dim";
-        return <li key={letter}><button type="button" className={`q-alt ${state}`.trim()} onClick={() => choose(letter)} disabled={busy || Boolean(answer)} aria-pressed={chosen}>
+        return <li key={letter}><button type="button" className={`q-alt ${state}`.trim()} onClick={() => choose(letter)} disabled={Boolean(answer)} aria-pressed={chosen}>
           <span className="q-letter" aria-hidden="true">{letter}</span><span>{question.alternativas[letter]}</span>
           {answer && isAnswer && <span className="q-mark">✓ gabarito</span>}{answer && chosen && !isAnswer && <span className="q-mark">✗ sua resposta</span>}
         </button></li>;
       })}
     </ol>
     {answer && <p className={answer.correct ? "q-result ok" : "q-result bad"} role="status">{answer.correct ? "Você acertou!" : `Você marcou ${answer.choice}. Gabarito: ${question.gabarito ?? "anulada"}.`} <button type="button" className="button ghost" onClick={() => setRetry(true)}>Responder de novo</button></p>}
+    {answer && question.comentario && <details className="q-comment" open><summary>Gabarito comentado</summary>{question.comentario.split(/\n{2,}/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</details>}
     {error && <p className="auth-error" role="alert">{error}</p>}
   </article>;
 }
@@ -77,8 +79,8 @@ export function QuestionBank() {
   }, [params, pathname, router]);
   const onSelect = (name: string, value: string) => update({ [name]: value });
   function submitSearch(event: FormEvent) { event.preventDefault(); update({ busca: search.trim() }); }
-  function onAnswered(id: string, choice: Letter, correct: boolean, gabarito: Letter | null) {
-    setResult((current) => current && ({ ...current, stats: { ...current.stats, respondidas: current.stats.respondidas + (current.items.find((item) => item.id === id)?.resposta ? 0 : 1), acertos: current.stats.acertos + (correct ? 1 : 0) - (current.items.find((item) => item.id === id)?.resposta?.correct ? 1 : 0) }, items: current.items.map((item) => (item.id === id ? { ...item, gabarito, resposta: { choice, correct } } : item)) }));
+  function onAnswered(id: string, choice: Letter, correct: boolean) {
+    setResult((current) => current && ({ ...current, stats: { ...current.stats, respondidas: current.stats.respondidas + (current.items.find((item) => item.id === id)?.resposta ? 0 : 1), acertos: current.stats.acertos + (correct ? 1 : 0) - (current.items.find((item) => item.id === id)?.resposta?.correct ? 1 : 0) }, items: current.items.map((item) => (item.id === id ? { ...item, resposta: { choice, correct } } : item)) }));
   }
 
   const value = (name: (typeof FILTERS)[number]) => params.get(name) ?? "";
@@ -100,7 +102,7 @@ export function QuestionBank() {
     <div className="notebook-summary"><span role="status">{loading ? "Carregando…" : result ? `${result.total} ${result.total === 1 ? "questão encontrada" : "questões encontradas"}` : ""}</span>{active && <button className="button ghost" onClick={() => { setSearch(""); setLoading(true); router.replace(pathname); }}>Limpar filtros</button>}</div>
     {error && <p className="auth-error" role="alert">{error}</p>}
     {result && !result.total && !loading && <p className="empty">Nenhuma questão com esses filtros.</p>}
-    <div className="q-list">{result?.items.map((question) => <QuestionCard key={`${question.id}-${question.resposta?.choice ?? ""}`} question={question} onAnswered={onAnswered} />)}</div>
+    <div className="q-list">{result?.items.map((question) => <QuestionCard key={question.id} question={question} onAnswered={onAnswered} />)}</div>
     {result && result.paginas > 1 && <nav className="section-nav" aria-label="Páginas">
       {result.pagina > 1 ? <button className="button" onClick={() => update({ pagina: String(result.pagina - 1) })}>← Anteriores</button> : <span />}
       <span className="muted">Página {result.pagina} de {result.paginas}</span>

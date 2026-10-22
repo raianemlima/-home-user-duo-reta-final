@@ -4,8 +4,8 @@ export type Situation = "todas" | "nao-respondidas" | "acertei" | "errei";
 export type QuestionFilter = { disciplina: string; assunto: string; ano: string; banca: string; orgao: string; situacao: Situation; busca: string };
 export type Answer = { choice: Letter; correct: boolean };
 export type Facets = { disciplinas: [string, number][]; assuntos: [string, number][]; anos: [string, number][]; bancas: [string, number][]; orgaos: [string, number][] };
-// Questão como vai para o navegador: o gabarito só aparece depois que o aluno responde.
-export type QuestionView = Omit<Question, "gabarito"> & { gabarito: Letter | null; resposta: Answer | null };
+// Questão como vai para o navegador: a correção é imediata no aparelho e a resposta é salva em seguida.
+export type QuestionView = Question & { resposta: Answer | null };
 
 export const PAGE_SIZE = 10;
 const SITUATIONS: Situation[] = ["todas", "nao-respondidas", "acertei", "errei"];
@@ -55,7 +55,7 @@ export function searchQuestions(bank: Question[], filter: QuestionFilter & { pag
   const start = (filter.pagina - 1) * PAGE_SIZE;
   const items: QuestionView[] = found.slice(start, start + PAGE_SIZE).map((question) => {
     const resposta = answers.get(question.id) ?? null;
-    return { ...question, gabarito: resposta || question.anulada ? question.gabarito : null, resposta };
+    return { ...question, resposta };
   });
   const answered = bank.filter((question) => answers.has(question.id));
   return { total: found.length, pagina: filter.pagina, paginas: Math.max(1, Math.ceil(found.length / PAGE_SIZE)), items, facets, stats: { respondidas: answered.length, acertos: answered.filter((question) => answers.get(question.id)?.correct).length, total: bank.length } };

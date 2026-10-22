@@ -33,7 +33,7 @@ for (const file of readdirSync(dir).filter((name) => name.endsWith(".json") && !
       ano: year ? Number(year[1]) : null, banca: exam.banca, cargo: (cargo.join(" · ") || exam.cargo).trim(),
       disciplina: discipline(q.materia), materia: clean(q.materia), assunto: q.assunto ? clean(q.assunto).replace(/\.$/, "") : null,
       enunciado: clean(q.enunciado), alternativas: Object.fromEntries(Object.entries(q.alternativas).map(([letter, text]) => [letter, clean(text)])),
-      gabarito, anulada: !gabarito,
+      gabarito, anulada: !gabarito, comentario: q.comentario ? clean(q.comentario) : null,
     });
   }
 }
