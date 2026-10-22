@@ -26,11 +26,11 @@ export function POST(request: Request) {
     const { data: stages, error: stageError } = await supabase.from("job_stages").select("subject_id, output").eq("job_id", jobId).eq("stage", "segmentation");
     if (stageError) throw new Error(`Falha ao ler a segmentação: ${stageError.message}`);
     if (!stages || stages.length !== 1 || !stages[0].output) throw new ApiError(409, "conflict", "Envie um único arquivo por versão da disciplina.");
-    const { data: document } = await supabase.from("documents").select("sha256").eq("id", stages[0].subject_id).maybeSingle();
+    const { data: document } = await supabase.from("documents").select("sha256, storage_path, file_name").eq("id", stages[0].subject_id).maybeSingle();
 
     const sections = buildDraft(stages[0].output as SegmentationResult);
     if (!sections.length) throw new ApiError(422, "empty_content", "Nenhum conteúdo foi encontrado no arquivo.");
-    const { versionId } = await saveDraft(supabase, { disciplineId, label, sourceSha256: (document?.sha256 as string | undefined) ?? "", jobId, sections });
+    const { versionId } = await saveDraft(supabase, { disciplineId, label, sourceSha256: (document?.sha256 as string | undefined) ?? "", sourcePath: (document?.storage_path as string | undefined) ?? null, sourceFileName: (document?.file_name as string | undefined) ?? null, jobId, sections });
     return NextResponse.json({ versionId }, { status: 201 });
   });
 }

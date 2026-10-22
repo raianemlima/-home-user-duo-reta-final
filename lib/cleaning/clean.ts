@@ -108,6 +108,8 @@ function cleanText(rawText: string, page: number, recorder: Recorder, policy: Po
 type Entry = { block: LayoutBlock; page: number };
 const SUBSECTION = /^\d{1,2}(?:\.\d{1,2})+\.?\s+\S/;
 const medianOf = (values: number[]) => { const sorted = [...values].sort((a, b) => a - b); return sorted.length ? sorted[Math.floor(sorted.length / 2)] : 0; };
+// Alínea ("a) …") abre item próprio: nunca é continuação da frase anterior.
+const LIST_MARKER = /^[a-z]\)\s/;
 const NUMBERED_HEADING = /^(?:\d{1,2}(?:\.\d{1,2})*\.?\s|art(?:igo)?\.?\s*\d|cap[ií]tulo\b|se[cç][aã]o\b|t[ií]tulo\b)/i;
 
 export function cleanDocument(extraction: DocumentExtraction, options: CleanOptions = {}): CleaningResult {
@@ -169,7 +171,8 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
   for (const paragraph of paragraphs) {
     const previous = merged[merged.length - 1];
     const continues = previous && previous.kind === "body" && paragraph.kind === "body" && !previous.heading && !paragraph.heading && (!faithful || previous.fontSize === paragraph.fontSize)
-      && !/[.!?:;”"')\]]$/.test(previous.text) && /^[a-zà-úç]/.test(paragraph.text) && paragraph.pages[0] === previous.pages[previous.pages.length - 1] + 1;
+      && !/[.!?:;”"')\]]$/.test(previous.text) && /^[a-zà-úç]/.test(paragraph.text) && !LIST_MARKER.test(paragraph.text)
+      && (paragraph.pages[0] === previous.pages[previous.pages.length - 1] + 1 || paragraph.pages[0] === previous.pages[previous.pages.length - 1]);
     // Modo fiel: título de capítulo quebrado em duas linhas ("2. EVOLUÇÃO DA ASSISTÊNCIA" + "NO BRASIL") vira um título só.
     const headingContinues = faithful && previous && previous.heading && paragraph.heading && previous.fontSize === paragraph.fontSize
       && previous.pages[previous.pages.length - 1] === paragraph.pages[0] && !/[.:;!?]$/.test(previous.text) && !NUMBERED_HEADING.test(paragraph.text);

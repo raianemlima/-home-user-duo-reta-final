@@ -1,8 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Floating } from "@/components/reader/Floating";
 import { ColorLegend, HighlightToolbar } from "@/components/reader/HighlightToolbar";
 import { paragraphSpans, rangeToPoints, segmentText } from "@/lib/highlights/dom";
+import { markLead, paragraphFormat } from "@/lib/reader/format";
 import { HIGHLIGHT_COLORS, type HighlightColor, type Point } from "@/lib/highlights/types";
 import type { ReaderParagraph } from "@/lib/reader/queries";
 
@@ -70,16 +72,16 @@ export function HighlightLayer({ versionId, sectionId, paragraphs }: { versionId
     <ColorLegend />
     {notice && <p className="reader-notice" role="alert">{notice} <button className="icon-button" onClick={() => setNotice("")} aria-label="Fechar aviso">✕</button></p>}
     <div className="section-text" data-section-id={sectionId} ref={root} onMouseUp={capture} onTouchEnd={capture}>
-      {paragraphs.map((paragraph) => <p key={paragraph.id} id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind}`} data-paragraph-id={paragraph.id}>
-        {segmentText(paragraph.text, spans.get(paragraph.id) ?? []).map((segment, index) => segment.marks.length
-          ? <mark key={index} className="hl" data-highlight-id={segment.marks[segment.marks.length - 1].id} style={{ background: swatch(segment.marks[segment.marks.length - 1].color) }} tabIndex={0} role="button" aria-label="Grifo: abrir opções"
+      {paragraphs.map((paragraph) => { const format = paragraphFormat(paragraph.text, paragraph.kind); return <p key={paragraph.id} id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind} ${format.className}`.trim()} data-paragraph-id={paragraph.id}>
+        {markLead(segmentText(paragraph.text, spans.get(paragraph.id) ?? []), format.lead).map((segment, index) => segment.marks.length
+          ? <mark key={index} className={segment.lead ? "hl lead" : "hl"} data-highlight-id={segment.marks[segment.marks.length - 1].id} style={{ background: swatch(segment.marks[segment.marks.length - 1].color) }} tabIndex={0} role="button" aria-label="Grifo: abrir opções"
               onClick={() => { const id = segment.marks[segment.marks.length - 1].id; if (!id.startsWith("tmp-")) setEditing({ id, note: highlights.find((item) => item.id === id)?.note ?? "" }); }}
               onKeyDown={(event) => { if (event.key === "Enter") (event.currentTarget as HTMLElement).click(); }}>{segment.text}</mark>
-          : <span key={index}>{segment.text}</span>)}
-      </p>)}
+          : <span key={index} className={segment.lead ? "lead" : undefined}>{segment.text}</span>)}
+      </p>; })}
     </div>
     {selection && !editing && <HighlightToolbar onPick={(color) => save(color)} onNote={() => setEditing({ id: null, note: "" })} onCancel={() => { setSelection(null); window.getSelection()?.removeAllRanges(); }} />}
-    {editing && <div className="sheet" role="dialog" aria-label={open ? "Editar grifo" : "Novo grifo com anotação"}>
+    {editing && <Floating className="sheet" role="dialog" aria-label={open ? "Editar grifo" : "Novo grifo com anotação"}>
       <label>Anotação<textarea rows={3} maxLength={2000} value={editing.note} onChange={(event) => setEditing({ ...editing, note: event.target.value })} /></label>
       <div className="sheet-colors">{HIGHLIGHT_COLORS.map((color) => <button key={color.key} className={open?.color === color.key ? "swatch-button selected" : "swatch-button"} onClick={() => (open ? update(open.id, { color: color.key }) : save(color.key, editing.note))}><span className="swatch" style={{ background: color.swatch }} aria-hidden="true" />{color.label}</button>)}</div>
       <div className="sheet-actions">
@@ -88,6 +90,6 @@ export function HighlightLayer({ versionId, sectionId, paragraphs }: { versionId
         <button className="button ghost" onClick={() => { setEditing(null); setSelection(null); }}>Fechar</button>
       </div>
       {!open && <p className="muted">Escolha a cor para salvar o grifo com a anotação.</p>}
-    </div>}
+    </Floating>}
   </>;
 }

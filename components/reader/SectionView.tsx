@@ -17,7 +17,7 @@ export function SectionView({ view, children }: { view: View; children?: React.R
   return <div className="reader">
     <TocDrawer slug={slug} toc={view.toc} currentId={view.section.id} open={tocOpen} onClose={() => setTocOpen(false)} />
     <article className="reader-main">
-      <div className="reader-toolbar"><button className="button ghost toc-toggle" onClick={() => setTocOpen(true)}>☰ Sumário</button><FontSize /></div>
+      <div className="reader-toolbar"><button className="button ghost toc-toggle" onClick={() => setTocOpen(true)}>☰ Sumário</button>{view.hasOriginal && <a className="button ghost" href={`/api/disciplinas/${slug}/original`} download>⬇ PDF original</a>}<FontSize /></div>
       <SearchBox slug={slug} />
       <header className="section-head">
         <p className="eyebrow"><Link href="/">Disciplinas</Link> › {view.discipline.title}{view.section.path.length ? ` › ${view.section.path.join(" › ")}` : ""}</p>

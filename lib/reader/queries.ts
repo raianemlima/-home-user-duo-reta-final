@@ -5,7 +5,7 @@ export type DisciplineCard = { id: string; slug: string; title: string; versionI
 export type TocItem = { id: string; level: number; numbering: string | null; title: string | null; path: string[] };
 export type Toc = TocItem[];
 export type ReaderParagraph = { id: string; kind: "body" | "table" | "footnote" | "tip"; text: string };
-export type SectionView = { discipline: { id: string; slug: string; title: string }; versionId: string; versionLabel: string; toc: Toc; section: { id: string; numbering: string | null; title: string | null; path: string[]; paragraphs: ReaderParagraph[] }; prevId: string | null; nextId: string | null };
+export type SectionView = { discipline: { id: string; slug: string; title: string }; versionId: string; versionLabel: string; hasOriginal: boolean; toc: Toc; section: { id: string; numbering: string | null; title: string | null; path: string[]; paragraphs: ReaderParagraph[] }; prevId: string | null; nextId: string | null };
 
 function check(error: { message: string } | null, context: string) {
   if (error) throw new Error(`${context}: ${error.message}`);
@@ -36,7 +36,7 @@ async function publishedVersion(supabase: SupabaseClient, slug: string) {
   const { data: discipline, error } = await supabase.from("disciplines").select("id, slug, title").eq("slug", slug).maybeSingle();
   check(error, "Falha ao ler a disciplina");
   if (!discipline) return null;
-  const { data: version, error: versionError } = await supabase.from("content_versions").select("id, label").eq("discipline_id", discipline.id).eq("status", "published").maybeSingle();
+  const { data: version, error: versionError } = await supabase.from("content_versions").select("id, label, source_path").eq("discipline_id", discipline.id).eq("status", "published").maybeSingle();
   check(versionError, "Falha ao ler a versão");
   return version ? { discipline, version } : null;
 }
@@ -77,7 +77,7 @@ export async function loadSection(supabase: SupabaseClient, slug: string, sectio
   const toc = await loadToc(supabase, found.version.id);
   const index = toc.findIndex((item) => item.id === sectionId);
   return {
-    discipline: found.discipline, versionId: found.version.id, versionLabel: found.version.label, toc,
+    discipline: found.discipline, versionId: found.version.id, versionLabel: found.version.label, hasOriginal: Boolean(found.version.source_path), toc,
     section: { id: section.id, numbering: section.numbering, title: section.title, path: section.path ?? [], paragraphs: ((paragraphs ?? []) as (ReaderParagraph & { position: number })[]).sort((a, b) => a.position - b.position).map(({ id, kind, text }) => ({ id, kind, text })) },
     prevId: index > 0 ? toc[index - 1].id : null, nextId: index >= 0 && index < toc.length - 1 ? toc[index + 1].id : null,
   };

@@ -30,9 +30,9 @@ async function insertChunks(supabase: SupabaseClient, table: string, rows: Recor
   }
 }
 
-export async function saveDraft(supabase: SupabaseClient, input: { disciplineId: string; label: string; sourceSha256: string; jobId: string; sections: DraftSection[] }): Promise<{ versionId: string }> {
+export async function saveDraft(supabase: SupabaseClient, input: { disciplineId: string; label: string; sourceSha256: string; sourcePath?: string | null; sourceFileName?: string | null; jobId: string; sections: DraftSection[] }): Promise<{ versionId: string }> {
   const versionId = randomUUID();
-  const { error } = await supabase.from("content_versions").insert({ id: versionId, discipline_id: input.disciplineId, label: input.label, source_sha256: input.sourceSha256, job_id: input.jobId, status: "draft" });
+  const { error } = await supabase.from("content_versions").insert({ id: versionId, discipline_id: input.disciplineId, label: input.label, source_sha256: input.sourceSha256, source_path: input.sourcePath ?? null, source_file_name: input.sourceFileName ?? null, job_id: input.jobId, status: "draft" });
   check(error, "Falha ao criar a versão");
   const sections = input.sections.map((section) => ({ ...section, id: randomUUID() }));
   try {
