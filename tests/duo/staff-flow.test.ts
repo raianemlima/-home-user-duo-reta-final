@@ -11,7 +11,8 @@ vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => makeFakeSupabase
 
 import { GET as listDisciplines, POST as createDiscipline } from "@/app/api/equipe/disciplinas/route";
 import { POST as createVersion } from "@/app/api/equipe/versoes/route";
-import { GET as previewVersion } from "@/app/api/equipe/versoes/[id]/route";
+import { DELETE as deleteVersion, GET as previewVersion } from "@/app/api/equipe/versoes/[id]/route";
+import { GET as versionImpact } from "@/app/api/equipe/versoes/[id]/impacto/route";
 import { POST as publish } from "@/app/api/equipe/versoes/[id]/publicar/route";
 import { POST as createJob } from "@/app/api/jobs/route";
 import { POST as advance } from "@/app/api/jobs/[id]/advance/route";
@@ -57,6 +58,17 @@ describe("fluxo da equipe: ebook → rascunho → publicação → leitura", () 
     const sectionId = preview.toc[2].id;
     const reader = await loadSection(makeFakeSupabase(db, "aluno") as never, "penal", sectionId);
     expect(reader?.section.paragraphs.map((paragraph) => paragraph.text).join(" ")).toContain("Os critérios de atendimento");
+
+    // Excluir o material publicado: pede confirmação, mostra o impacto e apaga a versão e os grifos dela.
+    db.tables.highlights.push({ id: "g1", user_id: "aluno-1", version_id: versionId, status: "active" }, { id: "g2", user_id: "aluno-2", version_id: versionId, status: "active" }, { id: "g3", user_id: "aluno-1", version_id: "outra", status: "active" });
+    expect(await (await versionImpact(new Request("http://x"), ctx(versionId))).json()).toEqual({ highlights: 2, students: 2 });
+    expect((await deleteVersion(new Request(`http://x/api/equipe/versoes/${versionId}`, { method: "DELETE" }), ctx(versionId))).status).toBe(409);
+    const removed = await deleteVersion(new Request(`http://x/api/equipe/versoes/${versionId}?confirmar=publicado`, { method: "DELETE" }), ctx(versionId));
+    expect(await removed.json()).toEqual({ deleted: true, highlightsRemoved: 2 });
+    expect(db.tables.highlights.map((row) => row.id)).toEqual(["g3"]);
+    expect(db.tables.sections.filter((row) => row.version_id === versionId)).toHaveLength(0);
+    expect((await (await listDisciplines()).json()).disciplines[0].published).toBeNull();
+    expect(await loadSection(makeFakeSupabase(db, "aluno") as never, "penal", sectionId)).toBeNull();
   });
 
   it("disciplina: slug inválido ou repetido é recusado", async () => {

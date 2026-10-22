@@ -71,8 +71,23 @@ function DisciplineRow({ discipline, onChange }: { discipline: Discipline; onCha
     } catch (failure) { setStatus(failure instanceof Error ? failure.message : "Falha no envio."); }
     finally { setBusy(false); }
   }
+  // Excluir o publicado: mostra antes quantos grifos dos alunos serão apagados.
+  async function removePublished() {
+    const published = discipline.published;
+    if (!published) return;
+    setBusy(true); setStatus("");
+    try {
+      const impact = await api<{ highlights: number; students: number }>(`/api/equipe/versoes/${published.id}/impacto`);
+      const loss = impact.highlights ? ` ${impact.highlights} grifo(s) de ${impact.students} aluno(s) serão apagados.` : " Nenhum aluno tem grifos nesta versão.";
+      if (!window.confirm(`Excluir “${published.label}” de ${discipline.title}? Os alunos deixam de ver esta disciplina até você publicar uma nova versão.${loss} Esta ação não pode ser desfeita.`)) return;
+      const result = await api<{ highlightsRemoved: number }>(`/api/equipe/versoes/${published.id}?confirmar=publicado`, { method: "DELETE" });
+      setStatus(`Material excluído. ${result.highlightsRemoved} grifo(s) apagado(s).`); onChange();
+    } catch (failure) { setStatus(failure instanceof Error ? failure.message : "Falha ao excluir."); }
+    finally { setBusy(false); }
+  }
   return <li className="staff-row">
-    <div className="staff-row-head"><div><strong>{discipline.title}</strong><span className="muted"> /{discipline.slug}</span><p className="muted">{discipline.published ? `Publicado: ${discipline.published.label}` : "Ainda sem versão publicada"}</p></div></div>
+    <div className="staff-row-head"><div><strong>{discipline.title}</strong><span className="muted"> /{discipline.slug}</span><p className="muted">{discipline.published ? `Publicado: ${discipline.published.label}` : "Ainda sem versão publicada"}</p></div>
+      {discipline.published && <button className="button danger" onClick={removePublished} disabled={busy}>Excluir material publicado</button>}</div>
     {discipline.drafts.map((draft) => <p key={draft.id}>Rascunho “{draft.label}” <button className="button ghost" onClick={() => setPreview(draft.id)}>Revisar</button></p>)}
     <div className="staff-upload"><label>Rótulo da nova versão<input value={labelText} onChange={(event) => setLabelText(event.target.value)} maxLength={120} /></label><label className="button">{busy ? "Aguarde…" : "Enviar ebook (PDF ou DOCX)"}<input type="file" accept=".pdf,.docx" onChange={send} disabled={busy} className="visually-hidden" /></label></div>
     {status && <p role="status">{status}</p>}

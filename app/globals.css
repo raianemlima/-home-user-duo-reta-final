@@ -206,6 +206,7 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .staff-list { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .75rem; }
 .staff-row { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: .9rem 1rem; display: grid; gap: .5rem; }
 .staff-row p { margin: 0; }
+.staff-row-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); flex-wrap: wrap; }
 .staff-student { display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap; }
 .staff-upload { display: flex; flex-wrap: wrap; gap: .75rem; align-items: end; }
 .staff-preview, .staff-report { background: var(--surface-2); border-radius: var(--r-md); padding: .9rem 1rem; display: grid; gap: .5rem; }

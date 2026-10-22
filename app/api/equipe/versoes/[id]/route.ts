@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { versionImpact } from "@/lib/content/impact";
+import { createAdminClient } from "@/lib/server/admin";
 import { requireStaff } from "@/lib/server/auth";
 import { UUID_PATTERN } from "@/lib/server/documents";
 import { ApiError, handleRoute } from "@/lib/server/http";
@@ -26,18 +28,31 @@ export function GET(_request: Request, context: { params: Promise<{ id: string }
   });
 }
 
-// Descarta um rascunho. Versões publicadas ou arquivadas são o histórico dos grifos e nunca são apagadas.
-export function DELETE(_request: Request, context: { params: Promise<{ id: string }> }) {
-  return handleRoute("equipe.versoes.descartar", async () => {
+// Descarta um rascunho, ou exclui o material publicado (os alunos deixam de ver a disciplina até a próxima publicação).
+// Excluir uma versão publicada ou arquivada apaga também os grifos dos alunos nela, por isso exige ?confirmar=publicado.
+export function DELETE(request: Request, context: { params: Promise<{ id: string }> }) {
+  return handleRoute("equipe.versoes.excluir", async () => {
     const { supabase } = await requireStaff();
     const { id } = await context.params;
     if (!UUID_PATTERN.test(id)) throw new ApiError(400, "invalid_request", "Identificador da versão inválido.");
     const { data, error } = await supabase.from("content_versions").select("status").eq("id", id).maybeSingle();
     if (error) throw new Error(`Falha ao ler a versão: ${error.message}`);
     if (!data) throw new ApiError(404, "not_found", "Versão não encontrada.");
-    if (data.status !== "draft") throw new ApiError(409, "conflict", "Só rascunhos podem ser descartados.");
-    const { error: deleteError } = await supabase.from("content_versions").delete().eq("id", id).eq("status", "draft");
-    if (deleteError) throw new Error(`Falha ao descartar: ${deleteError.message}`);
-    return NextResponse.json({ deleted: true });
+    if (data.status === "draft") {
+      const { error: deleteError } = await supabase.from("content_versions").delete().eq("id", id).eq("status", "draft");
+      if (deleteError) throw new Error(`Falha ao descartar: ${deleteError.message}`);
+      return NextResponse.json({ deleted: true, highlightsRemoved: 0 });
+    }
+    if (new URL(request.url).searchParams.get("confirmar") !== "publicado") throw new ApiError(409, "confirmation_required", "Confirme a exclusão do material publicado: os grifos dos alunos nesta versão serão apagados.");
+    // Os grifos são de cada aluno (a equipe não os enxerga pela RLS): a remoção usa a chave de serviço, depois de conferir a equipe.
+    const admin = createAdminClient();
+    const { highlights } = await versionImpact(admin, id);
+    for (const table of ["highlights", "paragraphs", "sections"] as const) {
+      const { error: cleanupError } = await admin.from(table).delete().eq("version_id", id);
+      if (cleanupError) throw new Error(`Falha ao excluir ${table}: ${cleanupError.message}`);
+    }
+    const { error: deleteError } = await admin.from("content_versions").delete().eq("id", id);
+    if (deleteError) throw new Error(`Falha ao excluir a versão: ${deleteError.message}`);
+    return NextResponse.json({ deleted: true, highlightsRemoved: highlights });
   });
 }
