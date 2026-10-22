@@ -2513,6 +2513,475 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-158": {
+   "nota": "O art. 43 da LEP garante a liberdade de contratar médico de confiança do internado ou do submetido a tratamento ambulatorial, e o parágrafo único resolve a divergência entre o médico oficial e o particular pelo juiz da execução. É a alternativa C, literalmente.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 43",
+     "tipo": "lei",
+     "texto": "É garantida a liberdade de contratar médico de confiança pessoal do internado ou do submetido a tratamento ambulatorial, por seus familiares ou dependentes, a fim de orientar e acompanhar o tratamento.\nParágrafo único. As divergências entre o médico oficial e o particular serão resolvidas pelo juiz de execução.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-159": {
+   "nota": "O acréscimo de 1/3 do § 5º do art. 126 da LEP é restrito à conclusão do ensino fundamental, médio ou superior — não alcança curso profissionalizante isolado. Logo, há remição pelas horas do curso, sem o acréscimo. Alternativa B. O ensino a distância é expressamente admitido (§ 2º), o que derruba C e E.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 126, § 1º, I, § 2º e § 5º",
+     "tipo": "lei",
+     "texto": "§ 1º A contagem de tempo referida no caput será feita à razão de:\nI - 1 (um) dia de pena a cada 12 (doze) horas de frequência escolar - atividade de ensino fundamental, médio, inclusive profissionalizante, ou superior, ou ainda de requalificação profissional - divididas, no mínimo, em 3 (três) dias;\n§ 2º As atividades de estudo a que se refere o § 1º deste artigo poderão ser desenvolvidas de forma presencial ou por metodologia de ensino a distância e deverão ser certificadas pelas autoridades educacionais competentes dos cursos frequentados.\n§ 5º O tempo a remir em função das horas de estudo será acrescido de 1/3 (um terço) no caso de conclusão do ensino fundamental, médio ou superior durante o cumprimento da pena, desde que certificada pelo órgão competente do sistema de educação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "STJ, remição pela leitura",
+     "tipo": "entendimento",
+     "texto": "O STJ admite a remição pela leitura, mas exige a observância do procedimento de controle — prazo para a leitura e apresentação de relatório ou resenha avaliada pela comissão do estabelecimento (Recomendação e, depois, Resolução do CNJ) —, o que afasta a tese de remição automática, independentemente de validação."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-160": {
+   "nota": "Os decretos de indulto alcançam condenados em qualquer regime, e também quem está em livramento condicional ou com suspensão condicional da pena, desde que satisfeitos os requisitos de cada hipótese. É a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 107, II",
+     "tipo": "lei",
+     "texto": "Extingue-se a punibilidade:\nII - pela anistia, graça ou indulto;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 84, XII",
+     "tipo": "lei",
+     "texto": "Compete privativamente ao Presidente da República:\nXII - conceder indulto e comutar penas, com audiência, se necessário, dos órgãos instituídos em lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Decreto 12.338/2024 (indulto e comutação)",
+     "tipo": "entendimento",
+     "texto": "O decreto estende os benefícios a condenados em regime fechado, semiaberto e aberto, bem como a quem cumpre livramento condicional ou suspensão condicional da pena, observados os requisitos próprios de cada hipótese. Os decretos de indulto também dispensam o trânsito em julgado para a acusação e, em regra, não exigem exame criminológico nem fazem subsistir a multa quando declarada extinta a punibilidade."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O Decreto 12.338/2024 não está nos textos acessíveis nesta sessão (os decretos de indulto não constam do acervo conferido); a fundamentação traz a base legal do indulto e descreve o alcance do decreto. Confira o inteiro teor no Portal da Legislação antes de usar os detalhes em prova discursiva."
+  },
+  "fcc-defensorias-161": {
+   "nota": "A LEP trata o trabalho como dever social e condição de dignidade (art. 28) e obriga o condenado a trabalhar na medida de suas aptidões (art. 31); a recusa é inobservância de dever e, pelo art. 50, VI, configura falta grave. Alternativa D. O trabalho não se sujeita à CLT (art. 28, § 2º), o que derruba C; o acidente não afasta a remição (art. 126, § 4º), o que derruba B; e o trabalho externo exige 1/6 da pena (art. 37), mas é admitido no regime fechado em obras e serviços públicos (art. 36), o que derruba A.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 28, caput e § 2º",
+     "tipo": "lei",
+     "texto": "O trabalho do condenado, como dever social e condição de dignidade humana, terá finalidade educativa e produtiva.\n§ 2º - O trabalho do preso não está sujeito ao regime da Consolidação das Leis do Trabalho.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 31",
+     "tipo": "lei",
+     "texto": "O condenado à pena privativa de liberdade está obrigado ao trabalho na medida de suas aptidões e capacidade.\nParágrafo único. Para o preso provisório, o trabalho não é obrigatório e só poderá ser executado no interior do estabelecimento.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 37",
+     "tipo": "lei",
+     "texto": "A prestação de trabalho externo, a ser autorizada pela direção do estabelecimento, dependerá de aptidão, disciplina e responsabilidade, além do cumprimento mínimo de um sexto da pena.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-162": {
+   "nota": "Só a falta GRAVE interrompe o prazo da progressão (art. 112, § 6º) e autoriza a perda de até 1/3 dos dias remidos (art. 127). Reconhecida como média, a falta pode pesar no requisito subjetivo, mas não basta, por si, para regredir o regime já concedido — é o que o STJ decide. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 112, § 6º",
+     "tipo": "lei",
+     "texto": "O cometimento de falta grave durante a execução da pena privativa de liberdade interrompe o prazo para a obtenção da progressão no regime de cumprimento da pena, caso em que o reinício da contagem do requisito objetivo terá como base a pena remanescente.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 127",
+     "tipo": "lei",
+     "texto": "Em caso de falta grave, o juiz poderá revogar até 1/3 (um terço) do tempo remido, observado o disposto no art. 57, recomeçando a contagem a partir da data da infração disciplinar.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 49",
+     "tipo": "lei",
+     "texto": "As faltas disciplinares classificam-se em leves, médias e graves. A legislação local especificará as leves e médias, bem assim as respectivas sanções.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-163": {
+   "nota": "O art. 112 da LEP veda expressamente o livramento condicional ao condenado por crime hediondo ou equiparado com resultado morte — seja primário (inciso VI, a) seja reincidente (inciso VIII). Por isso a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 112, VI, a, e VIII",
+     "tipo": "lei",
+     "texto": "a) condenado pela prática de crime hediondo ou equiparado, com resultado morte, se for primário, vedado o livramento condicional;\nVIII - 85% (oitenta e cinco por cento) da pena, se o apenado for reincidente em crime hediondo ou equiparado com resultado morte, vedado o livramento condicional.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "CP, art. 83, caput e IV",
+     "tipo": "lei",
+     "texto": "O juiz poderá conceder livramento condicional ao condenado a pena privativa de liberdade igual ou superior a 2 (dois) anos, desde que:\nIV - tenha reparado, salvo efetiva impossibilidade de fazê-lo, o dano causado pela infração;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-164": {
+   "nota": "O fato é de 2017, anterior à Lei 13.964/2019: a lei penal mais severa não retroage (CF, art. 5º, XL), então vale a fração vigente ao tempo do crime — 1/6 da pena no regime anterior. Roubo circunstanciado pelo emprego de arma de fogo não era hediondo em 2017, e o regime domiciliar do art. 117 não se aplica a crime com violência. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, XL",
+     "tipo": "lei",
+     "texto": "a lei penal não retroagirá, salvo para beneficiar o réu;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 112, caput",
+     "tipo": "lei",
+     "texto": "A pena privativa de liberdade será executada de forma progressiva com a transferência para regime menos rigoroso, a ser determinada pelo juiz, quando o preso tiver cumprido ao menos 1/6 (um sexto) da pena no regime anterior e seu mérito indicar a progressão, observadas as seguintes exceções:",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Atenção à data: a fração aplicável depende da lei vigente ao tempo do fato. Para fatos de 2017 vale 1/6 (redação anterior do art. 112 da LEP); a Lei 13.964/2019 instituiu percentuais escalonados, e a Lei 15.402/2026 voltou a adotar 1/6 como regra geral, com exceções nos incisos. Confira sempre a redação em vigor na data do crime."
+  },
+  "fcc-defensorias-165": {
+   "nota": "Furto qualificado tem pena de 2 a 8 anos: a pena mínima de 2 anos supera o teto da transação penal (infração de menor potencial ofensivo) e o da suspensão condicional do processo (pena mínima de até 1 ano). Já o acordo de não persecução penal exige pena mínima inferior a 4 anos, crime sem violência ou grave ameaça e confissão formal e circunstanciada — requisitos presentes. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 28-A, caput",
+     "tipo": "lei",
+     "texto": "Não sendo caso de arquivamento e tendo o investigado confessado formal e circunstancialmente a prática de infração penal sem violência ou grave ameaça e com pena mínima inferior a 4 (quatro) anos, o Ministério Público poderá propor acordo de não persecução penal, desde que necessário e suficiente para reprovação e prevenção do crime, mediante as seguintes condições ajustadas cumulativa e alternativamente:",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "Lei 9.099/1995, art. 89, caput",
+     "tipo": "lei",
+     "texto": "Nos crimes em que a pena mínima cominada for igual ou inferior a um ano, abrangidas ou não por esta Lei, o Ministério Público, ao oferecer a denúncia, poderá propor a suspensão do processo, por dois a quatro anos, desde que o acusado não esteja sendo processado ou não tenha sido condenado por outro crime, presentes os demais requisitos que autorizariam a suspensão condicional da pena (art. 77 do Código Penal).",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9099.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-166": {
+   "nota": "O furto de energia elétrica mediante fraude é crime PERMANENTE: a conduta se prolonga no tempo, de modo que não há pluralidade de ações a somar — e sem pluralidade de ações não há continuidade delitiva (art. 71 exige \"mais de uma ação ou omissão\"). Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 71, caput",
+     "tipo": "lei",
+     "texto": "Quando o agente, mediante mais de uma ação ou omissão, pratica dois ou mais crimes da mesma espécie e, pelas condições de tempo, lugar, maneira de execução e outras semelhantes, devem os subseqüentes ser havidos como continuação do primeiro, aplica-se-lhe a pena de um só dos crimes, se idênticas, ou a mais grave, se diversas, aumentada, em qualquer caso, de um sexto a dois terços.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "STJ, furto de energia e continuidade delitiva",
+     "tipo": "entendimento",
+     "texto": "O STJ trata o furto de energia elétrica mediante fraude como crime permanente, cuja consumação se renova enquanto durar a subtração; por isso é incabível a continuidade delitiva, que pressupõe pluralidade de condutas autônomas. O STJ também não admite continuidade entre roubo e extorsão, por serem crimes de espécies diversas."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-167": {
+   "nota": "A Súmula 545 do STJ manda aplicar a atenuante sempre que a confissão for usada para fundamentar a condenação. O STJ estende o raciocínio à confissão RETRATADA: embora a retratação invalide a admissão, se o depoimento serviu à apuração dos fatos e embasou a condenação, a atenuante incide. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 65, III, d",
+     "tipo": "lei",
+     "texto": "III - ter o agente:\nd) confessado espontaneamente, perante a autoridade, a autoria do crime;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "STJ, Súmula 545",
+     "tipo": "entendimento",
+     "texto": "Quando a confissão for utilizada para a formação do convencimento do julgador, o réu fará jus à atenuante prevista no art. 65, III, d, do Código Penal. O STJ aplica a atenuante também à confissão qualificada e à confissão posteriormente retratada, desde que tenha servido à apuração dos fatos e ao embasamento da condenação."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-168": {
+   "nota": "A anistia imprópria é a concedida depois da condenação: incide sobre a pena já aplicada em definitivo, e pode ser condicionada (exigindo requisitos do beneficiário) ou incondicionada. É a alternativa C. A redução do prazo prescricional pela idade só vale para o maior de 70 anos na DATA DA SENTENÇA (art. 115), não \"em qualquer hipótese\", o que derruba D.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 107, II",
+     "tipo": "lei",
+     "texto": "Extingue-se a punibilidade:\nII - pela anistia, graça ou indulto;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 115",
+     "tipo": "lei",
+     "texto": "São reduzidos de metade os prazos de prescrição quando o criminoso era, ao tempo do crime, menor de 21 (vinte e um) anos ou, na data da sentença, maior de 70 (setenta) anos, salvo se o crime envolver violência sexual contra a mulher.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-169": {
+   "nota": "Uma só conduta, dois ou mais crimes, sem desígnios autônomos: é o concurso formal PRÓPRIO (ou perfeito) do art. 70, primeira parte, com exasperação de 1/6 até metade. O STJ aplica essa regra ao roubo praticado numa única ação contra patrimônios de vítimas diferentes, ainda que da mesma família. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 70",
+     "tipo": "lei",
+     "texto": "Quando o agente, mediante uma só ação ou omissão, pratica dois ou mais crimes, idênticos ou não, aplica-se-lhe a mais grave das penas cabíveis ou, se iguais, somente uma delas, mas aumentada, em qualquer caso, de um sexto até metade. As penas aplicam-se, entretanto, cumulativamente, se a ação ou omissão é dolosa e os crimes concorrentes resultam de desígnios autônomos, consoante o disposto no artigo anterior.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-170": {
+   "nota": "Eliane alterou documento emitido por hospital da rede SUS e o apresentou ao empregador. O STJ equipara o atestado emitido por médico do SUS a documento público; quem altera e usa responde por uso de documento falso (art. 304), cuja pena é a cominada à falsificação — no caso, a do art. 297. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 304",
+     "tipo": "lei",
+     "texto": "Fazer uso de qualquer dos papéis falsificados ou alterados, a que se referem os arts. 297 a 302:\nPena - a cominada à falsificação ou à alteração.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 297, caput",
+     "tipo": "lei",
+     "texto": "Falsificar, no todo ou em parte, documento público, ou alterar documento público verdadeiro:\nPena - reclusão, de dois a seis anos, e multa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "STJ, atestado médico do SUS como documento público",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que o atestado emitido por médico a serviço da rede pública de saúde tem natureza de documento público, de modo que a sua alteração e posterior uso configuram uso de documento falso (art. 304 do CP), com a pena do art. 297, e não a do art. 298 (documento particular) nem o tipo do art. 302 (falsidade de atestado médico), reservado ao médico que o emite."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-171": {
+   "nota": "O art. 35 da Lei de Drogas pune a associação de duas ou mais pessoas \"para o fim de praticar\" os crimes de tráfico. O STJ exige, para a configuração, prova inequívoca de vínculo associativo ESTÁVEL e PERMANENTE — a reunião eventual, no primeiro dia de trabalho no tráfico, é concurso de pessoas, não associação. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Lei 11.343/2006, art. 35",
+     "tipo": "lei",
+     "texto": "Associarem-se duas ou mais pessoas para o fim de praticar, reiteradamente ou não, qualquer dos crimes previstos nos arts. 33, caput e § 1º , e 34 desta Lei:\nPena - reclusão, de 3 (três) a 10 (dez) anos, e pagamento de 700 (setecentos) a 1.200 (mil e duzentos) dias-multa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11343.htm"
+    },
+    {
+     "ref": "STJ, associação para o tráfico e corrupção de menores",
+     "tipo": "entendimento",
+     "texto": "O STJ exige, para o art. 35 da Lei 11.343/2006, a demonstração do animus associativo — vínculo estável, permanente e previamente ajustado —, não bastando a coautoria ocasional. Quanto à corrupção de menores (art. 244-B do ECA), a Súmula 500 do STJ afirma que o crime é formal: a configuração prescinde de prova da efetiva corrupção do adolescente, o que afasta a alternativa A."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-172": {
+   "nota": "A culpabilidade por vulnerabilidade, de Zaffaroni, continua sendo culpabilidade DE ATO (não de autor) e serve de critério para o poder de contenção do judiciário: quanto menor o esforço pessoal do agente para alcançar a situação concreta de vulnerabilidade, menor a reprovação. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Zaffaroni, culpabilidade por vulnerabilidade",
+     "tipo": "entendimento",
+     "texto": "A proposta soma-se à culpabilidade normativa de ato, sem substituí-la: mede o esforço pessoal do agente para situar-se no estado de vulnerabilidade que o expôs à seleção criminalizante, e funciona como critério para as agências judiciais conterem o poder punitivo. Por isso não é culpabilidade de autor (alternativa E) nem legitima aumento de pena para quem parte de menor vulnerabilidade (alternativa C)."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de doutrina penal (criminologia crítica), sem fundamento em texto legal."
+  },
+  "fcc-defensorias-173": {
+   "nota": "Na tipicidade conglobante de Zaffaroni, a tipicidade penal exige tipicidade legal MAIS antinormatividade: a norma não pode proibir o que outra norma do próprio ordenamento impõe. Logo, quem age em estrito cumprimento de dever jurídico não realiza conduta antinormativa, e o fato é ATÍPICO — não apenas justificado. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 23, III",
+     "tipo": "lei",
+     "texto": "Não há crime quando o agente pratica o fato:\nIII - em estrito cumprimento de dever legal ou no exercício regular de direito.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "Zaffaroni, tipicidade conglobante",
+     "tipo": "entendimento",
+     "texto": "A tipicidade penal resulta da tipicidade formal (objetiva e subjetiva) somada à antinormatividade, verificada pela consideração conglobada de toda a ordem normativa. Antinormatividade e antijuridicidade não se confundem: o estrito cumprimento do dever legal exclui a antinormatividade — e, com ela, a própria tipicidade —, enquanto as causas de justificação em sentido estrito, como a legítima defesa, operam no plano da ilicitude. A insignificância, por sua vez, afasta a tipicidade material, não a antijuridicidade."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-174": {
+   "nota": "O sursis exige pena não superior a 2 anos, não reincidência em crime doloso e, pelo inciso III, que NÃO seja cabível a substituição do art. 44. Roubo tentado é crime com grave ameaça: a substituição está vedada (art. 44, I), e por isso abre-se espaço para o sursis. É a alternativa D. Nas alternativas A e C houve substituição, o que afasta o sursis; em B e E o réu é reincidente em crime doloso.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 77",
+     "tipo": "lei",
+     "texto": "A execução da pena privativa de liberdade, não superior a 2 (dois) anos, poderá ser suspensa, por 2 (dois) a 4 (quatro) anos, desde que:\nI - o condenado não seja reincidente em crime doloso;\nII - a culpabilidade, os antecedentes, a conduta social e personalidade do agente, bem como os motivos e as circunstâncias autorizem a concessão do benefício;\nIII - Não seja indicada ou cabível a substituição prevista no art. 44 deste Código.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 44, I e II",
+     "tipo": "lei",
+     "texto": "As penas restritivas de direitos são autônomas e substituem as privativas de liberdade, quando:\nI – aplicada pena privativa de liberdade não superior a quatro anos e o crime não for cometido com violência ou grave ameaça à pessoa ou, qualquer que seja a pena aplicada, se o crime for culposo;\nII – o réu não for reincidente em crime doloso;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-175": {
+   "nota": "Beijar e apalpar sem anuência é ato libidinoso sem violência ou grave ameaça: é importunação sexual (art. 215-A). Não é estupro de vulnerável porque Rafael não sabia, nem podia saber, que Manuela tinha 13 anos — a festa vedava menores, ela usou documento falso e afirmou ser maior, caso de erro sobre elemento do tipo. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 215-A",
+     "tipo": "lei",
+     "texto": "Praticar contra alguém e sem a sua anuência ato libidinoso com o objetivo de satisfazer a própria lascívia ou a de terceiro:\nPena - reclusão, de 1 (um) a 5 (cinco) anos, se o ato não constitui crime mais grave.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 20, caput",
+     "tipo": "lei",
+     "texto": "O erro sobre elemento constitutivo do tipo legal de crime exclui o dolo, mas permite a punição por crime culposo, se previsto em lei.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-176": {
+   "nota": "A idade de 60 anos é elementar do abandono material: o art. 244 do CP pune deixar de prover a subsistência de ascendente inválido ou MAIOR DE 60 ANOS. Com 65 anos, João se enquadra. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 244, caput",
+     "tipo": "lei",
+     "texto": "Deixar, sem justa causa, de prover a subsistência do cônjuge, ou de filho menor de 18 (dezoito) anos ou inapto para o trabalho, ou de ascendente inválido ou maior de 60 (sessenta) anos, não lhes proporcionando os recursos necessários ou faltando ao pagamento de pensão alimentícia judicialmente acordada, fixada ou majorada; deixar, sem justa causa, de socorrer descendente ou ascendente, gravemente enfermo:",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-177": {
+   "nota": "O regime especial de progressão da mulher gestante ou mãe (LEP, art. 112, § 3º) exige que o crime não tenha sido cometido com violência ou grave ameaça. Roubo com emprego de arma de fogo é crime com grave ameaça e, desde a Lei 13.964/2019, hediondo — logo, a fração aplicável à primária era a do crime hediondo. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 112, § 3º",
+     "tipo": "lei",
+     "texto": "No caso de mulher gestante ou que for mãe ou responsável por crianças ou pessoas com deficiência, os requisitos para progressão de regime são, cumulativamente:",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 112, V",
+     "tipo": "lei",
+     "texto": "70% (setenta por cento) da pena, se o apenado for condenado pela prática de crime hediondo ou equiparado, se for primário;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O gabarito oficial (40%) corresponde à redação do art. 112, V, da LEP dada pela Lei 13.964/2019, vigente na data da prova. A Lei 15.358/2026 elevou a fração do hediondo primário para 70%. Para fatos anteriores vale a lei do tempo do crime (CF, art. 5º, XL); confira sempre a redação aplicável."
+  },
+  "fcc-defensorias-178": {
+   "nota": "O § 3º do art. 36 da LEP é expresso: a prestação de trabalho a entidade privada depende do consentimento expresso do preso. Alternativa D. O trabalho externo é admissível no regime fechado, em serviços e obras públicas (art. 36, caput), o que derruba E; e o trabalho interno é obrigatório \"na medida das aptidões e capacidade\" (art. 31), o que derruba A.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 36, caput e § 3º",
+     "tipo": "lei",
+     "texto": "O trabalho externo será admissível para os presos em regime fechado somente em serviço ou obras públicas realizados por órgãos da administração direta ou indireta, ou entidades privadas, desde que tomadas as cautelas contra a fuga e em favor da disciplina.\n§ 3º - A prestação de trabalho a entidade privada depende do consentimento expresso do preso.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 33",
+     "tipo": "lei",
+     "texto": "A jornada normal de trabalho não será inferior a seis, nem superior a oito horas, com descanso nos domingos e feriados.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-179": {
+   "nota": "Suspenso o processo pelo art. 366 do CPP, a prescrição também se suspende, mas o STF limita essa suspensão ao prazo prescricional do crime (Súmula 415 do STJ: o período de suspensão do prazo prescricional é regulado pelo máximo da pena cominada). Lesão leve (máximo 1 ano) prescreve em 4 anos (art. 109, V); injúria qualificada (máximo 3 anos) prescreve em 8 anos (art. 109, IV). Contados do recebimento da denúncia (15/01/2019), chega-se a janeiro de 2023 e janeiro de 2027. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 109, IV e V",
+     "tipo": "lei",
+     "texto": "IV - em oito anos, se o máximo da pena é superior a dois anos e não excede a quatro;\nV - em quatro anos, se o máximo da pena é igual a um ano ou, sendo superior, não excede a dois;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 117, I",
+     "tipo": "lei",
+     "texto": "O curso da prescrição interrompe-se:\nI - pelo recebimento da denúncia ou da queixa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 366, caput",
+     "tipo": "lei",
+     "texto": "Se o acusado, citado por edital, não comparecer, nem constituir advogado, ficarão suspensos o processo e o curso do prazo prescricional, podendo o juiz determinar a produção antecipada das provas consideradas urgentes e, se for o caso, decretar prisão preventiva, nos termos do disposto no art. 312.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "STJ, Súmula 415",
+     "tipo": "entendimento",
+     "texto": "O período de suspensão do prazo prescricional é regulado pelo máximo da pena cominada. Esgotado esse período, a prescrição retoma seu curso, o que permite reconhecer a prescrição da pretensão punitiva mesmo durante a suspensão do processo pelo art. 366 do CPP."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A data exata do segundo marco apontado pelo gabarito (janeiro de 2025, pela pena em perspectiva) depende de projeção da pena concreta, cálculo que a FCC fez para a injúria qualificada; a alternativa C é a única coerente com a Súmula 415 do STJ e com os prazos do art. 109 do Código Penal. Refaça o cálculo com a redação vigente antes de usar as datas."
+  },
+  "fcc-defensorias-180": {
+   "nota": "A calúnia contra os mortos é punível (art. 138, § 2º) — a ação cabe aos familiares (art. 100, § 4º, e art. 145). E, sendo calúnia, admite-se a exceção da verdade (art. 138, § 3º), salvo nas três hipóteses dos incisos. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 138, §§ 2º e 3º",
+     "tipo": "lei",
+     "texto": "§ 2º - É punível a calúnia contra os mortos.\n§ 3º - Admite-se a prova da verdade, salvo:\nI - se, constituindo o fato imputado crime de ação privada, o ofendido não foi condenado por sentença irrecorrível;\nII - se o fato é imputado a qualquer das pessoas indicadas no nº I do art. 141;\nIII - se do crime imputado, embora de ação pública, o ofendido foi absolvido por sentença irrecorrível.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-181": {
+   "nota": "O § 3º do art. 44 permite a substituição ao reincidente, desde que socialmente recomendável e que a reincidência não decorra do mesmo crime — aqui a condenação anterior era por lesão corporal culposa, crime diverso do furto. Alternativa B. Usar a mesma condenação nos antecedentes e na reincidência é bis in idem vedado (Súmula 241 do STJ), o que derruba C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 44, § 3º",
+     "tipo": "lei",
+     "texto": "Se o condenado for reincidente, o juiz poderá aplicar a substituição, desde que, em face de condenação anterior, a medida seja socialmente recomendável e a reincidência não se tenha operado em virtude da prática do mesmo crime.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "STJ, Súmula 241 e Súmula 269",
+     "tipo": "entendimento",
+     "texto": "Súmula 241: a reincidência penal não pode ser considerada como circunstância agravante e, simultaneamente, como circunstância judicial. Súmula 269: é admissível a adoção do regime prisional semiaberto aos reincidentes condenados a pena igual ou inferior a quatro anos se favoráveis as circunstâncias judiciais — o que também afasta a alternativa D."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-182": {
+   "nota": "As houses of correction (bridewells), surgidas na Inglaterra no século XVI, foram as primeiras instituições de detenção sem finalidade cautelar: recolhiam mendigos, vagabundos e pequenos infratores para discipliná-los e \"reformá-los\" pelo trabalho. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "História da prisão (casas de correção e casas de trabalho)",
+     "tipo": "entendimento",
+     "texto": "As houses of correction inglesas (a partir de Bridewell, 1555) inauguram o encarceramento com função disciplinar e laboral, e não apenas de custódia à espera do julgamento ou da execução. As rasphuis e spinhuis holandesas (fim do século XVI) seguem a mesma lógica disciplinar, em contexto de escassez — e não de excesso — de mão de obra, o que afasta a alternativa B; e os hôpitaux généraux franceses (1656) nascem com função sobretudo assistencial e de internamento dos pobres, o que afasta a E."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de história e sociologia da pena, sem fundamento em texto legal."
+  },
+  "fcc-defensorias-183": {
+   "nota": "Rodrigo reagia a agressão injusta do irmão, mas o tiro atingiu terceiro inocente, que não praticava agressão alguma. Contra o terceiro não há legítima defesa (falta agressão injusta dele); há sacrifício de bem jurídico alheio para salvar a própria vida, de perigo atual que não provocou e não podia evitar de outro modo — estado de necessidade (art. 24). Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 24, caput",
+     "tipo": "lei",
+     "texto": "Considera-se em estado de necessidade quem pratica o fato para salvar de perigo atual, que não provocou por sua vontade, nem podia de outro modo evitar, direito próprio ou alheio, cujo sacrifício, nas circunstâncias, não era razoável exigir-se.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 25",
+     "tipo": "lei",
+     "texto": "Entende-se em legítima defesa quem, usando moderadamente dos meios necessários, repele injusta agressão, atual ou iminente, a direito seu ou de outrem.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 23, I",
+     "tipo": "lei",
+     "texto": "Não há crime quando o agente pratica o fato:\nI - em estado de necessidade;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-218": {
    "nota": "O valor da causa, na ação indenizatória — inclusive por dano moral —, é o valor pretendido (art. 292, V), somando-se os pedidos cumulados (VI). Mas o STJ firmou que arbitrar o dano moral em valor menor que o pedido não gera sucumbência recíproca: o autor não perde parte do pedido, porque o quantum é fixado pelo juiz. É a alternativa C.",
    "dispositivos": [
@@ -2726,7 +3195,7 @@
     {
      "ref": "Lei 13.431/2017, art. 12, III e VI",
      "tipo": "lei",
-     "texto": "depoimento especial será colhido conforme o seguinte procedimento:\nIII - no curso do processo judicial, o depoimento especial será transmitido em tempo real para a sala de audiência, preservado o sigilo;\nVI - o depoimento especial será gravado em áudio e vídeo.",
+     "texto": "O depoimento especial será colhido conforme o seguinte procedimento:\nIII - no curso do processo judicial, o depoimento especial será transmitido em tempo real para a sala de audiência, preservado o sigilo;\nVI - o depoimento especial será gravado em áudio e vídeo.",
      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2017/Lei/L13431.htm"
     },
     {
