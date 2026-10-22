@@ -27,10 +27,10 @@ describe("searchQuestions", () => {
   it("busca palavras sem acento e sem ordem", () => {
     expect(searchQuestions(bank, filter("busca=defesa legitima"), new Map()).items.map((item) => item.id)).toEqual(["3"]);
   });
-  it("esconde o gabarito até o aluno responder e filtra pela situação", () => {
+  it("traz o gabarito para a correção imediata e filtra pela situação", () => {
     const answers = new Map<string, Answer>([["1", { choice: "B", correct: true }], ["2", { choice: "A", correct: false }]]);
     const all = searchQuestions(bank, filter(""), answers);
-    expect(all.items.map((item) => [item.id, item.gabarito])).toEqual([["1", "B"], ["2", "B"], ["3", null]]);
+    expect(all.items.map((item) => [item.id, item.gabarito])).toEqual([["1", "B"], ["2", "B"], ["3", "B"]]);
     expect(all.stats).toEqual({ respondidas: 2, acertos: 1, total: 3 });
     expect(searchQuestions(bank, filter("situacao=errei"), answers).items.map((item) => item.id)).toEqual(["2"]);
     expect(searchQuestions(bank, filter("situacao=nao-respondidas"), answers).items.map((item) => item.id)).toEqual(["3"]);
