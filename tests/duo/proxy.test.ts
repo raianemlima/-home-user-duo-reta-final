@@ -6,7 +6,7 @@ let user: { id: string } | null = null;
 let profile: { role: string; active: boolean; must_change_password?: boolean } | null = null;
 vi.mock("@supabase/ssr", () => ({
   createServerClient: () => ({
-    auth: { getUser: async () => ({ data: { user }, error: null }) },
+    auth: { getClaims: async () => ({ data: user ? { claims: { sub: user.id, email: `${user.id}@x.com` } } : null, error: null }) },
     from: () => ({ select: () => ({ eq: () => ({ maybeSingle: async () => ({ data: profile, error: null }) }) }) }),
   }),
 }));
@@ -61,6 +61,14 @@ describe("proxy", () => {
   it("quem já trocou a senha não volta para /trocar-senha", async () => {
     user = { id: "a" }; profile = { role: "aluno", active: true, must_change_password: false };
     expect(location(await go("/trocar-senha"))).toBe("/");
+  });
+  it("repassa a identidade conferida e descarta a que vier do navegador", async () => {
+    const forged = new NextRequest(new URL("/caderno", "http://app.duo"), { headers: { "x-duo-uid": "outro", "x-duo-role": "equipe" } });
+    expect((await proxy(forged)).headers.get("x-middleware-request-x-duo-uid")).toBeNull(); // anônimo: nada repassado
+    user = { id: "a" }; profile = { role: "aluno", active: true };
+    const response = await proxy(new NextRequest(new URL("/caderno", "http://app.duo"), { headers: { "x-duo-uid": "outro", "x-duo-role": "equipe" } }));
+    expect(response.headers.get("x-middleware-request-x-duo-uid")).toBe("a");
+    expect(response.headers.get("x-middleware-request-x-duo-role")).toBe("aluno");
   });
   it("logado e ativo no /login vai para o início", async () => {
     user = { id: "a" }; profile = { role: "aluno", active: true };
