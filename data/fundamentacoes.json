@@ -1473,6 +1473,292 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-50": {
+   "nota": "No litígio coletivo pela posse, com esbulho de mais de ano e dia, o CPC obriga o juiz a designar audiência de mediação ANTES de apreciar a liminar, intimando o Ministério Público, a Defensoria Pública (se houver beneficiário da gratuidade) e os órgãos de política urbana e agrária. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 565, caput e §§ 1º, 2º e 4º",
+     "tipo": "lei",
+     "texto": "No litígio coletivo pela posse de imóvel, quando o esbulho ou a turbação afirmado na petição inicial houver ocorrido há mais de ano e dia, o juiz, antes de apreciar o pedido de concessão da medida liminar, deverá designar audiência de mediação, a realizar-se em até 30 (trinta) dias, que observará o disposto nos §§ 2º e 4º.\n§ 1º Concedida a liminar, se essa não for executada no prazo de 1 (um) ano, a contar da data de distribuição, caberá ao juiz designar audiência de mediação, nos termos dos §§ 2º a 4º deste artigo.\n§ 2º O Ministério Público será intimado para comparecer à audiência, e a Defensoria Pública será intimada sempre que houver parte beneficiária de gratuidade da justiça.\n§ 4º Os órgãos responsáveis pela política agrária e pela política urbana da União, de Estado ou do Distrito Federal e de Município onde se situe a área objeto do litígio poderão ser intimados para a audiência, a fim de se manifestarem sobre seu interesse no processo e sobre a existência de possibilidade de solução para o conflito possessório.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CF/1988, art. 6º, caput",
+     "tipo": "lei",
+     "texto": "São direitos sociais a educação, a saúde, a alimentação, o trabalho, a moradia, o transporte, o lazer, a segurança, a previdência social, a proteção à maternidade e à infância, a assistência aos desamparados, na forma desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-51": {
+   "nota": "O art. 28 do CDC distribui as responsabilidades: grupos societários e controladas respondem SUBSIDIARIAMENTE (§ 2º), consorciadas SOLIDARIAMENTE (§ 3º) e coligadas SÓ POR CULPA (§ 4º); e a personalidade pode ser desconsiderada sempre que for obstáculo ao ressarcimento (§ 5º). Logo, corretas apenas II e IV — alternativa A (os itens I e III invertem solidária e subsidiária).",
+   "dispositivos": [
+    {
+     "ref": "CDC, art. 28, §§ 2º a 5º",
+     "tipo": "lei",
+     "texto": "§ 2° As sociedades integrantes dos grupos societários e as sociedades controladas, são subsidiariamente responsáveis pelas obrigações decorrentes deste código.\n§ 3° As sociedades consorciadas são solidariamente responsáveis pelas obrigações decorrentes deste código.\n§ 4° As sociedades coligadas só responderão por culpa.\n§ 5° Também poderá ser desconsiderada a pessoa jurídica sempre que sua personalidade for, de alguma forma, obstáculo ao ressarcimento de prejuízos causados aos consumidores.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/L8078compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-52": {
+   "nota": "A Resolução 492/2023 do CNJ tornou obrigatória, para todos os ramos da Justiça, a adoção das diretrizes do Protocolo para Julgamento com Perspectiva de Gênero — não é guia facultativo nem restrito às ações criminais, e alcança as ações cíveis, inclusive partilha. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Resolução CNJ 492/2023 e Protocolo para Julgamento com Perspectiva de Gênero",
+     "tipo": "entendimento",
+     "texto": "A Resolução 492/2023 do CNJ determina a adoção, por todos os órgãos do Poder Judiciário brasileiro, das diretrizes do Protocolo para Julgamento com Perspectiva de Gênero, de observância obrigatória em qualquer ramo e instância, e orienta que o julgamento identifique e afaste estereótipos e desigualdades estruturais de gênero na valoração da prova e na fundamentação da decisão. Não depende de concordância da parte contrária nem se limita ao atendimento nas serventias."
+    },
+    {
+     "ref": "Convenção de Belém do Pará e CEDAW",
+     "tipo": "entendimento",
+     "texto": "A Convenção Interamericana para Prevenir, Punir e Erradicar a Violência contra a Mulher (promulgada pelo Decreto 1.973/1996) e a CEDAW (Decreto 4.377/2002) obrigam o Estado brasileiro a atuar com a devida diligência em todos os seus órgãos, inclusive o Judiciário, para prevenir e reparar a violência de gênero — inclusive a violência patrimonial."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-53": {
+   "nota": "O custos vulnerabilis é intervenção autônoma: a Defensoria atua em nome próprio, na tutela do interesse de pessoas vulneráveis, e por isso tem legitimidade recursal própria, que não é afastada pela existência de advogado constituído nem depende de curadoria especial. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, caput",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, na forma do inciso LXXIV do art. 5º desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 565, § 2º",
+     "tipo": "lei",
+     "texto": "O Ministério Público será intimado para comparecer à audiência, e a Defensoria Pública será intimada sempre que houver parte beneficiária de gratuidade da justiça.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "STJ, custos vulnerabilis",
+     "tipo": "entendimento",
+     "texto": "O STJ reconheceu a intervenção da Defensoria Pública como custos vulnerabilis — guardiã dos vulneráveis —, em nome próprio e independentemente da existência de patrono constituído pela parte, inclusive para interpor recursos, por decorrer diretamente da missão constitucional do art. 134 da Constituição."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-54": {
+   "nota": "São corretos os itens III e IV, ambos literais no Estatuto da Pessoa com Deficiência: é vedada a recusa de obra intelectual em formato acessível, inclusive sob alegação de propriedade intelectual (art. 42, § 1º), e garante-se o auxílio na votação por pessoa de escolha do eleitor (art. 76, § 1º, IV). O item I erra porque a prioridade habitacional é reconhecida APENAS UMA VEZ (art. 32, § 1º), e o item II erra porque a obrigação de ambiente acessível alcança pessoas jurídicas de direito público, privado ou de qualquer natureza (art. 34, § 1º). Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.146/2015 (EPD), art. 42, § 1º",
+     "tipo": "lei",
+     "texto": "É vedada a recusa de oferta de obra intelectual em formato acessível à pessoa com deficiência, sob qualquer argumento, inclusive sob a alegação de proteção dos direitos de propriedade intelectual.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13146.htm"
+    },
+    {
+     "ref": "Lei 13.146/2015 (EPD), art. 76, § 1º, IV",
+     "tipo": "lei",
+     "texto": "IV - garantia do livre exercício do direito ao voto e, para tanto, sempre que necessário e a seu pedido, permissão para que a pessoa com deficiência seja auxiliada na votação por pessoa de sua escolha.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13146.htm"
+    },
+    {
+     "ref": "Lei 13.146/2015 (EPD), art. 32, § 1º, e art. 34, § 1º",
+     "tipo": "lei",
+     "texto": "§ 1º O direito à prioridade, previsto no caput deste artigo, será reconhecido à pessoa com deficiência beneficiária apenas uma vez.\n§ 1º As pessoas jurídicas de direito público, privado ou de qualquer natureza são obrigadas a garantir ambientes de trabalho acessíveis e inclusivos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13146.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-55": {
+   "nota": "A Súmula 239 do STJ dispensa o registro: o direito à adjudicação compulsória — a outorga da escritura definitiva — não se condiciona ao registro do compromisso de compra e venda. Com todas as prestações pagas e recibo de quitação, Janaína pode exigir a escritura. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 1.418",
+     "tipo": "lei",
+     "texto": "O promitente comprador, titular de direito real, pode exigir do promitente vendedor, ou de terceiros, a quem os direitos deste forem cedidos, a outorga da escritura definitiva de compra e venda, conforme o disposto no instrumento preliminar; e, se houver recusa, requerer ao juiz a adjudicação do imóvel.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "STJ, Súmula 239",
+     "tipo": "entendimento",
+     "texto": "O direito à adjudicação compulsória não se condiciona ao registro do compromisso de compra e venda no cartório de imóveis."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-56": {
+   "nota": "O STJ firmou que o roubo praticado dentro de transporte coletivo é fato de terceiro estranho à atividade de transporte — caso fortuito EXTERNO —, que rompe o nexo causal e afasta a responsabilidade da transportadora, apesar de objetiva. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 734, caput",
+     "tipo": "lei",
+     "texto": "O transportador responde pelos danos causados às pessoas transportadas e suas bagagens, salvo motivo de força maior, sendo nula qualquer cláusula excludente da responsabilidade.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "STJ, roubo em transporte coletivo",
+     "tipo": "entendimento",
+     "texto": "O STJ consolidou que o assalto à mão armada no interior de ônibus constitui fortuito externo — fato de terceiro imprevisível e estranho à atividade de transporte, ligado à falha do dever estatal de segurança pública —, excluindo a responsabilidade civil da transportadora; a mesma lógica não se aplica ao fortuito interno, ligado ao risco da própria atividade."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-57": {
+   "nota": "O STJ firmou que o arbitramento de aluguel pelo uso exclusivo de bem comum não depende de prévia partilha, pois decorre do próprio condomínio que nasce com a separação de fato; e o termo inicial é a CITAÇÃO na ação de arbitramento, porque até então o uso é tolerado e não há mora. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 1.319",
+     "tipo": "lei",
+     "texto": "Cada condômino responde aos outros pelos frutos que percebeu da coisa e pelo dano que lhe causou.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 1.326",
+     "tipo": "lei",
+     "texto": "Os frutos da coisa comum, não havendo em contrário estipulação ou disposição de última vontade, serão partilhados na proporção dos quinhões.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "STJ, aluguel pelo uso exclusivo de imóvel comum",
+     "tipo": "entendimento",
+     "texto": "O STJ assentou que, cessada a convivência, instala-se condomínio sobre o bem comum e o uso exclusivo por um dos ex-cônjuges enseja indenização aos demais, independentemente de prévia partilha; o termo inicial é a citação na ação em que se pede o arbitramento, marco da constituição em mora."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-58": {
+   "nota": "A Lei 14.382/2022 reescreveu o art. 56 da Lei de Registros Públicos: atingida a maioridade, a pessoa pode requerer pessoal e IMOTIVADAMENTE a alteração do prenome, por via extrajudicial, APENAS UMA VEZ — e não há prazo decadencial. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Lei 6.015/1973, art. 56, caput e § 1º",
+     "tipo": "lei",
+     "texto": "A pessoa registrada poderá, após ter atingido a maioridade civil, requerer pessoalmente e imotivadamente a alteração de seu prenome, independentemente de decisão judicial, e a alteração será averbada e publicada em meio eletrônico.\n§ 1º A alteração imotivada de prenome poderá ser feita na via extrajudicial apenas 1 (uma) vez, e sua desconstituição dependerá de sentença judicial.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L6015compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-59": {
+   "nota": "Corretos os itens I e V — alternativa A. A quebra de sigilo em ação de alimentos é admitida pelo STJ para aferir a real capacidade do alimentante, e a obrigação dos avós é complementar e subsidiária, só nascendo na impossibilidade total ou parcial dos pais (art. 1.698). O item II erra porque a obrigação só alcança os irmãos na falta de ascendentes e descendentes (art. 1.697); o III, porque o novo casamento do DEVEDOR não extingue a obrigação (art. 1.709); e o IV, porque a exoneração nunca é automática: exige decisão judicial (art. 1.699).",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 1.698",
+     "tipo": "lei",
+     "texto": "Se o parente, que deve alimentos em primeiro lugar, não estiver em condições de suportar totalmente o encargo, serão chamados a concorrer os de grau imediato; sendo várias as pessoas obrigadas a prestar alimentos, todas devem concorrer na proporção dos respectivos recursos, e, intentada ação contra uma delas, poderão as demais ser chamadas a integrar a lide.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 1.697",
+     "tipo": "lei",
+     "texto": "Na falta dos ascendentes cabe a obrigação aos descendentes, guardada a ordem de sucessão e, faltando estes, aos irmãos, assim germanos como unilaterais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 1.699 e art. 1.708",
+     "tipo": "lei",
+     "texto": "Art. 1.699. Se, fixados os alimentos, sobrevier mudança na situação financeira de quem os supre, ou na de quem os recebe, poderá o interessado reclamar ao juiz, conforme as circunstâncias, exoneração, redução ou majoração do encargo.\nArt. 1.708. Com o casamento, a união estável ou o concubinato do credor, cessa o dever de prestar alimentos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "STJ, Súmula 358",
+     "tipo": "entendimento",
+     "texto": "O cancelamento de pensão alimentícia de filho que atingiu a maioridade está sujeito à decisão judicial, mediante contraditório, ainda que nos próprios autos. O STJ também admite, em ação de alimentos, a quebra dos sigilos fiscal e bancário do alimentante para apurar sua real capacidade econômica."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-60": {
+   "nota": "Bianca contratou em nome próprio e com seu cartão: perante a loja o negócio é válido e eficaz, pois ela é a verdadeira contratante. Não houve simulação nem dolo da loja. O que existe entre Bianca e Carlos é obrigação de reembolso, exigível por ação de cobrança. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 167, caput e § 1º, I",
+     "tipo": "lei",
+     "texto": "É nulo o negócio jurídico simulado, mas subsistirá o que se dissimulou, se válido for na substância e na forma.\n§ 1º Haverá simulação nos negócios jurídicos quando:\nI - aparentarem conferir ou transmitir direitos a pessoas diversas daquelas às quais realmente se conferem, ou transmitem;",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 148",
+     "tipo": "lei",
+     "texto": "Pode também ser anulado o negócio jurídico por dolo de terceiro, se a parte a quem aproveite dele tivesse ou devesse ter conhecimento; em caso contrário, ainda que subsista o negócio jurídico, o terceiro responderá por todas as perdas e danos da parte a quem ludibriou.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-61": {
+   "nota": "O STJ exige dois requisitos cumulativos para desconstituir o reconhecimento voluntário de paternidade: prova de VÍCIO DE CONSENTIMENTO (coação ou erro no ato do reconhecimento) e INEXISTÊNCIA de vínculo socioafetivo. A simples divergência biológica não basta. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 1.604",
+     "tipo": "lei",
+     "texto": "Ninguém pode vindicar estado contrário ao que resulta do registro de nascimento, salvo provando-se erro ou falsidade do registro.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 1.609, caput, e art. 1.610",
+     "tipo": "lei",
+     "texto": "Art. 1.610. O reconhecimento não pode ser revogado, nem mesmo quando feito em testamento.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "STJ, desconstituição de paternidade registral",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que a anulação do registro de paternidade voluntariamente assumida depende da demonstração cumulativa de erro ou coação no ato do reconhecimento e da ausência de relação socioafetiva entre registrante e registrado; presente a socioafetividade, o vínculo prevalece sobre a verdade biológica, em atenção ao melhor interesse da criança."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-62": {
+   "nota": "Lucas detém a coisa materialmente: posse DIRETA (art. 1.197). Como sucede a posse de Maria, que já havia sido notificada, a posse tornou-se PRECÁRIA e, portanto, INJUSTA (art. 1.200). Mas Lucas ignorava a notificação, logo desconhece o vício: posse de BOA-FÉ (art. 1.201). Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 1.197",
+     "tipo": "lei",
+     "texto": "A posse direta, de pessoa que tem a coisa em seu poder, temporariamente, em virtude de direito pessoal, ou real, não anula a indireta, de quem aquela foi havida, podendo o possuidor direto defender a sua posse contra o indireto.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 1.200 e art. 1.201",
+     "tipo": "lei",
+     "texto": "Art. 1.200. É justa a posse que não for violenta, clandestina ou precária.\nArt. 1.201. É de boa-fé a posse, se o possuidor ignora o vício, ou o obstáculo que impede a aquisição da coisa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-63": {
+   "nota": "A Lei 14.382/2022 incluiu no art. 57, III, da Lei de Registros Públicos a exclusão do sobrenome do ex-cônjuge após a dissolução da sociedade conjugal: o requerimento é feito pessoalmente perante o oficial, com certidões e documentos, e averbado nos assentos de nascimento e casamento, sem autorização judicial. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Lei 6.015/1973, art. 57, caput e III",
+     "tipo": "lei",
+     "texto": "A alteração posterior de sobrenomes poderá ser requerida pessoalmente perante o oficial de registro civil, com a apresentação de certidões e de documentos necessários, e será averbada nos assentos de nascimento e casamento, independentemente de autorização judicial, a fim de:\nIII - exclusão de sobrenome do ex-cônjuge, após a dissolução da sociedade conjugal, por qualquer de suas causas;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L6015compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-64": {
+   "nota": "O corretor induziu José a erro de propósito, explorando sua vulnerabilidade e omitindo que ele já reunia os requisitos da usucapião: é DOLO, que torna o negócio anulável (art. 145), com prazo decadencial de 4 anos contado do dia em que o negócio se realizou (art. 178, II). Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 145",
+     "tipo": "lei",
+     "texto": "São os negócios jurídicos anuláveis por dolo, quando este for a sua causa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 178, II",
+     "tipo": "lei",
+     "texto": "É de quatro anos o prazo de decadência para pleitear-se a anulação do negócio jurídico, contado:\nII - no de erro, dolo, fraude contra credores, estado de perigo ou lesão, do dia em que se realizou o negócio jurídico;",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 147",
+     "tipo": "lei",
+     "texto": "Nos negócios jurídicos bilaterais, o silêncio intencional de uma das partes a respeito de fato ou qualidade que a outra parte haja ignorado, constitui omissão dolosa, provando-se que sem ela o negócio não se teria celebrado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-70": {
    "nota": "O STJ firmou que a usucapião extraordinária (art. 1.238 do CC) não se sujeita ao módulo mínimo urbano fixado em lei municipal: a lei civil não exige metragem mínima, e a norma urbanística de parcelamento não pode impedir a aquisição originária da propriedade. Alternativa C.",
    "dispositivos": [
