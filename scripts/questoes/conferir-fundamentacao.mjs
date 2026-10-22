@@ -26,7 +26,9 @@ for (const [id, item] of entries) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(item.conferido ?? "")) push(id, "conferido deve ser AAAA-MM-DD");
   if (item.ressalva !== undefined && (typeof item.ressalva !== "string" || !item.ressalva.trim())) push(id, "ressalva vazia");
   const dispositivos = item.dispositivos;
-  if (!Array.isArray(dispositivos) || dispositivos.length === 0) { push(id, "sem dispositivos"); continue; }
+  if (!Array.isArray(dispositivos)) { push(id, "dispositivos deve ser lista"); continue; }
+  // Sem dispositivo só vale com ressalva: é a questão que não dá para fundamentar, e a ressalva diz o porquê.
+  if (dispositivos.length === 0) { if (!item.ressalva) push(id, "sem dispositivos e sem ressalva"); continue; }
   for (const [index, dispositivo] of dispositivos.entries()) {
     const where = `dispositivo ${index + 1} (${dispositivo?.ref ?? "?"})`;
     if (!dispositivo?.ref?.trim()) push(id, `dispositivo ${index + 1}: ref vazia`);

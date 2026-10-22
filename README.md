@@ -29,6 +29,7 @@ npm run dev
 | `VAPID_PRIVATE_KEY` | só servidor | chave privada dos avisos; gere o par com `npx web-push generate-vapid-keys` |
 | `VAPID_SUBJECT` | só servidor | contato dos avisos, ex.: `mailto:equipe@cursosduo.com.br` |
 | `ALUNO_SENHA_PADRAO` | só servidor | senha inicial dos alunos criados em Equipe › Alunos (não versionar) |
+| `NEXT_PUBLIC_SITE_URL` | público | endereço público do app; só mude se o domínio mudar (padrão: `https://duo-reta-final.vercel.app`) |
 
 Os ebooks do curso **não** são versionados neste repositório (direitos autorais).
 
@@ -48,6 +49,17 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
    `insert into public.profiles(user_id, email, role) select id, email, 'equipe' from auth.users where email = 'equipe@cursosduo.com.br';`
 4. **Vercel**: importe o repositório e defina `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`,
    `NEXT_PUBLIC_PIPELINE_V2=true` e `SUPABASE_SERVICE_ROLE_KEY` (esta só no servidor).
+
+   O endereço que os alunos usam é **https://duo-reta-final.vercel.app** (domínio de produção do projeto
+   `prj_im9KyZyQ2mt1znt60577ZHWAhCVG`). Cada merge em `main` publica ali por dois caminhos, e basta um funcionar:
+
+   - a **integração Git da Vercel** (Project › Settings › Git), que publica sozinha o que entra em `main`; e
+   - o workflow **Deploy produção** (`.github/workflows/deploy.yml`), que roda a cada push em `main` e também
+     manualmente, e depende do segredo `VERCEL_TOKEN` em Settings › Secrets and variables › Actions.
+
+   Se a atualização não aparecer no domínio, confira nessa ordem: o domínio está em Project › Settings › Domains
+   como **Production**; a integração Git está conectada a este repositório com `main` como Production Branch; e o
+   segredo `VERCEL_TOKEN` existe (sem ele o workflow termina avisando, sem publicar).
 5. Entre como equipe → **Equipe › Conteúdo**: crie as disciplinas, envie os ebooks (PDF), confira a prévia e publique.
    **Equipe › Alunos**: cole a lista de e-mails.
 
@@ -82,3 +94,23 @@ Resultado em 22/10/2026, com os 11 ebooks do Reta Final DPE-SP (PDF):
 As questões vêm do repositório REVIEW-RAI (`ferramentas/conteudo/dados/simulados/*.json`) e ficam em `data/questoes.json`. Entram só as da DPE-SP e as de Defensor da FCC de 2021 em diante (regra `keep` no importador).
 Para atualizar depois de mudar as questões lá: `node scripts/questoes/importar.mjs /caminho/para/review-rai`, confira e faça o commit.
 As respostas de cada aluno ficam na tabela `question_answers` (migração 0015).
+
+### Fundamentação do gabarito
+
+`data/fundamentacoes.json` guarda, por questão, a fundamentação conferida nas fontes: uma nota ligando o
+dispositivo à alternativa correta, os dispositivos e a data da conferência. Cada dispositivo diz o que é:
+
+- `tipo: "lei"` — **transcrição literal** do dispositivo, com `url` da página oficial de onde o texto veio
+  (Portal da Legislação do Planalto, em regra o *texto compilado*);
+- `tipo: "entendimento"` — **resumo** da posição do tribunal ou do órgão (STF, STJ, Corte IDH, CIDH, OIT…),
+  ou da construção doutrinária. A tela rotula como resumo, para o aluno não confundir com lei seca.
+
+Quando a conferência não fecha, o campo `ressalva` aparece em destaque na tela do aluno: gabarito oficial
+discutível, duas alternativas corretas, questão superada por lei nova, norma estadual ou interna de outra
+Defensoria que não foi possível conferir, ou tese que só se sustenta em doutrina.
+
+A fundamentação vai ao aparelho sob demanda (`GET /api/questoes/[id]/fundamentacao`), quando o aluno já viu
+a correção: o texto de lei inteiro na primeira carga pesaria no celular.
+
+Confira o arquivo com `node scripts/questoes/conferir-fundamentacao.mjs` (`--cobertura` mostra o andamento
+por disciplina). Os mesmos invariantes estão em `tests/duo/questions.test.ts`.

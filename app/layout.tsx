@@ -4,7 +4,12 @@ import { AppShell } from "@/components/AppShell";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 
+// Endereço público do app: deixa links, ícones e prévias compartilhadas resolverem no domínio dos alunos,
+// em vez de caminhos relativos. NEXT_PUBLIC_SITE_URL sobrescreve quando o domínio mudar.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://duo-reta-final.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Cursos DUO · Reta Final DPE-SP",
   description: "Leia o material do curso, grife e monte seu caderno de revisão.",
   icons: { icon: "/icons/icon-192.png", apple: "/icons/apple-touch-icon.png" },

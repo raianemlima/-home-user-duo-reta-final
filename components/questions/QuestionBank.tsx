@@ -34,8 +34,9 @@ function LegalBasis({ questionId }: { questionId: string }) {
   if (state.status === "error") return <p className="q-basis-wait muted" role="status">Não foi possível carregar a fundamentação agora.</p>;
   if (!state.data) return null;
   const { nota, dispositivos, conferido, ressalva } = state.data;
+  const semBase = dispositivos.length === 0;
   return <section className="q-basis" aria-label="Fundamentação legal">
-    <h3>Fundamentação legal</h3>
+    <h3>{semBase ? "Sobre esta questão" : "Fundamentação legal"}</h3>
     <p className="q-basis-note">{nota}</p>
     {ressalva && <p className="q-basis-caveat"><strong>Atenção:</strong> {ressalva}</p>}
     <ol className="q-basis-list">
@@ -47,7 +48,7 @@ function LegalBasis({ questionId }: { questionId: string }) {
         {dispositivo.url && <a className="q-basis-src" href={dispositivo.url} target="_blank" rel="noreferrer noopener">Conferir na fonte oficial ↗</a>}
       </li>)}
     </ol>
-    <p className="q-basis-checked muted">Os trechos marcados como <em>texto da lei</em> são transcrição literal da fonte oficial; conferido em {new Date(`${conferido}T12:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })}.</p>
+    <p className="q-basis-checked muted">{semBase ? "Conferido" : "Os trechos marcados como texto da lei são transcrição literal da fonte oficial; conferido"} em {new Date(`${conferido}T12:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })}.</p>
   </section>;
 }
 
