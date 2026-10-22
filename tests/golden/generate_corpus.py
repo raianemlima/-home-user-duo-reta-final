@@ -321,8 +321,17 @@ def duo_ebook(name, pages):
         for kind, text in items:
             if kind == "h1":
                 y -= 10; c.setFont("Helvetica-Bold", 15); c.drawString(50, y, text); y -= 26
+            elif kind == "h1-spaced":
+                # Título de capítulo como nos ebooks reais: letras espaçadas e quebra em duas linhas.
+                y -= 10
+                for line in text.split("|"):
+                    t = c.beginText(50, y); t.setFont("Helvetica-Bold", 14); t.setCharSpace(4); t.textOut(line); t.setCharSpace(0); c.drawText(t); y -= 26
+                y -= 6
             elif kind == "h2":
                 y -= 6; c.setFont("Helvetica-Bold", 12.5); c.drawString(50, y, text); y -= 22
+            elif kind == "h2-sutil":
+                # Subtítulo só um pouco maior que o corpo (11.5 x 10.5), sem negrito, como em parte dos ebooks.
+                y -= 6; c.setFont("Helvetica", 11.5); c.drawString(50, y, text); y -= 20
             else:
                 c.setFont("Helvetica", 10.5)
                 for line in wrap(text, 92):
@@ -339,15 +348,19 @@ duo_ebook("19-duo-ebook.pdf", [
     [("h1", "Sumário"),
      ("p", "1. MODELOS DE ASSISTÊNCIA JURÍDICA GRATUITA ........................................ 2"),
      ("p", "1.1 Critérios para atendimento pela DPE-SP ........................................... 3"),
-     ("p", "2. AUTONOMIA DA DEFENSORIA PÚBLICA ..................................................... 4"),
+     ("p", "1.2 Exceções ao critério de renda ................................................................ 3"),
+     ("p", "2. AUTONOMIA DA DEFENSORIA PÚBLICA ..................................................... 5"),
      ("p", "DICA DUO Como usar este material: aqui você terá um compilado dos pontos mais importantes de doutrina para a sua prova.")],
-    [("h1", "1. MODELOS DE ASSISTÊNCIA JURÍDICA GRATUITA"),
+    [("h1-spaced", "1. MODELOS DE ASSISTÊNCIA|JURÍDICA GRATUITA"),
      ("p", "Inicialmente, é importante distinguir assistência judiciária, assistência jurídica e gratuidade da justiça."),
      ("p", "Como vimos, conforme a aula 3, a Defensoria Pública adota o modelo público de assistência jurídica integral.")],
     [("h2", "1.1 Critérios para atendimento pela DPE-SP"),
      ("p", "Os critérios de atendimento seguem a deliberação do Conselho Superior. A íntegra está em www.planalto.gov.br para consulta."),
-     ("p", "A renda familiar mensal é o primeiro critério analisado no atendimento inicial.")],
-    [("h1", "2. AUTONOMIA DA DEFENSORIA PÚBLICA"),
+     ("p", "A renda familiar mensal é o primeiro critério analisado no atendimento inicial."),
+     ("h2-sutil", "1.2 Exceções ao critério de renda")],
+    [("p", "a) entidade familiar composta por mais de cinco membros;"),
+     ("p", "b) gastos mensais comprovados com tratamento médico por doença grave.")],
+    [("h1-spaced", "2. AUTONOMIA DA DEFENSORIA|PÚBLICA"),
      ("p", "A autonomia funcional, administrativa e orçamentária foi assegurada pela Emenda Constitucional nº 45/2004.")],
 ])
 

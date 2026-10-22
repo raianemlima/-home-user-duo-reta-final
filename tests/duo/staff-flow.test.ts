@@ -46,8 +46,8 @@ describe("fluxo da equipe: ebook → rascunho → publicação → leitura", () 
     const { versionId } = await draft.json();
 
     const preview = await (await previewVersion(new Request("http://x"), ctx(versionId))).json();
-    expect(preview.stats).toMatchObject({ sections: 4, tips: 1 });
-    expect(preview.toc.map((item: { numbering: string | null }) => item.numbering)).toEqual([null, "1", "1.1", "2"]);
+    expect(preview.stats).toMatchObject({ sections: 5, tips: 1 });
+    expect(preview.toc.map((item: { numbering: string | null }) => item.numbering)).toEqual([null, "1", "1.1", "1.2", "2"]);
     expect(preview.sample[0].paragraphs[0]).toContain("DICA DUO");
 
     expect((await publish(new Request("http://x", { method: "POST" }), ctx(versionId))).status).toBe(200);

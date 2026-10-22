@@ -2,7 +2,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { readAll } from "@/lib/content/repository";
 
 export type DisciplineCard = { id: string; slug: string; title: string; versionId: string; versionLabel: string; publishedAt: string; updatedSinceLastVisit: boolean; lastSectionId: string | null };
-export type TocItem = { id: string; level: number; numbering: string | null; title: string | null };
+export type TocItem = { id: string; level: number; numbering: string | null; title: string | null; path: string[] };
 export type Toc = TocItem[];
 export type ReaderParagraph = { id: string; kind: "body" | "table" | "footnote" | "tip"; text: string };
 export type SectionView = { discipline: { id: string; slug: string; title: string }; versionId: string; versionLabel: string; toc: Toc; section: { id: string; numbering: string | null; title: string | null; path: string[]; paragraphs: ReaderParagraph[] }; prevId: string | null; nextId: string | null };
@@ -42,8 +42,21 @@ async function publishedVersion(supabase: SupabaseClient, slug: string) {
 }
 
 export async function loadToc(supabase: SupabaseClient, versionId: string): Promise<Toc> {
-  const rows = await readAll<TocItem & { position: number }>((from, to) => supabase.from("sections").select("id, level, numbering, title, position").eq("version_id", versionId).order("position").range(from, to), "Falha ao ler o sumário");
-  return rows.sort((a, b) => a.position - b.position).map(({ id, level, numbering, title }) => ({ id, level, numbering, title }));
+  const rows = await readAll<TocItem & { position: number }>((from, to) => supabase.from("sections").select("id, level, numbering, title, path, position").eq("version_id", versionId).order("position").range(from, to), "Falha ao ler o sumário");
+  return rows.sort((a, b) => a.position - b.position).map(({ id, level, numbering, title, path }) => ({ id, level, numbering, title, path: path ?? [] }));
+}
+
+// Capítulos sem texto próprio não são seções, mas aparecem no caminho das subseções: o sumário mostra o nome deles.
+export function chapterBreaks(toc: Toc): Map<string, string> {
+  const titles = new Set(toc.map((item) => item.title));
+  const breaks = new Map<string, string>();
+  let previous: string | undefined;
+  for (const item of toc) {
+    const chapter = item.path[0];
+    if (chapter && !titles.has(chapter) && chapter !== previous) breaks.set(item.id, chapter);
+    previous = chapter;
+  }
+  return breaks;
 }
 
 export async function firstSectionId(supabase: SupabaseClient, slug: string): Promise<string | null> {

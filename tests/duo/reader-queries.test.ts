@@ -56,6 +56,7 @@ describe("loadSection", () => {
   it("devolve sumário, parágrafos na ordem e vizinhos", async () => {
     const view = await loadSection(sb(), "penal", "s1");
     expect(view?.toc.map((item) => item.id)).toEqual(["s1", "s2", "s3"]);
+    expect(view?.toc[1].path).toEqual([]);
     expect(view?.section.paragraphs.map((p) => p.id)).toEqual(["p1", "p2"]);
     expect([view?.prevId, view?.nextId]).toEqual([null, "s2"]);
     const last = await loadSection(sb(), "penal", "s3");
@@ -93,5 +94,18 @@ describe("posição de leitura", () => {
   });
   it("ids inválidos: 400", async () => {
     expect((await savePosition(new Request("http://x", { method: "PUT", body: JSON.stringify({ disciplineId: "x", sectionId: "y" }) }))).status).toBe(400);
+  });
+});
+
+describe("sumário com capítulos", () => {
+  it("chapterBreaks marca onde começa cada capítulo que só existe no caminho", async () => {
+    const { chapterBreaks } = await import("@/lib/reader/queries");
+    const toc = [
+      { id: "a", level: 2, numbering: "1.1", title: "Critérios", path: ["MODELOS"] },
+      { id: "b", level: 2, numbering: "1.2", title: "Exceções", path: ["MODELOS"] },
+      { id: "c", level: 1, numbering: "2", title: "AUTONOMIA", path: [] },
+      { id: "d", level: 2, numbering: "2.1", title: "Funcional", path: ["AUTONOMIA"] },
+    ];
+    expect(chapterBreaks(toc)).toEqual(new Map([["a", "MODELOS"]]));
   });
 });

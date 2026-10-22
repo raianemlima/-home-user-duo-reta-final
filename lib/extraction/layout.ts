@@ -16,6 +16,16 @@ function median(values: number[]): number {
   return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
 }
 
+// Títulos com letras espaçadas chegam como "M O D E L O S" (um item por palavra, espaço entre cada letra).
+// Se a maior parte dos itens da linha é assim, junta as letras; o vão entre itens continua separando as palavras.
+const SPACED_WORD = /^\S(?: \S)+$/;
+function unspace(items: RawItem[]): RawItem[] {
+  const words = items.map((item) => item.text.trim());
+  const spacedLine = words.length >= 2 ? words.filter((word) => SPACED_WORD.test(word)).length / words.length >= 0.6 : words.length === 1 && SPACED_WORD.test(words[0]) && words[0].length >= 7;
+  if (!spacedLine) return items;
+  return items.map((item) => (SPACED_WORD.test(item.text.trim()) ? { ...item, text: item.text.trim().replace(/ /g, "") } : item));
+}
+
 function buildLines(items: RawItem[], pageHeight: number): Line[] {
   const real = items.filter((item) => item.text.trim()).sort((a, b) => b.y - a.y || a.x - b.x);
   const groups: RawItem[][] = [];
@@ -26,7 +36,7 @@ function buildLines(items: RawItem[], pageHeight: number): Line[] {
     else groups.push([item]);
   }
   return groups.map((group) => {
-    const sorted = [...group].sort((a, b) => a.x - b.x);
+    const sorted = unspace([...group].sort((a, b) => a.x - b.x));
     const fontSize = Math.max(...sorted.map((item) => item.fontSize));
     const cells: Cell[] = [];
     for (const item of sorted) {

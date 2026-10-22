@@ -106,6 +106,9 @@ function cleanText(rawText: string, page: number, recorder: Recorder, policy: Po
 }
 
 type Entry = { block: LayoutBlock; page: number };
+const SUBSECTION = /^\d{1,2}(?:\.\d{1,2})+\.?\s+\S/;
+const medianOf = (values: number[]) => { const sorted = [...values].sort((a, b) => a - b); return sorted.length ? sorted[Math.floor(sorted.length / 2)] : 0; };
+const NUMBERED_HEADING = /^(?:\d{1,2}(?:\.\d{1,2})*\.?\s|art(?:igo)?\.?\s*\d|cap[ií]tulo\b|se[cç][aã]o\b|t[ií]tulo\b)/i;
 
 export function cleanDocument(extraction: DocumentExtraction, options: CleanOptions = {}): CleaningResult {
   const recorder = new Recorder();
@@ -155,11 +158,22 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
     paragraphs.push({ text, pages: [page], kind, heading: block.heading, fontSize: block.fontSize });
   }
 
+  // Modo fiel: subtítulo numerado ("1.2 Exceções…") com fonte um pouco maior que o corpo também é título.
+  if (faithful) {
+    const bodyFont = medianOf(paragraphs.filter((paragraph) => paragraph.kind === "body" && !paragraph.heading).map((paragraph) => paragraph.fontSize));
+    for (const paragraph of paragraphs) {
+      if (paragraph.kind === "body" && !paragraph.heading && paragraph.fontSize >= bodyFont * 1.05 && paragraph.text.length <= 160 && SUBSECTION.test(paragraph.text)) paragraph.heading = true;
+    }
+  }
   const merged: CleanParagraph[] = [];
   for (const paragraph of paragraphs) {
     const previous = merged[merged.length - 1];
-    const continues = previous && previous.kind === "body" && paragraph.kind === "body" && !previous.heading && !paragraph.heading
+    const continues = previous && previous.kind === "body" && paragraph.kind === "body" && !previous.heading && !paragraph.heading && (!faithful || previous.fontSize === paragraph.fontSize)
       && !/[.!?:;”"')\]]$/.test(previous.text) && /^[a-zà-úç]/.test(paragraph.text) && paragraph.pages[0] === previous.pages[previous.pages.length - 1] + 1;
+    // Modo fiel: título de capítulo quebrado em duas linhas ("2. EVOLUÇÃO DA ASSISTÊNCIA" + "NO BRASIL") vira um título só.
+    const headingContinues = faithful && previous && previous.heading && paragraph.heading && previous.fontSize === paragraph.fontSize
+      && previous.pages[previous.pages.length - 1] === paragraph.pages[0] && !/[.:;!?]$/.test(previous.text) && !NUMBERED_HEADING.test(paragraph.text);
+    if (headingContinues) { previous.text = `${previous.text} ${paragraph.text}`; continue; }
     if (continues) { previous.text = joinLines([previous.text, paragraph.text]); previous.pages = [...new Set([...previous.pages, ...paragraph.pages])]; }
     else merged.push({ ...paragraph, pages: [...paragraph.pages] });
   }
