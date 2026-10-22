@@ -3360,6 +3360,202 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-244": {
+   "nota": "O descumprimento de medida protetiva de urgência é crime praticado em contexto de violência doméstica. O art. 28-A, § 2º, IV, do CPP veda o acordo de não persecução penal nesses casos, qualquer que seja a pena. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 28-A, § 2º, IV",
+     "tipo": "lei",
+     "texto": "IV - nos crimes praticados no âmbito de violência doméstica ou familiar, ou praticados contra a mulher por razões da condição de sexo feminino, em favor do agressor.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "Lei 11.340/2006 e Lei 14.550/2023, autonomia das medidas protetivas",
+     "tipo": "entendimento",
+     "texto": "As medidas protetivas de urgência têm natureza satisfativa e autônoma: são concedidas independentemente da tipificação penal, do ajuizamento de ação penal ou cível, da existência de inquérito ou de boletim de ocorrência, e vigoram enquanto persistir o risco à vítima — não se extinguindo automaticamente com o arquivamento do inquérito, a extinção da punibilidade ou a absolvição. Isso afasta as alternativas A, C e D."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-245": {
+   "nota": "O CPP já admite o registro audiovisual sem transcrição para a prova oral (art. 405, §§ 1º e 2º), e o STJ estendeu esse raciocínio à sentença proferida em audiência gravada: a gravação assegura fidelidade e publicidade, e a ata com dispositivo e dosimetria basta. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 405, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º Sempre que possível, o registro dos depoimentos do investigado, indiciado, ofendido e testemunhas será feito pelos meios ou recursos de gravação magnética, estenotipia, digital ou técnica similar, inclusive audiovisual, destinada a obter maior fidelidade das informações .\n§ 2º No caso de registro por meio audiovisual, será encaminhado às partes cópia do registro original, sem necessidade de transcrição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 388",
+     "tipo": "lei",
+     "texto": "A sentença poderá ser datilografada e neste caso o juiz a rubricará em todas as folhas.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-246": {
+   "nota": "O art. 366 do CPP é expresso: citado por edital e ausente, sem advogado, ficam SUSPENSOS o processo e o prazo prescricional, podendo o juiz determinar a produção antecipada de provas urgentes e, se for o caso, decretar a preventiva. A suspensão decorre de decisão do juiz, não é automática — e a preventiva é facultativa. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 366, caput",
+     "tipo": "lei",
+     "texto": "Se o acusado, citado por edital, não comparecer, nem constituir advogado, ficarão suspensos o processo e o curso do prazo prescricional, podendo o juiz determinar a produção antecipada das provas consideradas urgentes e, se for o caso, decretar prisão preventiva, nos termos do disposto no art. 312.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 367",
+     "tipo": "lei",
+     "texto": "processo seguirá sem a presença do acusado que, citado ou intimado pessoalmente para qualquer ato, deixar de comparecer sem motivo justificado, ou, no caso de mudança de residência, não comunicar o novo endereço ao juízo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-247": {
+   "nota": "A entrada em domicílio sem mandado exige fundadas razões, apuráveis a posteriori, que indiquem flagrante no interior da casa (STF, RE 603.616, Tema 280). Aqui havia a transmissão ao vivo em que Marcus vendia droga na própria residência, somada à fuga ao avistar os policiais — elementos concretos e anteriores ao ingresso. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, XI",
+     "tipo": "lei",
+     "texto": "a casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, durante o dia, por determinação judicial;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CPP, art. 240, § 1º",
+     "tipo": "lei",
+     "texto": "Proceder-se-á à busca domiciliar, quando fundadas razões a autorizarem, para:\nb) apreender coisas achadas ou obtidas por meios criminosos;\nh) colher qualquer elemento de convicção.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "STF, RE 603.616 (Tema 280)",
+     "tipo": "entendimento",
+     "texto": "Tese: a entrada forçada em domicílio sem mandado judicial só é lícita, mesmo em período noturno, quando amparada em fundadas razões, devidamente justificadas a posteriori, que indiquem que dentro da casa ocorre situação de flagrante delito, sob pena de responsabilidade disciplinar, civil e penal do agente e de nulidade dos atos praticados. A denúncia anônima isolada e a mera fuga não bastam; somadas a elementos concretos, como a divulgação do tráfico pelo próprio agente, autorizam o ingresso."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-248": {
+   "nota": "A tentativa inidônea (crime impossível, art. 17 do CP) é tese ABSOLUTÓRIA e, no júri, toda tese de absolvição é absorvida pelo quesito genérico do art. 483, III (\"o jurado absolve o acusado?\"): não se formula quesito específico. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 483, caput e § 2º",
+     "tipo": "lei",
+     "texto": "Os quesitos serão formulados na seguinte ordem, indagando sobre:\nI – a materialidade do fato;\nII – a autoria ou participação;\nIII – se o acusado deve ser absolvido;\nIV – se existe causa de diminuição de pena alegada pela defesa;\nV – se existe circunstância qualificadora ou causa de aumento de pena reconhecidas na pronúncia ou em decisões posteriores que julgaram admissível a acusação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CP, art. 17",
+     "tipo": "lei",
+     "texto": "Não se pune a tentativa quando, por ineficácia absoluta do meio ou por absoluta impropriedade do objeto, é impossível consumar-se o crime.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-249": {
+   "nota": "Vale o princípio do prejuízo (CPP, art. 563): a ausência imotivada do Ministério Público na audiência para ouvir testemunhas comuns não invalida o ato por si, salvo demonstração de prejuízo efetivo ao réu. Alternativa C. No rito ordinário são até 8 testemunhas, sem contar informantes e referidas (art. 401, § 1º), o que derruba E.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 563",
+     "tipo": "lei",
+     "texto": "Nenhum ato será declarado nulo, se da nulidade não resultar prejuízo para a acusação ou para a defesa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 401",
+     "tipo": "lei",
+     "texto": "Na instrução poderão ser inquiridas até 8 (oito) testemunhas arroladas pela acusação e 8 (oito) pela defesa.\n§ 1º Nesse número não se compreendem as que não prestem compromisso e as referidas.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-250": {
+   "nota": "A decisão de inadmissão tem dois fundamentos de naturezas distintas. Quanto ao óbice da Súmula 7 (reexame de prova), cabe AGRAVO em recurso especial (CPC, art. 1.042). Quanto ao fundamento de que o recurso contraria tese firmada em repetitivos/repercussão geral, a via é o AGRAVO INTERNO (art. 1.030, § 2º). Alternativa A — não há ofensa à unirrecorribilidade, porque os capítulos são autônomos.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 1.030, I, b, e § 2º",
+     "tipo": "lei",
+     "texto": "§ 2º Da decisão proferida com fundamento nos incisos I e III caberá agravo interno, nos termos do art. 1.021.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 1.042, caput",
+     "tipo": "lei",
+     "texto": "Cabe agravo contra decisão do presidente ou do vice-presidente do tribunal recorrido que inadmitir recurso extraordinário ou recurso especial, salvo quando fundada na aplicação de entendimento firmado em regimes de repercussão geral, de relevância da questão de direito federal infraconstitucional ou de julgamento de recursos repetitivos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-251": {
+   "nota": "O STJ firmou que não cabe mandado de segurança contra ato jurisdicional que defere o desbloqueio de bens e valores: há recurso próprio e a decisão não é teratológica, faltando o requisito do art. 5º, II, da Lei 12.016/2009. Alternativa C. O habeas corpus é cabível contra medidas cautelares alternativas à prisão (derruba A), e o assistente de acusação não intervém em HC (derruba E).",
+   "dispositivos": [
+    {
+     "ref": "Lei 12.016/2009, art. 5º, II",
+     "tipo": "lei",
+     "texto": "Não se concederá mandado de segurança quando se tratar:\nII - de decisão judicial da qual caiba recurso com efeito suspensivo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2007-2010/2009/Lei/L12016.htm"
+    },
+    {
+     "ref": "CPP, art. 647",
+     "tipo": "lei",
+     "texto": "Dar-se-á habeas corpus sempre que alguém sofrer ou se achar na iminência de sofrer violência ou coação ilegal na sua liberdade de ir e vir, salvo nos casos de punição disciplinar.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-252": {
+   "nota": "A citação por hora certa do art. 362 do CPP é citação REAL (o réu se oculta), e não ficta por edital: feita a citação, se o réu não comparece, nomeia-se defensor dativo e o processo SEGUE — não há suspensão do art. 366. Os Tribunais Superiores reconheceram a constitucionalidade do instituto. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 362",
+     "tipo": "lei",
+     "texto": "Verificando que o réu se oculta para não ser citado, o oficial de justiça certificará a ocorrência e procederá à citação com hora certa, na forma estabelecida nos arts. 227 a 229 da Lei nº 5.869, de 11 de janeiro de 1973 - Código de Processo Civil.\nParágrafo único. Completada a citação com hora certa, se o acusado não comparecer, ser-lhe-á nomeado defensor dativo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 367",
+     "tipo": "lei",
+     "texto": "processo seguirá sem a presença do acusado que, citado ou intimado pessoalmente para qualquer ato, deixar de comparecer sem motivo justificado, ou, no caso de mudança de residência, não comunicar o novo endereço ao juízo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-253": {
+   "nota": "A suspensão condicional do processo não é renúncia à defesa: o STJ firmou que a aceitação da proposta não prejudica o exame do habeas corpus que busca o trancamento da ação penal, porque remanesce interesse em afastar a própria imputação. Alternativa B. O sursis processual dispensa confissão (derruba C) e admite condições facultativas fixadas pelo juiz, como prestação de serviços (derruba D).",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.099/1995, art. 89, caput e § 2º",
+     "tipo": "lei",
+     "texto": "Nos crimes em que a pena mínima cominada for igual ou inferior a um ano, abrangidas ou não por esta Lei, o Ministério Público, ao oferecer a denúncia, poderá propor a suspensão do processo, por dois a quatro anos, desde que o acusado não esteja sendo processado ou não tenha sido condenado por outro crime, presentes os demais requisitos que autorizariam a suspensão condicional da pena (art. 77 do Código Penal).\n§ 2º O Juiz poderá especificar outras condições a que fica subordinada a suspensão, desde que adequadas ao fato e à situação pessoal do acusado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9099.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-254": {
+   "nota": "O print screen, isolado, não documenta a origem nem a integridade do dado: falta o registro de aquisição (extração do aparelho com código de integridade, perícia ou ata notarial da mídia original). Sem isso, a cadeia de custódia digital está rompida e a prova é insuficiente para a materialidade. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 158-A, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º O início da cadeia de custódia dá-se com a preservação do local de crime ou com procedimentos policiais ou periciais nos quais seja detectada a existência de vestígio.\n§ 2º O agente público que reconhecer um elemento como de potencial interesse para a produção da prova pericial fica responsável por sua preservação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 158-B, I e II",
+     "tipo": "lei",
+     "texto": "A cadeia de custódia compreende o rastreamento do vestígio nas seguintes etapas:\nI - reconhecimento: ato de distinguir um elemento como de potencial interesse para a produção da prova pericial;\nII - isolamento: ato de evitar que se altere o estado das coisas, devendo isolar e preservar o ambiente imediato, mediato e relacionado aos vestígios e local de crime;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-255": {
    "nota": "Ao julgar as ADIs 3.360 e 4.109, o STF deu interpretação conforme à Lei 7.960/1989 e fixou, entre outras condições, que a prisão temporária não pode ser decretada — nem subsistir — depois de concluída a investigação, porque sua única razão de ser é viabilizar a apuração. É a alternativa C. A lei exige representação da autoridade policial ou requerimento do MP, nunca decretação de ofício (derruba D).",
    "dispositivos": [
@@ -3379,6 +3575,29 @@
      "ref": "STF, ADI 3.360 e ADI 4.109",
      "tipo": "entendimento",
      "texto": "O STF deu interpretação conforme à Lei 7.960/1989 e condicionou a prisão temporária à presença cumulativa de requisitos, entre eles: ser imprescindível para a investigação do inquérito; haver fundadas razões de autoria ou participação nos crimes do rol taxativo; houver fundamento na gravidade concreta do delito; e, expressamente, não ser cabível — nem poder subsistir — quando a investigação já estiver concluída."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-256": {
+   "nota": "No RHC 158.580/BA a Sexta Turma do STJ firmou que a busca pessoal exige \"fundada suspeita\" apoiada em elementos CONCRETOS e objetivos de que a pessoa porta arma proibida ou objeto que constitua corpo de delito — a medida é de natureza probatória, não de prevenção genérica. Alternativa D. Tirocínio policial e atitude suspeita não bastam, e o julgado liga essa prática ao racismo estrutural.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 240, § 2º",
+     "tipo": "lei",
+     "texto": "Proceder-se-á à busca pessoal quando houver fundada suspeita de que alguém oculte consigo arma proibida ou objetos mencionados nas letras b a f e letra h do parágrafo anterior.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 244",
+     "tipo": "lei",
+     "texto": "A busca pessoal independerá de mandado, no caso de prisão ou quando houver fundada suspeita de que a pessoa esteja na posse de arma proibida ou de objetos ou papéis que constituam corpo de delito, ou quando a medida for determinada no curso de busca domiciliar.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "STJ, RHC 158.580/BA (6ª Turma, 19/04/2022)",
+     "tipo": "entendimento",
+     "texto": "O STJ assentou que a busca pessoal é meio de obtenção de prova e pressupõe fundada suspeita fundada em elementos concretos, orientada à colheita de provas e à reunião do corpo de delito; não se legitima pelo tirocínio policial, pela reputação do local, pela atitude nervosa ou pela denúncia anônima isolada, nem se valida retroativamente pelo que a revista encontrou. O acórdão registra o impacto discriminatório dessa prática sobre pessoas negras e pobres."
     }
    ],
    "conferido": "2026-10-22"
