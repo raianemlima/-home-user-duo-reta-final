@@ -43,7 +43,8 @@ describe("fluxo da equipe: ebook → rascunho → publicação → leitura", () 
     for (let i = 0; i < 10 && outcome !== "done" && outcome !== "failed"; i += 1) outcome = (await (await advance(new Request("http://x", { method: "POST" }), ctx(view.job.id))).json()).outcome.kind;
     expect(outcome).toBe("done");
 
-    const draft = await createVersion(json("/api/equipe/versoes", { disciplineId: discipline.id, jobId: view.job.id, label: "Atualizado em 29/07/2026" }));
+    // Rótulo em branco: a data vem do rodapé do e-book ("Atualizado em 29/07/2026"), não da data de hoje.
+    const draft = await createVersion(json("/api/equipe/versoes", { disciplineId: discipline.id, jobId: view.job.id, label: "" }));
     expect(draft.status).toBe(201);
     const { versionId } = await draft.json();
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useCallback, useEffect, useState } from "react";
-import { api, slugify, today } from "@/components/staff/api";
+import { api, slugify } from "@/components/staff/api";
 import { ensureNotDuplicate, fingerprintFile, suggestDocumentTitle, validateDocumentContent, validateDocumentFile } from "@/lib/document-import";
 import { advanceJobStep, startJob } from "@/lib/pipeline/client";
 import { createClient } from "@/lib/supabase/client";
@@ -49,7 +49,7 @@ function PreviewPanel({ versionId, onDone }: { versionId: string; onDone: (messa
 }
 
 export function DisciplineRow({ discipline, onChange }: { discipline: Discipline; onChange: () => void }) {
-  const [status, setStatus] = useState(""); const [busy, setBusy] = useState(false); const [preview, setPreview] = useState<string | null>(null); const [labelText, setLabelText] = useState(`Atualizado em ${today()}`);
+  const [status, setStatus] = useState(""); const [busy, setBusy] = useState(false); const [preview, setPreview] = useState<string | null>(null); const [labelText, setLabelText] = useState("");
   async function send(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0]; event.target.value = "";
     if (!file) return;
@@ -100,7 +100,7 @@ export function DisciplineRow({ discipline, onChange }: { discipline: Discipline
         ? <button className="button danger" onClick={removePublished} disabled={busy}>Excluir material publicado</button>
         : !isVadeDiscipline(discipline.slug) && <button className="button danger" onClick={removeDiscipline} disabled={busy}>Excluir disciplina</button>}</div>
     {discipline.drafts.map((draft) => <p key={draft.id}>Rascunho “{draft.label}” <button className="button ghost" onClick={() => setPreview(draft.id)}>Revisar</button></p>)}
-    <div className="staff-upload"><label>Rótulo da nova versão<input value={labelText} onChange={(event) => setLabelText(event.target.value)} maxLength={120} /></label><label className="button">{busy ? "Aguarde…" : "Enviar ebook (PDF ou DOCX)"}<input type="file" accept=".pdf,.docx" onChange={send} disabled={busy} className="visually-hidden" /></label></div>
+    <div className="staff-upload"><label>Rótulo da nova versão<input value={labelText} onChange={(event) => setLabelText(event.target.value)} maxLength={120} placeholder="Automático: Atualizado em (data que consta no material ou no nome do arquivo)" /></label><label className="button">{busy ? "Aguarde…" : "Enviar ebook (PDF ou DOCX)"}<input type="file" accept=".pdf,.docx" onChange={send} disabled={busy} className="visually-hidden" /></label></div>
     {status && <p role="status">{status}</p>}
     {preview && <PreviewPanel versionId={preview} onDone={(message) => { setPreview(null); setStatus(message); onChange(); }} />}
   </li>;
