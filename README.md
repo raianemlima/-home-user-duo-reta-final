@@ -30,7 +30,9 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
 
 ## Publicar (Supabase + Vercel)
 
-1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0009`, sem os arquivos `.down`).
+1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0009`, sem os arquivos `.down`
+   e **sem a 0005**, que o próprio atelie marca como não aplicada: ela exige que o envio de documentos use a chave de serviço).
+   Projeto atual: `duo-reta-final` (`https://xslqdunmykikmslgntqz.supabase.co`, região São Paulo), já com 0001–0004 e 0006–0009.
 2. **Auth** (Authentication → Providers/Settings):
    - desligue o cadastro aberto ("Allow new users to sign up");
    - em URL Configuration, adicione `https://SEU_DOMINIO/auth/confirm` às Redirect URLs;

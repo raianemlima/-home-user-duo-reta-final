@@ -16,6 +16,11 @@ $$;
 create or replace function public.is_active_student() returns boolean language sql stable security definer set search_path = public as $$
   select exists (select 1 from public.profiles where user_id = auth.uid() and active)
 $$;
+-- Só usuários logados (as políticas de RLS as chamam); visitantes não executam pela API.
+revoke execute on function public.is_staff() from public, anon;
+revoke execute on function public.is_active_student() from public, anon;
+grant execute on function public.is_staff() to authenticated, service_role;
+grant execute on function public.is_active_student() to authenticated, service_role;
 
 create table if not exists public.disciplines (
   id uuid primary key default gen_random_uuid(),
@@ -82,7 +87,7 @@ create table if not exists public.highlights (
 create index if not exists highlights_user_idx on public.highlights (user_id, discipline_id);
 create index if not exists highlights_version_idx on public.highlights (version_id) where status = 'active';
 
-create or replace function public.touch_updated_at() returns trigger language plpgsql as $$
+create or replace function public.touch_updated_at() returns trigger language plpgsql set search_path = public as $$
 begin new.updated_at = now(); return new; end $$;
 drop trigger if exists highlights_touch on public.highlights;
 create trigger highlights_touch before update on public.highlights for each row execute function public.touch_updated_at();
