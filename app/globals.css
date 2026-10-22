@@ -76,6 +76,11 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .badge { display: inline-block; margin-left: .5rem; padding: .1rem .5rem; border-radius: 999px; background: var(--tip-bg); color: var(--text); border: 1px solid var(--tip-border); font-size: .75rem; font-weight: 600; }
 
 /* Início */
+.tips { display: grid; gap: .75rem; margin: 1rem 0; }
+.tip-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: .9rem 1rem; display: grid; gap: .5rem; }
+.tip-card p { margin: 0; }
+.tip-title { font-family: var(--font-title); font-weight: 700; }
+.new-banner { background: var(--tip-bg); border: 1px solid var(--tip-border); border-radius: 12px; padding: .75rem 1rem; margin: 1rem 0 0; }
 .discipline-grid { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: .75rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 .discipline-card { display: grid; gap: .35rem; padding: 1rem 1.1rem; min-height: 120px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; color: var(--text); text-decoration: none; }
 .discipline-card:hover { border-color: var(--accent); }
