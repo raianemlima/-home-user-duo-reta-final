@@ -21,3 +21,14 @@ export function studyPlanPath(userId: string, fileName: unknown, size: unknown):
   const base = fileName.slice(0, fileName.length - extension.length - 1).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^A-Za-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80) || "cronograma";
   return { path: `${userId}/${base}.${extension}`, contentType };
 }
+
+// Cronogramas oficiais do DUO, enviados pela equipe (Equipe › Cronogramas) e lidos dentro do app.
+export type OfficialPlan = "4h" | "6h";
+export type PlanChoice = OfficialPlan | "proprio";
+export const OFFICIAL_PLANS: Record<OfficialPlan, { path: string; label: string }> = {
+  "4h": { path: "oficiais/4h.docx", label: "Cronograma DUO · 4 horas por dia" },
+  "6h": { path: "oficiais/6h.docx", label: "Cronograma DUO · 6 horas por dia" },
+};
+export const isOfficialPlan = (value: unknown): value is OfficialPlan => value === "4h" || value === "6h";
+export const isPlanChoice = (value: unknown): value is PlanChoice => isOfficialPlan(value) || value === "proprio";
+export const WEEKDAY_NAMES = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];

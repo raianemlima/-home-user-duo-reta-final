@@ -12,6 +12,7 @@ const SITUATIONS: [Situation, string][] = [["todas", "Todas"], ["nao-respondidas
 function Select({ label, name, value, options, onChange }: { label: string; name: string; value: string; options: [string, number][]; onChange: (name: string, value: string) => void }) {
   return <label>{label}<select value={value} onChange={(event) => onChange(name, event.target.value)}>
     <option value="">Todos</option>
+    {value && !options.some(([option]) => option === value) && <option value={value}>{value.split("|").join(" + ")}</option>}
     {options.map(([option, total]) => <option key={option} value={option}>{option} ({total})</option>)}
   </select></label>;
 }
