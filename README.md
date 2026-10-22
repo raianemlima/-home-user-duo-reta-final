@@ -82,3 +82,23 @@ Resultado em 22/10/2026, com os 11 ebooks do Reta Final DPE-SP (PDF):
 As questões vêm do repositório REVIEW-RAI (`ferramentas/conteudo/dados/simulados/*.json`) e ficam em `data/questoes.json`. Entram só as da DPE-SP e as de Defensor da FCC de 2021 em diante (regra `keep` no importador).
 Para atualizar depois de mudar as questões lá: `node scripts/questoes/importar.mjs /caminho/para/review-rai`, confira e faça o commit.
 As respostas de cada aluno ficam na tabela `question_answers` (migração 0015).
+
+### Fundamentação do gabarito
+
+`data/fundamentacoes.json` guarda, por questão, a fundamentação conferida nas fontes: uma nota ligando o
+dispositivo à alternativa correta, os dispositivos e a data da conferência. Cada dispositivo diz o que é:
+
+- `tipo: "lei"` — **transcrição literal** do dispositivo, com `url` da página oficial de onde o texto veio
+  (Portal da Legislação do Planalto, em regra o *texto compilado*);
+- `tipo: "entendimento"` — **resumo** da posição do tribunal ou do órgão (STF, STJ, Corte IDH, CIDH, OIT…),
+  ou da construção doutrinária. A tela rotula como resumo, para o aluno não confundir com lei seca.
+
+Quando a conferência não fecha, o campo `ressalva` aparece em destaque na tela do aluno: gabarito oficial
+discutível, duas alternativas corretas, questão superada por lei nova, norma estadual ou interna de outra
+Defensoria que não foi possível conferir, ou tese que só se sustenta em doutrina.
+
+A fundamentação vai ao aparelho sob demanda (`GET /api/questoes/[id]/fundamentacao`), quando o aluno já viu
+a correção: o texto de lei inteiro na primeira carga pesaria no celular.
+
+Confira o arquivo com `node scripts/questoes/conferir-fundamentacao.mjs` (`--cobertura` mostra o andamento
+por disciplina). Os mesmos invariantes estão em `tests/duo/questions.test.ts`.

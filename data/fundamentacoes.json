@@ -264,6 +264,23 @@
    ],
    "conferido": "2026-10-22"
   },
+  "dpesp-2025-propria-20": {
+   "nota": "A prevenção exige avaliação antes da autorização: licenciar automaticamente atividade de médio risco, sem análise prévia do órgão ambiental, esvazia o dever do art. 225, § 1º, IV, da CF/1988 e representa retrocesso na proteção. O STF tem declarado inconstitucionais normas que dispensam ou automatizam o licenciamento desse tipo de atividade. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 225, § 1º, IV",
+     "tipo": "lei",
+     "texto": "exigir, na forma da lei, para instalação de obra ou atividade potencialmente causadora de significativa degradação do meio ambiente, estudo prévio de impacto ambiental, a que se dará publicidade;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, licenciamento ambiental automático e vedação de retrocesso",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que o licenciamento ambiental é instrumento de concretização dos deveres de prevenção e precaução e que normas estaduais ou federais que dispensam, automatizam ou flexibilizam a análise prévia de atividades de risco — inclusive as de médio risco — violam o art. 225 da Constituição e o princípio da proibição de retrocesso socioambiental."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "dpesp-2025-propria-21": {
    "nota": "O art. 2º do Código Civil adota a teoria natalista: a personalidade civil começa do nascimento com vida, embora a lei resguarde desde a concepção os direitos do nascituro. O registro é declaratório, não constitutivo. Alternativa C.",
    "dispositivos": [
@@ -553,6 +570,79 @@
      "ref": "CF/1988, art. 5º, IV",
      "tipo": "lei",
      "texto": "é livre a manifestação do pensamento, sendo vedado o anonimato;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-41": {
+   "nota": "A alínea l do art. 1º, I, da LC 64/1990, com a redação da Lei da Ficha Limpa, torna inelegível quem for condenado à suspensão dos direitos políticos, por decisão transitada em julgado OU proferida por órgão judicial colegiado, por ato DOLOSO de improbidade administrativa. Alternativa C — e é justamente a condenação colegiada, sem trânsito em julgado, que a lei alcança (o que torna errada a generalidade da alternativa B).",
+   "dispositivos": [
+    {
+     "ref": "LC 64/1990, art. 1º, I, l",
+     "tipo": "lei",
+     "texto": "os que forem condenados à suspensão dos direitos políticos, em decisão transitada em julgado ou proferida por órgão judicial colegiado, por ato doloso de improbidade administrativa que importe, concomitantemente, na parte dispositiva da decisão, lesão ao patrimônio público e enriquecimento ilícito, desde a condenação por órgão colegiado até o transcurso do prazo de 8 (oito) anos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp64compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-42": {
+   "nota": "O art. 14, § 1º, da CF/1988 é literal: obrigatórios para os maiores de dezoito anos; facultativos para analfabetos, maiores de setenta anos e maiores de dezesseis e menores de dezoito. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 14, § 1º",
+     "tipo": "lei",
+     "texto": "O alistamento eleitoral e o voto são:\nI - obrigatórios para os maiores de dezoito anos;\nII - facultativos para:\na) os analfabetos;\nb) os maiores de setenta anos;\nc) os maiores de dezesseis e menores de dezoito anos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-43": {
+   "nota": "Antes da EC 131/2023, a perda da nacionalidade por aquisição de outra não ocorria quando a nacionalidade estrangeira decorria de reconhecimento pela lei estrangeira — isto é, de imposição legal, e não de ato voluntário de naturalização. Era essa a leitura do STF, e é o que diz a alternativa C. Veja a ressalva.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 12, § 4º (redação da EC 131/2023)",
+     "tipo": "lei",
+     "texto": "Será declarada a perda da nacionalidade do brasileiro que:\nI - tiver cancelada sua naturalização, por sentença judicial, em virtude de fraude relacionada ao processo de naturalização ou de atentado contra a ordem constitucional e o Estado Democrático;\nII - fizer pedido expresso de perda da nacionalidade brasileira perante autoridade brasileira competente, ressalvadas situações que acarretem apatridia.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 12, § 5º",
+     "tipo": "lei",
+     "texto": "A renúncia da nacionalidade, nos termos do inciso II do § 4º deste artigo, não impede o interessado de readquirir sua nacionalidade brasileira originária, nos termos da lei.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão superada pela Emenda Constitucional 131/2023: a hipótese de perda da nacionalidade por aquisição de outra nacionalidade foi REVOGADA. Hoje a perda só se dá por cancelamento judicial da naturalização (fraude ou atentado ao Estado Democrático) ou por pedido expresso do próprio brasileiro. Estude a redação atual, não o gabarito."
+  },
+  "dpesp-2025-propria-44": {
+   "nota": "Vale o critério do art. 12, I, a: nascido no território brasileiro é brasileiro nato, ainda que de pais estrangeiros, desde que estes não estejam a serviço de seu país. A adoção por estrangeiros não altera a nacionalidade originária. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 12, I, a",
+     "tipo": "lei",
+     "texto": "São brasileiros:\nI - natos:\na) os nascidos na República Federativa do Brasil, ainda que de pais estrangeiros, desde que estes não estejam a serviço de seu país;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-45": {
+   "nota": "A naturalização ordinária, na Lei de Migração, exige capacidade civil, residência por prazo mínimo, comunicação em língua portuguesa e ausência de condenação penal — exatamente o desenho da alternativa C (residência por prazo legal + fluência em português). A nacionalidade pelo casamento não existe no direito brasileiro (derruba B).",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.445/2017, art. 65",
+     "tipo": "lei",
+     "texto": "Será concedida a naturalização ordinária àquele que preencher as seguintes condições:\nI - ter capacidade civil, segundo a lei brasileira;\nII - ter residência em território nacional, pelo prazo mínimo de 4 (quatro) anos;\nIII - comunicar-se em língua portuguesa, consideradas as condições do naturalizando; e\nIV - não possuir condenação penal ou estiver reabilitado, nos termos da lei.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2017/Lei/L13445.htm"
+    },
+    {
+     "ref": "CF/1988, art. 12, II",
+     "tipo": "lei",
+     "texto": "II - naturalizados:\na) os que, na forma da lei, adquiram a nacionalidade brasileira, exigidas aos originários de países de língua portuguesa apenas residência por um ano ininterrupto e idoneidade moral;\nb) os estrangeiros de qualquer nacionalidade, residentes na República Federativa do Brasil há mais de quinze anos ininterruptos e sem condenação penal, desde que requeiram a nacionalidade brasileira.",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
     }
    ],
@@ -1214,6 +1304,66 @@
    ],
    "conferido": "2026-10-22"
   },
+  "dpesp-2025-propria-90": {
+   "nota": "Questão de gramática. A alternativa D é a única sem erro: concordância, regência e pontuação corretas. A traz \"pró-ativa\" (grafia incorreta) e \"que traz\" em desacordo com \"avanços\"; B falta crase em \"à inteligência artificial\" e desloca o \"tanto... como\"; C escreve \"esponencial\" (sic) e quebra o paralelismo da regência (\"graças ao... à... e a\"); E usa \"haviam\" como impessoal e \"limitou\" no singular com sujeito composto.",
+   "dispositivos": [
+    {
+     "ref": "Norma-padrão: concordância, regência e grafia",
+     "tipo": "entendimento",
+     "texto": "Erros que eliminam as outras alternativas: \"proativo\" não leva hífen (prefixo pro- + vogal diferente); \"exponencial\" se escreve com x; o verbo haver no sentido de existir é impessoal e não vai ao plural (\"havia muitas expectativas\"); sujeito composto posposto admite concordância atrativa, mas \"a falta... e a escassez... limitou\" exige \"limitaram\"; e \"associados a inteligência artificial\" pede a crase (\"à\")."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Língua Portuguesa, sem fundamento legal."
+  },
+  "dpesp-2025-propria-91": {
+   "nota": "A metáfora abre o texto e é explicada no parágrafo seguinte: \"vivemos uma divisão profunda entre o nosso lado animal e o nosso lado capaz de imaginar o eterno\". Ou seja, serve para apontar a dualidade humana entre o instinto e a busca por eternidade. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Interpretação de texto (Marcelo Gleiser, \"Medo do futuro 2\")",
+     "tipo": "entendimento",
+     "texto": "O próprio texto glosa a citação de Emerson: a frase introduz a \"natureza dual entre o animal e o semidivino, o mortal e o imortal\", apresentada como a característica mais marcante do ser humano. Não há no texto tese sobre queda espiritual, substituição da fé pela ciência, decadência das religiões ou divindade genética."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Língua Portuguesa (interpretação de texto), sem fundamento legal."
+  },
+  "dpesp-2025-propria-92": {
+   "nota": "Em \"a tecnologia digital está se apoderando do mundo\", \"apoderar-se\" é verbo pronominal: o \"se\" integra o verbo e remete ao próprio sujeito, funcionando como pronome reflexivo. Não há indeterminação do sujeito (que é expresso) nem voz passiva sintética — esta exigiria verbo transitivo direto com sujeito paciente. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Norma-padrão: classificação do \"se\"",
+     "tipo": "entendimento",
+     "texto": "O \"se\" é partícula apassivadora com verbo transitivo direto (\"vendem-se casas\"), índice de indeterminação do sujeito com verbo intransitivo ou transitivo indireto na 3ª pessoa do singular (\"precisa-se de ajuda\"), e pronome reflexivo ou parte integrante do verbo nos verbos pronominais, como apoderar-se, queixar-se, lembrar-se — caso do trecho, em que o sujeito (\"a tecnologia digital\") está expresso."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Língua Portuguesa, sem fundamento legal."
+  },
+  "dpesp-2025-propria-93": {
+   "nota": "O núcleo do sujeito é \"natureza\", determinado por \"essa\" e modificado por \"dual\" e pelo adjunto \"entre o animal e o semidivino...\". O verbo \"é\" concorda com esse núcleo. O gabarito aponta E (\"essa natureza\"); a alternativa B (\"natureza dual\") expressa o mesmo sujeito com o adjetivo. Veja a ressalva.",
+   "dispositivos": [
+    {
+     "ref": "Norma-padrão: concordância verbal com o núcleo do sujeito",
+     "tipo": "entendimento",
+     "texto": "O verbo concorda com o núcleo do sujeito, e não com adjuntos adnominais, complementos nominais ou predicativos. Em \"essa natureza dual [...] é nossa característica mais marcante\", o núcleo é \"natureza\" (singular), \"característica mais marcante\" é predicativo do sujeito e \"entre o animal e o semidivino\" é adjunto — nenhum dos dois comanda a concordância."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Língua Portuguesa, sem fundamento legal, e com gabarito discutível: as alternativas B (\"natureza dual\") e E (\"essa natureza\") designam o mesmo sujeito, cujo núcleo é \"natureza\". O gabarito oficial é E."
+  },
+  "dpesp-2025-propria-94": {
+   "nota": "A alternativa A é a única inteiramente correta: \"impulsionado por tecnologia e pela colaboração\" mantém o paralelismo da regência. Em B, \"que levou\" não concorda com \"expectativas\"; em C, \"as IA vêm substituindo\" mistura a concordância do artigo plural com a sigla; em D e E, \"carecer\" é transitivo indireto e pede \"de\" — o que está lá —, mas o sentido construído contraria o texto. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Norma-padrão: regência e paralelismo",
+     "tipo": "entendimento",
+     "texto": "Regência de carecer: carecer DE algo (transitivo indireto). Paralelismo sintático exige repetir a mesma preposição nos termos coordenados (\"por tecnologia e pela colaboração\" — por + a = pela). A oração adjetiva concorda com o antecedente: \"expectativas [...] que LEVARAM\"."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Língua Portuguesa, sem fundamento legal."
+  },
   "fcc-defensorias-31": {
    "nota": "Negar atendimento por impossibilidade jurídica do pedido é ato de ofício do defensor; se desse ato resultar dano, a responsabilidade é do Estado (art. 37, § 6º), e a representação judicial do Estado cabe à Procuradoria-Geral do Estado (art. 132 da CF/1988), não à assessoria da própria Defensoria. É a alternativa B.",
    "dispositivos": [
@@ -1301,6 +1451,24 @@
      "tipo": "lei",
      "texto": "A Administração Pública obedecerá, dentre outros, aos princípios da legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público e eficiência.\nX - garantia dos direitos à comunicação, à apresentação de alegações finais, à produção de provas e à interposição de recursos, nos processos de que possam resultar sanções e nas situações de litígio;",
      "url": "https://www.planalto.gov.br/ccivil_03/leis/L9784.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-45": {
+   "nota": "Ao impor o poluidor-pagador, a responsabilidade compartilhada pelo ciclo de vida e a logística reversa, a Política Nacional de Resíduos Sólidos internaliza custos que antes recaíam sobre toda a sociedade — mitiga, portanto, o custeio coletivo de externalidades negativas. Alternativa C. A responsabilidade é COMPARTILHADA (individualizada e encadeada), não solidária (derruba B); os lixões tinham prazo de encerramento, não vedação imediata (D); e a logística reversa alcança apenas os produtos do art. 33 (E).",
+   "dispositivos": [
+    {
+     "ref": "Lei 12.305/2010, art. 6º, II, VII e VIII",
+     "tipo": "lei",
+     "texto": "São princípios da Política Nacional de Resíduos Sólidos:\nII - o poluidor-pagador e o protetor-recebedor;\nVII - a responsabilidade compartilhada pelo ciclo de vida dos produtos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2007-2010/2010/Lei/L12305.htm"
+    },
+    {
+     "ref": "Lei 12.305/2010, art. 3º, XVII",
+     "tipo": "lei",
+     "texto": "responsabilidade compartilhada pelo ciclo de vida dos produtos: conjunto de atribuições individualizadas e encadeadas dos fabricantes, importadores, distribuidores e comerciantes, dos consumidores e dos titulares dos serviços públicos de limpeza urbana e de manejo dos resíduos sólidos, para minimizar o volume de resíduos sólidos e rejeitos gerados, bem como para reduzir os impactos causados à saúde humana e à qualidade ambiental decorrentes do ciclo de vida dos produtos, nos termos desta Lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2007-2010/2010/Lei/L12305.htm"
     }
    ],
    "conferido": "2026-10-22"
@@ -2309,6 +2477,42 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-151": {
+   "nota": "A Lei das Cooperativas distingue demissão (a pedido), eliminação (por infração legal ou estatutária) e exclusão (por dissolução, morte, incapacidade, perda de requisito). O desligamento por infração ao estatuto, aplicado pela administração, é ELIMINAÇÃO, e dela cabe recurso com efeito suspensivo à primeira Assembleia Geral. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Lei 5.764/1971, art. 33",
+     "tipo": "lei",
+     "texto": "A eliminação do associado é aplicada em virtude de infração legal ou estatutária, ou por fato especial previsto no estatuto, mediante termo firmado por quem de direito no Livro de Matrícula, com os motivos que a determinaram.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L5764.htm"
+    },
+    {
+     "ref": "Lei 5.764/1971, art. 34 e parágrafo único",
+     "tipo": "lei",
+     "texto": "A diretoria da cooperativa tem o prazo de 30 (trinta) dias para comunicar ao interessado a sua eliminação.\nParágrafo único. Da eliminação cabe recurso, com efeito suspensivo à primeira Assembléia Geral.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L5764.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-156": {
+   "nota": "A CF/1988 prevê, no art. 12, § 1º, o estatuto de igualdade: ao português com residência permanente, havendo reciprocidade, atribuem-se os direitos inerentes ao brasileiro. Além disso, a naturalização do originário de país de língua portuguesa exige apenas um ano ininterrupto de residência e idoneidade moral (art. 12, II, a). Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 12, § 1º",
+     "tipo": "lei",
+     "texto": "Aos portugueses com residência permanente no País, se houver reciprocidade em favor de brasileiros, serão atribuídos os direitos inerentes ao brasileiro, salvo os casos previstos nesta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 12, II, a",
+     "tipo": "lei",
+     "texto": "os que, na forma da lei, adquiram a nacionalidade brasileira, exigidas aos originários de países de língua portuguesa apenas residência por um ano ininterrupto e idoneidade moral;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-218": {
    "nota": "O valor da causa, na ação indenizatória — inclusive por dano moral —, é o valor pretendido (art. 292, V), somando-se os pedidos cumulados (VI). Mas o STJ firmou que arbitrar o dano moral em valor menor que o pedido não gera sucumbência recíproca: o autor não perde parte do pedido, porque o quantum é fixado pelo juiz. É a alternativa C.",
    "dispositivos": [
@@ -2487,6 +2691,101 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-293": {
+   "nota": "A medida socioeducativa prescreve: o STJ sumulou a aplicação da prescrição penal à execução socioeducativa (Súmula 338), e a base legal é o art. 35, I e V, da Lei 12.594/2012 — o adolescente não pode receber tratamento mais gravoso do que o adulto, e a medida deve ser breve. Passados dois anos do trânsito em julgado de medida de seis meses, a execução está extinta pela prescrição. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "Lei 12.594/2012, art. 35, I e V",
+     "tipo": "lei",
+     "texto": "A execução das medidas socioeducativas reger-se-á pelos seguintes princípios:\nI - legalidade, não podendo o adolescente receber tratamento mais gravoso do que o conferido ao adulto;\nV - brevidade da medida em resposta ao ato cometido, em especial o respeito ao que dispõe o art. 122 da Lei nº 8.069, de 13 de julho de 1990 (Estatuto da Criança e do Adolescente) ;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2012/Lei/L12594.htm"
+    },
+    {
+     "ref": "STJ, Súmula 338",
+     "tipo": "entendimento",
+     "texto": "A prescrição penal é aplicável nas medidas socioeducativas. Os prazos do art. 109 do Código Penal incidem, reduzidos pela metade por força do art. 115 do CP (agente menor de 21 anos), contados da data do fato ou do trânsito em julgado da sentença socioeducativa."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-294": {
+   "nota": "O art. 208, I, da CF/1988 (redação da EC 59/2009) é literal: educação básica obrigatória e gratuita dos 4 aos 17 anos, assegurada inclusive sua oferta gratuita para todos os que a ela não tiveram acesso na idade própria. Alternativa C. A educação infantil em creche e pré-escola vai até os 5 anos (inciso IV), o que derruba E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 208, I e IV",
+     "tipo": "lei",
+     "texto": "I - educação básica obrigatória e gratuita dos 4 (quatro) aos 17 (dezessete) anos de idade, assegurada inclusive sua oferta gratuita para todos os que a ela não tiveram acesso na idade própria;\nIV - educação infantil, em creche e pré-escola, às crianças até 5 (cinco) anos de idade;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-295": {
+   "nota": "A Lei 13.431/2017 alcança qualquer forma de violência contra criança e adolescente — inclusive a violência institucional e psicológica, como o bullying praticado por professora. No depoimento especial colhido em processo judicial, a transmissão é em tempo real para a sala de audiência, com sigilo preservado, e tudo é gravado em áudio e vídeo. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.431/2017, art. 12, III e VI",
+     "tipo": "lei",
+     "texto": "depoimento especial será colhido conforme o seguinte procedimento:\nIII - no curso do processo judicial, o depoimento especial será transmitido em tempo real para a sala de audiência, preservado o sigilo;\nVI - o depoimento especial será gravado em áudio e vídeo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2017/Lei/L13431.htm"
+    },
+    {
+     "ref": "Lei 13.431/2017, art. 12, II",
+     "tipo": "lei",
+     "texto": "é assegurada à criança ou ao adolescente a livre narrativa sobre a situação de violência, podendo o profissional especializado intervir quando necessário, utilizando técnicas que permitam a elucidação dos fatos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2017/Lei/L13431.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-296": {
+   "nota": "O art. 19, § 4º, do ECA (incluído pela Lei 12.962/2014) garante a convivência da criança com a mãe ou o pai privado de liberdade por visitas periódicas promovidas pelo responsável ou, no acolhimento institucional, PELA ENTIDADE RESPONSÁVEL, independentemente de autorização judicial. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "ECA, art. 19, § 4º",
+     "tipo": "lei",
+     "texto": "Será garantida a convivência da criança e do adolescente com a mãe ou o pai privado de liberdade, por meio de visitas periódicas promovidas pelo responsável ou, nas hipóteses de acolhimento institucional, pela entidade responsável, independentemente de autorização judicial.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L8069compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-297": {
+   "nota": "A Lei 14.344/2022 (Lei Henry Borel) prevê o afastamento do agressor do lar entre as medidas protetivas em favor de criança e adolescente, e o Conselho Tutelar pode representar à autoridade policial e ao Ministério Público para requerê-las. Alternativa B. Acolhimento provisório é atribuição do Conselho Tutelar do município da criança (ECA, art. 136, I e parágrafo único), o que derruba C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.344/2022, art. 21, I e II",
+     "tipo": "lei",
+     "texto": "Poderá o juiz, quando necessário, sem prejuízo de outras medidas, determinar:\nI - a proibição do contato, por qualquer meio, entre a criança ou o adolescente vítima ou testemunha de violência e o agressor;\nII - o afastamento do agressor da residência ou do local de convivência ou de coabitação;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2022/Lei/L14344.htm"
+    },
+    {
+     "ref": "ECA, art. 136, I e IV",
+     "tipo": "lei",
+     "texto": "São atribuições do Conselho Tutelar:\nI - atender as crianças e adolescentes nas hipóteses previstas nos arts. 98 e 105, aplicando as medidas previstas no art. 101, I a VII;\nIV - encaminhar ao Ministério Público notícia de fato que constitua infração administrativa ou penal contra os direitos da criança ou adolescente;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L8069compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-298": {
+   "nota": "Na entrega protegida, o poder familiar do pai é direito próprio: se o genitor indicado comparece e confirma a intenção de exercer o poder familiar, a criança fica com ele — não se exige concordância da genitora, que entregou justamente por não querer exercê-lo. O § 6º do art. 19-A só suspende o poder familiar da mãe e encaminha à adoção quando NEM o genitor NEM a família extensa comparecem. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "ECA, art. 19-A, caput e §§ 3º a 6º",
+     "tipo": "lei",
+     "texto": "A gestante ou mãe que manifeste interesse em entregar seu filho para adoção, antes ou logo após o nascimento, será encaminhada à Justiça da Infância e da Juventude.\n§ 3º A busca à família extensa, conforme definida nos termos do parágrafo único do art. 25 desta Lei, respeitará o prazo máximo de 90 (noventa) dias, prorrogável por igual período.\n§ 4º Na hipótese de não haver a indicação do genitor e de não existir outro representante da família extensa apto a receber a guarda, a autoridade judiciária competente deverá decretar a extinção do poder familiar e determinar a colocação da criança sob a guarda provisória de quem estiver habilitado a adotá-la ou de entidade que desenvolva programa de acolhimento familiar ou institucional.\n§ 6º Na hipótese de não comparecerem à audiência nem o genitor nem representante da família extensa para confirmar a intenção de exercer o poder familiar ou a guarda, a autoridade judiciária suspenderá o poder familiar da mãe, e a criança será colocada sob a guarda provisória de quem esteja habilitado a adotá-la.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L8069compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 226, § 5º, e art. 227, caput",
+     "tipo": "lei",
+     "texto": "§ 5º Os direitos e deveres referentes à sociedade conjugal são exercidos igualmente pelo homem e pela mulher.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-307": {
    "nota": "A LEP dá à Defensoria Pública, de forma expressa, a visita periódica aos estabelecimentos penais, as providências para apurar responsabilidade e o pedido de interdição do local — exatamente o que descreve a alternativa D.",
    "dispositivos": [
@@ -2559,6 +2858,24 @@
      "tipo": "lei",
      "texto": "Compete ao MNPCT:\nIV - elaborar relatório circunstanciado de cada visita realizada nos termos do inciso I e, no prazo máximo de 30 (trinta) dias, apresentá-lo ao CNPCT, à Procuradoria-Geral da República e às autoridades responsáveis pela detenção e outras autoridades competentes;\nV - elaborar, anualmente, relatório circunstanciado e sistematizado sobre o conjunto de visitas realizadas e recomendações formuladas […];\nVII - publicar os relatórios de visitas periódicas e regulares realizadas e o relatório anual e promover a difusão deles;",
      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12847.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-331": {
+   "nota": "As medidas aplicáveis aos pais ou responsável estão no art. 129 do ECA. Os itens I (encaminhamento a programa de promoção da família — inciso I), II (programa para alcoólatras e toxicômanos — inciso II) e III (obrigação de matricular e acompanhar — inciso V) estão lá. O item IV (afastamento por quatro anos) e o item V (reclusão de 2 a 5 anos e multa, que é pena criminal) não são medidas do art. 129. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "ECA, art. 129, I, II e V",
+     "tipo": "lei",
+     "texto": "São medidas aplicáveis aos pais ou responsável:\nI - encaminhamento a serviços e programas oficiais ou comunitários de proteção, apoio e promoção da família;\nII - inclusão em programa oficial ou comunitário de auxílio, orientação e tratamento a alcoólatras e toxicômanos;\nV - obrigação de matricular o filho ou pupilo e acompanhar sua freqüência e aproveitamento escolar;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L8069compilado.htm"
+    },
+    {
+     "ref": "ECA, art. 129, VIII, IX e X",
+     "tipo": "lei",
+     "texto": "VIII - perda da guarda;\nIX - destituição da tutela;\nX - suspensão ou destituição do poder familiar .",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L8069compilado.htm"
     }
    ],
    "conferido": "2026-10-22"
@@ -2719,6 +3036,54 @@
     }
    ],
    "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-361": {
+   "nota": "Para Luhmann, o sistema jurídico é operativamente fechado e a validade é um símbolo circulante, sem valor intrínseco: ela não aponta para a justiça nem para o direito natural, apenas marca a pertença da operação ao sistema, reproduzindo e conservando a sua unidade apesar da diversidade das operações. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Niklas Luhmann, O Direito da Sociedade (validade como símbolo)",
+     "tipo": "entendimento",
+     "texto": "Na teoria dos sistemas autopoiéticos, a validade jurídica não expressa conteúdo valorativo: funciona como símbolo de circulação interna que conecta uma operação à anterior e à seguinte, assegurando a unidade do sistema e a continuidade de sua autorreprodução. A racionalidade comunicativa (alternativa A) é de Habermas, não de Luhmann; a correspondência com o direito natural (B) é incompatível com o positivismo sistêmico."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Filosofia e Sociologia do Direito, sem fundamento em texto legal."
+  },
+  "fcc-defensorias-362": {
+   "nota": "Em \"A verdade e as formas jurídicas\", Foucault mostra a passagem do sistema de provas (ordálio, juramento, prova corporal) para o INQUÉRITO, forma de estabelecer a verdade pela investigação e pelo testemunho, que nasce na segunda metade da Idade Média e se torna matriz de saber do Ocidente. Alternativa B — o ordálio (E) é justamente o sistema anterior.",
+   "dispositivos": [
+    {
+     "ref": "Michel Foucault, A verdade e as formas jurídicas (2ª conferência)",
+     "tipo": "entendimento",
+     "texto": "Foucault descreve a substituição da prova (épreuve) — jogo ritual e binário entre as partes, decidido por ordálio, juramento ou prova corporal — pelo inquérito (enquête), procedimento em que um poder central investiga os fatos, ouve testemunhas e reconstitui o acontecido. O inquérito é apresentado como forma de saber-poder, condição de possibilidade de saber que depois migra para as ciências empíricas."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Filosofia e Sociologia do Direito, sem fundamento em texto legal."
+  },
+  "fcc-defensorias-364": {
+   "nota": "Para Luhmann, a função do direito na sociedade moderna é estabilizar expectativas normativas, generalizando-as congruentemente nas dimensões temporal, social e material de sentido. Não é integrar pela regulação (A), nem obter paz pela coerção (C), nem realizar a justiça transcendente (D). Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Niklas Luhmann, O Direito da Sociedade (função do direito)",
+     "tipo": "entendimento",
+     "texto": "O direito opera com o código lícito/ilícito e tem por função a estabilização de expectativas normativas: torna previsível, no tempo (vigência), no social (consenso presumido) e no material (temas), o que se pode esperar da conduta alheia — a chamada generalização congruente de expectativas. A coerção é consequência eventual, não a função."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Filosofia e Sociologia do Direito, sem fundamento em texto legal."
+  },
+  "fcc-defensorias-365": {
+   "nota": "Delgado e Stefancic criticam a neutralidade racial (colorblindness) porque ela só enxerga a discriminação intencional e explícita: permite corrigir apenas os danos raciais extremamente gritantes, deixando intocado o racismo estrutural, cotidiano e institucional. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Richard Delgado e Jean Stefancic, Teoria Crítica da Raça (crítica à neutralidade racial)",
+     "tipo": "entendimento",
+     "texto": "Os autores sustentam que concepções de igualdade formal e de cegueira racial, por exigirem intenção discriminatória demonstrável, alcançam apenas as formas mais flagrantes e evidentes de racismo, e são incapazes de remediar o racismo difuso, estrutural e inconsciente, que opera na rotina das instituições."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Filosofia e Sociologia do Direito, sem fundamento em texto legal."
   },
   "fcc-defensorias-375": {
    "nota": "Receber presente de quem tem interesse em decisão do agente público é hipótese expressa de conflito de interesses, e é assim que a Resolução 018/2023/DPG da DPE-MT trata o tema. A norma estadual se espelha na Lei 12.813/2013, que define o conflito e arrola exatamente essa conduta.",
@@ -2924,6 +3289,18 @@
    ],
    "conferido": "2026-10-22",
    "ressalva": "A estrutura cobrada é da Lei Complementar estadual 26/2006 da Bahia, não conferível nas fontes acessíveis desta sessão; o art. 98 da LC 80/1994 é o parâmetro nacional. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-403": {
+   "nota": "Delgado e Stefancic dividem o campo entre idealistas — para quem o racismo é questão de discurso, categorias e representação — e realistas ou deterministas econômicos, para quem o racismo é mecanismo de distribuição material de privilégios, status, empregos e escolas. A descrição do enunciado é a dos realistas. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "Richard Delgado e Jean Stefancic, Teoria Crítica da Raça (idealistas e realistas)",
+     "tipo": "entendimento",
+     "texto": "Para os idealistas, o racismo e a discriminação são construções de pensamento, linguagem e categorização, combatíveis pela mudança de discurso e representação. Para os realistas (ou deterministas econômicos ou materialistas), o racismo é meio pelo qual a sociedade aloca privilégio e status, e as hierarquias raciais determinam quem fica com os melhores empregos, escolas e bairros — o que torna a reforma do discurso insuficiente sem redistribuição material."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de Filosofia e Sociologia do Direito, sem fundamento em texto legal."
   }
  }
 }
