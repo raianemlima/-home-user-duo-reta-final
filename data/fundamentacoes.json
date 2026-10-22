@@ -264,6 +264,83 @@
    ],
    "conferido": "2026-10-22"
   },
+  "dpesp-2025-propria-21": {
+   "nota": "O art. 2º do Código Civil adota a teoria natalista: a personalidade civil começa do nascimento com vida, embora a lei resguarde desde a concepção os direitos do nascituro. O registro é declaratório, não constitutivo. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 2º",
+     "tipo": "lei",
+     "texto": "A personalidade civil da pessoa começa do nascimento com vida; mas a lei põe a salvo, desde a concepção, os direitos do nascituro.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-22": {
+   "nota": "Não cumprida a obrigação, o devedor responde por perdas e danos, mais juros, atualização monetária e honorários (art. 389 do CC). O credor não é obrigado a receber prestação parcial (art. 314) nem a conceder novo prazo. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 389, caput",
+     "tipo": "lei",
+     "texto": "Não cumprida a obrigação, responde o devedor por perdas e danos, mais juros, atualização monetária e honorários de advogado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CC/2002, art. 314",
+     "tipo": "lei",
+     "texto": "Ainda que a obrigação tenha por objeto prestação divisível, não pode o credor ser obrigado a receber, nem o devedor a pagar, por partes, se assim não se ajustou.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-23": {
+   "nota": "O dano moral não tem tarifa legal: o STJ aplica o método bifásico, partindo do precedente para casos semelhantes e ajustando pelas circunstâncias — extensão do dano, grau de culpa, capacidade econômica das partes —, sempre com razoabilidade e proporcionalidade, sem enriquecimento sem causa. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 944",
+     "tipo": "lei",
+     "texto": "A indenização mede-se pela extensão do dano.\nParágrafo único. Se houver excessiva desproporção entre a gravidade da culpa e o dano, poderá o juiz reduzir, eqüitativamente, a indenização.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, V e X",
+     "tipo": "lei",
+     "texto": "V - é assegurado o direito de resposta, proporcional ao agravo, além da indenização por dano material, moral ou à imagem;\nX - são invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STJ, método bifásico de quantificação do dano moral",
+     "tipo": "entendimento",
+     "texto": "O STJ consolidou o arbitramento em duas etapas: primeiro fixa-se um valor básico a partir de precedentes em casos análogos (interesse jurídico lesado); depois ajusta-se esse valor às circunstâncias do caso — gravidade do fato, culpa, extensão do dano, condição socioeconômica das partes —, observadas a razoabilidade e a proporcionalidade e vedado o enriquecimento sem causa. Não há tabelamento legal (Súmula 281 do STJ: a indenização por dano moral não está sujeita à tarifação prevista na Lei de Imprensa)."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-24": {
+   "nota": "A emancipação faz cessar a incapacidade: o emancipado fica habilitado a praticar todos os atos da vida civil, como se maior fosse. É a alternativa D. Ela pode ser voluntária (concessão dos pais, aos 16 anos, por instrumento público), judicial ou legal (casamento, emprego público, colação de grau, economia própria) — o que derruba A e B.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 5º",
+     "tipo": "lei",
+     "texto": "A menoridade cessa aos dezoito anos completos, quando a pessoa fica habilitada à prática de todos os atos da vida civil.\nParágrafo único. Cessará, para os menores, a incapacidade:\nI - pela concessão dos pais, ou de um deles na falta do outro, mediante instrumento público, independentemente de homologação judicial, ou por sentença do juiz, ouvido o tutor, se o menor tiver dezesseis anos completos;\nII - pelo casamento;\nIII - pelo exercício de emprego público efetivo;\nIV - pela colação de grau em curso de ensino superior;\nV - pelo estabelecimento civil ou comercial, ou pela existência de relação de emprego, desde que, em função deles, o menor com dezesseis anos completos tenha economia própria.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-25": {
+   "nota": "Na solidariedade ativa cada credor pode exigir do devedor a prestação por inteiro — é o art. 267 do CC, literalmente. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 267",
+     "tipo": "lei",
+     "texto": "Cada um dos credores solidários tem direito a exigir do devedor o cumprimento da prestação por inteiro.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "dpesp-2025-propria-26": {
    "nota": "Nomear e exonerar Ministros de Estado é o inciso I do art. 84 da CF/1988, a lista da competência privativa do Presidente. As demais alternativas trocam de titular: votar no Congresso é dos parlamentares, a iniciativa das leis orçamentárias é do Executivo mas por projeto de lei (art. 165), e emenda à Constituição pode ser proposta por vários legitimados (art. 60).",
    "dispositivos": [
@@ -1045,6 +1122,98 @@
    ],
    "conferido": "2026-10-22"
   },
+  "dpesp-2025-propria-83": {
+   "nota": "O art. 51, IV, do CDC é expresso: são nulas de pleno direito as cláusulas que estabeleçam obrigações iníquas, abusivas, que coloquem o consumidor em desvantagem exagerada ou sejam incompatíveis com a boa-fé ou a equidade. Alternativa C. Limitar indenização só é possível, excepcionalmente, nas relações com consumidor pessoa jurídica (inciso I).",
+   "dispositivos": [
+    {
+     "ref": "CDC, art. 51, caput e IV",
+     "tipo": "lei",
+     "texto": "São nulas de pleno direito, entre outras, as cláusulas contratuais relativas ao fornecimento de produtos e serviços que:\nIV - estabeleçam obrigações consideradas iníquas, abusivas, que coloquem o consumidor em desvantagem exagerada, ou sejam incompatíveis com a boa-fé ou a eqüidade;",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/L8078compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-84": {
+   "nota": "O § 1º do art. 37 define publicidade enganosa pela aptidão de induzir em erro: informação total ou parcialmente falsa, ou mesmo omissa, capaz de enganar o consumidor sobre natureza, características, qualidade, quantidade, origem, preço e outros dados. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CDC, art. 37, caput e § 1º",
+     "tipo": "lei",
+     "texto": "É proibida toda publicidade enganosa ou abusiva.\n§ 1° É enganosa qualquer modalidade de informação ou comunicação de caráter publicitário, inteira ou parcialmente falsa, ou, por qualquer outro modo, mesmo por omissão, capaz de induzir em erro o consumidor a respeito da natureza, características, qualidade, quantidade, propriedades, origem, preço e quaisquer outros dados sobre produtos e serviços.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/L8078compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-85": {
+   "nota": "O art. 4º, I, do CDC coloca o reconhecimento da vulnerabilidade do consumidor no mercado de consumo como primeiro princípio da Política Nacional das Relações de Consumo — é a premissa de todo o sistema. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CDC, art. 4º, I",
+     "tipo": "lei",
+     "texto": "I - reconhecimento da vulnerabilidade do consumidor no mercado de consumo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/L8078compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-86": {
+   "nota": "O art. 12 do CDC trata do fato do produto (acidente de consumo) e impõe responsabilidade objetiva: fabricante, produtor, construtor e importador respondem independentemente da existência de culpa pelos danos decorrentes de defeito. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CDC, art. 12, caput",
+     "tipo": "lei",
+     "texto": "O fabricante, o produtor, o construtor, nacional ou estrangeiro, e o importador respondem, independentemente da existência de culpa, pela reparação dos danos causados aos consumidores por defeitos decorrentes de projeto, fabricação, construção, montagem, fórmulas, manipulação, apresentação ou acondicionamento de seus produtos, bem como por informações insuficientes ou inadequadas sobre sua utilização e riscos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/L8078compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-87": {
+   "nota": "O art. 1º da Declaração Universal dos Direitos Humanos (1948) abre com a igualdade: todos os seres humanos nascem livres e iguais em dignidade e direitos. É a alternativa C — e o texto segue afirmando que devem agir em relação uns aos outros com espírito de fraternidade, o que derruba a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Declaração Universal dos Direitos Humanos (1948), art. I",
+     "tipo": "entendimento",
+     "texto": "A Declaração afirma que todos os seres humanos nascem livres e iguais em dignidade e direitos, e que, dotados de razão e consciência, devem agir uns para com os outros com espírito de fraternidade. Os direitos nela reconhecidos não são condicionados à ordem constitucional de cada país nem ao progresso econômico."
+    },
+    {
+     "ref": "CF/1988, art. 1º, III",
+     "tipo": "lei",
+     "texto": "A República Federativa do Brasil, formada pela união indissolúvel dos Estados e Municípios e do Distrito Federal, constitui-se em Estado Democrático de Direito e tem como fundamentos:\nIII - a dignidade da pessoa humana;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-88": {
+   "nota": "O art. 63.2 da Convenção Americana autoriza a Corte Interamericana a adotar medidas provisórias em casos de extrema gravidade e urgência, quando necessário para evitar danos irreparáveis às pessoas — inclusive em casos ainda não submetidos à Corte, por pedido da Comissão. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Convenção Americana sobre Direitos Humanos, art. 63.2",
+     "tipo": "entendimento",
+     "texto": "A Convenção autoriza a Corte Interamericana, em casos de extrema gravidade e urgência e quando necessário para evitar danos irreparáveis às pessoas, a adotar as medidas provisórias que considerar pertinentes nos assuntos de que estiver conhecendo; se o caso ainda não houver sido submetido à Corte, ela pode agir a pedido da Comissão Interamericana. Não se exige sentença definitiva nem esgotamento de todas as instâncias internas para a medida."
+    },
+    {
+     "ref": "Decreto 678/1992 (promulga a Convenção Americana)",
+     "tipo": "entendimento",
+     "texto": "A Convenção Americana sobre Direitos Humanos (Pacto de San José da Costa Rica, 1969) foi promulgada no Brasil pelo Decreto 678, de 6 de novembro de 1992, e o Brasil reconheceu a competência contenciosa da Corte Interamericana pelo Decreto Legislativo 89/1998 e pelo Decreto 4.463/2002."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-89": {
+   "nota": "O Pacto Internacional sobre Direitos Civis e Políticos (1966) protege, entre outros, a liberdade de pensamento, consciência e religião (art. 18), a liberdade de expressão (art. 19) e a liberdade de associação (art. 22) — alternativa C. Os direitos econômicos estão no Pacto gêmeo (PIDESC), e a tortura é proibida de forma absoluta pelo art. 7º.",
+   "dispositivos": [
+    {
+     "ref": "Pacto Internacional sobre Direitos Civis e Políticos, arts. 7º, 18, 19 e 22",
+     "tipo": "entendimento",
+     "texto": "O Pacto proíbe de forma absoluta a tortura e as penas ou tratamentos cruéis, desumanos ou degradantes (art. 7º) e assegura a liberdade de pensamento, consciência e religião (art. 18), a liberdade de opinião e expressão (art. 19) e a liberdade de associação, inclusive sindical (art. 22). Foi promulgado no Brasil pelo Decreto 592, de 6 de julho de 1992."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-31": {
    "nota": "Negar atendimento por impossibilidade jurídica do pedido é ato de ofício do defensor; se desse ato resultar dano, a responsabilidade é do Estado (art. 37, § 6º), e a representação judicial do Estado cabe à Procuradoria-Geral do Estado (art. 132 da CF/1988), não à assessoria da própria Defensoria. É a alternativa B.",
    "dispositivos": [
@@ -1132,6 +1301,40 @@
      "tipo": "lei",
      "texto": "A Administração Pública obedecerá, dentre outros, aos princípios da legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público e eficiência.\nX - garantia dos direitos à comunicação, à apresentação de alegações finais, à produção de provas e à interposição de recursos, nos processos de que possam resultar sanções e nas situações de litígio;",
      "url": "https://www.planalto.gov.br/ccivil_03/leis/L9784.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-70": {
+   "nota": "O STJ firmou que a usucapião extraordinária (art. 1.238 do CC) não se sujeita ao módulo mínimo urbano fixado em lei municipal: a lei civil não exige metragem mínima, e a norma urbanística de parcelamento não pode impedir a aquisição originária da propriedade. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 1.238",
+     "tipo": "lei",
+     "texto": "Aquele que, por quinze anos, sem interrupção, nem oposição, possuir como seu um imóvel, adquire-lhe a propriedade, independentemente de título e boa-fé; podendo requerer ao juiz que assim o declare por sentença, a qual servirá de título para o registro no Cartório de Registro de Imóveis.\nParágrafo único. O prazo estabelecido neste artigo reduzir-se-á a dez anos se o possuidor houver estabelecido no imóvel a sua moradia habitual, ou nele realizado obras ou serviços de caráter produtivo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "STJ, usucapião extraordinária e módulo urbano mínimo",
+     "tipo": "entendimento",
+     "texto": "O STJ consolidou que o reconhecimento da usucapião extraordinária de imóvel urbano prescinde da observância da metragem mínima do módulo urbano estabelecido em legislação municipal: trata-se de modo originário de aquisição, regido pela lei civil, que não impõe área mínima, e a exigência administrativa de parcelamento do solo não obsta a declaração do domínio."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-71": {
+   "nota": "O STJ firmou que a alteração do regime de bens produz efeitos EX NUNC, a partir do trânsito em julgado da decisão que a autoriza — o regime anterior rege os fatos até ali, preservando terceiros. No caso, o trânsito em julgado foi em 10/12/2021. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CC/2002, art. 1.639, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º O regime de bens entre os cônjuges começa a vigorar desde a data do casamento.\n§ 2º É admissível alteração do regime de bens, mediante autorização judicial em pedido motivado de ambos os cônjuges, apurada a procedência das razões invocadas e ressalvados os direitos de terceiros.",
+     "url": "https://www.planalto.gov.br/ccivil_03/LEIS/2002/L10406compilada.htm"
+    },
+    {
+     "ref": "STJ, eficácia ex nunc da alteração do regime de bens",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que a modificação do regime de bens tem eficácia ex nunc, contada do trânsito em julgado da decisão que a defere: os atos e as aquisições anteriores permanecem regidos pelo regime original, em resguardo da segurança jurídica e dos direitos de terceiros, como exige a ressalva final do art. 1.639, § 2º, do Código Civil."
     }
    ],
    "conferido": "2026-10-22"
@@ -2290,7 +2493,7 @@
     {
      "ref": "LEP (Lei 7.210/1984), art. 81-B, V e VI",
      "tipo": "lei",
-     "texto": "Incumbe, ainda, à Defensoria Pública:\nV - visitar os estabelecimentos penais, tomando providências para o adequado funcionamento, e requerer, quando for o caso, a apuração de responsabilidade;\nVI - requerer à autoridade competente a interdição, no todo ou em parte, de estabelecimento penal.",
+     "texto": "B Incumbe, ainda, à Defensoria Pública:\nV - visitar os estabelecimentos penais, tomando providências para o adequado funcionamento, e requerer, quando for o caso, a apuração de responsabilidade;\nVI - requerer à autoridade competente a interdição, no todo ou em parte, de estabelecimento penal.",
      "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
     },
     {
@@ -2356,6 +2559,163 @@
      "tipo": "lei",
      "texto": "Compete ao MNPCT:\nIV - elaborar relatório circunstanciado de cada visita realizada nos termos do inciso I e, no prazo máximo de 30 (trinta) dias, apresentá-lo ao CNPCT, à Procuradoria-Geral da República e às autoridades responsáveis pela detenção e outras autoridades competentes;\nV - elaborar, anualmente, relatório circunstanciado e sistematizado sobre o conjunto de visitas realizadas e recomendações formuladas […];\nVII - publicar os relatórios de visitas periódicas e regulares realizadas e o relatório anual e promover a difusão deles;",
      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12847.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-346": {
+   "nota": "A alternativa E reproduz a Lei 9.140/1995: ela criou a Comissão Especial sobre Mortos e Desaparecidos Políticos (art. 4º) e reconheceu como mortas as pessoas desaparecidas após detenção por agentes públicos, em razão de atividade política, entre 2 de setembro de 1961 e 5 de outubro de 1988 (art. 1º).",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.140/1995, art. 1º",
+     "tipo": "lei",
+     "texto": "São reconhecidos como mortas, para todos os efeitos legais, as pessoas que tenham participado, ou tenham sido acusadas de participação, em atividades políticas, no período de 2 de setembro de 1961 a 5 de outubro de 1988, e que, por este motivo, tenham sido detidas por agentes públicos, achando-se, deste então, desaparecidas, sem que delas haja notícias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9140compilada.htm"
+    },
+    {
+     "ref": "Lei 9.140/1995, art. 4º, caput",
+     "tipo": "lei",
+     "texto": "Fica criada Comissão Especial que, face às circunstâncias descritas no art. 1º desta Lei, assim como diante da situação política nacional compreendida no período de 2 de setembro de 1961 a 5 de outubro de 1988, tem as seguintes atribuições:",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9140compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-347": {
+   "nota": "Na possessória com muitos ocupantes, a Defensoria é intimada quando há hipossuficientes (CPC, art. 554, § 1º) e atua com plena legitimidade. E a própria ação possessória tem natureza dúplice: o réu pode, NA CONTESTAÇÃO, pedir a proteção possessória (art. 556) e alegar a usucapião como matéria de defesa — a chamada exceção de usucapião. Não precisa de reconvenção nem de ação autônoma. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 554, § 1º",
+     "tipo": "lei",
+     "texto": "No caso de ação possessória em que figure no polo passivo grande número de pessoas, serão feitas a citação pessoal dos ocupantes que forem encontrados no local e a citação por edital dos demais, determinando-se, ainda, a intimação do Ministério Público e, se envolver pessoas em situação de hipossuficiência econômica, da Defensoria Pública.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 556",
+     "tipo": "lei",
+     "texto": "É lícito ao réu, na contestação, alegando que foi o ofendido em sua posse, demandar a proteção possessória e a indenização pelos prejuízos resultantes da turbação ou do esbulho cometido pelo autor.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "STF, Súmula 237",
+     "tipo": "entendimento",
+     "texto": "O usucapião pode ser arguido em defesa. É a exceção de usucapião: a aquisição do domínio pela posse prolongada pode ser alegada na contestação da possessória, como matéria de defesa, sem necessidade de ação autônoma ou de reconvenção."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-348": {
+   "nota": "Os textos tratam de direitos humanos e democracia como processos permanentes, sujeitos a retrocesso. É nessa chave que entram as garantias de não repetição — um dos pilares da justiça de transição, ao lado da verdade, da memória e da reparação: olham para o futuro, para fortalecer a democracia e prevenir novas violações. Alternativa D; A, B, C e E negam o caráter processual e não linear.",
+   "dispositivos": [
+    {
+     "ref": "Justiça de transição: os quatro pilares",
+     "tipo": "entendimento",
+     "texto": "A ONU e a Corte Interamericana estruturam a justiça de transição em quatro eixos: direito à verdade e à memória, reparação das vítimas, responsabilização dos agentes e garantias de não repetição (reformas institucionais, capacitação, mudanças normativas). As garantias de não repetição são medidas prospectivas, aplicáveis também em democracias consolidadas, e são deferidas pela Corte IDH como parte da reparação integral."
+    },
+    {
+     "ref": "Corte IDH, Gomes Lund e outros vs. Brasil (Guerrilha do Araguaia, 2010)",
+     "tipo": "entendimento",
+     "texto": "A Corte Interamericana condenou o Brasil e, entre as reparações, fixou garantias de não repetição — entre elas a capacitação em direitos humanos das Forças Armadas, a tipificação do desaparecimento forçado e a continuidade das ações de busca e identificação —, reconhecendo o direito à verdade como direito autônomo das vítimas e da sociedade."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-349": {
+   "nota": "A Convenção de 1951 relativa ao Estatuto dos Refugiados foi promulgada no Brasil pelo Decreto 50.215/1961, e o Protocolo de 1967 pelo Decreto 70.946/1972; a Lei 9.474/1997 implementou o Estatuto no direito interno. Logo, houve incorporação formal — alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.474/1997, art. 1º",
+     "tipo": "lei",
+     "texto": "Será reconhecido como refugiado todo indivíduo que:\nI - devido a fundados temores de perseguição por motivos de raça, religião, nacionalidade, grupo social ou opiniões políticas encontre-se fora de seu país de nacionalidade e não possa ou não queira acolher-se à proteção de tal país;\nII - não tendo nacionalidade e estando fora do país onde antes teve sua residência habitual, não possa ou não queira regressar a ele, em função das circunstâncias descritas no inciso anterior;\nIII - devido a grave e generalizada violação de direitos humanos, é obrigado a deixar seu país de nacionalidade para buscar refúgio em outro país.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9474.htm"
+    },
+    {
+     "ref": "Incorporação da Convenção de 1951",
+     "tipo": "entendimento",
+     "texto": "A Convenção relativa ao Estatuto dos Refugiados (Genebra, 1951) foi promulgada no Brasil pelo Decreto 50.215, de 28 de janeiro de 1961, e o Protocolo de 1967, que removeu as reservas geográfica e temporal, pelo Decreto 70.946, de 7 de agosto de 1972. A Lei 9.474/1997 definiu os mecanismos internos de implementação e criou o CONARE. O Brasil aderiu ao Pacto Global para Migração Segura, Ordenada e Regular (2018), instrumento não vinculante e sem mecanismo contencioso."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-350": {
+   "nota": "Amefricanidade, categoria de Lélia Gonzalez retomada por Thula Pires, é crítica ao discurso hegemônico dos direitos humanos: denuncia que a universalidade do sujeito de direito foi construída pela exclusão material, subjetiva e epistêmica dos povos subalternizados pela colonialidade. Não é pedido de inclusão formal nos tratados (A, B, D) nem adesão ao sistema africano (C). Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "Amefricanidade (Lélia Gonzalez; Thula Pires)",
+     "tipo": "entendimento",
+     "texto": "A categoria recusa a leitura dos direitos humanos como catálogo a ser ampliado e desloca o problema para a própria forma do sujeito universal de direito, forjado — segundo a crítica amefricana ao colonialismo jurídico — pela exclusão material, subjetiva e epistêmica dos povos racializados e subalternizados da Améfrica Ladina, articulando racismo, sexismo, cis-heterossexualidade compulsória, capitalismo e colonialidade."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de teoria crítica dos direitos humanos, sem fundamento em texto legal."
+  },
+  "fcc-defensorias-351": {
+   "nota": "O art. 68 do ADCT reconhece aos remanescentes de quilombos que ocupam suas terras a PROPRIEDADE DEFINITIVA, com dever estatal de titulação; e a Convenção 169 da OIT exige consulta livre, prévia e informada aos povos indígenas E tribais — categoria que abrange as comunidades quilombolas. Leia a ressalva: o gabarito oficial é D, mas o direito aplicável aponta para E.",
+   "dispositivos": [
+    {
+     "ref": "ADCT, art. 68",
+     "tipo": "lei",
+     "texto": "Aos remanescentes das comunidades dos quilombos que estejam ocupando suas terras é reconhecida a propriedade definitiva, devendo o Estado emitir-lhes os títulos respectivos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Convenção 169 da OIT, arts. 1º, 6º e 15",
+     "tipo": "entendimento",
+     "texto": "A Convenção 169 alcança os povos indígenas E tribais, e o Brasil e a Corte Interamericana a aplicam às comunidades quilombolas. Ela impõe consulta livre, PRÉVIA e informada, de boa-fé e por procedimentos apropriados, sempre que medidas legislativas ou administrativas possam afetá-los diretamente. Foi promulgada no Brasil pelo Decreto 5.051/2004, hoje Decreto 10.088/2019."
+    },
+    {
+     "ref": "Corte IDH, consulta prévia a povos indígenas e tribais",
+     "tipo": "entendimento",
+     "texto": "Desde Saramaka vs. Suriname (2007) e Sarayaku vs. Equador (2012), a Corte Interamericana exige que a consulta seja prévia — realizada nas primeiras etapas do plano ou projeto, antes da decisão —, livre, informada, de boa-fé e culturalmente adequada. A consulta posterior não supre o vício, e a Corte determina a reparação quando a medida foi adotada sem consulta prévia."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Gabarito oficial discutível. A alternativa D afirma que \"consulta posterior é suficiente... conforme a jurisprudência dominante da Corte Interamericana\", o que contraria a jurisprudência da própria Corte (a consulta tem de ser PRÉVIA — Saramaka, Sarayaku). A alternativa E está correta: vedar a residência da comunidade no território viola o art. 68 do ADCT, que lhe reconhece a propriedade definitiva. Trate a questão como material de estudo da regra, não do gabarito."
+  },
+  "fcc-defensorias-352": {
+   "nota": "No caso Comunidades Indígenas Membros da Associação Lhaka Honhat (Nuestra Tierra) vs. Argentina (2020), a Corte Interamericana condenou o Estado pela violação autônoma dos direitos à alimentação adequada, à água, à identidade cultural e ao meio ambiente sadio, ligando a alimentação adequada à identidade cultural dos povos indígenas. É a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Corte IDH, Lhaka Honhat (Nuestra Tierra) vs. Argentina (2020)",
+     "tipo": "entendimento",
+     "texto": "Primeira sentença em que a Corte Interamericana declarou a violação autônoma dos direitos à alimentação adequada, à água, ao meio ambiente sadio e à participação na vida cultural (art. 26 da Convenção Americana), reconhecendo que a perda do território e a presença de gado e cercas comprometeram o acesso a alimentos tradicionais e, com isso, a identidade cultural das comunidades indígenas."
+    },
+    {
+     "ref": "PIDESC, art. 11, e Comentário Geral 12 do Comitê DESC",
+     "tipo": "entendimento",
+     "texto": "O Pacto Internacional dos Direitos Econômicos, Sociais e Culturais prevê o direito à alimentação adequada de forma autônoma, no art. 11, dentro do direito a um nível de vida adequado. O Comentário Geral 12 do Comitê DESC afirma que o conteúdo do direito vai além do mínimo calórico — exige adequação cultural, sustentabilidade e acessibilidade — e que a escassez de recursos não escusa o Estado do dever de respeitar, proteger e realizar o direito."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-353": {
+   "nota": "A sentença da Corte Interamericana obriga diretamente só o Estado condenado (coisa julgada internacional). Mas a interpretação que ela dá à Convenção Americana vale como parâmetro para todos os Estados partes — é a eficácia interpretativa, que obriga juízes e autoridades nacionais ao controle de convencionalidade. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Corte IDH, Fernández Prieto e Tumbeiro vs. Argentina (2020)",
+     "tipo": "entendimento",
+     "texto": "A Corte condenou a Argentina por detenções policiais sem ordem judicial e sem flagrante, baseadas em \"atitude suspeita\", e tratou o caso como expressão de prática reiterada e de perfilamento (filtragem) racial e social. Entre as reparações, determinou a adequação da normativa interna sobre detenção para averiguação e a capacitação das forças de segurança, não se limitando ao controle de convencionalidade pelo Judiciário."
+    },
+    {
+     "ref": "Controle de convencionalidade (eficácia erga omnes interpretativa)",
+     "tipo": "entendimento",
+     "texto": "A Corte Interamericana firmou, desde Almonacid Arellano vs. Chile (2006), que todos os órgãos do Estado parte devem exercer controle de convencionalidade de ofício, tomando como parâmetro a Convenção Americana e a interpretação que a Corte lhe dá — ainda que a sentença, no plano dispositivo, vincule apenas o Estado condenado."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-354": {
+   "nota": "Tanto as Regras de Mandela quanto a Comissão Interamericana, no Caso 10.506 (X e Y vs. Argentina), admitem a revista íntima apenas quando absolutamente necessária, e sob condições estritas de legalidade, proporcionalidade e respeito à dignidade. É a alternativa B — a necessidade absoluta é o critério, não a simples qualificação ou o gênero do agente.",
+   "dispositivos": [
+    {
+     "ref": "Regras de Mandela (Regras Mínimas da ONU para o Tratamento de Reclusos), regras 50 a 52",
+     "tipo": "entendimento",
+     "texto": "As revistas devem observar a lei, respeitar a dignidade e a intimidade e ser proporcionais; as revistas íntimas e nas cavidades corporais só se justificam quando absolutamente necessárias, devem ser conduzidas em privacidade, por pessoal do mesmo sexo e treinado, e as administrações prisionais devem registrar e buscar alternativas menos invasivas."
+    },
+    {
+     "ref": "CIDH, Caso 10.506 (X e Y vs. Argentina, Informe 38/96)",
+     "tipo": "entendimento",
+     "texto": "A Comissão Interamericana fixou que a inspeção vaginal de visitantes só é compatível com a Convenção Americana se for absolutamente necessária para alcançar o objetivo legítimo, se não houver alternativa, se houver ordem judicial e se for realizada por profissional de saúde — critérios cumulativos de necessidade e proporcionalidade."
     }
    ],
    "conferido": "2026-10-22"
