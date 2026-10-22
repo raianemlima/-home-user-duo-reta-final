@@ -1,11 +1,11 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import type { Facets, QuestionView, Situation } from "@/lib/questions/bank";
-import type { Letter } from "@/lib/questions/types";
+import { type Answer, parseQuestionFilter, type QuestionView, searchQuestions, type Situation } from "@/lib/questions/bank";
+import type { Letter, Question } from "@/lib/questions/types";
 
-type Result = { total: number; pagina: number; paginas: number; items: QuestionView[]; facets: Facets; stats: { respondidas: number; acertos: number; total: number } };
+type Bank = { questions: Question[]; answers: Map<string, Answer> };
 const FILTERS = ["disciplina", "assunto", "ano", "banca", "orgao", "situacao", "busca"] as const;
 const SITUATIONS: [Situation, string][] = [["todas", "Todas"], ["nao-respondidas", "Não respondidas"], ["acertei", "Acertei"], ["errei", "Errei"]];
 
@@ -47,40 +47,41 @@ function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnsw
       })}
     </ol>
     {answer && <p className={answer.correct ? "q-result ok" : "q-result bad"} role="status">{answer.correct ? "Você acertou!" : `Você marcou ${answer.choice}. Gabarito: ${question.gabarito ?? "anulada"}.`} <button type="button" className="button ghost" onClick={() => setRetry(true)}>Responder de novo</button></p>}
+    {answer && !answer.correct && question.gabarito && <p className="q-right"><strong>Alternativa correta ({question.gabarito}):</strong> {question.alternativas[question.gabarito]}</p>}
     {answer && question.comentario && <details className="q-comment" open><summary>Gabarito comentado</summary>{question.comentario.split(/\n{2,}/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</details>}
     {error && <p className="auth-error" role="alert">{error}</p>}
   </article>;
 }
 
-// Banco de questões: filtros por disciplina, assunto, ano, banca, órgão e situação; a resposta do aluno fica salva.
+// Banco de questões: carrega tudo uma vez e filtra no aparelho por disciplina, assunto, ano, banca, órgão e situação.
 export function QuestionBank() {
   const router = useRouter(); const pathname = usePathname(); const params = useSearchParams();
-  const [result, setResult] = useState<Result | null>(null); const [error, setError] = useState(""); const [loading, setLoading] = useState(true);
+  const [bank, setBank] = useState<Bank | null>(null); const [error, setError] = useState("");
   const [search, setSearch] = useState(params.get("busca") ?? "");
   const query = params.toString();
 
   useEffect(() => {
     let alive = true;
-    fetch(`/api/questoes?${query}`).then(async (response) => {
+    fetch("/api/questoes").then(async (response) => {
       const payload = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(payload?.error?.message ?? "Não foi possível carregar as questões.");
-      if (alive) { setResult(payload); setError(""); }
-    }).catch((failure: Error) => { if (alive) setError(failure.message); }).finally(() => { if (alive) setLoading(false); });
+      if (alive) { setBank({ questions: payload.questions, answers: new Map(Object.entries(payload.answers ?? {})) }); setError(""); }
+    }).catch((failure: Error) => { if (alive) setError(failure.message); });
     return () => { alive = false; };
-  }, [query]);
+  }, []);
 
+  const result = useMemo(() => (bank ? searchQuestions(bank.questions, parseQuestionFilter(new URLSearchParams(query)), bank.answers) : null), [bank, query]);
   const update = useCallback((changes: Record<string, string>) => {
     const next = new URLSearchParams(params.toString());
     for (const [key, value] of Object.entries(changes)) { if (value) next.set(key, value); else next.delete(key); }
     if (!("pagina" in changes)) next.delete("pagina");
     if ("disciplina" in changes) next.delete("assunto");
-    setLoading(true);
     router.replace(`${pathname}?${next.toString()}`, { scroll: "pagina" in changes });
   }, [params, pathname, router]);
   const onSelect = (name: string, value: string) => update({ [name]: value });
   function submitSearch(event: FormEvent) { event.preventDefault(); update({ busca: search.trim() }); }
   function onAnswered(id: string, choice: Letter, correct: boolean) {
-    setResult((current) => current && ({ ...current, stats: { ...current.stats, respondidas: current.stats.respondidas + (current.items.find((item) => item.id === id)?.resposta ? 0 : 1), acertos: current.stats.acertos + (correct ? 1 : 0) - (current.items.find((item) => item.id === id)?.resposta?.correct ? 1 : 0) }, items: current.items.map((item) => (item.id === id ? { ...item, resposta: { choice, correct } } : item)) }));
+    setBank((current) => current && { ...current, answers: new Map(current.answers).set(id, { choice, correct }) });
   }
 
   const value = (name: (typeof FILTERS)[number]) => params.get(name) ?? "";
@@ -89,7 +90,7 @@ export function QuestionBank() {
   const rate = result && result.stats.respondidas ? Math.round((100 * result.stats.acertos) / result.stats.respondidas) : null;
   return <div className="question-bank">
     <p className="eyebrow">Reta Final DPE-SP</p><h1>Banco de questões</h1>
-    {result && <p className="muted">Você respondeu {result.stats.respondidas} de {result.stats.total} questões{rate !== null ? ` · ${rate}% de acerto` : ""}.</p>}
+    <p className="muted">Provas da DPE-SP e de Defensor da FCC desde 2021.{result ? ` Você respondeu ${result.stats.respondidas} de ${result.stats.total}${rate !== null ? ` · ${rate}% de acerto` : ""}.` : ""}</p>
     <form className="qb-search" onSubmit={submitSearch} role="search"><input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar palavras no enunciado ou nas alternativas" aria-label="Buscar questões" /><button className="button" type="submit">Buscar</button></form>
     {facets && <div className="qb-filters">
       <Select label="Disciplina" name="disciplina" value={value("disciplina")} options={facets.disciplinas} onChange={onSelect} />
@@ -99,10 +100,10 @@ export function QuestionBank() {
       <Select label="Órgão" name="orgao" value={value("orgao")} options={facets.orgaos} onChange={onSelect} />
       <label>Situação<select value={value("situacao") || "todas"} onChange={(event) => onSelect("situacao", event.target.value === "todas" ? "" : event.target.value)}>{SITUATIONS.map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label>
     </div>}
-    <div className="notebook-summary"><span role="status">{loading ? "Carregando…" : result ? `${result.total} ${result.total === 1 ? "questão encontrada" : "questões encontradas"}` : ""}</span>{active && <button className="button ghost" onClick={() => { setSearch(""); setLoading(true); router.replace(pathname); }}>Limpar filtros</button>}</div>
+    <div className="notebook-summary"><span role="status">{!result && !error ? "Carregando…" : result ? `${result.total} ${result.total === 1 ? "questão encontrada" : "questões encontradas"}` : ""}</span>{active && <button className="button ghost" onClick={() => { setSearch(""); router.replace(pathname); }}>Limpar filtros</button>}</div>
     {error && <p className="auth-error" role="alert">{error}</p>}
-    {result && !result.total && !loading && <p className="empty">Nenhuma questão com esses filtros.</p>}
-    <div className="q-list">{result?.items.map((question) => <QuestionCard key={question.id} question={question} onAnswered={onAnswered} />)}</div>
+    {result && !result.total && <p className="empty">Nenhuma questão com esses filtros.</p>}
+    <div className="q-list">{result?.items.map((question: QuestionView) => <QuestionCard key={question.id} question={question} onAnswered={onAnswered} />)}</div>
     {result && result.paginas > 1 && <nav className="section-nav" aria-label="Páginas">
       {result.pagina > 1 ? <button className="button" onClick={() => update({ pagina: String(result.pagina - 1) })}>← Anteriores</button> : <span />}
       <span className="muted">Página {result.pagina} de {result.paginas}</span>

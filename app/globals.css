@@ -228,6 +228,7 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .q-result { margin: 0; display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap; font-weight: 700; }
 .q-result.ok { color: var(--accent); }
 .q-result.bad { color: var(--danger); }
+.q-right { margin: 0; border-left: 3px solid var(--accent); padding: var(--s-1) var(--s-3); }
 .q-comment { border-left: 3px solid var(--accent); background: var(--surface-2); padding: var(--s-2) var(--s-3); border-radius: var(--r-sm); }
 .q-comment summary { cursor: pointer; font-weight: 700; color: var(--accent); }
 .q-comment p { margin: var(--s-2) 0 0; line-height: 1.6; }
