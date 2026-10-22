@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AppTips } from "@/components/AppTips";
+import { StudyPlan } from "@/components/StudyPlan";
+import { daysUntilExam, EXAM_LABEL, examCountdown } from "@/lib/exam";
 import { listDisciplines } from "@/lib/reader/queries";
 import { studentSession } from "@/lib/reader/session";
 
@@ -13,8 +15,13 @@ export default async function Home() {
   // "Continuar" é a ação mais comum: a disciplina em andamento (a mais recente da lista) ganha destaque.
   const resume = disciplines.find((discipline) => discipline.lastSectionId) ?? null;
   const others = disciplines.filter((discipline) => discipline !== resume);
+  const now = new Date(), days = daysUntilExam(now);
   return <div className="home">
     <header className="grid-paper"><p className="eyebrow">Reta Final DPE-SP</p><h1>Disciplinas</h1></header>
+    <section className="exam-card" aria-label="Data da prova">
+      {days > 1 && <span className="exam-days">{days}</span>}
+      <div><p><strong>{days > 1 ? "dias para a prova da DPE-SP" : examCountdown(now)}</strong></p><p className="muted">Prova: domingo, {EXAM_LABEL}</p></div>
+    </section>
     {fresh.length > 0 && <p className="new-banner" role="status">🆕 Material novo: {fresh.map((discipline, index) => <span key={discipline.id}>{index > 0 && ", "}<Link href={`/disciplinas/${discipline.slug}`}>{discipline.title}</Link></span>)}. O PDF original está disponível dentro da disciplina.</p>}
     {!disciplines.length && <p className="empty">O material ainda está sendo publicado. Volte em breve.</p>}
     {resume && <Link className="resume-card" href={`/disciplinas/${resume.slug}`}>
@@ -33,6 +40,7 @@ export default async function Home() {
         </Link>
       </li>)}</ul>
     </>}
+    <StudyPlan />
     <AppTips />
   </div>;
 }
