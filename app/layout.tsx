@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   icons: { icon: "/icons/icon-192.png", apple: "/icons/apple-touch-icon.png" },
   appleWebApp: { capable: true, title: "DUO Reta Final", statusBarStyle: "default" },
 };
-export const viewport: Viewport = { themeColor: "#29343A", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#17401F", width: "device-width", initialScale: 1 };
 
 // Aplica tema e tamanho de letra salvos antes da pintura (evita piscar).
 const PREFERENCES = `try{var t=localStorage.getItem("duo-tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;var f=localStorage.getItem("duo-fonte");if(f)document.documentElement.dataset.font=f}catch(e){}`;

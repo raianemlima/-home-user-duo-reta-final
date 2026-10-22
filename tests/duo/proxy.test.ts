@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { LOGIN_FAILED_MESSAGE } from "@/lib/auth/messages";
 
 let user: { id: string } | null = null;
-let profile: { role: string; active: boolean } | null = null;
+let profile: { role: string; active: boolean; must_change_password?: boolean } | null = null;
 vi.mock("@supabase/ssr", () => ({
   createServerClient: () => ({
     auth: { getUser: async () => ({ data: { user }, error: null }) },
@@ -49,6 +49,18 @@ describe("proxy", () => {
     expect((await go("/api/destaques")).status).toBe(403);
     profile = null;
     expect(location(await go("/"))).toBe("/login?motivo=sem-acesso");
+  });
+  it("senha padrão ainda não trocada: só a tela de troca e a API de conta ficam abertas", async () => {
+    user = { id: "n" }; profile = { role: "aluno", active: true, must_change_password: true };
+    expect(location(await go("/caderno"))).toBe("/trocar-senha");
+    expect(location(await go("/login"))).toBe("/trocar-senha");
+    expect(location(await go("/trocar-senha"))).toBeNull();
+    expect(location(await go("/api/conta/senha"))).toBeNull();
+    expect((await go("/api/destaques")).status).toBe(403);
+  });
+  it("quem já trocou a senha não volta para /trocar-senha", async () => {
+    user = { id: "a" }; profile = { role: "aluno", active: true, must_change_password: false };
+    expect(location(await go("/trocar-senha"))).toBe("/");
   });
   it("logado e ativo no /login vai para o início", async () => {
     user = { id: "a" }; profile = { role: "aluno", active: true };

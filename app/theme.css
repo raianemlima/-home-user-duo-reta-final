@@ -1,75 +1,72 @@
-/* Identidade Cursos DUO. Cores provisórias (lidas do site e da logo); troque aqui quando chegarem os arquivos oficiais. */
+/* Identidade Cursos DUO (direção "Caderno de estudo"): verde-floresta + papel + carvão, tijolo como destaque.
+   Valores aproximados do perfil do Instagram; troque aqui quando chegarem os códigos oficiais. Contrastes conferidos (WCAG AA). */
 :root {
-  --duo-ink: #29343A;
-  --duo-green: #31BF5D;
-  --duo-teal: #375963;
-  --duo-terracotta: #AE4941;
-  --duo-paper: #F4F5F0;
+  --forest-50: #EAF2EC; --forest-100: #CFE1D3; --forest-500: #2E6B3C; --forest-600: #1F5A2B; --forest-700: #17401F; --forest-900: #0F2A15;
+  --brick-50: #F8ECE6; --brick-300: #D79A83; --brick-600: #A24627; --brick-700: #873A20;
+  --charcoal: #292424;
+  --duo-green: #31BF5D; /* só decoração em fundo escuro: sobre claro dá 2,2:1 */
+  --duo-paper: #F7F6F1;
 
-  /* Mesma fonte dos e-books em PDF (Arial). Arimo é a versão livre e métrica-idêntica: garante o mesmo desenho no Android, onde Arial não existe. */
+  /* Texto: mesma fonte dos e-books em PDF (Arial). Arimo é a versão livre e métrica-idêntica; garante o mesmo desenho no Android. */
   --font-text: "Arimo", Arial, "Liberation Sans", Helvetica, sans-serif;
   --font-title: var(--font-text);
   --font-brand: "Montserrat", system-ui, sans-serif; /* só o logotipo CURSOS/DUO */
   --reading-size: 1.0625rem;
+
+  /* Escala de espaçamento (4 pt), raios e elevação */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 48px;
+  --r-sm: 6px; --r-md: 12px; --r-lg: 20px; --r-full: 999px;
+  --e-1: 0 1px 2px rgba(35, 31, 30, .08); --e-2: 0 6px 16px rgba(35, 31, 30, .12); --e-3: 0 16px 40px rgba(35, 31, 30, .20);
+  --t-fast: 120ms; --ease: cubic-bezier(.2, .7, .2, 1);
 }
 
 :root, :root[data-theme="light"] {
   color-scheme: light;
-  --bg: var(--duo-paper);
+  --bg: #F7F6F1;
   --surface: #FFFFFF;
-  --surface-2: #EBEDE6;
-  --text: #1F282D;
-  --muted: #55646B;
-  --border: #D9DDD3;
-  --brand: var(--duo-terracotta);
-  --accent: #1A7A3A;           /* verde DUO escurecido para contraste AA (texto branco ≥ 4.5:1) */
-  --accent-strong: var(--duo-green);
+  --surface-2: #EFEEE7;
+  --text: #231F1E;
+  --muted: #4C5F54;
+  --border: #E3E2DA;            /* decorativo (cards) */
+  --border-strong: #7A8A80;     /* campos e botões: 3,4:1 */
+  --brand: var(--forest-700);
+  --accent: var(--forest-700);  /* ação: branco 11,7:1 */
+  --accent-hover: var(--forest-600);
+  --accent-strong: var(--forest-600); /* indicador ativo: 7,6:1 sobre o papel */
+  --accent-text: var(--brick-600);    /* rótulos e destaques editoriais: 5,6:1 */
   --on-accent: #FFFFFF;
-  --link: var(--duo-teal);
-  --tip-bg: #E6F4EA;
-  --tip-border: #31BF5D;
-  --danger: #B42318;
-  --focus: #1A7A3A;
+  --link: #2F5560;
+  --tip-bg: var(--forest-50);
+  --tip-border: var(--forest-500);
+  --danger: #B82818;
+  --focus: var(--forest-600);
+  --grid: rgba(23, 64, 31, .07);
+  /* Grifos: preenchimento; a cor nunca é a única pista (cada tipo tem um traço próprio, ver globals.css) */
+  --hl-importante: #FFE066; --hl-lei: #9BE3B0; --hl-juris: #9CC8F5; --hl-revisar: #F7A8C8; --hl-ink: #231F1E;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #1E272C;
-    --surface: var(--duo-ink);
-    --surface-2: #33424A;
-    --text: #F4F5F0;
-    --muted: #B8C2C4;
-    --border: #3D4C54;
-    --brand: var(--duo-paper);
-    --accent: var(--duo-green);
-    --accent-strong: var(--duo-green);
-    --on-accent: #10261A;
-    --link: #8FC9D6;
-    --tip-bg: #22392D;
-    --tip-border: var(--duo-green);
-    --danger: #F28B82;
-    --focus: var(--duo-green);
+    --bg: #14201A; --surface: #1B2A22; --surface-2: #24362C;
+    --text: #F2F1EA; --muted: #B3C1B8;
+    --border: #2F4538; --border-strong: #6E8A78;
+    --brand: #5CCB85; --accent: #5CCB85; --accent-hover: #7BD79C; --accent-strong: #5CCB85; --accent-text: #E08A6B; --on-accent: #0B1F12;
+    --link: #8FC9D6; --tip-bg: #1E3A2A; --tip-border: #5CCB85; --danger: #F28B82; --focus: #5CCB85;
+    --grid: rgba(92, 203, 133, .06);
+    --hl-importante: rgba(255, 216, 77, .30); --hl-lei: rgba(76, 210, 122, .30); --hl-juris: rgba(111, 177, 240, .30); --hl-revisar: rgba(242, 125, 176, .30); --hl-ink: #F2F1EA;
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #1E272C;
-  --surface: var(--duo-ink);
-  --surface-2: #33424A;
-  --text: #F4F5F0;
-  --muted: #B8C2C4;
-  --border: #3D4C54;
-  --brand: var(--duo-paper);
-  --accent: var(--duo-green);
-  --accent-strong: var(--duo-green);
-  --on-accent: #10261A;
-  --link: #8FC9D6;
-  --tip-bg: #22392D;
-  --tip-border: var(--duo-green);
-  --danger: #F28B82;
-  --focus: var(--duo-green);
+  --bg: #14201A; --surface: #1B2A22; --surface-2: #24362C;
+  --text: #F2F1EA; --muted: #B3C1B8;
+  --border: #2F4538; --border-strong: #6E8A78;
+  --brand: #5CCB85; --accent: #5CCB85; --accent-hover: #7BD79C; --accent-strong: #5CCB85; --accent-text: #E08A6B; --on-accent: #0B1F12;
+  --link: #8FC9D6; --tip-bg: #1E3A2A; --tip-border: #5CCB85; --danger: #F28B82; --focus: #5CCB85;
+  --grid: rgba(92, 203, 133, .06);
+  --hl-importante: rgba(255, 216, 77, .30); --hl-lei: rgba(76, 210, 122, .30); --hl-juris: rgba(111, 177, 240, .30); --hl-revisar: rgba(242, 125, 176, .30); --hl-ink: #F2F1EA;
 }
 
 :root[data-font="1"] { --reading-size: 1rem; }

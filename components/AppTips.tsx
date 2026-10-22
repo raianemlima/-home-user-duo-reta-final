@@ -78,7 +78,7 @@ export function AppTips() {
   const showInstall = platform !== "installed" && !hidden;
   const iosNeedsInstall = platform === "ios";
   if (!showInstall && push === "unsupported") return null;
-  return <section className="tips" aria-label="Dicas do app">
+  return <details className="tips-fold"><summary>📱 Instale na tela inicial e ative os avisos</summary><section className="tips" aria-label="Dicas do app">
     {showInstall && <div className="tip-card">
       <p className="tip-title">📱 Use no celular, como um aplicativo</p>
       {platform === "ios" && <p>No iPhone, abra este site no <strong>Safari</strong>, toque em <strong>Compartilhar</strong> (o quadrado com a seta) e escolha <strong>Adicionar à Tela de Início</strong>. Depois é só abrir pelo ícone.</p>}
@@ -97,5 +97,5 @@ export function AppTips() {
       {push === "blocked" && <p>As notificações estão bloqueadas neste aparelho. Libere nas configurações do navegador ou do app para receber os avisos.</p>}
       {error && <p className="auth-error" role="alert">{error}</p>}
     </div>}
-  </section>;
+  </section></details>;
 }

@@ -50,7 +50,7 @@ export function POST(request: Request) {
       // Sem e-mail de convite: o aluno entra com e-mail + senha padrão do curso.
       const { data, error: inviteError } = await admin.auth.admin.createUser({ email: student.email, password, email_confirm: true });
       if (inviteError || !data?.user) { failed.push({ email: student.email, reason: inviteError?.message ?? "usuário não criado" }); continue; }
-      const { error: profileError } = await supabase.from("profiles").insert({ user_id: data.user.id, email: student.email, name: student.name, role: "aluno", active: true });
+      const { error: profileError } = await supabase.from("profiles").insert({ user_id: data.user.id, email: student.email, name: student.name, role: "aluno", active: true, must_change_password: true });
       if (profileError) { failed.push({ email: student.email, reason: profileError.message }); continue; }
       invited.push(student.email);
     }

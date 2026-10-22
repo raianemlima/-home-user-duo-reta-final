@@ -4,8 +4,8 @@ import { registerFonts } from "@/lib/export/fonts";
 import type { ExportDoc } from "@/lib/export/model";
 import { HIGHLIGHT_COLORS } from "@/lib/highlights/types";
 
-const INK = "#29343A", MUTED = "#55646B", TERRACOTTA = "#AE4941", PAPER = "#F4F5F0";
-const LOGO = join(process.cwd(), "public", "brand", "pena-terracota.png");
+const INK = "#231F1E", MUTED = "#4C5F54", BRAND = "#17401F", PAPER = "#F7F6F1"; 
+const LOGO = join(process.cwd(), "public", "brand", "pena-verde.png");
 const swatch = (color: string) => HIGHLIGHT_COLORS.find((item) => item.key === color)?.swatch ?? "#DDDDDD";
 // As fontes não têm emoji: fora do plano básico (e seletores de variação) sai só no PDF, nunca no banco.
 const printable = (text: string) => text.replace(/[\u{10000}-\u{10FFFF}︎️‍]/gu, "");
@@ -14,11 +14,11 @@ const styles = StyleSheet.create({
   page: { fontFamily: "Arimo", fontSize: 10.5, color: INK, paddingTop: 48, paddingBottom: 56, paddingHorizontal: 48, lineHeight: 1.45 },
   cover: { fontFamily: "Arimo", backgroundColor: PAPER, color: INK, padding: 64, justifyContent: "center" },
   brand: { flexDirection: "row", alignItems: "center", gap: 12, marginBottom: 48 },
-  brandWords: { fontFamily: "Montserrat", fontWeight: 700, color: TERRACOTTA, lineHeight: 1 },
+  brandWords: { fontFamily: "Montserrat", fontWeight: 700, color: BRAND, lineHeight: 1 },
   title: { fontFamily: "Arimo", fontWeight: 700, fontSize: 30, marginBottom: 8 },
   subtitle: { fontSize: 15, color: MUTED, marginBottom: 24 },
   tocTitle: { fontFamily: "Arimo", fontWeight: 700, fontSize: 14, marginTop: 24, marginBottom: 6 },
-  discipline: { fontFamily: "Arimo", fontWeight: 700, fontSize: 17, color: TERRACOTTA, marginBottom: 10 },
+  discipline: { fontFamily: "Arimo", fontWeight: 700, fontSize: 17, color: BRAND, marginBottom: 10 },
   topic: { fontWeight: 700, fontSize: 11, color: MUTED, marginTop: 10, marginBottom: 6 },
   item: { flexDirection: "row", marginBottom: 10 },
   bar: { width: 4, borderRadius: 2, marginRight: 10 },
