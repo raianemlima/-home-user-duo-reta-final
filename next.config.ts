@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/jobs/**": ["./node_modules/pdfjs-dist/legacy/build/pdf.worker.mjs", "./node_modules/pdfjs-dist/standard_fonts/**/*"],
     // Exportação do caderno: fontes e logo são lidas do disco pelo gerador de PDF.
-    "/api/caderno/exportar": ["./node_modules/@fontsource/inter/files/inter-latin-*-normal.woff", "./node_modules/@fontsource/inter/files/inter-latin-400-italic.woff", "./node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff", "./public/brand/pena-terracota.png"],
+    "/api/caderno/exportar": ["./node_modules/@fontsource/arimo/files/arimo-latin-{400,700}-{normal,italic}.woff", "./node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff", "./public/brand/pena-verde.png"],
   },
 };
 
