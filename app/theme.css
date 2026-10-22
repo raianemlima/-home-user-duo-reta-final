@@ -1,0 +1,75 @@
+/* Identidade Cursos DUO. Cores provisórias (lidas do site e da logo); troque aqui quando chegarem os arquivos oficiais. */
+:root {
+  --duo-ink: #29343A;
+  --duo-green: #31BF5D;
+  --duo-teal: #375963;
+  --duo-terracotta: #AE4941;
+  --duo-paper: #F4F5F0;
+
+  --font-title: "Montserrat", system-ui, sans-serif;
+  --font-text: "Inter", system-ui, sans-serif;
+  --reading-size: 1.0625rem;
+}
+
+:root, :root[data-theme="light"] {
+  color-scheme: light;
+  --bg: var(--duo-paper);
+  --surface: #FFFFFF;
+  --surface-2: #EBEDE6;
+  --text: #1F282D;
+  --muted: #55646B;
+  --border: #D9DDD3;
+  --brand: var(--duo-terracotta);
+  --accent: #1A7A3A;           /* verde DUO escurecido para contraste AA (texto branco ≥ 4.5:1) */
+  --accent-strong: var(--duo-green);
+  --on-accent: #FFFFFF;
+  --link: var(--duo-teal);
+  --tip-bg: #E6F4EA;
+  --tip-border: #31BF5D;
+  --danger: #B42318;
+  --focus: #1A7A3A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #1E272C;
+    --surface: var(--duo-ink);
+    --surface-2: #33424A;
+    --text: #F4F5F0;
+    --muted: #B8C2C4;
+    --border: #3D4C54;
+    --brand: var(--duo-paper);
+    --accent: var(--duo-green);
+    --accent-strong: var(--duo-green);
+    --on-accent: #10261A;
+    --link: #8FC9D6;
+    --tip-bg: #22392D;
+    --tip-border: var(--duo-green);
+    --danger: #F28B82;
+    --focus: var(--duo-green);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1E272C;
+  --surface: var(--duo-ink);
+  --surface-2: #33424A;
+  --text: #F4F5F0;
+  --muted: #B8C2C4;
+  --border: #3D4C54;
+  --brand: var(--duo-paper);
+  --accent: var(--duo-green);
+  --accent-strong: var(--duo-green);
+  --on-accent: #10261A;
+  --link: #8FC9D6;
+  --tip-bg: #22392D;
+  --tip-border: var(--duo-green);
+  --danger: #F28B82;
+  --focus: var(--duo-green);
+}
+
+:root[data-font="1"] { --reading-size: 1rem; }
+:root[data-font="2"] { --reading-size: 1.0625rem; }
+:root[data-font="3"] { --reading-size: 1.25rem; }
