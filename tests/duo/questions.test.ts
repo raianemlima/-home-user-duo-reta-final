@@ -8,11 +8,11 @@ const bank = [q("1"), q("2", { disciplina: "Direito Civil", assunto: "Posse", an
 const filter = (query: string) => parseQuestionFilter(new URLSearchParams(query));
 
 describe("banco de questões importado", () => {
-  it("tem as 867 questões do REVIEW-RAI, com disciplina, ano e banca", () => {
-    expect(QUESTIONS).toHaveLength(867);
+  it("só DPE-SP e provas de Defensor da FCC desde 2021, com disciplina, ano e banca", () => {
+    expect(QUESTIONS).toHaveLength(460);
     expect(QUESTIONS.every((question) => question.disciplina && question.banca && Object.keys(question.alternativas).length === 5)).toBe(true);
-    expect(QUESTIONS.filter((question) => question.anulada).map((question) => question.id)).toEqual(["dpe-ro-2025-8"]);
-    expect(new Set(QUESTIONS.map((question) => question.id)).size).toBe(867);
+    expect(QUESTIONS.every((question) => question.orgao === "DPE-SP" || (question.banca === "FCC" && (question.ano ?? 0) >= 2021))).toBe(true);
+    expect(new Set(QUESTIONS.map((question) => question.id)).size).toBe(460);
   });
 });
 
@@ -57,8 +57,7 @@ describe("POST /api/questoes/responder", () => {
     expect(upsert).toHaveBeenCalledWith(expect.objectContaining({ user_id: "u1", question_id: first.id, choice: wrong, correct: false }), { onConflict: "user_id,question_id" });
     expect((await (await post({ id: first.id, choice: first.gabarito })).json()).correct).toBe(true);
   });
-  it("questão anulada conta como acerto; questão ou alternativa inválida é recusada", async () => {
-    expect((await (await post({ id: "dpe-ro-2025-8", choice: "A" })).json()).correct).toBe(true);
+  it("questão ou alternativa inválida é recusada", async () => {
     expect((await post({ id: "nao-existe", choice: "A" })).status).toBe(404);
     expect((await post({ id: QUESTIONS[0].id, choice: "Z" })).status).toBe(400);
   });

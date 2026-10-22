@@ -79,6 +79,6 @@ Resultado em 22/10/2026, com os 11 ebooks do Reta Final DPE-SP (PDF):
 
 ## Banco de questões
 
-As questões vêm do repositório REVIEW-RAI (`ferramentas/conteudo/dados/simulados/*.json`) e ficam em `data/questoes.json`.
+As questões vêm do repositório REVIEW-RAI (`ferramentas/conteudo/dados/simulados/*.json`) e ficam em `data/questoes.json`. Entram só as da DPE-SP e as de Defensor da FCC de 2021 em diante (regra `keep` no importador).
 Para atualizar depois de mudar as questões lá: `node scripts/questoes/importar.mjs /caminho/para/review-rai`, confira e faça o commit.
 As respostas de cada aluno ficam na tabela `question_answers` (migração 0015).

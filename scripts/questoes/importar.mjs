@@ -20,6 +20,10 @@ const RULES = [
 const discipline = (materia) => RULES.find(([pattern]) => pattern.test(materia))?.[1] ?? "Outras matérias";
 const clean = (text) => (text ?? "").replace(/\s+\n/g, "\n").replace(/[ \t]+/g, " ").trim();
 
+// Ficam só as provas mais próximas da DPE-SP: as da própria DPE-SP e as de Defensor da FCC (banca da DPE-SP 2023) de 2021 em diante.
+const RECENT_FROM = 2021;
+const keep = (question) => question.orgao === "DPE-SP" || (question.banca === "FCC" && /^Defensor/i.test(question.cargo) && question.ano >= RECENT_FROM);
+
 const out = [];
 for (const file of readdirSync(dir).filter((name) => name.endsWith(".json") && !name.includes("correcoes")).sort()) {
   const exam = JSON.parse(readFileSync(join(dir, file), "utf8"));
@@ -28,13 +32,14 @@ for (const file of readdirSync(dir).filter((name) => name.endsWith(".json") && !
     const [concurso, ...cargo] = fonte.split(" · ");
     const year = /(20\d\d)/.exec(concurso) ?? /(20\d\d)/.exec(exam.nome);
     const gabarito = /^[A-E]$/.test(q.gabarito) ? q.gabarito : null;
-    out.push({
+    const question = {
       id: `${exam.id}-${q.n}`, concurso: concurso.trim(), orgao: (/\b(DPE-[A-Z]{2}|DPU)\b/.exec(concurso) ?? [null, concurso.trim()])[1],
       ano: year ? Number(year[1]) : null, banca: exam.banca, cargo: (cargo.join(" · ") || exam.cargo).trim(),
       disciplina: discipline(q.materia), materia: clean(q.materia), assunto: q.assunto ? clean(q.assunto).replace(/\.$/, "") : null,
       enunciado: clean(q.enunciado), alternativas: Object.fromEntries(Object.entries(q.alternativas).map(([letter, text]) => [letter, clean(text)])),
       gabarito, anulada: !gabarito, comentario: q.comentario ? clean(q.comentario) : null,
-    });
+    };
+    if (keep(question)) out.push(question);
   }
 }
 writeFileSync(join(process.cwd(), "data", "questoes.json"), JSON.stringify(out));
