@@ -5,12 +5,14 @@ import { StudyPlan } from "@/components/StudyPlan";
 import { daysUntilExam, EXAM_LABEL, examCountdown } from "@/lib/exam";
 import { listDisciplines } from "@/lib/reader/queries";
 import { studentSession } from "@/lib/reader/session";
+import { isVadeDiscipline } from "@/lib/vade";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const { supabase, userId } = await studentSession();
-  const disciplines = await listDisciplines(supabase, userId);
+  // Os Vade Espertos publicados no leitor ficam na página Vade Esperto, não na lista de ebooks.
+  const disciplines = (await listDisciplines(supabase, userId)).filter((discipline) => !isVadeDiscipline(discipline.slug));
   const fresh = disciplines.filter((discipline) => discipline.updatedSinceLastVisit);
   // "Continuar" é a ação mais comum: a disciplina em andamento (a mais recente da lista) ganha destaque.
   const resume = disciplines.find((discipline) => discipline.lastSectionId) ?? null;

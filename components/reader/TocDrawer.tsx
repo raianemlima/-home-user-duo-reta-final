@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { chapterBreaks, type Toc } from "@/lib/reader/queries";
 
-export const sectionLabel = (item: { numbering: string | null; title: string | null }) => [item.numbering, item.title].filter(Boolean).join(" ") || "Introdução";
+export const sectionLabel = (item: { numbering: string | null; title: string | null }) => [...new Set([item.numbering, item.title].filter(Boolean))].join(" ") || "Introdução";
 
 // Sumário: fixo à esquerda no PC, gaveta no celular.
 export function TocDrawer({ slug, toc, currentId, open, onClose }: { slug: string; toc: Toc; currentId: string; open: boolean; onClose: () => void }) {

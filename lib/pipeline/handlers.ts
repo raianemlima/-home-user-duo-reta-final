@@ -22,7 +22,7 @@ function previousOutput(stages: StageContext["stages"], stage: string, subjectId
 export const extractionHandlerV2: StageHandler = {
   stage: "extraction",
   scope: "document",
-  version: "2",
+  version: "3",
   async inputKey({ stage, deps }) {
     const document = stage.subjectId ? await deps.loadDocument(stage.subjectId) : null;
     if (!document) throw new StageError("Documento da fonte não encontrado.", false);
@@ -60,7 +60,7 @@ export const cleaningHandlerV2: StageHandler = {
 // ---------------------------------------------------------------------------------------------------------------
 // Fase 4: segmentação estrutural por documento e mapa temático do caderno.
 // ---------------------------------------------------------------------------------------------------------------
-export const SEGMENTATION_VERSION = "1";
+export const SEGMENTATION_VERSION = "2";
 
 export const segmentationHandler: StageHandler = {
   stage: "segmentation",

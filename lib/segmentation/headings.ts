@@ -4,7 +4,9 @@ export type HeadingInfo = { kind: HeadingKind; level: number; numbering: string 
 const STRUCTURAL = /^(LIVRO|PARTE|T[ÍI]TULO|CAP[ÍI]TULO|SE[ÇC][ÃA]O|SUBSE[ÇC][ÃA]O)\s+([IVXLCDM]+|\d+|[ÚU]NICO|GERAL|ESPECIAL)\b[\s\-–—:.]*(.*)$/i;
 const STRUCTURAL_LEVEL: Record<string, number> = { LIVRO: 1, PARTE: 1, TITULO: 1, CAPITULO: 2, SECAO: 3, SUBSECAO: 4 };
 const NUMBERED = /^(\d{1,2}(?:\.\d{1,2}){0,3})[.)]?\s+(\p{Lu}.{2,150})$/u;
-const ARTICLE = /^Art(?:igos?)?\.?\s*(\d+(?:\.\d+)*)\s*[º°o]?(?:-[A-Z])?(?![\p{L}\d])/iu;
+const ARTICLE = /^Art(?:igos?)?\.?\s*(\d+(?:\.\d+)*)\s*[º°o]?(?:\s*-\s*([A-Z]))?(?![\p{L}\d])/iu;
+// Como a lei cita: ordinal até o 9º ("Art. 9º"), cardinal a partir do 10 ("Art. 10"), com a letra dos incluídos ("Art. 3º-B").
+const articleLabel = (number: string, letter?: string) => `Art. ${number}${/^[1-9]$/.test(number) ? "º" : ""}${letter ? `-${letter.toUpperCase()}` : ""}`;
 const TOC_ENTRY = /\.{4,}\s*\d{1,4}\s*$/;
 const TOC_TITLE = /^(sum[áa]rio|[íi]ndice|conte[úu]do)$/i;
 
@@ -18,7 +20,7 @@ export function classifyHeading(text: string, styled: boolean): HeadingInfo | nu
   if (!value || isTocEntry(value)) return null;
   // Artigo de lei é um parágrafo inteiro (pode ser longo): reconhecido pelo início, sem limite de tamanho.
   const article = ARTICLE.exec(value);
-  if (article) return { kind: "article", level: 9, numbering: `Art. ${article[1]}º`, title: `Art. ${article[1]}º` };
+  if (article) { const label = articleLabel(article[1], article[2]); return { kind: "article", level: 9, numbering: label, title: label }; }
   if (value.length > 200) return null;
   const structural = STRUCTURAL.exec(value);
   if (structural) {

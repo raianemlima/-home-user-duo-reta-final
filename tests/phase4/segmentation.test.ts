@@ -87,7 +87,9 @@ describe("reconhecimento de títulos", () => {
     ["CAPÍTULO II DOS DIREITOS SOCIAIS", false, "structural", 2, "CAPÍTULO II"],
     ["SEÇÃO III", false, "structural", 3, "SEÇÃO III"],
     ["TÍTULO I", false, "structural", 1, "TÍTULO I"],
-    ["Art. 134. A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe a orientação jurídica e a defesa dos necessitados em todos os graus, de forma integral e gratuita.", false, "article", 9, "Art. 134º"],
+    ["Art. 134. A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe a orientação jurídica e a defesa dos necessitados em todos os graus, de forma integral e gratuita.", false, "article", 9, "Art. 134"],
+    ["Art. 3º-B. O juiz das garantias é responsável pelo controle da legalidade da investigação criminal", false, "article", 9, "Art. 3º-B"],
+    ["Art. 28-A. Não sendo caso de arquivamento", false, "article", 9, "Art. 28-A"],
     ["Art. 5o Todos são iguais perante a lei", false, "article", 9, "Art. 5º"],
     ["Conceito de hipossuficiência", true, "styled", 0, null],
   ])("%s", (text, styled, kind, level, numbering) => {
