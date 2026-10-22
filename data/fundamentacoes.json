@@ -3107,6 +3107,259 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-230": {
+   "nota": "O incidente de deslocamento de competência é hipótese constitucional excepcional de alteração da competência penal: só o Procurador-Geral da República pode suscitá-lo, e só perante o Superior Tribunal de Justiça (CF, art. 109, § 5º). Não é automático nem decidido em primeira instância (derruba B), e não é condição para acionar o sistema interamericano (derruba C e D). Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 109, § 5º",
+     "tipo": "lei",
+     "texto": "Nas hipóteses de grave violação de direitos humanos, o Procurador-Geral da República, com a finalidade de assegurar o cumprimento de obrigações decorrentes de tratados internacionais de direitos humanos dos quais o Brasil seja parte, poderá suscitar, perante o Superior Tribunal de Justiça, em qualquer fase do inquérito ou processo, incidente de deslocamento de competência para a Justiça Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STJ, requisitos do IDC",
+     "tipo": "entendimento",
+     "texto": "O STJ exige três requisitos cumulativos: grave violação de direitos humanos, risco de responsabilização internacional do Brasil por descumprimento de tratado, e incapacidade ou inércia das instâncias e autoridades locais. A repercussão social, isolada, não basta para deslocar a competência."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-231": {
+   "nota": "A preventiva exige demonstração CONCRETA do perigo gerado pela liberdade: o § 3º do art. 312 permite considerar, na aferição da periculosidade, o fundado receio de reiteração à vista de outros inquéritos e ações em curso, e o § 4º veda fundamentação em gravidade abstrata. É a alternativa D — nenhuma circunstância autoriza decretação automática.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 312, caput e § 2º",
+     "tipo": "lei",
+     "texto": "A prisão preventiva poderá ser decretada como garantia da ordem pública, da ordem econômica, por conveniência da instrução criminal ou para assegurar a aplicação da lei penal, quando houver prova da existência do crime e indício suficiente de autoria e de perigo gerado pelo estado de liberdade do imputado.\n§ 2º A decisão que decretar a prisão preventiva deve ser motivada e fundamentada em receio de perigo e existência concreta de fatos novos ou contemporâneos que justifiquem a aplicação da medida adotada.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 312, §§ 3º e 4º",
+     "tipo": "lei",
+     "texto": "§ 3º Devem ser considerados na aferição da periculosidade do agente, geradora de riscos à ordem pública:\nIV – o fundado receio de reiteração delitiva, inclusive à vista da existência de outros inquéritos e ações penais em curso.\n§ 4º É incabível a decretação da prisão preventiva com base em alegações de gravidade abstrata do delito, devendo ser concretamente demonstrados a periculosidade do agente e seu risco à ordem pública, à ordem econômica, à regularidade da instrução criminal e à aplicação da lei penal, conforme o caso.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-232": {
+   "nota": "O trecho descreve o \"testilying\" — termo cunhado na literatura norte-americana para o depoimento policial padronizado e falso, montado para dar aparência de legalidade a diligências invasivas (consentimento inventado, odor sentido da rua, visão fortuita por janela entreaberta). Alternativa E. Epistemologia da prova, standard de prova, hearsay e best evidence são outros temas.",
+   "dispositivos": [],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de doutrina processual penal, sem fundamento em texto legal. Na prática, o combate ao testilying se faz pelo ônus estatal de provar a licitude da entrada domiciliar — o STF, no RE 603.616 (Tema 280), exige fundadas razões anteriores ao ingresso, sob pena de nulidade da prova e responsabilização do agente."
+  },
+  "fcc-defensorias-233": {
+   "nota": "O art. 213 do CPP é literal: o juiz não permitirá apreciações pessoais da testemunha, SALVO quando inseparáveis da narrativa do fato. É a alternativa B. Parentes do réu não são proibidos de depor — podem recusar, salvo quando indispensável (art. 206) —, e menores de 14 anos é que não prestam compromisso (art. 208).",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 213",
+     "tipo": "lei",
+     "texto": "O juiz não permitirá que a testemunha manifeste suas apreciações pessoais, salvo quando inseparáveis da narrativa do fato.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 206",
+     "tipo": "lei",
+     "texto": "A testemunha não poderá eximir-se da obrigação de depor. Poderão, entretanto, recusar-se a fazê-lo o ascendente ou descendente, o afim em linha reta, o cônjuge, ainda que desquitado, o irmão e o pai, a mãe, ou o filho adotivo do acusado, salvo quando não for possível, por outro modo, obter-se ou integrar-se a prova do fato e de suas circunstâncias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 208",
+     "tipo": "lei",
+     "texto": "Não se deferirá o compromisso a que alude o art. 203 aos doentes e deficientes mentais e aos menores de 14 (quatorze) anos, nem às pessoas a que se refere o art. 206.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-234": {
+   "nota": "O art. 565 do CPP fecha a porta: nenhuma das partes pode arguir nulidade a que haja dado causa. Foi a ausência injustificada do próprio Ministério Público que gerou o vício alegado, logo o apelo não prospera e a absolvição se mantém. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 565",
+     "tipo": "lei",
+     "texto": "Nenhuma das partes poderá argüir nulidade a que haja dado causa, ou para que tenha concorrido, ou referente a formalidade cuja observância só à parte contrária interesse.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 563",
+     "tipo": "lei",
+     "texto": "Nenhum ato será declarado nulo, se da nulidade não resultar prejuízo para a acusação ou para a defesa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-235": {
+   "nota": "No processo penal comum o interrogatório é conduzido PELO JUIZ (arts. 185 a 187) e, depois dele, o juiz indaga das partes se restou fato a esclarecer, formulando as perguntas que entender pertinentes (art. 188). As partes complementam, não inquirem diretamente. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 187, caput",
+     "tipo": "lei",
+     "texto": "interrogatório será constituído de duas partes: sobre a pessoa do acusado e sobre os fatos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 188",
+     "tipo": "lei",
+     "texto": "Após proceder ao interrogatório, o juiz indagará das partes se restou algum fato para ser esclarecido, formulando as perguntas correspondentes se o entender pertinente e relevante.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-236": {
+   "nota": "A revisão criminal pressupõe SENTENÇA CONDENATÓRIA: as três hipóteses do art. 621 falam de \"sentença condenatória\" e de \"inocência do condenado\". A sentença que homologa transação penal não é condenatória — não impõe condenação nem gera reincidência —, logo a revisão não cabe. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 621",
+     "tipo": "lei",
+     "texto": "A revisão dos processos findos será admitida:\nI - quando a sentença condenatória for contrária ao texto expresso da lei penal ou à evidência dos autos;\nII - quando a sentença condenatória se fundar em depoimentos, exames ou documentos comprovadamente falsos;\nIII - quando, após a sentença, se descobrirem novas provas de inocência do condenado ou de circunstância que determine ou autorize diminuição especial da pena.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "Lei 9.099/1995, art. 76, §§ 4º e 6º",
+     "tipo": "lei",
+     "texto": "§ 4º Acolhendo a proposta do Ministério Público aceita pelo autor da infração, o Juiz aplicará a pena restritiva de direitos ou multa, que não importará em reincidência, sendo registrada apenas para impedir novamente o mesmo benefício no prazo de cinco anos.\n§ 6º A imposição da sanção de que trata o § 4º deste artigo não constará de certidão de antecedentes criminais, salvo para os fins previstos no mesmo dispositivo, e não terá efeitos civis, cabendo aos interessados propor ação cabível no juízo cível.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9099.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-237": {
+   "nota": "O STF distingue as situações. No encontro fortuito de aparelho celular, o acesso aos dados para o fim exclusivo de identificar o proprietário ou esclarecer a autoria do fato dispensa consentimento e autorização prévia, bastando a justificação posterior da medida. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, X e XII",
+     "tipo": "lei",
+     "texto": "X - são invioláveis a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização pelo dano material ou moral decorrente de sua violação;\nXII - é inviolável o sigilo da correspondência e das comunicações telegráficas, de dados e das comunicações telefônicas, salvo, no último caso, por ordem judicial, nas hipóteses e na forma que a lei estabelecer para fins de investigação criminal ou instrução processual penal;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, acesso a dados de celular apreendido",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que a simples apreensão do aparelho não está sujeita a reserva de jurisdição; que o acesso ao conteúdo, em regra, depende de autorização judicial; e que, no encontro fortuito de celular, o acesso restrito a identificar o proprietário ou esclarecer a autoria do fato prescinde de consentimento e de ordem prévia, desde que a medida seja posteriormente justificada. A autoridade policial deve, desde logo, adotar as providências de preservação dos dados e metadados."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-238": {
+   "nota": "As medidas protetivas da Lei Maria da Penha têm natureza de tutela de urgência satisfativa, de caráter cível. Por isso o STJ aplica o regime do CPC: a decisão que concede, revoga ou indefere medida protetiva é interlocutória e desafia AGRAVO DE INSTRUMENTO. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 1.015, I",
+     "tipo": "lei",
+     "texto": "Cabe agravo de instrumento contra as decisões interlocutórias que versarem sobre:\nI - tutelas provisórias;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "STJ, recurso cabível contra decisão sobre medida protetiva",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que a decisão sobre medida protetiva de urgência tem natureza cível e satisfativa, e que o recurso cabível é o agravo de instrumento, por aplicação do art. 1.015, I, do CPC — e não o recurso em sentido estrito nem a apelação, cujos róis não a contemplam."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-239": {
+   "nota": "A acareação é meio de prova, e como toda prova submete-se ao juízo de pertinência: o juiz pode indeferi-la motivadamente se a reputar impertinente, mesmo requerida pela defesa. Alternativa D. Ela é admitida entre acusados, entre testemunhas e entre testemunha e ofendido (art. 229), ocorre também em juízo (art. 400) e não gera desentranhamento dos depoimentos.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 229",
+     "tipo": "lei",
+     "texto": "A acareação será admitida entre acusados, entre acusado e testemunha, entre testemunhas, entre acusado ou testemunha e a pessoa ofendida, e entre as pessoas ofendidas, sempre que divergirem, em suas declarações, sobre fatos ou circunstâncias relevantes.\nParágrafo único. Os acareados serão reperguntados, para que expliquem os pontos de divergências, reduzindo-se a termo o ato de acareação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 400, § 1º",
+     "tipo": "lei",
+     "texto": "As provas serão produzidas numa só audiência, podendo o juiz indeferir as consideradas irrelevantes, impertinentes ou protelatórias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-240": {
+   "nota": "O STJ não adota a nulidade automática: a quebra da cadeia de custódia é apreciada caso a caso, pelo grau de comprometimento da confiabilidade do vestígio (o que derruba D). Mas, tratando-se de prova digital, exige o registro de integridade: mensagens de e-mail apresentadas sem o respectivo código hash não são confiáveis e por isso inadmissíveis. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 158-A, caput",
+     "tipo": "lei",
+     "texto": "Considera-se cadeia de custódia o conjunto de todos os procedimentos utilizados para manter e documentar a história cronológica do vestígio coletado em locais ou em vítimas de crimes, para rastrear sua posse e manuseio a partir de seu reconhecimento até o descarte.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 158-C, caput",
+     "tipo": "lei",
+     "texto": "A coleta dos vestígios deverá ser realizada preferencialmente por perito oficial, que dará o encaminhamento necessário para a central de custódia, mesmo quando for necessária a realização de exames complementares.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "STJ, cadeia de custódia e prova digital",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que a irregularidade na cadeia de custódia não acarreta nulidade automática: avalia-se, no caso concreto, se a falha compromete a confiabilidade e a integridade do vestígio. Em prova digital, a ausência do registro de integridade (código hash) impede a verificação de que o material não foi alterado, tornando-a inadmissível."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-241": {
+   "nota": "O STJ admite o acordo de não persecução penal também em ação penal privada, reconhecendo ao Ministério Público legitimidade supletiva quando o querelante se mantém inerte ou recusa a proposta sem fundamento — leitura que prestigia a finalidade despenalizadora do instituto. Alternativa D. O ANPP pressupõe que não seja caso de arquivamento (o que derruba A) e, da recusa de homologação, cabe recurso em sentido estrito (art. 28-A, § 14, c/c art. 581, XXV), não apelação.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 28-A, caput",
+     "tipo": "lei",
+     "texto": "Não sendo caso de arquivamento e tendo o investigado confessado formal e circunstancialmente a prática de infração penal sem violência ou grave ameaça e com pena mínima inferior a 4 (quatro) anos, o Ministério Público poderá propor acordo de não persecução penal, desde que necessário e suficiente para reprovação e prevenção do crime, mediante as seguintes condições ajustadas cumulativa e alternativamente:",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "STJ, ANPP em ação penal privada",
+     "tipo": "entendimento",
+     "texto": "O STJ reconheceu o cabimento do acordo de não persecução penal nas ações penais privadas, com legitimidade primária do querelante e legitimidade supletiva do Ministério Público — que pode formular a proposta quando houver inércia ou recusa infundada do ofendido —, em razão do interesse público na solução consensual."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-242": {
+   "nota": "Contra decisão monocrática de Ministro do STJ cabe agravo regimental, no prazo de 5 dias. Como a Defensoria Pública tem prazo em dobro (LC 80/1994, art. 44, I, 89, I, e 128, I), o prazo é de 10 dias. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 128, I",
+     "tipo": "lei",
+     "texto": "São prerrogativas dos membros da Defensoria Pública do Estado, dentre outras que a lei local estabelecer:\nI – receber, inclusive quando necessário, mediante entrega dos autos com vista, intimação pessoal em qualquer processo e grau de jurisdição ou instância administrativa, contando-se-lhes em dobro todos os prazos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 1.021, caput",
+     "tipo": "lei",
+     "texto": "Contra decisão proferida pelo relator caberá agravo interno para o respectivo órgão colegiado, observadas, quanto ao processamento, as regras do regimento interno do tribunal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-243": {
+   "nota": "A quesitação segue a ordem obrigatória do art. 483 do CPP, e a falta de quesito obrigatório atinge a própria formação do veredicto: é nulidade absoluta, que não se sujeita à preclusão e por isso dispensa protesto na ata. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 483, caput",
+     "tipo": "lei",
+     "texto": "Os quesitos serão formulados na seguinte ordem, indagando sobre:\nI – a materialidade do fato;\nII – a autoria ou participação;\nIII – se o acusado deve ser absolvido;\nIV – se existe causa de diminuição de pena alegada pela defesa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 564, III, k, e IV",
+     "tipo": "lei",
+     "texto": "A nulidade ocorrerá nos seguintes casos:\nk) os quesitos e as respectivas respostas;\nIV - por omissão de formalidade que constitua elemento essencial do ato.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, XXXVIII",
+     "tipo": "lei",
+     "texto": "é reconhecida a instituição do júri, com a organização que lhe der a lei, assegurados:\na) a plenitude de defesa;\nb) o sigilo das votações;\nc) a soberania dos veredictos;\nd) a competência para o julgamento dos crimes dolosos contra a vida;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-255": {
    "nota": "Ao julgar as ADIs 3.360 e 4.109, o STF deu interpretação conforme à Lei 7.960/1989 e fixou, entre outras condições, que a prisão temporária não pode ser decretada — nem subsistir — depois de concluída a investigação, porque sua única razão de ser é viabilizar a apuração. É a alternativa C. A lei exige representação da autoridade policial ou requerimento do MP, nunca decretação de ofício (derruba D).",
    "dispositivos": [
