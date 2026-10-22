@@ -651,6 +651,200 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-110": {
+   "nota": "O STF reconheceu omissão legislativa e, aplicando diretamente a proteção constitucional à infância e a isonomia, assegurou licença de 120 dias ao servidor público que é único genitor de criança gerada por fertilização in vitro com gestação por substituição: o prazo protege a criança, não só a gestante. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 227, caput",
+     "tipo": "lei",
+     "texto": "É dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 7º, XVIII",
+     "tipo": "lei",
+     "texto": "licença à gestante, sem prejuízo do emprego e do salário, com a duração de cento e vinte dias;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, licença-maternidade ao genitor monoparental",
+     "tipo": "entendimento",
+     "texto": "O STF reconheceu a omissão legislativa e estendeu a licença de 120 dias ao servidor público que seja genitor monoparental de criança gerada por fertilização in vitro e gestação por substituição, com fundamento na proteção integral da criança (art. 227) e na isonomia: o prazo existe para assegurar os cuidados iniciais à criança, e não apenas para a recuperação da gestante."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-111": {
+   "nota": "A reparação estadual às vítimas da ditadura é autônoma: o pagamento pela União com o mesmo fundamento não impede o recebimento da indenização prevista na lei do Espírito Santo — alternativa D. No plano federal, o reconhecimento das pessoas desaparecidas como mortas é obra da Lei 9.140/1995, e não da lei estadual, o que afasta a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.140/1995, art. 1º",
+     "tipo": "lei",
+     "texto": "São reconhecidos como mortas, para todos os efeitos legais, as pessoas que tenham participado, ou tenham sido acusadas de participação, em atividades políticas, no período de 2 de setembro de 1961 a 5 de outubro de 1988, e que, por este motivo, tenham sido detidas por agentes públicos, achando-se, deste então, desaparecidas, sem que delas haja notícias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9140compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Lei estadual 5.751/1998 do Espírito Santo, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-112": {
+   "nota": "Em 1997 o STF declarou inconstitucional o Conselho Estadual de Justiça criado pela Constituição de Mato Grosso: controle externo da magistratura por órgão estadual com participação estranha ao Judiciário fere a autonomia do Poder Judiciário e não encontra paralelo na Constituição Federal. É a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 99, caput",
+     "tipo": "lei",
+     "texto": "Ao Poder Judiciário é assegurada autonomia administrativa e financeira.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, Conselho Estadual de Justiça de Mato Grosso (1997)",
+     "tipo": "entendimento",
+     "texto": "O STF declarou inconstitucionais os dispositivos da Constituição mato-grossense que instituíam Conselho Estadual de Justiça com poderes de fiscalização sobre o Judiciário local: o controle externo da magistratura não podia ser criado por constituição estadual, por violar a autonomia do Poder Judiciário e por falta de simetria com a Constituição Federal — o Conselho Nacional de Justiça só veio depois, pela EC 45/2004."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-113": {
+   "nota": "A imunidade material do art. 53 cobre opiniões, palavras e votos, e o STF a estende, por simetria, a quem responde de imediato à ofensa do parlamentar — a retorsão imediata do ofendido fica igualmente acobertada. É a alternativa A. A imunidade material afasta responsabilidade civil E penal (o que derruba D) e, quando incide, não é excepcionada por o crime ser de injúria racial (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 53, caput",
+     "tipo": "lei",
+     "texto": "Os Deputados e Senadores são invioláveis, civil e penalmente, por quaisquer de suas opiniões, palavras e votos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A extensão da imunidade material a quem responde imediatamente à ofensa é construção jurisprudencial; a busca não localizou o julgado em fonte oficial acessível nesta sessão. O texto do art. 53 confirma o alcance civil e penal da imunidade, o que já descarta as alternativas D e E."
+  },
+  "fcc-defensorias-114": {
+   "nota": "A Lei 8.629/1993 é expressa: imóvel objeto de esbulho ou invasão por conflito agrário coletivo não será vistoriado, avaliado nem desapropriado nos dois anos seguintes à desocupação (o dobro em caso de reincidência). A alternativa C reproduz essa regra, inclusive a vedação da simples vistoria.",
+   "dispositivos": [
+    {
+     "ref": "Lei 8.629/1993, art. 2º, § 6º",
+     "tipo": "lei",
+     "texto": "O imóvel rural de domínio público ou particular objeto de esbulho possessório ou invasão motivada por conflito agrário ou fundiário de caráter coletivo não será vistoriado, avaliado ou desapropriado nos dois anos seguintes à sua desocupação, ou no dobro desse prazo, em caso de reincidência; e deverá ser apurada a responsabilidade civil e administrativa de quem concorra com qualquer ato omissivo ou comissivo que propicie o descumprimento dessas vedações.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L8629compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-115": {
+   "nota": "O art. 217, §§ 1º e 2º, da CF/1988 condiciona o acesso ao Judiciário em matéria desportiva ao esgotamento da justiça desportiva, que tem prazo máximo de sessenta dias, da instauração do processo, para decidir. É a alternativa D, literalmente.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 217, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º O Poder Judiciário só admitirá ações relativas à disciplina e às competições desportivas após esgotarem-se as instâncias da justiça desportiva, regulada em lei.\n§ 2º A justiça desportiva terá o prazo máximo de sessenta dias, contados da instauração do processo, para proferir decisão final.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-116": {
+   "nota": "A Defensoria estadual tem iniciativa da própria proposta orçamentária, dentro dos limites da LDO, e a encaminha nos termos do art. 99, § 2º, da CF/1988 — é a alternativa E. O Executivo não pode reduzir unilateralmente proposta compatível com a LDO (C), e o limite da LDO não se fixa sem a instituição (D).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, § 2º",
+     "tipo": "lei",
+     "texto": "Às Defensorias Públicas Estaduais são asseguradas autonomia funcional e administrativa e a iniciativa de sua proposta orçamentária dentro dos limites estabelecidos na lei de diretrizes orçamentárias e subordinação ao disposto no art. 99, § 2º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 99, § 2º",
+     "tipo": "lei",
+     "texto": "O encaminhamento da proposta, ouvidos os outros tribunais interessados, compete:\nI - no âmbito da União, aos Presidentes do Supremo Tribunal Federal e dos Tribunais Superiores, com a aprovação dos respectivos tribunais;\nII - no âmbito dos Estados e no do Distrito Federal e Territórios, aos Presidentes dos Tribunais de Justiça, com a aprovação dos respectivos tribunais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-117": {
+   "nota": "Saúde é competência comum (art. 23, II) e o STF firmou, no Tema 793, que União, Estados, Distrito Federal e Municípios são solidariamente responsáveis nas demandas prestacionais de saúde — o autor pode escolher contra quem litigar, cabendo ao juiz direcionar o cumprimento conforme as regras de repartição e determinar o ressarcimento a quem suportou o ônus. É a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 23, II",
+     "tipo": "lei",
+     "texto": "É competência comum da União, dos Estados, do Distrito Federal e dos Municípios:\nII - cuidar da saúde e assistência pública, da proteção e garantia das pessoas portadoras de deficiência;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, RE 855.178 (Tema 793)",
+     "tipo": "entendimento",
+     "texto": "Tese: os entes da federação, em decorrência da competência comum, são solidariamente responsáveis nas demandas prestacionais na área da saúde; diante dos critérios constitucionais de descentralização e hierarquização, compete à autoridade judicial direcionar o cumprimento conforme as regras de repartição de competências e determinar o ressarcimento a quem suportou o ônus financeiro."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-118": {
+   "nota": "A Lei dos Planos de Saúde só alcança os contratos firmados a partir de sua vigência e os antigos que tenham sido adaptados; quem optou por manter o plano antigo inalterado não se beneficia das suas regras, inclusive as que vedam exclusão de coberturas. É o art. 35 da Lei 9.656/1998, confirmado pelo STF ao julgar a ADI 1931. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.656/1998, art. 35, caput",
+     "tipo": "lei",
+     "texto": "Aplicam-se as disposições desta Lei a todos os contratos celebrados a partir de sua vigência, assegurada aos consumidores com contratos anteriores, bem como àqueles com contratos celebrados entre 2 de setembro de 1998 e 1º de janeiro de 1999, a possibilidade de optar pela adaptação ao sistema previsto nesta Lei.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9656compilado.htm"
+    },
+    {
+     "ref": "STF, ADI 1931",
+     "tipo": "entendimento",
+     "texto": "O STF assentou que a aplicação da Lei 9.656/1998 aos contratos anteriores dependeria de adaptação voluntária, por força da proteção do ato jurídico perfeito: as regras novas, inclusive as de cobertura obrigatória, não incidem sobre os planos antigos mantidos sem alteração."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-119": {
+   "nota": "Dano ambiental gera responsabilidade objetiva pela teoria do risco integral (art. 14, § 1º, da Lei 6.938/1981): o dever de reparar é objetivo, solidário e ilimitado, qualquer que seja o pedido — indenizatório, restaurador ou demolitório —, e o STJ admite a inversão do ônus da prova em favor da vítima quanto aos demais elementos. É a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 225, § 3º",
+     "tipo": "lei",
+     "texto": "As condutas e atividades consideradas lesivas ao meio ambiente sujeitarão os infratores, pessoas físicas ou jurídicas, a sanções penais e administrativas, independentemente da obrigação de reparar os danos causados.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Lei 6.938/1981, art. 14, § 1º",
+     "tipo": "lei",
+     "texto": "Sem obstar a aplicação das penalidades previstas neste artigo, é o poluidor obrigado, independentemente da existência de culpa, a indenizar ou reparar os danos causados ao meio ambiente e a terceiros, afetados por sua atividade.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L6938compilada.htm"
+    },
+    {
+     "ref": "STJ, risco integral e inversão do ônus da prova em dano ambiental",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que a responsabilidade por dano ambiental é objetiva, informada pela teoria do risco integral, solidária e ilimitada, sendo irrelevante a natureza do pedido; aplica-se a inversão do ônus da prova em favor da vítima quanto aos demais elementos da responsabilidade civil (Súmula 618 do STJ: a inversão do ônus da prova aplica-se às ações de degradação ambiental)."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-120": {
+   "nota": "No RE 1.240.999 e na ADI 4.636 o STF declarou inconstitucional exigir inscrição na OAB do defensor público — a capacidade postulatória decorre da nomeação no cargo. A decisão não expulsa ninguém dos quadros: quem já é inscrito pode manter o vínculo se quiser. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 4º, § 6º",
+     "tipo": "lei",
+     "texto": "A capacidade postulatória do Defensor Público decorre exclusivamente de sua nomeação e posse no cargo público. (Incluído pela Lei Complementar nº 132, de 2009).",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    },
+    {
+     "ref": "STF, RE 1.240.999 e ADI 4.636",
+     "tipo": "entendimento",
+     "texto": "O STF assentou que a inscrição na OAB não pode ser exigida do defensor público, porque sua capacidade postulatória decorre da investidura no cargo, e facultou a quem já é inscrito manter o vínculo com a Ordem após a posse. A vedação ao exercício da advocacia fora das atribuições institucionais já constava do art. 134, § 1º, da Constituição, e não foi inaugurada por esse julgamento."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-121": {
+   "nota": "O incidente de deslocamento de competência (\"federalização\") tem legitimado único: o Procurador-Geral da República, que o suscita perante o STJ, nas hipóteses de grave violação de direitos humanos. É o art. 109, § 5º, da CF/1988 — alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 109, § 5º",
+     "tipo": "lei",
+     "texto": "Nas hipóteses de grave violação de direitos humanos, o Procurador-Geral da República, com a finalidade de assegurar o cumprimento de obrigações decorrentes de tratados internacionais de direitos humanos dos quais o Brasil seja parte, poderá suscitar, perante o Superior Tribunal de Justiça, em qualquer fase do inquérito ou processo, incidente de deslocamento de competência para a Justiça Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-307": {
    "nota": "A LEP dá à Defensoria Pública, de forma expressa, a visita periódica aos estabelecimentos penais, as providências para apurar responsabilidade e o pedido de interdição do local — exatamente o que descreve a alternativa D.",
    "dispositivos": [
