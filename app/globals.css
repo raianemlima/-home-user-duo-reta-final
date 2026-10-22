@@ -320,3 +320,8 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .skeleton-card.short { width: 70%; }
 @keyframes skeleton-pulse { from { background-position: 100% 0; } to { background-position: -100% 0; } }
 @media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
+
+.vade-staff { border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--s-3); display: grid; gap: var(--s-3); background: var(--surface); }
+.vade-staff .section-title { margin: 0; }
+.vade-staff-part { display: grid; gap: var(--s-2); }
+.vade-staff-part > p { margin: 0; }
