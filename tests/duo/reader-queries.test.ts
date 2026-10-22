@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { listDisciplines, loadSection, searchDiscipline } from "@/lib/reader/queries";
+import { firstSectionId, listDisciplines, loadSection, searchDiscipline } from "@/lib/reader/queries";
 import { FakeDb, makeFakeSupabase } from "../phase2/fake-supabase";
 
 const student = vi.fn();
@@ -61,6 +61,23 @@ describe("loadSection", () => {
     expect([view?.prevId, view?.nextId]).toEqual([null, "s2"]);
     const last = await loadSection(sb(), "penal", "s3");
     expect([last?.prevId, last?.nextId]).toEqual(["s2", null]);
+  });
+  it("o texto antes do primeiro título não vira página: sai do sumário e abre no topo da primeira seção", async () => {
+    // Versão própria: o sumário de uma versão publicada fica em cache entre os testes.
+    const LEI = "f0000000-0000-4000-8000-000000000009";
+    db.tables.disciplines.push({ id: LEI, slug: "lei", title: "Lei", position: 3 });
+    db.tables.content_versions.push({ id: "v-lei", discipline_id: LEI, label: "x", status: "published", published_at: "2026-10-21T12:00:00Z" });
+    [["l0", 0, 0, null, null], ["l1", 1, 9, "Art. 1º", "Art. 1º"], ["l2", 2, 9, "Art. 2º", "Art. 2º"]].forEach(([id, position, level, numbering, title]) => db.tables.sections.push({ id, version_id: "v-lei", position, level, numbering, title, path: [] }));
+    db.tables.paragraphs.push({ id: "q0", section_id: "l0", version_id: "v-lei", position: 1, kind: "body", text: "Dos Princípios Fundamentais", hash: "z" }, { id: "q1", section_id: "l1", version_id: "v-lei", position: 1, kind: "body", text: "Art. 1º Texto.", hash: "y" });
+    const view = await loadSection(sb(), "lei", "l1");
+    expect(view?.toc.map((item) => item.id)).toEqual(["l1", "l2"]);
+    expect(view?.intro.map((p) => p.text)).toEqual(["Dos Princípios Fundamentais"]);
+    expect([view?.prevId, view?.nextId]).toEqual([null, "l2"]);
+    // Link antigo para a introdução abre a primeira seção.
+    const old = await loadSection(sb(), "lei", "l0");
+    expect([old?.section.id, old?.intro.length]).toEqual(["l1", 1]);
+    expect((await loadSection(sb(), "lei", "l2"))?.intro).toEqual([]);
+    expect(await firstSectionId(sb(), "lei")).toBe("l1");
   });
   it("slug desconhecido ou seção de outra versão: null", async () => {
     expect(await loadSection(sb(), "nada", "s1")).toBeNull();

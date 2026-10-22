@@ -158,6 +158,15 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .toc a.current { background: var(--surface-2); font-weight: 600; box-shadow: inset 3px 0 0 var(--accent-strong); }
 .toc-head { display: flex; align-items: center; justify-content: space-between; padding: 0 .25rem .5rem; }
 .toc-close, .toc-toggle, .drawer-backdrop { display: none; }
+.toc-head strong { margin-right: auto; }
+.toc-collapse { font-size: 1.1rem; }
+/* Sumário recolhido (só no computador): o texto ocupa a largura toda e a barra mostra "Mostrar sumário". */
+.reader.toc-hidden { grid-template-columns: minmax(0, 1fr); }
+.reader.toc-hidden .toc { display: none; }
+.section-intro-title { font-family: var(--font-title); font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 0 .75rem; }
+.section-intro { margin-bottom: 1.25rem; }
+.section-intro-more { margin-bottom: 1.25rem; }
+.section-intro-more summary { cursor: pointer; color: var(--link); font-weight: 600; margin-bottom: .5rem; }
 .reader-toolbar { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
 .font-size { margin-left: auto; display: inline-flex; }
 .search-box form { display: flex; gap: .5rem; margin: .5rem 0 1rem; }
@@ -207,6 +216,8 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
   .toc { position: fixed; top: 0; bottom: 0; left: 0; width: min(320px, 86vw); max-height: none; border-radius: 0 14px 14px 0; z-index: 40; transform: translateX(-105%); transition: transform .2s ease; }
   .toc.open { transform: none; }
   .toc-close, .toc-toggle { display: inline-flex; }
+  .toc-collapse, .toc-show { display: none; }
+  .reader.toc-hidden .toc { display: block; }
   .drawer-backdrop { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.4); border: 0; z-index: 35; }
 }
 

@@ -18,6 +18,6 @@ export function SearchBox({ slug }: { slug: string }) {
   return <div className="search-box">
     <form onSubmit={submit} role="search"><label className="visually-hidden" htmlFor="busca">Buscar nesta disciplina</label><input id="busca" type="search" placeholder="Buscar nesta disciplina" value={q} onChange={(event) => setQ(event.target.value)} /><button className="button" type="submit" disabled={busy}>Buscar</button></form>
     {error && <p className="auth-error" role="alert">{error}</p>}
-    {hits && <div className="search-results" role="status">{hits.length ? <ul>{hits.map((hit, index) => <li key={`${hit.sectionId}-${index}`}><Link href={`/disciplinas/${slug}/${hit.sectionId}`} onClick={() => setHits(null)}><strong>{hit.sectionTitle ?? "Introdução"}</strong><span>{hit.snippet}</span></Link></li>)}</ul> : <p>Nada encontrado.</p>}<button className="button ghost" onClick={() => setHits(null)}>Fechar resultados</button></div>}
+    {hits && <div className="search-results" role="status">{hits.length ? <ul>{hits.map((hit, index) => <li key={`${hit.sectionId}-${index}`}><Link href={`/disciplinas/${slug}/${hit.sectionId}`} onClick={() => setHits(null)}><strong>{hit.sectionTitle ?? "Início do material"}</strong><span>{hit.snippet}</span></Link></li>)}</ul> : <p>Nada encontrado.</p>}<button className="button ghost" onClick={() => setHits(null)}>Fechar resultados</button></div>}
   </div>;
 }

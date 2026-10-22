@@ -5,7 +5,8 @@ export type DisciplineCard = { id: string; slug: string; title: string; versionI
 export type TocItem = { id: string; level: number; numbering: string | null; title: string | null; path: string[] };
 export type Toc = TocItem[];
 export type ReaderParagraph = { id: string; kind: "body" | "table" | "footnote" | "tip"; text: string };
-export type SectionView = { discipline: { id: string; slug: string; title: string }; versionId: string; versionLabel: string; hasOriginal: boolean; toc: Toc; section: { id: string; numbering: string | null; title: string | null; path: string[]; paragraphs: ReaderParagraph[] }; prevId: string | null; nextId: string | null };
+// intro: o texto de abertura do documento (antes do primeiro título), mostrado no topo da primeira seção.
+export type SectionView = { discipline: { id: string; slug: string; title: string }; versionId: string; versionLabel: string; hasOriginal: boolean; toc: Toc; section: { id: string; numbering: string | null; title: string | null; path: string[]; paragraphs: ReaderParagraph[] }; intro: ReaderParagraph[]; prevId: string | null; nextId: string | null };
 
 function check(error: { message: string } | null, context: string) {
   if (error) throw new Error(`${context}: ${error.message}`);
@@ -73,30 +74,46 @@ export function chapterBreaks(toc: Toc): Map<string, string> {
   return breaks;
 }
 
+// O trecho antes do primeiro título (sem número nem título: a antiga "Introdução") não vira página própria —
+// em geral é uma linha só ("Dos Princípios Fundamentais", "DICA DUO Como usar este material"). Sai do sumário e
+// da navegação e aparece no topo da primeira seção.
+const isIntro = (item: { numbering: string | null; title: string | null }) => !item.numbering && !item.title;
+export function splitIntro(toc: Toc): { intro: TocItem | null; reading: Toc } {
+  return toc.length > 1 && isIntro(toc[0]) ? { intro: toc[0], reading: toc.slice(1) } : { intro: null, reading: toc };
+}
+
 export async function firstSectionId(supabase: SupabaseClient, slug: string): Promise<string | null> {
   const found = await publishedVersion(supabase, slug);
   if (!found) return null;
-  const { data } = await supabase.from("sections").select("id").eq("version_id", found.version.id).order("position").limit(1).maybeSingle();
-  return (data?.id as string | undefined) ?? null;
+  return splitIntro(await loadToc(supabase, found.version.id)).reading[0]?.id ?? null;
+}
+
+async function loadParagraphs(supabase: SupabaseClient, sectionId: string): Promise<ReaderParagraph[]> {
+  const { data, error } = await supabase.from("paragraphs").select("id, kind, text, position").eq("section_id", sectionId).order("position");
+  check(error, "Falha ao ler os parágrafos");
+  return ((data ?? []) as (ReaderParagraph & { position: number })[]).sort((a, b) => a.position - b.position).map(({ id, kind, text }) => ({ id, kind, text }));
 }
 
 export async function loadSection(supabase: SupabaseClient, slug: string, sectionId: string): Promise<SectionView | null> {
   const found = await publishedVersion(supabase, slug);
   if (!found) return null;
   // Seção, parágrafos e sumário não dependem um do outro: vão juntos.
-  const [{ data: section, error }, { data: paragraphs, error: paragraphError }, toc] = await Promise.all([
-    supabase.from("sections").select("id, numbering, title, path").eq("id", sectionId).eq("version_id", found.version.id).maybeSingle(),
-    supabase.from("paragraphs").select("id, kind, text, position").eq("section_id", sectionId).order("position"),
-    loadToc(supabase, found.version.id),
+  const toc = await loadToc(supabase, found.version.id);
+  const { intro, reading } = splitIntro(toc);
+  // Link antigo para a introdução (posição de leitura, busca): abre a primeira seção, que já traz o texto dela.
+  const targetId = intro && sectionId === intro.id ? reading[0].id : sectionId;
+  const index = reading.findIndex((item) => item.id === targetId);
+  const [{ data: section, error }, paragraphs, introParagraphs] = await Promise.all([
+    supabase.from("sections").select("id, numbering, title, path").eq("id", targetId).eq("version_id", found.version.id).maybeSingle(),
+    loadParagraphs(supabase, targetId),
+    intro && index === 0 ? loadParagraphs(supabase, intro.id) : Promise.resolve([]),
   ]);
   check(error, "Falha ao ler a seção");
   if (!section) return null;
-  check(paragraphError, "Falha ao ler os parágrafos");
-  const index = toc.findIndex((item) => item.id === sectionId);
   return {
-    discipline: found.discipline, versionId: found.version.id, versionLabel: found.version.label, hasOriginal: Boolean(found.version.source_path), toc,
-    section: { id: section.id, numbering: section.numbering, title: section.title, path: section.path ?? [], paragraphs: ((paragraphs ?? []) as (ReaderParagraph & { position: number })[]).sort((a, b) => a.position - b.position).map(({ id, kind, text }) => ({ id, kind, text })) },
-    prevId: index > 0 ? toc[index - 1].id : null, nextId: index >= 0 && index < toc.length - 1 ? toc[index + 1].id : null,
+    discipline: found.discipline, versionId: found.version.id, versionLabel: found.version.label, hasOriginal: Boolean(found.version.source_path), toc: reading,
+    section: { id: section.id, numbering: section.numbering, title: section.title, path: section.path ?? [], paragraphs }, intro: introParagraphs,
+    prevId: index > 0 ? reading[index - 1].id : null, nextId: index >= 0 && index < reading.length - 1 ? reading[index + 1].id : null,
   };
 }
 
