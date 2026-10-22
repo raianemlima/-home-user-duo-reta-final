@@ -20,6 +20,8 @@ export type Dispositivo = {
 };
 
 // Fundamentação do gabarito de uma questão, conferida nas fontes.
+// `dispositivos` vazio é o caso da questão sem fundamentação possível (norma interna de outra Defensoria,
+// constituição estadual, história, interpretação de texto): aí só vai a `ressalva`, dizendo o porquê.
 export type Fundamentacao = {
   // Uma ou duas frases ligando a fundamentação à alternativa correta.
   nota: string;

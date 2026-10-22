@@ -1,9 +1,14 @@
-# Publicação manual na Vercel pelo GitHub (Actions › Deploy produção › Run workflow).
-# O caminho normal é a própria Vercel publicar cada merge em main; este workflow é a alternativa se a integração Git falhar.
-# Requer o segredo VERCEL_TOKEN (Settings > Secrets and variables > Actions); sem ele, o job termina avisando, sem erro.
+# Publica em produção na Vercel — https://duo-reta-final.vercel.app — a cada merge em main,
+# e também manualmente (Actions › Deploy produção › Run workflow).
+# `vercel deploy --prod` publica no domínio de produção do projeto apontado por VERCEL_PROJECT_ID,
+# então é por ali que o aluno vê a atualização.
+# Requer o segredo VERCEL_TOKEN (Settings > Secrets and variables > Actions); sem ele, o job termina avisando,
+# sem erro — e aí a atualização depende da integração Git da própria Vercel estar ligada no projeto.
 name: Deploy produção
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 concurrency:

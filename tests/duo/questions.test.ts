@@ -53,7 +53,8 @@ describe("fundamentação legal do gabarito", () => {
       expect(ids, `${id} não está no banco`).toContain(id);
       expect(item.nota.trim().length, `${id}: nota curta`).toBeGreaterThan(14);
       expect(item.conferido, `${id}: data`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      expect(item.dispositivos.length, `${id}: sem dispositivos`).toBeGreaterThan(0);
+      // Lista vazia só com ressalva: questão que não dá para fundamentar (norma estadual/interna, história, texto).
+      if (item.dispositivos.length === 0) expect(item.ressalva, `${id}: sem dispositivos e sem ressalva`).toBeTruthy();
       for (const dispositivo of item.dispositivos) {
         const where = `${id} (${dispositivo.ref})`;
         expect(dispositivo.ref.trim(), `${id}: ref vazia`).not.toBe("");
