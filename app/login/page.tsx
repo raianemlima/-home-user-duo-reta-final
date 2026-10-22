@@ -1,17 +1,38 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
+import { FormEvent, Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { LOGIN_REASONS, loginMessage } from "@/lib/auth/messages";
 import { createClient } from "@/lib/supabase/client";
 
-export default function LoginPage() {
-  const router = useRouter();
-  const [email, setEmail] = useState(""); const [password, setPassword] = useState(""); const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
-  async function submit(event: FormEvent) {
+// Só caminhos internos: evita redirecionamento aberto via ?next=.
+const safeNext = (value: string | null) => (value && value.startsWith("/") && !value.startsWith("//") ? value : "/");
+
+function LoginForm() {
+  const router = useRouter(); const params = useSearchParams();
+  const next = safeNext(params.get("next")); const reason = LOGIN_REASONS[params.get("motivo") ?? ""];
+  const [email, setEmail] = useState(""); const [code, setCode] = useState(""); const [sent, setSent] = useState(""); const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
+  async function sendLink(event: FormEvent) {
     event.preventDefault(); setBusy(true); setError("");
-    try { const { error: signInError } = await createClient().auth.signInWithPassword({ email, password }); if (signInError) throw signInError; const nextPath = new URLSearchParams(window.location.search).get("next") || "/"; router.replace(nextPath); router.refresh(); }
-    catch (signInError) { setError(signInError instanceof Error ? "E-mail ou senha inválidos." : "Não foi possível entrar."); }
+    try { const { error: otpError } = await createClient().auth.signInWithOtp({ email: email.trim().toLowerCase(), options: { shouldCreateUser: false, emailRedirectTo: `${window.location.origin}/auth/confirm?next=${encodeURIComponent(next)}` } }); setSent(loginMessage(otpError)); }
+    catch { setSent(loginMessage(null)); }
     finally { setBusy(false); }
   }
-  return <main className="auth-page"><div className="auth-card"><span className="brand-mark">A</span><p className="eyebrow">ATELIÊ DO CONHECIMENTO</p><h1>Entrar no seu espaço</h1><p>Este ambiente é privado. O cadastro de usuários é controlado diretamente no Supabase.</p><form onSubmit={submit} className="auth-form"><label>E-mail<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" required /></label><label>Senha<input type="password" value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password" required /></label>{error && <p className="auth-error">{error}</p>}<button className="button primary full" type="submit" disabled={busy}>{busy ? "Entrando…" : "Entrar"}<span>→</span></button></form><p className="auth-footnote">A sessão é mantida por cookies seguros do Supabase. Não há cadastro público nesta aplicação.</p></div></main>;
+  async function verify(event: FormEvent) {
+    event.preventDefault(); setBusy(true); setError("");
+    try { const { error: verifyError } = await createClient().auth.verifyOtp({ email: email.trim().toLowerCase(), token: code.trim(), type: "email" }); if (verifyError) throw verifyError; router.replace(next); router.refresh(); }
+    catch { setError("Código inválido ou expirado. Confira o e-mail ou peça um novo código."); }
+    finally { setBusy(false); }
+  }
+  return <div className="auth-card">
+    <span className="auth-logo" aria-hidden="true" /><p className="eyebrow">CURSOS DUO · RETA FINAL DPE-SP</p><h1>Entrar no app de estudo</h1>
+    {reason && <p className="auth-notice" role="status">{reason}</p>}
+    {!sent ? <form onSubmit={sendLink} className="auth-form"><label>E-mail da sua matrícula<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" inputMode="email" required /></label><button className="button primary full" type="submit" disabled={busy}>{busy ? "Enviando…" : "Receber link de acesso"}</button></form>
+      : <form onSubmit={verify} className="auth-form"><p className="auth-sent" role="status">{sent}</p><label>Código de 6 dígitos<input value={code} onChange={(event) => setCode(event.target.value.replace(/\D/g, "").slice(0, 6))} autoComplete="one-time-code" inputMode="numeric" pattern="\d{6}" required /></label>{error && <p className="auth-error" role="alert">{error}</p>}<button className="button primary full" type="submit" disabled={busy || code.length !== 6}>{busy ? "Entrando…" : "Entrar"}</button><button className="button ghost full" type="button" onClick={() => { setSent(""); setCode(""); setError(""); }}>Usar outro e-mail</button></form>}
+    <p className="auth-footnote">Você também pode tocar no link enviado por e-mail. <a href="/privacidade">Privacidade</a></p>
+  </div>;
+}
+
+export default function LoginPage() {
+  return <main className="auth-page"><Suspense fallback={null}><LoginForm /></Suspense></main>;
 }

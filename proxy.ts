@@ -2,10 +2,13 @@ import { createServerClient } from "@supabase/ssr";
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
+const PUBLIC_PATHS = ["/login", "/configuracao", "/privacidade"];
+
 export async function proxy(request: NextRequest) {
   const { url, key } = getSupabaseConfig();
   const pathname = request.nextUrl.pathname;
-  const isPublic = pathname === "/login" || pathname === "/configuracao" || pathname.startsWith("/auth");
+  const isPublic = PUBLIC_PATHS.includes(pathname) || pathname.startsWith("/auth");
+  const isApi = pathname.startsWith("/api/");
 
   if (!url || !key) {
     if (isPublic) return NextResponse.next();
@@ -25,14 +28,31 @@ export async function proxy(request: NextRequest) {
   });
   const { data: { user } } = await supabase.auth.getUser();
 
-  if (!user && !isPublic) {
-    if (pathname.startsWith("/api/")) return NextResponse.json({ error: { code: "unauthenticated", message: "Sua sessão expirou. Entre novamente para continuar." } }, { status: 401 });
-    return NextResponse.redirect(new URL("/login", request.url));
+  if (!user) {
+    if (isPublic) return response;
+    if (isApi) return NextResponse.json({ error: { code: "unauthenticated", message: "Sua sessão expirou. Entre novamente para continuar." } }, { status: 401 });
+    const login = new URL("/login", request.url);
+    login.searchParams.set("next", pathname + request.nextUrl.search);
+    return NextResponse.redirect(login);
   }
-  if (user && pathname === "/login") return NextResponse.redirect(new URL("/", request.url));
+
+  // Papel e situação vêm do perfil a cada requisição: desativar um aluno vale na hora, sem esperar o token expirar.
+  const { data: profile } = await supabase.from("profiles").select("role, active").eq("user_id", user.id).maybeSingle();
+  const active = Boolean(profile?.active);
+  if (!active) {
+    if (isPublic) return response;
+    if (isApi) return NextResponse.json({ error: { code: "forbidden", message: "Seu acesso ao curso não está ativo." } }, { status: 403 });
+    return NextResponse.redirect(new URL("/login?motivo=sem-acesso", request.url));
+  }
+  if (pathname === "/login") return NextResponse.redirect(new URL("/", request.url));
+  const staffArea = pathname === "/equipe" || pathname.startsWith("/equipe/") || pathname.startsWith("/api/equipe/") || pathname === "/api/equipe";
+  if (staffArea && profile?.role !== "equipe") {
+    if (isApi) return NextResponse.json({ error: { code: "forbidden", message: "Acesso restrito à equipe." } }, { status: 403 });
+    return NextResponse.redirect(new URL("/", request.url));
+  }
   return response;
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|css|js)$).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest|brand/|icons/|.*\\.(?:svg|png|jpg|jpeg|gif|webp|css|js|woff2?)$).*)"],
 };
