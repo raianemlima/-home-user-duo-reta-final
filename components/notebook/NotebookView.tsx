@@ -44,7 +44,7 @@ export function NotebookView({ groups, filter, disciplines }: { groups: Notebook
       <label>Revisão<select name="revisados" defaultValue={filter.reviewed ?? "all"}><option value="all">Todos</option><option value="pending">A revisar</option><option value="done">Revisados</option></select></label>
       <button className="button" type="submit">Filtrar</button>
     </form>
-    <p className="notebook-summary"><span>{total} {total === 1 ? "trecho" : "trechos"}</span>{total > 0 && <a className="button primary" href={exportHref}>Exportar caderno (PDF)</a>}</p>
+    <p className="notebook-summary"><span>{total} {total === 1 ? "trecho" : "trechos"}</span>{total > 0 && <span className="sheet-actions"><a className="button primary" href={exportHref}>Exportar caderno (PDF)</a><a className="button" href={`${exportHref}&formato=docx`}>Exportar caderno (Word)</a></span>}</p>
     {!total && <p className="empty">Nada por aqui ainda. Selecione um trecho no material e escolha uma cor para começar seu caderno.</p>}
     {groups.map((group) => <section key={group.discipline.slug} className="notebook-group">
       <h2>{group.discipline.title}</h2>

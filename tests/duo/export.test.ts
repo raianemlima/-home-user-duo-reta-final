@@ -1,5 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { buildNotebookExport, MAX_EXPORT_ITEMS } from "@/lib/export/model";
+import JSZip from "jszip";
+import { renderDocx } from "@/lib/export/docx";
 import { renderPdf } from "@/lib/export/pdf";
 import { extractOriginal } from "@/lib/extraction";
 import type { NotebookGroup, NotebookItem } from "@/lib/notebook/queries";
@@ -42,6 +44,21 @@ describe("renderPdf", () => {
   }, 60_000);
 });
 
+describe("renderDocx", () => {
+  it("gera um .docx válido com título, trechos, anotação e rodapé", async () => {
+    const bytes = await renderDocx(buildNotebookExport(notebook, "ana@x.com", NOW));
+    expect(new TextDecoder().decode(bytes.slice(0, 2))).toBe("PK");
+    const zip = await JSZip.loadAsync(bytes);
+    const xml = await zip.file("word/document.xml")?.async("string");
+    expect(xml).toContain("Caderno de revisão");
+    expect(xml).toContain("Trecho a");
+    expect(xml).toContain("cai muito");
+    expect(xml).toContain("Arial");
+    const footer = Object.keys(zip.files).find((name) => /^word\/footer\d*\.xml$/.test(name));
+    expect(await zip.file(footer as string)?.async("string")).toContain("ana@x.com");
+  });
+});
+
 const student = vi.fn();
 const load = vi.fn();
 vi.mock("@/lib/server/auth", () => ({ requireStudent: () => student() }));
@@ -61,6 +78,13 @@ describe("GET /api/caderno/exportar", () => {
     expect(response.headers.get("content-disposition")).toMatch(/^attachment; filename="caderno-duo-\d{4}-\d{2}-\d{2}\.pdf"$/);
     expect(load).toHaveBeenCalledWith({}, "u", { disciplines: ["penal"], colors: ["revisar"], reviewed: "pending" });
   }, 60_000);
+  it("formato=docx devolve o Word como anexo", async () => {
+    load.mockResolvedValue(notebook);
+    const response = await exportRoute(new Request("http://x/api/caderno/exportar?disciplinas=penal&formato=docx"));
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+    expect(response.headers.get("content-disposition")).toMatch(/^attachment; filename="caderno-duo-\d{4}-\d{2}-\d{2}\.docx"$/);
+  });
   it("caderno acima do limite: 413 com orientação", async () => {
     load.mockResolvedValue([{ ...notebook[0], topics: [{ path: ["X"], items: Array.from({ length: MAX_EXPORT_ITEMS + 1 }, (_, i) => item(`i${i}`)) }] }]);
     const response = await exportRoute(new Request("http://x/api/caderno/exportar"));
