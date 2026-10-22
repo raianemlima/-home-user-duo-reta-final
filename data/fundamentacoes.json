@@ -168,6 +168,102 @@
    ],
    "conferido": "2026-10-22"
   },
+  "dpesp-2025-propria-13": {
+   "nota": "A Lei 14.133/2021 divide a habilitação em jurídica, técnica, fiscal/social/trabalhista e econômico-financeira (art. 62). A capacidade econômico-financeira é, portanto, exigência da fase — alternativa B. Certidão negativa de protesto e garantia real não estão no rol legal.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 62",
+     "tipo": "lei",
+     "texto": "A habilitação é a fase da licitação em que se verifica o conjunto de informações e documentos necessários e suficientes para demonstrar a capacidade do licitante de realizar o objeto da licitação, dividindo-se em:\nI - jurídica;\nII - técnica;\nIII - fiscal, social e trabalhista;\nIV - econômico-financeira.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    },
+    {
+     "ref": "Lei 14.133/2021, art. 69, caput",
+     "tipo": "lei",
+     "texto": "A habilitação econômico-financeira visa a demonstrar a aptidão econômica do licitante para cumprir as obrigações decorrentes do futuro contrato, devendo ser comprovada de forma objetiva, por coeficientes e índices econômicos previstos no edital, devidamente justificados no processo licitatório, e será restrita à apresentação da seguinte documentação:",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-14": {
+   "nota": "A regra do art. 37, § 6º, é a do risco administrativo: responde-se sem culpa, mas admitem-se excludentes (culpa exclusiva da vítima, caso fortuito, força maior). O risco integral, que não admite excludentes, é exceção — dano ambiental, nuclear, atos terroristas em aeronaves. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 6º",
+     "tipo": "lei",
+     "texto": "As pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes, nessa qualidade, causarem a terceiros, assegurado o direito de regresso contra o responsável nos casos de dolo ou culpa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-15": {
+   "nota": "O art. 53 da Lei 9.784/1999 separa os dois institutos: anula-se o ato ilegal, revoga-se o ato legal que se tornou inconveniente ou inoportuno, respeitados os direitos adquiridos. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.784/1999, art. 53",
+     "tipo": "lei",
+     "texto": "A Administração deve anular seus próprios atos, quando eivados de vício de legalidade, e pode revogá-los por motivo de conveniência ou oportunidade, respeitados os direitos adquiridos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9784.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-16": {
+   "nota": "O art. 41 da CF/1988 exige três anos de efetivo exercício, e o § 4º condiciona a estabilidade à avaliação especial de desempenho por comissão. A alternativa D reúne os dois requisitos.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 41, caput",
+     "tipo": "lei",
+     "texto": "São estáveis após três anos de efetivo exercício os servidores nomeados para cargo de provimento efetivo em virtude de concurso público.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 41, § 4º",
+     "tipo": "lei",
+     "texto": "Como condição para a aquisição da estabilidade, é obrigatória a avaliação especial de desempenho por comissão instituída para essa finalidade.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-17": {
+   "nota": "Os elementos (ou requisitos) do ato administrativo são cinco: competência (sujeito), finalidade, forma, motivo e objeto. Prazo não é elemento do ato — é circunstância da sua eficácia. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Lei 4.717/1965 (Ação Popular), art. 2º",
+     "tipo": "lei",
+     "texto": "São nulos os atos lesivos ao patrimônio das entidades mencionadas no artigo anterior, nos casos de:\na) incompetência;\nb) vício de forma;\nc) ilegalidade do objeto;\nd) inexistência dos motivos;\ne) desvio de finalidade.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L4717.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-18": {
+   "nota": "A Lei 8.987/1995 define serviço adequado por seus princípios: regularidade, continuidade, eficiência, segurança, atualidade, generalidade (universalidade), cortesia e modicidade das tarifas. Universalidade e continuidade são, portanto, princípios básicos — alternativa C. Lucro não é prioridade, e a titularidade é do poder público.",
+   "dispositivos": [
+    {
+     "ref": "Lei 8.987/1995, art. 6º, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "Toda concessão ou permissão pressupõe a prestação de serviço adequado ao pleno atendimento dos usuários, conforme estabelecido nesta Lei, nas normas pertinentes e no respectivo contrato.\n§ 1º Serviço adequado é o que satisfaz as condições de regularidade, continuidade, eficiência, segurança, atualidade, generalidade, cortesia na sua prestação e modicidade das tarifas.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L8987compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-19": {
+   "nota": "A lista de princípios do art. 5º da Lei 14.133/2021 inclui publicidade e igualdade (isonomia) — alternativa C. O sigilo das propostas é restrito e temporário (art. 13), o menor preço é só um dos critérios de julgamento (art. 33) e a contratação direta é exceção, não preferência.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 5º",
+     "tipo": "lei",
+     "texto": "Na aplicação desta Lei, serão observados os princípios da legalidade, da impessoalidade, da moralidade, da publicidade, da eficiência, do interesse público, da probidade administrativa, da igualdade, do planejamento, da transparência, da eficácia, da segregação de funções, da motivação, da vinculação ao edital, do julgamento objetivo, da segurança jurídica, da razoabilidade, da competitividade, da proporcionalidade, da celeridade, da economicidade e do desenvolvimento nacional sustentável, assim como as disposições do Decreto-Lei nº 4.657, de 4 de setembro de 1942 (Lei de Introdução às Normas do Direito Brasileiro).",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "dpesp-2025-propria-26": {
    "nota": "Nomear e exonerar Ministros de Estado é o inciso I do art. 84 da CF/1988, a lista da competência privativa do Presidente. As demais alternativas trocam de titular: votar no Congresso é dos parlamentares, a iniciativa das leis orçamentárias é do Executivo mas por projeto de lei (art. 165), e emenda à Constituição pode ser proposta por vários legitimados (art. 60).",
    "dispositivos": [
@@ -556,6 +652,192 @@
      "tipo": "lei",
      "texto": "O pronunciamento judicial que não resolve o mérito não obsta a que a parte proponha de novo a ação.\n§ 1º No caso de extinção em razão de litispendência e nos casos dos incisos I, IV, VI e VII do art. 485, a propositura da nova ação depende da correção do vício que levou à sentença sem resolução do mérito.",
      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-70": {
+   "nota": "O art. 506 é expresso: a sentença faz coisa julgada às partes entre as quais é dada, não prejudicando terceiros. Os sucessores entram porque recebem a posição jurídica da parte. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 506",
+     "tipo": "lei",
+     "texto": "A sentença faz coisa julgada às partes entre as quais é dada, não prejudicando terceiros.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 502",
+     "tipo": "lei",
+     "texto": "Denomina-se coisa julgada material a autoridade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-71": {
+   "nota": "A produção antecipada cabe, entre outras hipóteses, quando há fundado receio de que a verificação dos fatos se torne impossível ou muito difícil na pendência da ação — isto é, risco de perda da prova (alternativa B). É ação autônoma, que não depende de lide instaurada (derruba A e D).",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 381",
+     "tipo": "lei",
+     "texto": "A produção antecipada da prova será admitida nos casos em que:\nI - haja fundado receio de que venha a tornar-se impossível ou muito difícil a verificação de certos fatos na pendência da ação;\nII - a prova a ser produzida seja suscetível de viabilizar a autocomposição ou outro meio adequado de solução de conflito;\nIII - o prévio conhecimento dos fatos possa justificar ou evitar o ajuizamento de ação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-72": {
+   "nota": "O CPC manda primeiro dar chance de emenda: o juiz indica o que corrigir em 15 dias e só indefere a inicial se o autor não cumprir a diligência (art. 321, parágrafo único). Daí a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 321",
+     "tipo": "lei",
+     "texto": "O juiz, ao verificar que a petição inicial não preenche os requisitos dos arts. 319 e 320 ou que apresenta defeitos e irregularidades capazes de dificultar o julgamento de mérito, determinará que o autor, no prazo de 15 (quinze) dias, a emende ou a complete, indicando com precisão o que deve ser corrigido ou completado.\nParágrafo único. Se o autor não cumprir a diligência, o juiz indeferirá a petição inicial.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-73": {
+   "nota": "A regra do CPC/2015 inverteu a lógica antiga: os recursos NÃO impedem a eficácia da decisão, salvo disposição legal ou decisão judicial em sentido diverso. O efeito suspensivo, então, é concedido pelo relator quando presentes risco de dano grave e probabilidade de provimento — alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 995",
+     "tipo": "lei",
+     "texto": "Os recursos não impedem a eficácia da decisão, salvo disposição legal ou decisão judicial em sentido diverso.\nParágrafo único. A eficácia da decisão recorrida poderá ser suspensa por decisão do relator, se da imediata produção de seus efeitos houver risco de dano grave, de difícil ou impossível reparação, e ficar demonstrada a probabilidade de provimento do recurso.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-74": {
+   "nota": "Findo o depoimento das testemunhas (a instrução), o juiz dá a palavra aos advogados para os debates orais — as alegações finais, de 20 minutos para cada um, prorrogáveis. É a alternativa B. A instrução vem depois da contestação (derruba D).",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 364, caput",
+     "tipo": "lei",
+     "texto": "Finda a instrução, o juiz dará a palavra ao advogado do autor e do réu, bem como ao membro do Ministério Público, se for o caso de sua intervenção, sucessivamente, pelo prazo de 20 (vinte) minutos para cada um, prorrogável por 10 (dez) minutos, a critério do juiz.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-81": {
+   "nota": "O art. 135 do CTN é o fundamento: diretores, gerentes e representantes da pessoa jurídica respondem pessoalmente pelos créditos decorrentes de atos praticados com excesso de poderes ou infração de lei, contrato social ou estatutos. Alternativa C. O simples inadimplemento não basta (Súmula 430 do STJ), e a dissolução irregular é apenas UMA das hipóteses (Súmula 435), o que derruba B.",
+   "dispositivos": [
+    {
+     "ref": "CTN, art. 135",
+     "tipo": "lei",
+     "texto": "São pessoalmente responsáveis pelos créditos correspondentes a obrigações tributárias resultantes de atos praticados com excesso de podêres ou infração de lei, contrato social ou estatutos:\nI - as pessoas referidas no artigo anterior;\nII - os mandatários, prepostos e empregados;\nIII - os diretores, gerentes ou representantes de pessoas jurídicas de direito privado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L5172Compilado.htm"
+    },
+    {
+     "ref": "STJ, Súmulas 430 e 435",
+     "tipo": "entendimento",
+     "texto": "Súmula 430: o inadimplemento da obrigação tributária pela sociedade não gera, por si só, a responsabilidade solidária do sócio-gerente. Súmula 435: presume-se dissolvida irregularmente a empresa que deixar de funcionar no seu domicílio fiscal, sem comunicação aos órgãos competentes, legitimando o redirecionamento da execução fiscal para o sócio-gerente."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-82": {
+   "nota": "O art. 16 do CTN define imposto pela desvinculação: o fato gerador é situação independente de qualquer atividade estatal específica relativa ao contribuinte. Taxa é que tem contraprestação específica (art. 77). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CTN, art. 16",
+     "tipo": "lei",
+     "texto": "Imposto é o tributo cuja obrigação tem por fato gerador uma situação independente de qualquer atividade estatal específica, relativa ao contribuinte.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L5172Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-31": {
+   "nota": "Negar atendimento por impossibilidade jurídica do pedido é ato de ofício do defensor; se desse ato resultar dano, a responsabilidade é do Estado (art. 37, § 6º), e a representação judicial do Estado cabe à Procuradoria-Geral do Estado (art. 132 da CF/1988), não à assessoria da própria Defensoria. É a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 6º",
+     "tipo": "lei",
+     "texto": "As pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes, nessa qualidade, causarem a terceiros, assegurado o direito de regresso contra o responsável nos casos de dolo ou culpa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 132, caput",
+     "tipo": "lei",
+     "texto": "Os Procuradores dos Estados e do Distrito Federal, organizados em carreira, na qual o ingresso dependerá de concurso público de provas e títulos, com a participação da Ordem dos Advogados do Brasil em todas as suas fases, exercerão a representação judicial e a consultoria jurídica das respectivas unidades federadas.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "LC 80/1994, art. 4º, § 8º",
+     "tipo": "lei",
+     "texto": "Se o Defensor Público entender inexistir hipótese de atuação institucional, dará imediata ciência ao Defensor Público-Geral, que decidirá a controvérsia, indicando, se for o caso, outro Defensor Público para atuar.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-32": {
+   "nota": "A MP 2.220/2001 rege a concessão de uso especial para fins de moradia. O gabarito oficial é B, mas o próprio texto admite o exercício do direito em OUTRO local: obrigatoriamente, se a ocupação acarretar risco à vida ou à saúde (art. 4º), e facultativamente nas hipóteses do art. 5º. Leia a ressalva abaixo.",
+   "dispositivos": [
+    {
+     "ref": "MP 2.220/2001, art. 4º",
+     "tipo": "lei",
+     "texto": "No caso de a ocupação acarretar risco à vida ou à saúde dos ocupantes, o Poder Público garantirá ao possuidor o exercício do direito de que tratam os arts. 1º e 2º em outro local.",
+     "url": "https://www.planalto.gov.br/ccivil_03/MPV/2220.htm"
+    },
+    {
+     "ref": "MP 2.220/2001, art. 5º",
+     "tipo": "lei",
+     "texto": "É facultado ao Poder Público assegurar o exercício do direito de que tratam os arts. 1º e 2º em outro local na hipótese de ocupação de imóvel:\nI - de uso comum do povo;\nII - destinado a projeto de urbanização;\nIII - de interesse da defesa nacional, da preservação ambiental e da proteção dos ecossistemas naturais;\nIV - reservado à construção de represas e obras congêneres; ou\nV - situado em via de comunicação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/MPV/2220.htm"
+    },
+    {
+     "ref": "MP 2.220/2001, art. 8º",
+     "tipo": "lei",
+     "texto": "O direito à concessão de uso especial para fins de moradia extingue-se no caso de:\nI - o concessionário dar ao imóvel destinação diversa da moradia para si ou para sua família; ou\nII - o concessionário adquirir a propriedade ou a concessão de uso de outro imóvel urbano ou rural.",
+     "url": "https://www.planalto.gov.br/ccivil_03/MPV/2220.htm"
+    },
+    {
+     "ref": "MP 2.220/2001, art. 1º, caput e § 3º, e art. 7º",
+     "tipo": "lei",
+     "texto": "Art. 1º Aquele que, até 22 de dezembro de 2016, possuiu como seu, por cinco anos, ininterruptamente e sem oposição, até duzentos e cinquenta metros quadrados de imóvel público situado em área com características e finalidade urbanas, e que o utilize para sua moradia ou de sua família, tem o direito à concessão de uso especial para fins de moradia em relação ao bem objeto da posse, desde que não seja proprietário ou concessionário, a qualquer título, de outro imóvel urbano ou rural.\n§ 3º Para os efeitos deste artigo, o herdeiro legítimo continua, de pleno direito, na posse de seu antecessor, desde que já resida no imóvel por ocasião da abertura da sucessão.\nArt. 7º O direito de concessão de uso especial para fins de moradia é transferível por ato inter vivos ou causa mortis.",
+     "url": "https://www.planalto.gov.br/ccivil_03/MPV/2220.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Gabarito oficial discutível. A alternativa C (\"extingue-se no caso de o concessionário adquirir a concessão de uso de outro imóvel rural\") está literalmente no art. 8º, II, da MP 2.220/2001, e a alternativa B (\"exercido EXCLUSIVAMENTE no local\") é contrariada pelos arts. 4º e 5º. As alternativas A, D e E estão erradas (o herdeiro precisa já residir no imóvel; a data foi atualizada para 22/12/2016 pela Lei 13.465/2017; o direito é transferível por ato inter vivos)."
+  },
+  "fcc-defensorias-33": {
+   "nota": "O diálogo competitivo é a modalidade criada pela Lei 14.133/2021 (art. 28, V, e art. 6º, XLII) — alternativa B. Na nova lei a habilitação vem DEPOIS das propostas e do julgamento (art. 17, V), o que derruba C; e o comitê de resolução de disputas foi mantido (art. 151).",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 28",
+     "tipo": "lei",
+     "texto": "São modalidades de licitação:\nI - pregão;\nII - concorrência;\nIII - concurso;\nIV - leilão;\nV - diálogo competitivo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    },
+    {
+     "ref": "Lei 14.133/2021, art. 17, caput",
+     "tipo": "lei",
+     "texto": "O processo de licitação observará as seguintes fases, em sequência:\nI - preparatória;\nII - de divulgação do edital de licitação;\nIII - de apresentação de propostas e lances, quando for o caso;\nIV - de julgamento;\nV - de habilitação;\nVI - recursal;\nVII - de homologação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-34": {
+   "nota": "Mesmo em área pública, a demolição exige processo administrativo com contraditório e ampla defesa (art. 5º, LV, da CF/1988): prazo de 8 dias por simples notificação, sem oportunidade de defesa, viola o devido processo legal administrativo. A autoexecutoriedade depende de previsão legal e de urgência, e não dispensa o processo. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, LV",
+     "tipo": "lei",
+     "texto": "aos litigantes, em processo judicial ou administrativo, e aos acusados em geral são assegurados o contraditório e ampla defesa, com os meios e recursos a ela inerentes;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Lei 9.784/1999, art. 2º, caput e parágrafo único, X",
+     "tipo": "lei",
+     "texto": "A Administração Pública obedecerá, dentre outros, aos princípios da legalidade, finalidade, motivação, razoabilidade, proporcionalidade, moralidade, ampla defesa, contraditório, segurança jurídica, interesse público e eficiência.\nX - garantia dos direitos à comunicação, à apresentação de alegações finais, à produção de provas e à interposição de recursos, nos processos de que possam resultar sanções e nas situações de litígio;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9784.htm"
     }
    ],
    "conferido": "2026-10-22"
@@ -1526,6 +1808,161 @@
      "tipo": "lei",
      "texto": "O Tribunal de Contas da União, integrado por nove Ministros, tem sede no Distrito Federal, quadro próprio de pessoal e jurisdição em todo o território nacional, exercendo, no que couber, as atribuições previstas no art. 96.",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-218": {
+   "nota": "O valor da causa, na ação indenizatória — inclusive por dano moral —, é o valor pretendido (art. 292, V), somando-se os pedidos cumulados (VI). Mas o STJ firmou que arbitrar o dano moral em valor menor que o pedido não gera sucumbência recíproca: o autor não perde parte do pedido, porque o quantum é fixado pelo juiz. É a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 292, V e VI",
+     "tipo": "lei",
+     "texto": "O valor da causa constará da petição inicial ou da reconvenção e será:\nV - na ação indenizatória, inclusive a fundada em dano moral, o valor pretendido;\nVI - na ação em que há cumulação de pedidos, a quantia correspondente à soma dos valores de todos eles;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "STJ, Súmula 326",
+     "tipo": "entendimento",
+     "texto": "Na ação de indenização por dano moral, a condenação em montante inferior ao postulado na inicial não implica sucumbência recíproca."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-219": {
+   "nota": "Quem produziu o documento tem o ônus de provar sua autenticidade quando a assinatura é impugnada (CPC, art. 429, II). O STJ firmou que esse ônus é do banco e que a prova não se restringe à perícia grafotécnica: vale qualquer meio legal ou moralmente legítimo (CPC, art. 369). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 429, II",
+     "tipo": "lei",
+     "texto": "Incumbe o ônus da prova quando:\nII - se tratar de impugnação da autenticidade, à parte que produziu o documento.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 369",
+     "tipo": "lei",
+     "texto": "As partes têm o direito de empregar todos os meios legais, bem como os moralmente legítimos, ainda que não especificados neste Código, para provar a verdade dos fatos em que se funda o pedido ou a defesa e influir eficazmente na convicção do juiz.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-220": {
+   "nota": "Embargos de terceiro pressupõem constrição ou ameaça de constrição sobre o bem (art. 674). No caso não há nenhuma decisão sobre o bem, logo não cabem embargos — a asserção I é falsa. A asserção II também é falsa: ela descreve a oposição do CPC/1973, instituto extinto no CPC/2015. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 674, caput",
+     "tipo": "lei",
+     "texto": "Quem, não sendo parte no processo, sofrer constrição ou ameaça de constrição sobre bens que possua ou sobre os quais tenha direito incompatível com o ato constritivo, poderá requerer seu desfazimento ou sua inibição por meio de embargos de terceiro.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 119 (assistência) e fim da oposição",
+     "tipo": "lei",
+     "texto": "Pendendo causa entre 2 (duas) ou mais pessoas, o terceiro juridicamente interessado em que a sentença seja favorável a uma delas poderá intervir no processo para assisti-la.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-221": {
+   "nota": "Na improcedência liminar do pedido o juiz julga \"independentemente da citação do réu\" (art. 332), e, se não houver apelação, o réu é apenas intimado do trânsito em julgado. Logo, a falta de citação não invalida nem impede o trânsito em julgado dessa sentença — alternativa E. A citação hoje é preferencialmente eletrônica, não pelo correio (derruba B), e a interrupção da prescrição retroage à propositura, não à citação (derruba C).",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 332, caput e §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "Nas causas que dispensem a fase instrutória, o juiz, independentemente da citação do réu, julgará liminarmente improcedente o pedido que contrariar:\n§ 1º O juiz também poderá julgar liminarmente improcedente o pedido se verificar, desde logo, a ocorrência de decadência ou de prescrição.\n§ 2º Não interposta a apelação, o réu será intimado do trânsito em julgado da sentença, nos termos do art. 241.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 240, § 1º",
+     "tipo": "lei",
+     "texto": "A interrupção da prescrição, operada pelo despacho que ordena a citação, ainda que proferido por juízo incompetente, retroagirá à data de propositura da ação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-222": {
+   "nota": "Há conflito aparente: o CPC/2015 (posterior ao EPD) manteve no art. 447, § 1º, I, o \"interdito por enfermidade ou deficiência mental\" entre os incapazes de testemunhar, mas não revogou expressamente o art. 79 do Estatuto da Pessoa com Deficiência, que assegura o testemunho em igualdade de condições com tecnologia assistiva. A alternativa B descreve exatamente esse quadro.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 447, caput e § 1º, I",
+     "tipo": "lei",
+     "texto": "Podem depor como testemunhas todas as pessoas, exceto as incapazes, impedidas ou suspeitas.\n§ 1º São incapazes:\nI - o interdito por enfermidade ou deficiência mental;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "Lei 13.146/2015 (EPD), art. 79, caput",
+     "tipo": "lei",
+     "texto": "O poder público deve assegurar o acesso da pessoa com deficiência à justiça, em igualdade de oportunidades com as demais pessoas, garantindo, sempre que requeridos, adaptações e recursos de tecnologia assistiva.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13146.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-223": {
+   "nota": "Quando o oficial constata que o citando é mentalmente incapaz, o caminho é o art. 245: certidão minuciosa, nomeação de médico com laudo em 5 dias e, reconhecida a impossibilidade, nomeação de CURADOR ao citando — observada a preferência da lei civil e restrita à causa —, na pessoa de quem se fará a citação. Não é curadoria especial da Defensoria. Alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 245",
+     "tipo": "lei",
+     "texto": "Não se fará citação quando se verificar que o citando é mentalmente incapaz ou está impossibilitado de recebê-la.\n§ 1º O oficial de justiça descreverá e certificará minuciosamente a ocorrência.\n§ 2º Para examinar o citando, o juiz nomeará médico, que apresentará laudo no prazo de 5 (cinco) dias.\n§ 4º Reconhecida a impossibilidade, o juiz nomeará curador ao citando, observando, quanto à sua escolha, a preferência estabelecida em lei e restringindo a nomeação à causa.\n§ 5º A citação será feita na pessoa do curador, a quem incumbirá a defesa dos interesses do citando.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 72, I",
+     "tipo": "lei",
+     "texto": "O juiz nomeará curador especial ao:\nI - incapaz, se não tiver representante legal ou se os interesses deste colidirem com os daquele, enquanto durar a incapacidade;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-229": {
+   "nota": "Negócios processuais típicos são os que a lei nomeia: eleição de foro, desistência da ação após a resposta (que exige consentimento do réu), distribuição convencional do ônus da prova (art. 373, § 3º) e calendário processual (art. 191). É a alternativa A. A cláusula geral do art. 190 exige direitos que admitam autocomposição — não direito disponível em si (derruba C) — e submete a convenção a controle judicial de validade (derruba D).",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 190",
+     "tipo": "lei",
+     "texto": "Versando o processo sobre direitos que admitam autocomposição, é lícito às partes plenamente capazes estipular mudanças no procedimento para ajustá-lo às especificidades da causa e convencionar sobre os seus ônus, poderes, faculdades e deveres processuais, antes ou durante o processo.\nParágrafo único. De ofício ou a requerimento, o juiz controlará a validade das convenções previstas neste artigo, recusando-lhes aplicação somente nos casos de nulidade ou de inserção abusiva em contrato de adesão ou em que alguma parte se encontre em manifesta situação de vulnerabilidade.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 191",
+     "tipo": "lei",
+     "texto": "De comum acordo, o juiz e as partes podem fixar calendário para a prática dos atos processuais, quando for o caso.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-276": {
+   "nota": "O art. 659, § 2º, do CPC/2015 dispensa a prova do recolhimento prévio do ITCMD para a homologação de partilha ou adjudicação em arrolamento sumário: o fisco é intimado depois, para o lançamento administrativo. É a alternativa B, e o STF confirmou a regra (ADI 7.083).",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 659, caput e § 2º",
+     "tipo": "lei",
+     "texto": "A partilha amigável, celebrada entre partes capazes, nos termos da lei, será homologada de plano pelo juiz, com observância dos arts. 660 a 663.\n§ 2º Transitada em julgado a sentença de homologação de partilha ou de adjudicação, será lavrado o formal de partilha ou elaborada a carta de adjudicação e, em seguida, serão expedidos os alvarás referentes aos bens e às rendas por ele abrangidos, intimando-se o fisco para lançamento administrativo do imposto de transmissão e de outros tributos porventura incidentes, conforme dispuser a legislação tributária, nos termos do § 2º do art. 662.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-277": {
+   "nota": "O pedido de parcelamento é confissão extrajudicial do débito e, por isso, interrompe a prescrição (CTN, art. 174, parágrafo único, IV) — ainda que depois seja indeferido. É a alternativa C. O art. 155-A, § 1º, mantém juros e multas, o que derruba A; e o § 2º manda aplicar ao parcelamento as regras da moratória, o que derruba B.",
+   "dispositivos": [
+    {
+     "ref": "CTN, art. 174, parágrafo único, IV",
+     "tipo": "lei",
+     "texto": "A prescrição se interrompe:\nIV - por qualquer ato inequívoco ainda que extrajudicial, que importe em reconhecimento do débito pelo devedor.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L5172Compilado.htm"
+    },
+    {
+     "ref": "CTN, art. 155-A, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º Salvo disposição de lei em contrário, o parcelamento do crédito tributário não exclui a incidência de juros e multas.\n§ 2º Aplicam-se, subsidiariamente, ao parcelamento as disposições desta Lei, relativas à moratória.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Leis/L5172Compilado.htm"
     }
    ],
    "conferido": "2026-10-22"
