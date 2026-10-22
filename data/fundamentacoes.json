@@ -453,6 +453,204 @@
    "conferido": "2026-10-22",
    "ressalva": "Questão de doutrina (Cappelletti e Garth), sem fundamento em texto legal."
   },
+  "fcc-defensorias-98": {
+   "nota": "Direito fundamental heterotópico é o que está fora do lugar: materialmente fundamental, mas escrito fora do catálogo dos arts. 5º a 17 da CF/1988. O meio ambiente é o exemplo clássico — vem no art. 225, no título da ordem social, e se liga à dignidade da pessoa humana e à sadia qualidade de vida. É a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 225, caput",
+     "tipo": "lei",
+     "texto": "Todos têm direito ao meio ambiente ecologicamente equilibrado, bem de uso comum do povo e essencial à sadia qualidade de vida, impondo-se ao Poder Público e à coletividade o dever de defendê-lo e preservá- lo para as presentes e futuras gerações.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Direitos fundamentais heterotópicos",
+     "tipo": "entendimento",
+     "texto": "A doutrina chama heterotópicos os direitos que são materialmente fundamentais mas estão positivados fora do Título II da Constituição (arts. 5º a 17). O art. 5º, § 2º, confirma a abertura do catálogo, ao dizer que os direitos ali enumerados não excluem outros decorrentes do regime e dos princípios adotados pela Constituição."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-99": {
+   "nota": "A Emenda Constitucional 85/2015 desenhou o Sistema Nacional de Ciência, Tecnologia e Inovação no art. 219-B: a União edita as normas gerais por lei federal (§ 1º) e Estados, Distrito Federal e Municípios legislam concorrentemente sobre suas peculiaridades (§ 2º). É a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 219-B, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º Lei federal disporá sobre as normas gerais do SNCTI.\n§ 2º Os Estados, o Distrito Federal e os Municípios legislarão concorrentemente sobre suas peculiaridades.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-100": {
+   "nota": "O direito à alimentação adequada se realiza pela segurança alimentar e nutricional, definida na LOSAN: acesso regular e permanente a alimentos de qualidade, com práticas que respeitem a diversidade cultural e sejam ambiental, cultural, econômica e socialmente sustentáveis — alternativa C, quase palavra por palavra. A alimentação, aliás, tem previsão expressa no art. 6º da CF/1988 (incluída pela EC 64/2010), o que derruba a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Lei 11.346/2006 (LOSAN), art. 3º",
+     "tipo": "lei",
+     "texto": "A segurança alimentar e nutricional consiste na realização do direito de todos ao acesso regular e permanente a alimentos de qualidade, em quantidade suficiente, sem comprometer o acesso a outras necessidades essenciais, tendo como base práticas alimentares promotoras de saúde que respeitem a diversidade cultural e que sejam ambiental, cultural, econômica e socialmente sustentáveis.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11346.htm"
+    },
+    {
+     "ref": "CF/1988, art. 6º, caput",
+     "tipo": "lei",
+     "texto": "São direitos sociais a educação, a saúde, a alimentação, o trabalho, a moradia, o transporte, o lazer, a segurança, a previdência social, a proteção à maternidade e à infância, a assistência aos desamparados, na forma desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-101": {
+   "nota": "A Lei 13.352/2016 autorizou o contrato de parceria entre salão-parceiro e profissional-parceiro, e o STF a declarou constitucional (ADI 5625), em nome dos valores sociais do trabalho e da livre iniciativa — ressalvando que a parceria não vale quando estiverem presentes os elementos da relação de emprego. É exatamente a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.352/2016, art. 1º (art. 1º-A da Lei 12.592/2012)",
+     "tipo": "lei",
+     "texto": "Os salões de beleza poderão celebrar contratos de parceria, por escrito, nos termos definidos nesta Lei, com os profissionais que desempenham as atividades de Cabeleireiro, Barbeiro, Esteticista, Manicure, Pedicure, Depilador e Maquiador.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2016/Lei/L13352.htm"
+    },
+    {
+     "ref": "CF/1988, art. 1º, IV",
+     "tipo": "lei",
+     "texto": "A República Federativa do Brasil, formada pela união indissolúvel dos Estados e Municípios e do Distrito Federal, constitui-se em Estado Democrático de Direito e tem como fundamentos:\nIV - os valores sociais do trabalho e da livre iniciativa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, ADI 5625 (Lei do Salão-Parceiro)",
+     "tipo": "entendimento",
+     "texto": "O STF julgou constitucional a Lei 13.352/2016, reconhecendo a validade do contrato de parceria no setor de beleza como expressão dos valores sociais do trabalho e da livre iniciativa, desde que o contrato corresponda à realidade dos fatos e não estejam presentes os elementos caracterizadores da relação de emprego — caso em que incide a CLT."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-102": {
+   "nota": "A decisão posterior do STF não rescinde sozinha as sentenças já transitadas em julgado, mas, em relações jurídicas de trato continuado, faz cessar a eficácia prospectiva da coisa julgada: os efeitos futuros deixam de ser exigíveis. É a tese dos Temas 881 e 885 do STF, e é a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 505, I",
+     "tipo": "lei",
+     "texto": "Nenhum juiz decidirá novamente as questões já decididas relativas à mesma lide, salvo:\nI - se, tratando-se de relação jurídica de trato continuado, sobreveio modificação no estado de fato ou de direito, caso em que poderá a parte pedir a revisão do que foi estatuído na sentença;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "STF, RE 955.227 (Tema 885) e RE 949.297 (Tema 881)",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que a decisão superveniente do Plenário, em controle concentrado ou em recurso extraordinário com repercussão geral, altera o estado de direito e faz cessar automaticamente os efeitos futuros da coisa julgada nas relações jurídicas tributárias de trato continuado, sem necessidade de ação rescisória; o que já se consumou antes permanece."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-103": {
+   "nota": "A escusa de consciência não libera de tudo: o art. 5º, VIII, só protege quem aceita cumprir a prestação alternativa. Daí decorre que a Administração pode e deve fixar critérios alternativos para o cumprimento dos deveres funcionais de quem invoca convicção religiosa — por exemplo, remarcar etapa de concurso ou reorganizar escala. É a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, VIII",
+     "tipo": "lei",
+     "texto": "ninguém será privado de direitos por motivo de crença religiosa ou de convicção filosófica ou política, salvo se as invocar para eximir-se de obrigação legal a todos imposta e recusar-se a cumprir prestação alternativa, fixada em lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, escusa de consciência no serviço público",
+     "tipo": "entendimento",
+     "texto": "O STF admite a adoção de alternativas razoáveis para acomodar a convicção religiosa do servidor ou candidato — inclusive a designação de data alternativa em etapa de concurso público —, desde que não haja ônus desproporcional à Administração nem quebra da isonomia. A escusa não dispensa, por si, da obrigação legal, e não afasta a obrigatoriedade da vacinação constante do Programa Nacional de Imunização."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-104": {
+   "nota": "A autonomia do Judiciário é cláusula de observância obrigatória: o STF reiteradamente declarou inconstitucionais dispositivos de Constituição estadual que criam órgão de controle externo da magistratura com assento de representantes de outros Poderes ou de entidades. É a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 99, caput",
+     "tipo": "lei",
+     "texto": "Ao Poder Judiciário é assegurada autonomia administrativa e financeira.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 2º",
+     "tipo": "lei",
+     "texto": "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, controle externo do Judiciário por norma estadual",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que Constituição estadual não pode instituir órgão de controle administrativo, financeiro ou disciplinar do Poder Judiciário local integrado por representantes de outros Poderes ou de entidades da sociedade civil: a fiscalização externa da magistratura cabe ao Conselho Nacional de Justiça, criado pela própria Constituição Federal."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-105": {
+   "nota": "O art. 58, § 3º, da CF/1988 exige três coisas na criação de CPI: requerimento de um terço dos membros, apuração de fato determinado e prazo certo. Em comissão mista, o terço é de cada Casa — um terço dos Senadores e um terço dos Deputados. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 58, § 3º",
+     "tipo": "lei",
+     "texto": "As comissões parlamentares de inquérito, que terão poderes de investigação próprios das autoridades judiciais, além de outros previstos nos regimentos das respectivas Casas, serão criadas pela Câmara dos Deputados e pelo Senado Federal, em conjunto ou separadamente, mediante requerimento de um terço de seus membros, para a apuração de fato determinado e por prazo certo, sendo suas conclusões, se for o caso, encaminhadas ao Ministério Público, para que promova a responsabilidade civil ou criminal dos infratores.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-106": {
+   "nota": "No HC 70.514 o STF tratou o prazo em dobro da Defensoria no processo penal como caso de \"lei ainda constitucional\" — inconstitucionalidade progressiva: a norma se justifica enquanto a Defensoria não estiver estruturada como o Ministério Público, e perderá fundamento quando essa desigualdade material desaparecer. É a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, caput",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, na forma do inciso LXXIV do art. 5º desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, HC 70.514 (prazo em dobro da Defensoria Pública)",
+     "tipo": "entendimento",
+     "texto": "O STF reputou válido o prazo em dobro para a Defensoria Pública no processo penal como norma \"ainda constitucional\", de inconstitucionalidade progressiva: a diferença de prazo se legitima enquanto a instituição não tiver estrutura e organização equivalentes às do Ministério Público, e deixará de se legitimar quando essa assimetria for superada."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-107": {
+   "nota": "Lewá é migrante com visto permanente, condenada por sentença penal: a medida cabível é a expulsão, retirada compulsória conjugada com impedimento de reingresso, que a Lei de Migração admite diante de condenação transitada em julgado por crime doloso com pena de prisão. Deportação pressupõe irregularidade migratória; repatriação, impedimento na entrada; extradição, pedido de outro Estado; entrega, tribunal internacional.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.445/2017, art. 54, caput e § 1º",
+     "tipo": "lei",
+     "texto": "A expulsão consiste em medida administrativa de retirada compulsória de migrante ou visitante do território nacional, conjugada com o impedimento de reingresso por prazo determinado.\n§ 1º Poderá dar causa à expulsão a condenação com sentença transitada em julgado relativa à prática de:",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2017/Lei/L13445.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-108": {
+   "nota": "A EC 71/2012 criou o Sistema Nacional de Cultura e listou os conselhos de política cultural entre os órgãos que compõem a sua estrutura (art. 216-A, § 2º, II). É a alternativa E; as outras descrevem órgãos inexistentes ou com atribuição trocada.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 216-A, § 2º, I e II",
+     "tipo": "lei",
+     "texto": "Constitui a estrutura do Sistema Nacional de Cultura, nas respectivas esferas da Federação:\nI - órgãos gestores da cultura;\nII - conselhos de política cultural;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-109": {
+   "nota": "O art. 49, V, da CF/1988 só autoriza o Congresso a sustar atos normativos do Poder EXECUTIVO que exorbitem do poder regulamentar ou dos limites da delegação. Não há previsão para decreto legislativo que suste decisão do Judiciário — fazê-lo viola a separação de Poderes. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 49, V",
+     "tipo": "lei",
+     "texto": "É da competência exclusiva do Congresso Nacional:\nV - sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 2º",
+     "tipo": "lei",
+     "texto": "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-307": {
    "nota": "A LEP dá à Defensoria Pública, de forma expressa, a visita periódica aos estabelecimentos penais, as providências para apurar responsabilidade e o pedido de interdição do local — exatamente o que descreve a alternativa D.",
    "dispositivos": [
