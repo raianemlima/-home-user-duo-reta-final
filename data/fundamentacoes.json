@@ -1,6 +1,458 @@
 {
  "schema": 1,
  "itens": {
+  "dpesp-2025-propria-26": {
+   "nota": "Nomear e exonerar Ministros de Estado é o inciso I do art. 84 da CF/1988, a lista da competência privativa do Presidente. As demais alternativas trocam de titular: votar no Congresso é dos parlamentares, a iniciativa das leis orçamentárias é do Executivo mas por projeto de lei (art. 165), e emenda à Constituição pode ser proposta por vários legitimados (art. 60).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 84, I",
+     "tipo": "lei",
+     "texto": "Compete privativamente ao Presidente da República:\nI - nomear e exonerar os Ministros de Estado;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-27": {
+   "nota": "A intervenção federal é excepcional e só cabe nas hipóteses taxativas do art. 34 da CF/1988; garantir o livre exercício de qualquer dos Poderes nas unidades da Federação é o inciso IV. Isso afasta a vontade do Presidente (A), a infração a norma infraconstitucional (B), o auxílio para obras (D) e a sanção por inadimplência (E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 34, IV",
+     "tipo": "lei",
+     "texto": "A União não intervirá nos Estados nem no Distrito Federal, exceto para:\nIV - garantir o livre exercício de qualquer dos Poderes nas unidades da Federação;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-28": {
+   "nota": "O mandado de injunção combate a omissão normativa: cabe quando a falta de norma regulamentadora torna inviável o exercício de direito ou liberdade constitucional. Direito líquido e certo (A) é mandado de segurança; ato administrativo ilegal (D) e direito patrimonial (E) não são objeto do writ.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, LXXI",
+     "tipo": "lei",
+     "texto": "conceder-se-á mandado de injunção sempre que a falta de norma regulamentadora torne inviável o exercício dos direitos e liberdades constitucionais e das prerrogativas inerentes à nacionalidade, à soberania e à cidadania;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-29": {
+   "nota": "O habeas corpus é o remédio mais informal do sistema: o CPP diz expressamente que pode ser impetrado por qualquer pessoa, em seu favor ou de outrem, e a Constituição o declara gratuito. Não exige advogado, procuração, custas nem trânsito em julgado.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 654",
+     "tipo": "lei",
+     "texto": "O habeas corpus poderá ser impetrado por qualquer pessoa, em seu favor ou de outrem, bem como pelo Ministério Público.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LXVIII e LXXVII",
+     "tipo": "lei",
+     "texto": "LXVIII - conceder-se-á habeas corpus sempre que alguém sofrer ou se achar ameaçado de sofrer violência ou coação em sua liberdade de locomoção, por ilegalidade ou abuso de poder;\nLXXVII - são gratuitas as ações de habeas corpus e habeas data, e, na forma da lei, os atos necessários ao exercício da cidadania.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-30": {
+   "nota": "O art. 62 da CF/1988 manda o Presidente submeter a medida provisória de imediato ao Congresso Nacional — é a alternativa E. O prazo de vigência é de 60 dias, prorrogável uma vez por igual período (§ 3º), o que derruba a alternativa A; a MP é do Presidente, não do Congresso (C), e não depende do STF (D). Matéria penal é vedada pelo § 1º, I, b — a alternativa B está certa no conteúdo, mas não é o que o caput exige.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 62, caput",
+     "tipo": "lei",
+     "texto": "Em caso de relevância e urgência, o Presidente da República poderá adotar medidas provisórias, com força de lei, devendo submetê-las de imediato ao Congresso Nacional.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de redação frouxa: a alternativa B (\"não pode tratar de matéria penal\") também é verdadeira, por força do art. 62, § 1º, I, b, da CF/1988. O gabarito oficial é E, que reproduz o caput."
+  },
+  "dpesp-2025-propria-31": {
+   "nota": "A fiscalização contábil, financeira e orçamentária da União é do Congresso Nacional, por controle externo, exercido com o auxílio do Tribunal de Contas da União (arts. 70 e 71 da CF/1988) — alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 70, caput",
+     "tipo": "lei",
+     "texto": "A fiscalização contábil, financeira, orçamentária, operacional e patrimonial da União e das entidades da administração direta e indireta, quanto à legalidade, legitimidade, economicidade, aplicação das subvenções e renúncia de receitas, será exercida pelo Congresso Nacional, mediante controle externo, e pelo sistema de controle interno de cada Poder.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 71, caput",
+     "tipo": "lei",
+     "texto": "O controle externo, a cargo do Congresso Nacional, será exercido com o auxílio do Tribunal de Contas da União, ao qual compete:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-32": {
+   "nota": "As terras tradicionalmente ocupadas são bens da União (art. 20, XI), destinadas à posse permanente dos indígenas, e são inalienáveis, indisponíveis e os direitos sobre elas imprescritíveis (art. 231, § 4º). Isso afasta as alternativas A, B, D e E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 231, § 2º",
+     "tipo": "lei",
+     "texto": "As terras tradicionalmente ocupadas pelos índios destinam-se a sua posse permanente, cabendo-lhes o usufruto exclusivo das riquezas do solo, dos rios e dos lagos nelas existentes.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 20, XI",
+     "tipo": "lei",
+     "texto": "São bens da União:\nXI - as terras tradicionalmente ocupadas pelos índios.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A alternativa dada como correta inverte o titular do usufruto: pelo art. 231, § 2º, da CF/1988, o usufruto exclusivo das riquezas do solo, dos rios e dos lagos é DOS INDÍGENAS, e a propriedade da terra é da União (art. 20, XI). A alternativa C é a menos incorreta porque acerta a posse permanente; nenhuma das outras se sustenta."
+  },
+  "dpesp-2025-propria-33": {
+   "nota": "A Constituição paulista arrola vários legitimados para a representação de inconstitucionalidade estadual — entre eles o Procurador-Geral do Estado —, e a CF/1988 proíbe que a legitimação fique com um único órgão, o que derruba a alternativa B. A Defensoria Pública, quando legitimada, age em nome próprio no controle abstrato, não como substituto processual (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 125, § 2º",
+     "tipo": "lei",
+     "texto": "Cabe aos Estados a instituição de representação de inconstitucionalidade de leis ou atos normativos estaduais ou municipais em face da Constituição Estadual, vedada a atribuição da legitimação para agir a um único órgão.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A lista exata de legitimados é da Constituição do Estado de São Paulo, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. O art. 125, § 2º, da CF/1988 é o parâmetro que já descarta as alternativas A, B e E."
+  },
+  "dpesp-2025-propria-34": {
+   "nota": "Os arts. 136 e 137 da CF/1988 abrem do mesmo modo: o Presidente age \"ouvidos o Conselho da República e o Conselho de Defesa Nacional\". Essa é a característica comum (alternativa C). O prazo máximo de 30 dias, prorrogável, é só do estado de defesa (art. 136, § 2º), e o estado de sítio depende de autorização prévia do Congresso.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 136, caput",
+     "tipo": "lei",
+     "texto": "O Presidente da República pode, ouvidos o Conselho da República e o Conselho de Defesa Nacional, decretar estado de defesa para preservar ou prontamente restabelecer, em locais restritos e determinados, a ordem pública ou a paz social ameaçadas por grave e iminente instabilidade institucional ou atingidas por calamidades de grandes proporções na natureza.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 137, caput",
+     "tipo": "lei",
+     "texto": "O Presidente da República pode, ouvidos o Conselho da República e o Conselho de Defesa Nacional, solicitar ao Congresso Nacional autorização para decretar o estado de sítio nos casos de:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-35": {
+   "nota": "No julgamento da ADI 7261 (rel. Min. Edson Fachin), em que manteve a Resolução TSE 23.714/2022, o STF assentou que a desinformação na internet, se não enfrentada, pode afetar a formação livre da vontade do eleitor — por isso o combate não é censura prévia. É a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "STF, ADI 7261 (rel. Min. Edson Fachin)",
+     "tipo": "entendimento",
+     "texto": "O Plenário referendou a liminar em outubro de 2022 e, em dezembro de 2023, confirmou a validade da Resolução TSE 23.714/2022. A tese firmada é que a desinformação propagada na internet, se não fiscalizada pela Justiça Eleitoral, pode restringir a formação livre da vontade do eleitor; o controle é posterior ao fato, restrito ao período eleitoral, e a liberdade de expressão não ampara a disseminação de informação falsa.",
+     "url": "https://noticias.stf.jus.br/?p=59755"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-36": {
+   "nota": "A região metropolitana é instituída por lei complementar estadual (CF, art. 25, § 3º) e não tem personalidade jurídica nem autonomia de ente federativo. No julgamento da ADI 1842/RJ o STF exigiu governança interfederativa compartilhada, sem concentração do poder decisório no Estado nem em um só município — daí a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 25, § 3º",
+     "tipo": "lei",
+     "texto": "Os Estados poderão, mediante lei complementar, instituir regiões metropolitanas, aglomerações urbanas e microrregiões, constituídas por agrupamentos de municípios limítrofes, para integrar a organização, o planejamento e a execução de funções públicas de interesse comum.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, ADI 1842/RJ",
+     "tipo": "entendimento",
+     "texto": "O STF decidiu que a instituição de região metropolitana não transfere ao Estado a titularidade das funções públicas de interesse comum: a gestão deve ser compartilhada em colegiado interfederativo, sem que o poder decisório se concentre em um único ente — nem no Estado, nem no município-polo."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-37": {
+   "nota": "A igualdade material é a igualdade na prática: a Constituição assume como objetivo reduzir desigualdades e promover o bem de todos sem discriminação, o que legitima as ações afirmativas (discriminação positiva). O STF reconheceu essa leitura ao julgar constitucionais as cotas raciais (ADPF 186).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 3º, III e IV",
+     "tipo": "lei",
+     "texto": "Constituem objetivos fundamentais da República Federativa do Brasil:\nIII - erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais;\nIV - promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, ADPF 186",
+     "tipo": "entendimento",
+     "texto": "O STF declarou constitucional a política de reserva de vagas com critério étnico-racial, firmando que a igualdade material autoriza o tratamento diferenciado destinado a corrigir desigualdades históricas de grupos vulnerabilizados."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-38": {
+   "nota": "O art. 196 define a saúde como direito de todos e dever do Estado, garantido por políticas sociais e econômicas, com acesso universal e igualitário — e não por contribuição. Isso derruba as alternativas A, D e E, e afasta a subsidiariedade (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 196",
+     "tipo": "lei",
+     "texto": "A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas que visem à redução do risco de doença e de outros agravos e ao acesso universal e igualitário às ações e serviços para sua promoção, proteção e recuperação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-39": {
+   "nota": "A reserva legal vem do art. 5º, II: só a lei pode obrigar alguém a fazer ou deixar de fazer algo. Decreto e norma administrativa não criam direito nem dever novos (alternativas A e D), e a Constituição não se altera por medida provisória (E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, II",
+     "tipo": "lei",
+     "texto": "ninguém será obrigado a fazer ou deixar de fazer alguma coisa senão em virtude de lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-40": {
+   "nota": "O art. 5º, IV, garante a livre manifestação do pensamento e, no mesmo inciso, veda o anonimato — é literalmente a alternativa B. Isso afasta C; e a liberdade de expressão não é imunidade para qualquer discurso (D) nem privilégio da imprensa (E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, IV",
+     "tipo": "lei",
+     "texto": "é livre a manifestação do pensamento, sendo vedado o anonimato;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-83": {
+   "nota": "Na periodização da assistência jurídica no Brasil, a fase assistencial-caritativa (ou honorífica) é a do múnus da advocacia privada: o advogado atendia gratuitamente o pobre por dever moral ou de classe, sem estrutura estatal. É a alternativa D. As outras descrevem as fases posteriores — órgãos estatais próprios (A, C, E) e a Defensoria Pública constitucional (B).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, caput",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, na forma do inciso LXXIV do art. 5º desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Evolução histórica da assistência jurídica",
+     "tipo": "entendimento",
+     "texto": "A doutrina divide a trajetória em fase caritativa ou honorífica (dever moral da advocacia privada, sem remuneração e sem estrutura pública), fase da assistência judiciária estatal (criação de órgãos e remuneração pelo Estado) e fase da assistência jurídica integral, que a CF/1988 entrega à Defensoria Pública e que vai além do processo."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A periodização cobrada é doutrinária, sem texto legal que a fixe. A fundamentação indica a norma do estágio atual (art. 134 da CF/1988) e descreve as fases como a doutrina as apresenta."
+  },
+  "fcc-defensorias-84": {
+   "nota": "No sistema judicare, descrito por Cappelletti e Garth em \"Acesso à Justiça\", o Estado paga advogados privados para atender quem é pobre, mas mantém o modelo tradicional de atuação individual e passiva: não ensina a pessoa a reconhecer seus direitos nem identifica, de ofício, os campos em que ela poderia buscar remédio jurídico. Essa é justamente a crítica da alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Cappelletti e Garth, Acesso à Justiça (as três ondas renovatórias)",
+     "tipo": "entendimento",
+     "texto": "O sistema judicare remunera advogados privados com dinheiro público para atender os pobres, mas sem equipes, sem escritórios de vizinhança e sem atuação proativa: o serviço continua reativo e individual, e por isso não capacita a pessoa pobre a compreender seus direitos nem a identificar as áreas em que caberia um remédio jurídico. O modelo do advocate (staff model), com advogados assalariados em escritórios de vizinhança e trabalho em equipe, é o que supre essa lacuna — o que torna a alternativa E uma descrição do modelo oposto."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de doutrina (Cappelletti e Garth), sem fundamento em texto legal."
+  },
+  "fcc-defensorias-85": {
+   "nota": "As Regras de Brasília e a Resolução CNJ 425/2021 (política nacional para a população em situação de rua no Judiciário) seguem a mesma lógica: remover barreiras formais e adaptar o procedimento para que o acesso à justiça seja efetivo para grupos vulneráveis. Por isso a alternativa C. No direito interno, o CPC veda o indeferimento liminar da gratuidade e manda intimar a parte para provar antes de negar.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 99, §§ 2º e 3º",
+     "tipo": "lei",
+     "texto": "§ 2º O juiz somente poderá indeferir o pedido se houver nos autos elementos que evidenciem a falta dos pressupostos legais para a concessão de gratuidade, devendo, antes de indeferir o pedido, determinar à parte a comprovação do preenchimento dos referidos pressupostos.\n§ 3º Presume-se verdadeira a alegação de insuficiência deduzida exclusivamente por pessoa natural.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LXXIV",
+     "tipo": "lei",
+     "texto": "o Estado prestará assistência jurídica integral e gratuita aos que comprovarem insuficiência de recursos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Regras de Brasília e Resolução CNJ 425/2021",
+     "tipo": "entendimento",
+     "texto": "As Regras de Brasília sobre acesso à justiça das pessoas em condição de vulnerabilidade não se limitam ao processo penal: alcançam qualquer ramo e recomendam a revisão de formalidades que dificultem o acesso. A Resolução CNJ 425/2021 institui no Judiciário a política nacional para a população em situação de rua e manda afastar exigências incompatíveis com essa condição, como a comprovação de endereço fixo. São parâmetros de atuação, e não normas vinculantes no mesmo grau da lei — o que afasta a alternativa E."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-86": {
+   "nota": "Princípios constitucionais sensíveis são os do art. 34, VII, da CF/1988: sua inobservância autoriza intervenção federal. A lista inclui os direitos da pessoa humana (alínea b) e a autonomia municipal (alínea c) — alternativa A. Legalidade, isonomia, publicidade, soberania, livre iniciativa, separação de Poderes e propriedade não estão nessa lista.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 34, VII",
+     "tipo": "lei",
+     "texto": "VII - assegurar a observância dos seguintes princípios constitucionais:\na) forma republicana, sistema representativo e regime democrático;\nb) direitos da pessoa humana;\nc) autonomia municipal;\nd) prestação de contas da administração pública, direta e indireta.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-87": {
+   "nota": "A \"sociedade aberta dos intérpretes\", de Häberle, sustenta que a interpretação constitucional não é monopólio dos juristas: quem vive a norma também a interpreta. No STF isso se realiza pela audiência pública e pelo amicus curiae, abertos pela Lei 9.868/1999 — alternativa C. Repercussão geral, efeito vinculante, coisa julgada, reserva de plenário e os remédios individuais não abrem o processo a novos intérpretes.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.868/1999, art. 7º, § 2º",
+     "tipo": "lei",
+     "texto": "O relator, considerando a relevância da matéria e a representatividade dos postulantes, poderá, por despacho irrecorrível, admitir, observado o prazo fixado no parágrafo anterior, a manifestação de outros órgãos ou entidades.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9868.htm"
+    },
+    {
+     "ref": "Lei 9.868/1999, art. 9º, § 1º",
+     "tipo": "lei",
+     "texto": "Em caso de necessidade de esclarecimento de matéria ou circunstância de fato ou de notória insuficiência das informações existentes nos autos, poderá o relator requisitar informações adicionais, designar perito ou comissão de peritos para que emita parecer sobre a questão, ou fixar data para, em audiência pública, ouvir depoimentos de pessoas com experiência e autoridade na matéria.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9868.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-88": {
+   "nota": "Eficácia horizontal é a incidência dos direitos fundamentais nas relações entre particulares. O caso da penhora do bem de família do fiador na locação é discutido exatamente nessa chave: um contrato privado (fiança) é confrontado com o direito social à moradia do art. 6º da CF/1988. As demais alternativas tratam de relações entre o indivíduo e o Estado — eficácia vertical.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 6º, caput",
+     "tipo": "lei",
+     "texto": "São direitos sociais a educação, a saúde, a alimentação, o trabalho, a moradia, o transporte, o lazer, a segurança, a previdência social, a proteção à maternidade e à infância, a assistência aos desamparados, na forma desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, penhorabilidade do bem de família do fiador (RE 407.688 e RE 1.307.334, Tema 1.127)",
+     "tipo": "entendimento",
+     "texto": "O STF manteve a penhorabilidade do bem de família do fiador na locação, inclusive residencial, prestigiando a autonomia privada e o mercado locatício; a discussão se dá entre particulares e opõe o contrato de fiança ao direito social à moradia, o que a torna o exemplo de eficácia horizontal entre as alternativas."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-89": {
+   "nota": "O art. 15 da CF/1988 lista de forma fechada as hipóteses de perda ou suspensão dos direitos políticos; a condenação criminal transitada em julgado, enquanto durarem seus efeitos, é o inciso III. Ilícito eleitoral, falta de alistamento e descumprimento de condenação ao ressarcimento não estão na lista; a objeção de consciência só repercute se houver recusa de cumprir a prestação alternativa (inciso IV).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 15",
+     "tipo": "lei",
+     "texto": "É vedada a cassação de direitos políticos, cuja perda ou suspensão só se dará nos casos de:\nI - cancelamento da naturalização por sentença transitada em julgado;\nII - incapacidade civil absoluta;\nIII - condenação criminal transitada em julgado, enquanto durarem seus efeitos;\nIV - recusa de cumprir obrigação a todos imposta ou prestação alternativa, nos termos do art. 5º, VIII;\nV - improbidade administrativa, nos termos do art. 37, § 4º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-90": {
+   "nota": "A regra é a inafastabilidade da jurisdição sem esgotamento administrativo (art. 5º, XXXV). O habeas data é exceção: a Lei 9.507/1997 exige que a petição inicial venha instruída com a prova da recusa — ou do silêncio — da autoridade quanto ao acesso, à retificação ou à anotação. É o que diz a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, XXXV",
+     "tipo": "lei",
+     "texto": "a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Lei 9.507/1997, art. 8º, parágrafo único",
+     "tipo": "lei",
+     "texto": "A petição inicial deverá ser instruída com prova:\nI - da recusa ao acesso às informações ou do decurso de mais de dez dias sem decisão;\nII - da recusa em fazer-se a retificação ou do decurso de mais de quinze dias, sem decisão; ou",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9507.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-91": {
+   "nota": "A CF/1988 só admite a rejeição do veto por maioria absoluta dos Deputados e Senadores. O processo legislativo é norma de observância obrigatória pelos estados (princípio da simetria), então a Constituição estadual que exigisse apenas maioria simples seria inconstitucional — alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 66, § 4º",
+     "tipo": "lei",
+     "texto": "O veto será apreciado em sessão conjunta, dentro de trinta dias a contar de seu recebimento, só podendo ser rejeitado pelo voto da maioria absoluta dos Deputados e Senadores.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 25, caput",
+     "tipo": "lei",
+     "texto": "Os Estados organizam-se e regem-se pelas Constituições e leis que adotarem, observados os princípios desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-92": {
+   "nota": "Os princípios da ordem econômica estão no art. 170 da CF/1988: soberania nacional (I), defesa do consumidor (V) e busca do pleno emprego (VIII) são todos da lista — alternativa C. As outras alternativas misturam itens do art. 170 com direitos (herança, mínimo existencial), com a Seguridade Social e com princípios inventados (equidade fiscal, equilíbrio das contas públicas, proteção ao empreendedor).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 170, caput e incisos I, V e VIII",
+     "tipo": "lei",
+     "texto": "A ordem econômica, fundada na valorização do trabalho humano e na livre iniciativa, tem por fim assegurar a todos existência digna, conforme os ditames da justiça social, observados os seguintes princípios:\nI - soberania nacional;\nV - defesa do consumidor;\nVIII - busca do pleno emprego;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-93": {
+   "nota": "O art. 62, § 6º, é literal: passados 45 dias da publicação sem apreciação, a medida provisória entra em regime de urgência, sucessivamente, em cada Casa, e tranca a pauta — alternativa E. Não há aprovação por decurso de prazo (D) nem prorrogação automática nesse prazo (A).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 62, § 6º",
+     "tipo": "lei",
+     "texto": "Se a medida provisória não for apreciada em até quarenta e cinco dias contados de sua publicação, entrará em regime de urgência, subseqüentemente, em cada uma das Casas do Congresso Nacional, ficando sobrestadas, até que se ultime a votação, todas as demais deliberações legislativas da Casa em que estiver tramitando.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-94": {
+   "nota": "Duas teses do STF se somam no caso. No Tema 1.234, firmou-se que, para medicamento fora das políticas do SUS, a União deve integrar o polo passivo, o que leva a demanda à Justiça Federal. No Tema 500 (RE 657.718), o fornecimento de fármaco sem registro na ANVISA é excepcional e exige, cumulativamente, pedido de registro pendente há mais de um ano, registro em agência estrangeira de renome e inexistência de substituto terapêutico registrado. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 196",
+     "tipo": "lei",
+     "texto": "A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas que visem à redução do risco de doença e de outros agravos e ao acesso universal e igualitário às ações e serviços para sua promoção, proteção e recuperação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, RE 657.718 (Tema 500) e Tema 1.234",
+     "tipo": "entendimento",
+     "texto": "Tema 500: o Estado não pode ser obrigado a fornecer medicamento sem registro na ANVISA, salvo em caso de mora irrazoável da agência, exigindo-se de forma cumulativa o pedido de registro no Brasil (pendente há mais de um ano), o registro em renomada agência reguladora no exterior e a inexistência de substituto terapêutico registrado; a ação deve ser proposta contra a União. Tema 1.234: nas demandas por medicamento não incorporado às políticas públicas do SUS, a União é litisconsorte necessária, firmando a competência da Justiça Federal."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-95": {
+   "nota": "O STF superou a tese da confusão: como a Defensoria Pública tem autonomia funcional, administrativa e financeira, são devidos honorários sucumbenciais mesmo quando ela litiga contra o ente federativo a que pertence, e a verba vai ao fundo da instituição. Por isso o recurso da Procuradoria não deve ser provido — alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, § 2º",
+     "tipo": "lei",
+     "texto": "Às Defensorias Públicas Estaduais são asseguradas autonomia funcional e administrativa e a iniciativa de sua proposta orçamentária dentro dos limites estabelecidos na lei de diretrizes orçamentárias e subordinação ao disposto no art. 99, § 2º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, honorários sucumbenciais à Defensoria Pública (repercussão geral)",
+     "tipo": "entendimento",
+     "texto": "O STF firmou, em repercussão geral, que são devidos honorários sucumbenciais à Defensoria Pública quando vence demanda contra o ente federativo a que é vinculada, afastando a tese da confusão entre credor e devedor em razão da autonomia funcional, administrativa e financeira da instituição; a verba é recolhida ao fundo da Defensoria."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-96": {
+   "nota": "No MI 7452 (rel. Min. Alexandre de Moraes, fevereiro de 2025), o STF reconheceu omissão legislativa e estendeu as regras protetivas da Lei Maria da Penha a casais homoafetivos masculinos e a mulheres transexuais e travestis — sempre no contexto de relações domésticas, familiares ou de afeto, isto é, intrafamiliares. É a alternativa C; as demais ou retiram a exigência do contexto intrafamiliar ou recortam mal os beneficiados.",
+   "dispositivos": [
+    {
+     "ref": "Lei 11.340/2006, art. 5º",
+     "tipo": "lei",
+     "texto": "Para os efeitos desta Lei, configura violência doméstica e familiar contra a mulher qualquer ação ou omissão baseada no gênero que lhe cause morte, lesão, sofrimento físico, sexual ou psicológico e dano moral ou patrimonial:\nI - no âmbito da unidade doméstica, compreendida como o espaço de convívio permanente de pessoas, com ou sem vínculo familiar, inclusive as esporadicamente agregadas;\nII - no âmbito da família, compreendida como a comunidade formada por indivíduos que são ou se consideram aparentados, unidos por laços naturais, por afinidade ou por vontade expressa;\nIII - em qualquer relação íntima de afeto, na qual o agressor conviva ou tenha convivido com a ofendida, independentemente de coabitação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11340.htm"
+    },
+    {
+     "ref": "STF, MI 7452/DF (rel. Min. Alexandre de Moraes)",
+     "tipo": "entendimento",
+     "texto": "Decisão unânime de fevereiro de 2025: reconhecida a omissão legislativa, as regras protetivas da Lei Maria da Penha aplicam-se a casais homoafetivos masculinos — quando fatores contextuais colocam a vítima em posição de subalternidade na relação — e a mulheres transexuais e travestis, no âmbito das relações domésticas, familiares ou de afeto. A extensão alcança as medidas protetivas e o plano extrapenal, sem criar tipos penais novos."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-97": {
+   "nota": "Cappelletti e Garth agrupam os obstáculos ao acesso à justiça em três: as custas (econômico), a aptidão para reconhecer direitos e propor ação (possibilidades das partes) e os problemas especiais dos interesses difusos — este último é o obstáculo organizacional, justamente a dificuldade de organizar e levar a juízo direitos de grupos e coletividades. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Cappelletti e Garth, Acesso à Justiça",
+     "tipo": "entendimento",
+     "texto": "A obra agrupa as barreiras em custas judiciais e economia de escala das pequenas causas (obstáculo econômico), possibilidades das partes — recursos financeiros, aptidão para reconhecer um direito e litigantes habituais contra eventuais — e os problemas especiais dos interesses difusos, em que a dificuldade está em organizar a coletividade titular do direito e levá-lo a juízo: o obstáculo organizacional."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de doutrina (Cappelletti e Garth), sem fundamento em texto legal."
+  },
   "fcc-defensorias-307": {
    "nota": "A LEP dá à Defensoria Pública, de forma expressa, a visita periódica aos estabelecimentos penais, as providências para apurar responsabilidade e o pedido de interdição do local — exatamente o que descreve a alternativa D.",
    "dispositivos": [
