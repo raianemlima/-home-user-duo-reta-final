@@ -4,7 +4,7 @@ type Row = Record<string, unknown>;
 type Result = { data: unknown; error: { message: string; code?: string } | null };
 
 export class FakeDb {
-  tables: Record<string, Row[]> = { documents: [], notebooks: [], notebook_sources: [], jobs: [], job_stages: [], stage_cache: [], thematic_maps: [] };
+  tables: Record<string, Row[]> = { documents: [], notebooks: [], notebook_sources: [], jobs: [], job_stages: [], stage_cache: [], thematic_maps: [], profiles: [], disciplines: [], content_versions: [], sections: [], paragraphs: [], highlights: [], reading_positions: [] };
   clock = () => Date.now();
   objects = new Map<string, Uint8Array>();
 }
@@ -14,12 +14,22 @@ const DEFAULTS: Record<string, () => Row> = {
   job_stages: () => ({ status: "pending", attempts: 0, max_attempts: 3, lease_expires_at: null, input_hash: null, output: null, cache_hit: false, error: null, started_at: null, finished_at: null, duration_ms: null, tokens_in: 0, tokens_out: 0, cost_usd: 0 }),
 };
 
+// Tabelas do app DUO: sem owner_id (o acesso real é por RLS de papel, testado em tests/db/assertions-duo.sql).
+const OWNERLESS: Record<string, true> = { profiles: true, disciplines: true, content_versions: true, sections: true, paragraphs: true, highlights: true, reading_positions: true };
+// Índice único parcial de content_versions: uma única versão publicada por disciplina.
+function violatesUnique(table: string, rows: Row[]): boolean {
+  if (table !== "content_versions") return false;
+  const published = rows.filter((row) => row.status === "published").map((row) => row.discipline_id);
+  return new Set(published).size !== published.length;
+}
+
 class Query implements PromiseLike<Result> {
   private op: "select" | "insert" | "update" | "delete" | "upsert" = "select";
   private payload: Row | Row[] = {};
   private filters: Array<(row: Row) => boolean> = [];
   private ordering: { column: string; ascending: boolean } | null = null;
   private max: number | null = null;
+  private offset = 0;
   private mode: "many" | "single" | "maybe" = "many";
   private returning = false;
   private upsertOptions: { onConflict?: string; ignoreDuplicates?: boolean } = {};
@@ -32,6 +42,10 @@ class Query implements PromiseLike<Result> {
   upsert(payload: Row, options: { onConflict?: string; ignoreDuplicates?: boolean } = {}) { this.op = "upsert"; this.payload = payload; this.upsertOptions = options; return this; }
   eq(column: string, value: unknown) { this.filters.push((row) => row[column] === value); return this; }
   in(column: string, values: unknown[]) { this.filters.push((row) => values.includes(row[column])); return this; }
+  neq(column: string, value: unknown) { this.filters.push((row) => row[column] !== value); return this; }
+  is(column: string, value: null) { this.filters.push((row) => (row[column] ?? null) === value); return this; }
+  ilike(column: string, pattern: string) { const re = new RegExp(`^${pattern.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/(?<!\\)%/g, ".*").replace(/(?<!\\)_/g, ".").replace(/\\\\([%_])/g, "$1")}$`, "is"); this.filters.push((row) => re.test(String(row[column]))); return this; }
+  range(from: number, to: number) { this.offset = from; this.max = to - from + 1; return this; }
   order(column: string, options: { ascending?: boolean } = {}) { this.ordering = { column, ascending: options.ascending !== false }; return this; }
   limit(count: number) { this.max = count; return this; }
   single() { this.mode = "single"; return this; }
@@ -41,8 +55,8 @@ class Query implements PromiseLike<Result> {
 
   private finish(rows: Row[]): Result {
     let out = rows.map((row) => ({ ...row }));
-    if (this.ordering) { const { column, ascending } = this.ordering; out = out.sort((a, b) => (String(a[column]) < String(b[column]) ? -1 : 1) * (ascending ? 1 : -1)); }
-    if (this.max !== null) out = out.slice(0, this.max);
+    if (this.ordering) { const { column, ascending } = this.ordering; out = out.sort((a, b) => (typeof a[column] === "number" && typeof b[column] === "number" ? (a[column] as number) - (b[column] as number) : String(a[column]) < String(b[column]) ? -1 : 1) * (ascending ? 1 : -1)); }
+    if (this.max !== null || this.offset) out = out.slice(this.offset, this.max === null ? undefined : this.offset + this.max);
     if (this.mode === "single") return out.length === 1 ? { data: out[0], error: null } : { data: null, error: { message: "linha única esperada" } };
     if (this.mode === "maybe") return { data: out[0] ?? null, error: null };
     return { data: out, error: null };
@@ -51,19 +65,28 @@ class Query implements PromiseLike<Result> {
   private execute(): Result {
     const table = this.db.tables[this.table];
     if (this.op === "select") return this.finish(this.rows());
-    if (this.op === "update") { const rows = this.rows(); rows.forEach((row) => Object.assign(row, this.payload)); return this.returning ? this.finish(rows) : { data: null, error: null }; }
+    if (this.op === "update") {
+      const rows = this.rows();
+      const before = rows.map((row) => ({ ...row }));
+      rows.forEach((row) => Object.assign(row, this.payload));
+      if (violatesUnique(this.table, table)) { rows.forEach((row, i) => { Object.keys(row).forEach((key) => delete row[key]); Object.assign(row, before[i]); }); return { data: null, error: { message: "duplicate key", code: "23505" } }; }
+      return this.returning ? this.finish(rows) : { data: null, error: null };
+    }
     if (this.op === "delete") { const doomed = new Set(this.rows()); this.db.tables[this.table] = table.filter((row) => !doomed.has(row)); return { data: null, error: null }; }
     if (this.op === "upsert") {
-      const row: Row = { owner_id: this.userId, ...(this.payload as Row) };
       const keys = (this.upsertOptions.onConflict ?? "").split(",").filter(Boolean);
-      const exists = table.some((candidate) => keys.every((key) => candidate[key] === row[key]));
-      if (!exists) table.push(row);
+      for (const payload of Array.isArray(this.payload) ? this.payload : [this.payload]) {
+        const row: Row = { ...(this.table in OWNERLESS ? {} : { owner_id: this.userId }), ...payload };
+        const existing = table.find((candidate) => keys.every((key) => candidate[key] === row[key]));
+        if (!existing) table.push(row);
+        else if (!this.upsertOptions.ignoreDuplicates) Object.assign(existing, row);
+      }
       return { data: null, error: null };
     }
     const now = new Date(this.db.clock()).toISOString();
     const inserted: Row[] = [];
     for (const payload of Array.isArray(this.payload) ? this.payload : [this.payload]) {
-      const row: Row = { id: randomUUID(), owner_id: this.userId, created_at: now, updated_at: now, next_attempt_at: now, ...(DEFAULTS[this.table]?.() ?? {}), ...payload };
+      const row: Row = { id: randomUUID(), ...(this.table in OWNERLESS ? {} : { owner_id: this.userId }), created_at: now, updated_at: now, next_attempt_at: now, ...(DEFAULTS[this.table]?.() ?? {}), ...payload };
       if (this.table === "jobs" && table.some((job) => job.notebook_id === row.notebook_id && job.input_hash === row.input_hash && ["queued", "running", "succeeded"].includes(job.status as string))) return { data: null, error: { message: "duplicate key", code: "23505" } };
       table.push(row);
       inserted.push(row);

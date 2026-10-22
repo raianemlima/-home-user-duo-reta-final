@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireUser } from "@/lib/server/auth";
+import { requireStaff } from "@/lib/server/auth";
 import { ApiError, handleRoute, readJson } from "@/lib/server/http";
 import { buildStoragePath, isSha256, validateBatchSize, validateDeclaredSize, validateFileName, type UploadErrorCode } from "@/lib/server/upload-rules";
 
@@ -11,7 +11,7 @@ type PrepareResult =
 
 export function POST(request: Request) {
   return handleRoute("documents.prepare", async () => {
-    const { supabase, user } = await requireUser();
+    const { supabase, user } = await requireStaff();
     const body = await readJson(request);
     const files = Array.isArray(body.files) ? (body.files as Record<string, unknown>[]) : [];
     const batch = validateBatchSize(files.length);

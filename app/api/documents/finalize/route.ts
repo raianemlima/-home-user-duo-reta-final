@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireUser } from "@/lib/server/auth";
+import { requireStaff } from "@/lib/server/auth";
 import { toRemoteDocument, parseExtraction, UUID_PATTERN, type DocumentRow } from "@/lib/server/documents";
 import { ApiError, handleRoute, readJson } from "@/lib/server/http";
 import { buildStoragePath, isSha256, validateDeclaredSize, validateFileName, verifyUploadedObject } from "@/lib/server/upload-rules";
@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export function POST(request: Request) {
   return handleRoute("documents.finalize", async () => {
-    const { supabase, user } = await requireUser();
+    const { supabase, user } = await requireStaff();
     const body = await readJson(request);
     const id = body.id;
     if (typeof id !== "string" || !UUID_PATTERN.test(id)) throw new ApiError(400, "invalid_request", "Identificador do documento inválido.");

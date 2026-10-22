@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { requireUser } from "@/lib/server/auth";
+import { requireStaff } from "@/lib/server/auth";
 import { UUID_PATTERN } from "@/lib/server/documents";
 import { ApiError, handleRoute, readJson } from "@/lib/server/http";
 import { listJobs, loadNotebookSettings, parseSettingsOrThrow, toJobView } from "@/lib/server/pipeline";
 import { isDefaultSettings, type CleaningSettings } from "@/lib/pipeline/options";
-import { DEFAULT_HANDLERS } from "@/lib/pipeline/handlers";
+import { DUO_HANDLERS } from "@/lib/pipeline/handlers";
 import { DEFAULT_MAX_ATTEMPTS } from "@/lib/pipeline/engine";
 import { jobInputHash, planStages } from "@/lib/pipeline/plan";
 import { SupabasePipelineRepository } from "@/lib/pipeline/supabase-repository";
@@ -14,7 +14,7 @@ const MAX_SOURCES = 50;
 
 export function GET(request: Request) {
   return handleRoute("jobs.list", async () => {
-    const { supabase } = await requireUser();
+    const { supabase } = await requireStaff();
     const activeOnly = new URL(request.url).searchParams.get("active") === "1";
     return NextResponse.json({ jobs: await listJobs(supabase, activeOnly) });
   });
@@ -23,7 +23,7 @@ export function GET(request: Request) {
 // Cria (ou reaproveita) o caderno e o job. Idempotente: mesmas fontes (por hash) = mesmo job.
 export function POST(request: Request) {
   return handleRoute("jobs.create", async () => {
-    const { supabase } = await requireUser();
+    const { supabase } = await requireStaff();
     const body = await readJson(request);
     let notebookId = typeof body.notebookId === "string" ? body.notebookId : null;
     if (notebookId !== null && !UUID_PATTERN.test(notebookId)) throw new ApiError(400, "invalid_request", "Identificador do caderno inválido.");
@@ -63,7 +63,7 @@ export function POST(request: Request) {
 
     const docs = (documents ?? []) as { id: string; sha256: string }[];
     const repo = new SupabasePipelineRepository(supabase);
-    const { job, created } = await repo.createJob({ notebookId, inputHash: jobInputHash(docs, DEFAULT_HANDLERS, settings), stages: planStages(docs, DEFAULT_HANDLERS), maxAttempts: DEFAULT_MAX_ATTEMPTS });
+    const { job, created } = await repo.createJob({ notebookId, inputHash: jobInputHash(docs, DUO_HANDLERS, settings), stages: planStages(docs, DUO_HANDLERS), maxAttempts: DEFAULT_MAX_ATTEMPTS });
     return NextResponse.json({ created, view: toJobView(job, await repo.listStages(job.id)) }, { status: created ? 201 : 200 });
   });
 }

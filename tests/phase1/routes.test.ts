@@ -6,7 +6,7 @@ import { ApiError } from "@/lib/server/http";
 import { sha256Hex } from "@/lib/server/upload-rules";
 
 const requireUser = vi.fn();
-vi.mock("@/lib/server/auth", () => ({ requireUser: () => requireUser() }));
+vi.mock("@/lib/server/auth", () => ({ requireUser: () => requireUser(), requireStaff: () => requireUser() }));
 
 import { POST as prepare } from "@/app/api/documents/prepare/route";
 import { POST as finalize } from "@/app/api/documents/finalize/route";

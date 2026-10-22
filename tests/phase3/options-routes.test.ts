@@ -8,7 +8,7 @@ import { CORPUS_DIR } from "../helpers";
 import { FakeDb, makeFakeSupabase } from "../phase2/fake-supabase";
 
 const requireUser = vi.fn();
-vi.mock("@/lib/server/auth", () => ({ requireUser: () => requireUser() }));
+vi.mock("@/lib/server/auth", () => ({ requireUser: () => requireUser(), requireStaff: () => requireUser() }));
 
 import { POST as createJob } from "@/app/api/jobs/route";
 import { POST as advance } from "@/app/api/jobs/[id]/advance/route";
@@ -76,13 +76,12 @@ describe("opções de limpeza: validação", () => {
 });
 
 describe("API: opções valem de ponta a ponta", () => {
-  it("padrão: professor removido; autor doutrinário preservado", async () => {
+  // App DUO: a ingestão usa a limpeza fiel; nenhuma frase do material é removida.
+  it("modo fiel: menções a professor e autor doutrinário preservadas", async () => {
     const { text } = await runJob();
-    expect(text).not.toMatch(/Prof\./);
-    expect(text).not.toContain("Fulano de Tal");
-    expect(text).toContain("O ato administrativo vinculado não admite juízo de conveniência.");
+    expect(text).toContain("Segundo o Prof. Fulano de Tal, o ato administrativo vinculado");
     expect(text).toContain("A doutrina de Celso Antônio Bandeira de Mello aponta que a discricionariedade tem limites legais.");
-    expect(text).toContain("O controle judicial alcança a legalidade do ato.");
+    expect(text).toContain("O Prof. Fulano de Tal explica que o controle judicial alcança a legalidade do ato.");
     expect(db.tables.notebooks[0]).not.toHaveProperty("keep_professors");
   });
   it("keepProfessors: mantém as menções e grava a opção no caderno", async () => {
@@ -95,10 +94,6 @@ describe("API: opções valem de ponta a ponta", () => {
     const { text } = await runJob({ keepReferences: ["Fulano de Tal"] });
     expect(text).toContain("Prof. Fulano de Tal");
     expect(db.tables.notebooks[0].keep_references).toEqual(["Fulano de Tal"]);
-  });
-  it("knownTerms: remove o termo informado do corpo", async () => {
-    const { text } = await runJob({ knownTerms: ["limites legais"], keepProfessors: true });
-    expect(text).not.toContain("limites legais");
   });
   it("opções inválidas ou junto de notebookId são recusadas com 400", async () => {
     expect((await runJob({ knownTerms: "Escola" })).created.status).toBe(400);

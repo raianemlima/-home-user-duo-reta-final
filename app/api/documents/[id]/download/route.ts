@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireUser } from "@/lib/server/auth";
+import { requireStaff } from "@/lib/server/auth";
 import { SIGNED_URL_TTL_SECONDS, UUID_PATTERN } from "@/lib/server/documents";
 import { ApiError, handleRoute } from "@/lib/server/http";
 
@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export function GET(_request: Request, context: { params: Promise<{ id: string }> }) {
   return handleRoute("documents.download", async () => {
-    const { supabase } = await requireUser();
+    const { supabase } = await requireStaff();
     const { id } = await context.params;
     if (!UUID_PATTERN.test(id)) throw new ApiError(400, "invalid_request", "Identificador do documento inválido.");
     // A leitura passa pela RLS: documentos de outros usuários são indistinguíveis de inexistentes.
