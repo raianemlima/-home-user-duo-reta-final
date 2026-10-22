@@ -14,6 +14,7 @@ export function AppShell({ children, isStaff }: { children: React.ReactNode; isS
   if (PLAIN.includes(pathname)) return <>{children}</>;
   const navigation = [
     { href: "/", label: "Disciplinas", icon: "▤", active: pathname === "/" || pathname.startsWith("/disciplinas") },
+    { href: "/vade-esperto", label: "Vade", icon: "§", active: pathname.startsWith("/vade-esperto") },
     { href: "/questoes", label: "Questões", icon: "✓", active: pathname.startsWith("/questoes") },
     { href: "/caderno", label: "Caderno", icon: "✎", active: pathname.startsWith("/caderno") },
     ...(isStaff ? [{ href: "/equipe", label: "Equipe", icon: "⚙", active: pathname.startsWith("/equipe") }] : []),

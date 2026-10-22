@@ -129,3 +129,10 @@ Em `/cronograma` o Word é lido no app (`lib/study-plan-view.ts`): o HTML é lim
 http/https, que abrem fora do app), dividido pelos títulos dos dias ("SEGUNDA-FEIRA"… "DOMINGO · SIMULADO") e, depois
 dos dias, cada título vira um anexo (as trilhas por disciplina). As tabelas "ATIVIDADE n | TEMPO" viram a lista do dia,
 com os links de cada atividade; "Questões do dia" abre primeiro o banco de questões do app nas disciplinas do dia.
+
+## Vade Esperto
+
+Um PDF por matéria no bucket privado `vade-esperto` (`<slug>.pdf`); a tabela `vade_esperto` guarda a data de atualização
+que o aluno vê (migração 0017). O catálogo e o vínculo com o cronograma ("Vade Esperto – Processo Penal" → `processo-penal`)
+estão em `lib/vade.ts`. O aluno abre em **Vade** (menu) ou direto pela atividade do cronograma; a equipe troca os PDFs em
+**Equipe › Vade Esperto** (a data do nome do arquivo, "atualizado em 14.09.26", vira a data exibida).
