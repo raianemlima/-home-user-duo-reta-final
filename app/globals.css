@@ -116,3 +116,16 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
   .toc-close, .toc-toggle { display: inline-flex; }
   .drawer-backdrop { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.4); border: 0; z-index: 35; }
 }
+
+/* Grifos */
+.hl { color: #1F282D; border-radius: 3px; padding: 0 1px; cursor: pointer; }
+.color-legend { display: flex; flex-wrap: wrap; gap: .75rem; font-size: .8rem; color: var(--muted); margin: 0 0 .75rem; }
+.color-legend > span, .swatch-button { display: inline-flex; align-items: center; gap: .35rem; }
+.swatch { width: 14px; height: 14px; border-radius: 4px; display: inline-block; border: 1px solid rgba(0,0,0,.15); }
+.swatch-button { min-height: 44px; padding: 0 .7rem; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: 600 .85rem var(--font-text); cursor: pointer; }
+.swatch-button.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+.highlight-toolbar { position: fixed; left: 50%; bottom: 1.25rem; transform: translateX(-50%); display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; padding: .5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 12px 30px rgba(0,0,0,.2); z-index: 45; max-width: calc(100vw - 1rem); }
+.sheet { position: fixed; left: 50%; bottom: 0; transform: translateX(-50%); width: min(560px, 100vw); display: grid; gap: .75rem; padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom)); background: var(--surface); border: 1px solid var(--border); border-radius: 16px 16px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,.2); z-index: 46; }
+.sheet-colors, .sheet-actions { display: flex; flex-wrap: wrap; gap: .4rem; }
+.reader-notice { background: var(--surface-2); border-left: 4px solid var(--danger); padding: .5rem .75rem; border-radius: 0 10px 10px 0; display: flex; align-items: center; justify-content: space-between; }
+@media (max-width: 767px) { .highlight-toolbar { bottom: calc(64px + env(safe-area-inset-bottom)); } }

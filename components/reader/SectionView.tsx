@@ -3,15 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FontSize } from "@/components/reader/FontSize";
+import { HighlightLayer } from "@/components/reader/HighlightLayer";
 import { SearchBox } from "@/components/reader/SearchBox";
 import { sectionLabel, TocDrawer } from "@/components/reader/TocDrawer";
-import type { ReaderParagraph, SectionView as View } from "@/lib/reader/queries";
-
-// Cada parágrafo é UM elemento com o texto literal: os offsets dos grifos são contados nele.
-export function Paragraph({ paragraph }: { paragraph: ReaderParagraph }) {
-  const className = `paragraph paragraph-${paragraph.kind}`;
-  return <p id={`p-${paragraph.id}`} className={className} data-paragraph-id={paragraph.id}>{paragraph.text}</p>;
-}
+import type { SectionView as View } from "@/lib/reader/queries";
 
 export function SectionView({ view, children }: { view: View; children?: React.ReactNode }) {
   const [tocOpen, setTocOpen] = useState(false);
@@ -29,7 +24,7 @@ export function SectionView({ view, children }: { view: View; children?: React.R
         <h1>{sectionLabel(view.section)}</h1>
         <p className="muted version-label">{view.versionLabel}</p>
       </header>
-      <div className="section-text" data-section-id={view.section.id}>{view.section.paragraphs.map((paragraph) => <Paragraph key={paragraph.id} paragraph={paragraph} />)}</div>
+      <HighlightLayer key={view.section.id} versionId={view.versionId} sectionId={view.section.id} paragraphs={view.section.paragraphs} />
       {children}
       <nav className="section-nav" aria-label="Navegação entre seções">
         {view.prevId ? <Link className="button" href={`/disciplinas/${slug}/${view.prevId}`}>← Anterior</Link> : <span />}
