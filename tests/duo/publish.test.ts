@@ -122,9 +122,9 @@ describe("criar rascunho a partir do job de ingestão", () => {
     expect((await create({ disciplineId: DISC, jobId: JOB, label: "x" })).status).toBe(409);
   });
 
-  it("rótulo vazio ou ids inválidos: 400", async () => {
+  it("rótulo longo demais ou ids inválidos: 400 (rótulo vazio vira a data do material)", async () => {
     await seedJob("succeeded");
-    expect((await create({ disciplineId: DISC, jobId: JOB, label: " " })).status).toBe(400);
+    expect((await create({ disciplineId: DISC, jobId: JOB, label: "x".repeat(121) })).status).toBe(400);
     expect((await create({ disciplineId: "x", jobId: JOB, label: "ok" })).status).toBe(400);
   });
 });
