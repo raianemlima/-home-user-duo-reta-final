@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { LOGIN_SENT_MESSAGE, loginMessage } from "@/lib/auth/messages";
+import { LOGIN_FAILED_MESSAGE } from "@/lib/auth/messages";
 
 let user: { id: string } | null = null;
 let profile: { role: string; active: boolean } | null = null;
@@ -57,10 +57,7 @@ describe("proxy", () => {
 });
 
 describe("mensagem do login", () => {
-  it("é a mesma para qualquer resultado do envio", () => {
-    expect(LOGIN_SENT_MESSAGE).toBe("Se este e-mail estiver cadastrado no curso, você receberá um link e um código de acesso.");
-    expect(loginMessage(null)).toBe(LOGIN_SENT_MESSAGE);
-    expect(loginMessage({ message: "Signups not allowed for otp" })).toBe(LOGIN_SENT_MESSAGE);
-    expect(loginMessage({ message: "User not found" })).toBe(LOGIN_SENT_MESSAGE);
+  it("não revela se o e-mail é de aluno", () => {
+    expect(LOGIN_FAILED_MESSAGE).toBe("E-mail ou senha incorretos. Use o e-mail da sua matrícula.");
   });
 });

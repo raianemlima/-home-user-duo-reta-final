@@ -6,10 +6,11 @@ import { expect, test } from "@playwright/test";
 const url = process.env.E2E_SUPABASE_URL, serviceKey = process.env.E2E_SUPABASE_SERVICE_ROLE_KEY;
 test.skip(!url || !serviceKey || !process.env.E2E_BASE_URL, "Sem Supabase de desenvolvimento configurado: fluxo do aluno não executado (defina E2E_SUPABASE_URL, E2E_SUPABASE_SERVICE_ROLE_KEY e E2E_BASE_URL).");
 
-test("aluno entra por código, grifa no celular, vê no caderno e exporta o PDF", async ({ page }) => {
+test("aluno entra com e-mail e senha, grifa no celular, vê no caderno e exporta o PDF", async ({ page }) => {
   const admin = createClient(url as string, serviceKey as string, { auth: { persistSession: false } });
   const email = `e2e-${Date.now()}@exemplo.com`;
-  const { data: created } = await admin.auth.admin.createUser({ email, email_confirm: true });
+  const password = "e2e-senha-123";
+  const { data: created } = await admin.auth.admin.createUser({ email, password, email_confirm: true });
   const userId = created.user?.id as string;
   await admin.from("profiles").insert({ user_id: userId, email, role: "aluno", active: true });
   const slug = `e2e-${Date.now()}`;
@@ -22,9 +23,7 @@ test("aluno entra por código, grifa no celular, vê no caderno e exporta o PDF"
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/login");
     await page.getByLabel("E-mail da sua matrícula").fill(email);
-    const { data: link } = await admin.auth.admin.generateLink({ type: "magiclink", email });
-    await page.getByRole("button", { name: "Receber link de acesso" }).click();
-    await page.getByLabel("Código de 6 dígitos").fill(link.properties?.email_otp ?? "");
+    await page.getByLabel("Senha").fill(password);
     await page.getByRole("button", { name: "Entrar" }).click();
     await page.getByRole("link", { name: /Disciplina E2E/ }).click();
 

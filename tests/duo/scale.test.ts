@@ -46,9 +46,10 @@ describe("filtros in(...) limitados", () => {
   });
   it("lista de 250 e-mails confere cadastros em lotes de até 100", async () => {
     vi.stubEnv("NEXT_PUBLIC_PIPELINE_V2", "true");
+    vi.stubEnv("ALUNO_SENHA_PADRAO", "senha-de-teste");
     const { sizes, client } = spying(db, "equipe");
     vi.doMock("@/lib/server/auth", () => ({ requireStaff: async () => ({ supabase: client, user: { id: "equipe" } }) }));
-    vi.doMock("@/lib/server/admin", () => ({ createAdminClient: () => ({ auth: { admin: { inviteUserByEmail: async (email: string) => ({ data: { user: { id: `id-${email}` } }, error: null }) } } }) }));
+    vi.doMock("@/lib/server/admin", () => ({ createAdminClient: () => ({ auth: { admin: { createUser: async ({ email }: { email: string }) => ({ data: { user: { id: `id-${email}` } }, error: null }) } } }) }));
     const { POST } = await import("@/app/api/equipe/alunos/route");
     const list = Array.from({ length: 250 }, (_, i) => `aluno${i}@exemplo.com`).join("\n");
     const response = await POST(new Request("http://x/api/equipe/alunos", { method: "POST", body: JSON.stringify({ list }) }));

@@ -5,7 +5,7 @@ import { FakeDb, makeFakeSupabase } from "../phase2/fake-supabase";
 const staff = vi.fn();
 const invite = vi.fn();
 vi.mock("@/lib/server/auth", () => ({ requireStaff: () => staff() }));
-vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ ...makeFakeSupabase(db, "service"), auth: { admin: { inviteUserByEmail: (email: string, options: unknown) => invite(email, options) } } }) }));
+vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ ...makeFakeSupabase(db, "service"), auth: { admin: { createUser: (attributes: unknown) => invite(attributes) } } }) }));
 
 import { GET as listStudents, POST as addStudents } from "@/app/api/equipe/alunos/route";
 import { PATCH as patchStudent } from "@/app/api/equipe/alunos/[id]/route";
@@ -15,10 +15,11 @@ const post = (list: string) => addStudents(new Request("http://app.duo/api/equip
 
 beforeEach(() => {
   vi.stubEnv("NEXT_PUBLIC_PIPELINE_V2", "true");
+  vi.stubEnv("ALUNO_SENHA_PADRAO", "senha-de-teste");
   db = new FakeDb();
   staff.mockResolvedValue({ supabase: makeFakeSupabase(db, "equipe"), user: { id: "equipe" } });
   let n = 0;
-  invite.mockReset().mockImplementation(async (email: string) => ({ data: { user: { id: `u-${(n += 1)}`, email } }, error: null }));
+  invite.mockReset().mockImplementation(async ({ email }: { email: string }) => ({ data: { user: { id: `u-${(n += 1)}`, email } }, error: null }));
 });
 
 describe("parseStudentList", () => {
@@ -43,7 +44,7 @@ describe("POST /api/equipe/alunos", () => {
     const response = await post("ana@x.com\nlixo\nbia@x.com");
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual({ invited: ["ana@x.com", "bia@x.com"], reactivated: [], invalid: ["lixo"], duplicates: [], failed: [] });
-    expect(invite).toHaveBeenCalledWith("ana@x.com", { redirectTo: "http://app.duo/auth/confirm" });
+    expect(invite).toHaveBeenCalledWith({ email: "ana@x.com", password: "senha-de-teste", email_confirm: true });
     expect(db.tables.profiles).toEqual([expect.objectContaining({ user_id: "u-1", email: "ana@x.com", role: "aluno", active: true }), expect.objectContaining({ user_id: "u-2", email: "bia@x.com" })]);
   });
   it("aluno já cadastrado é reativado, sem novo convite", async () => {
@@ -59,6 +60,11 @@ describe("POST /api/equipe/alunos", () => {
     const body = await (await post("ana@x.com\nbia@x.com")).json();
     expect(body.failed).toEqual([{ email: "ana@x.com", reason: "rate limit" }]);
     expect(body.invited).toEqual(["bia@x.com"]);
+  });
+  it("sem ALUNO_SENHA_PADRAO não cria novos alunos", async () => {
+    vi.stubEnv("ALUNO_SENHA_PADRAO", "");
+    expect((await post("ana@x.com")).status).toBe(500);
+    expect(invite).not.toHaveBeenCalled();
   });
   it("recusa lote acima de 500", async () => {
     const list = Array.from({ length: 501 }, (_, i) => `a${i}@x.com`).join("\n");

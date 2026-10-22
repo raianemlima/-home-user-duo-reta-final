@@ -17,7 +17,7 @@ export function GET() {
   });
 }
 
-// Cadastra uma lista de e-mails: quem já tem perfil é reativado; os demais recebem convite. Uma falha não interrompe o lote.
+// Cadastra uma lista de e-mails: quem já tem perfil é reativado; os demais são criados com a senha padrão. Uma falha não interrompe o lote.
 export function POST(request: Request) {
   return handleRoute("equipe.alunos.cadastrar", async () => {
     const { supabase } = await requireStaff();
@@ -40,13 +40,16 @@ export function POST(request: Request) {
       if (updateError) throw new Error(`Falha ao reativar alunos: ${updateError.message}`);
     }
 
+    const password = process.env.ALUNO_SENHA_PADRAO;
+    const newcomers = parsed.valid.filter((candidate) => !known.has(candidate.email));
+    if (newcomers.length && !password) throw new ApiError(500, "missing_config", "Defina ALUNO_SENHA_PADRAO no servidor para cadastrar novos alunos.");
     const admin = createAdminClient();
-    const redirectTo = `${new URL(request.url).origin}/auth/confirm`;
     const invited: string[] = [];
     const failed: { email: string; reason: string }[] = [];
-    for (const student of parsed.valid.filter((candidate) => !known.has(candidate.email))) {
-      const { data, error: inviteError } = await admin.auth.admin.inviteUserByEmail(student.email, { redirectTo });
-      if (inviteError || !data?.user) { failed.push({ email: student.email, reason: inviteError?.message ?? "convite não enviado" }); continue; }
+    for (const student of newcomers) {
+      // Sem e-mail de convite: o aluno entra com e-mail + senha padrão do curso.
+      const { data, error: inviteError } = await admin.auth.admin.createUser({ email: student.email, password, email_confirm: true });
+      if (inviteError || !data?.user) { failed.push({ email: student.email, reason: inviteError?.message ?? "usuário não criado" }); continue; }
       const { error: profileError } = await supabase.from("profiles").insert({ user_id: data.user.id, email: student.email, name: student.name, role: "aluno", active: true });
       if (profileError) { failed.push({ email: student.email, reason: profileError.message }); continue; }
       invited.push(student.email);
