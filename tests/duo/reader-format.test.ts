@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { cleanDocument } from "@/lib/cleaning/clean";
-import { markLead, paragraphFormat } from "@/lib/reader/format";
+import { markLead, paragraphFormat, tipRoles } from "@/lib/reader/format";
 import type { DocumentExtraction, LayoutBlock } from "@/lib/extraction/types";
 
 describe("formatação de texto jurídico", () => {
@@ -28,10 +28,29 @@ describe("formatação de texto jurídico", () => {
 const block = (text: string): LayoutBlock => ({ kind: "body", text, fontSize: 11, y: 500, column: null, heading: false, source: "text-layer" });
 const extraction = (...pages: string[][]): DocumentExtraction => ({ pages: pages.map((texts, index) => ({ page: index + 1, blocks: texts.map(block) })), warnings: [] } as unknown as DocumentExtraction);
 
+describe("caixa DICA DUO", () => {
+  it("título da dica e o texto seguinte formam uma caixa só; o rótulo fica em destaque", () => {
+    const roles = tipRoles([{ id: "a", kind: "tip", text: "DICA DUO Como usar este material" }, { id: "b", kind: "body", text: "Neste material, você terá os pontos." }, { id: "c", kind: "body", text: "Outro." }]);
+    expect([...roles]).toEqual([["a", "tip-head"], ["b", "tip-text"]]);
+    expect(paragraphFormat("DICA DUO Como usar este material", "tip").lead).toBe("DICA DUO".length);
+  });
+  it("dica que já traz o texto completo não puxa o parágrafo seguinte", () => {
+    expect(tipRoles([{ id: "a", kind: "tip", text: "DICA DUO Leia os artigos antes da teoria." }, { id: "b", kind: "body", text: "Texto." }]).size).toBe(0);
+  });
+});
+
 describe("frase quebrada no meio do parágrafo", () => {
   it("junta continuação em minúscula na mesma página", () => {
     const result = cleanDocument(extraction(["Pela teoria finalista de Welzel, o elemento subjetivo está na conduta, de forma que", "a ausência de dolo torna o fato atípico."]), { mode: "faithful" });
     expect(result.paragraphs.map((paragraph) => paragraph.text)).toEqual(["Pela teoria finalista de Welzel, o elemento subjetivo está na conduta, de forma que a ausência de dolo torna o fato atípico."]);
+  });
+  it("junta continuação que começa com parêntese", () => {
+    const result = cleanDocument(extraction(["Nas teorias causal-naturalista (clássica) e causal-valorativa", "(neoclássica), o dolo e a culpa eram espécies da culpabilidade."]), { mode: "faithful" });
+    expect(result.paragraphs).toHaveLength(1);
+  });
+  it("tira a capa da página 1 (linhas curtas antes do texto), mas mantém a DICA DUO", () => {
+    const pages = cleanDocument(extraction(["Ebook de Reta Final", "Direito Penal", "DICA DUO Como usar este material"], ["Texto da página dois."]), { mode: "faithful" });
+    expect(pages.paragraphs.map((paragraph) => paragraph.text)).toEqual(["DICA DUO Como usar este material", "Texto da página dois."]);
   });
   it("não junta alínea nem frase já terminada", () => {
     const result = cleanDocument(extraction(["São requisitos:", "a) o primeiro", "Fim da frase.", "outro texto solto"]), { mode: "faithful" });

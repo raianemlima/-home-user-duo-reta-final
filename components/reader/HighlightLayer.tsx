@@ -4,7 +4,7 @@ import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "rea
 import { Floating } from "@/components/reader/Floating";
 import { ColorLegend, HighlightToolbar } from "@/components/reader/HighlightToolbar";
 import { paragraphSpans, rangeToPoints, segmentText } from "@/lib/highlights/dom";
-import { markLead, paragraphFormat } from "@/lib/reader/format";
+import { markLead, paragraphFormat, tipRoles } from "@/lib/reader/format";
 import { HIGHLIGHT_COLORS, type HighlightColor, type Point } from "@/lib/highlights/types";
 import type { ReaderParagraph } from "@/lib/reader/queries";
 
@@ -66,6 +66,7 @@ export function HighlightLayer({ versionId, sectionId, paragraphs }: { versionId
     try { await call(`/api/destaques/${id}`, "DELETE"); } catch { setHighlights(before); setNotice("Não foi possível excluir o grifo."); }
   }
 
+  const tips = useMemo(() => tipRoles(paragraphs), [paragraphs]);
   const order = useMemo(() => paragraphs.map((paragraph) => paragraph.id), [paragraphs]);
   const spans = useMemo(() => paragraphSpans(order, highlights), [order, highlights]);
   const notesOf = (paragraphId: string) => highlights.filter((item) => item.note && item.start.paragraphId === paragraphId);
@@ -76,7 +77,7 @@ export function HighlightLayer({ versionId, sectionId, paragraphs }: { versionId
     <ColorLegend />
     {notice && <p className="reader-notice" role="alert">{notice} <button className="icon-button" onClick={() => setNotice("")} aria-label="Fechar aviso">✕</button></p>}
     <div className="section-text" data-section-id={sectionId} ref={root} onMouseUp={capture} onTouchEnd={capture}>
-      {paragraphs.map((paragraph) => { const format = paragraphFormat(paragraph.text, paragraph.kind); return <Fragment key={paragraph.id}><p id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind} ${format.className}`.trim()} data-paragraph-id={paragraph.id}>
+      {paragraphs.map((paragraph) => { const format = paragraphFormat(paragraph.text, paragraph.kind); return <Fragment key={paragraph.id}><p id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind} ${format.className} ${tips.get(paragraph.id) ?? ""}`.trim()} data-paragraph-id={paragraph.id}>
         {markLead(segmentText(paragraph.text, spans.get(paragraph.id) ?? []), format.lead).map((segment, index) => segment.marks.length
           ? <mark key={index} className={`hl hl-${segment.marks[segment.marks.length - 1].color}${segment.lead ? " lead" : ""}${noteOf(segment.marks[segment.marks.length - 1].id) ? " has-note" : ""}`} title={noteOf(segment.marks[segment.marks.length - 1].id) ?? undefined} data-highlight-id={segment.marks[segment.marks.length - 1].id} tabIndex={0} role="button" aria-label="Grifo: abrir opções"
               onClick={() => { const id = segment.marks[segment.marks.length - 1].id; if (!id.startsWith("tmp-")) { const found = highlights.find((item) => item.id === id); setEditing({ id, note: found?.note ?? "", color: found?.color ?? "importante" }); }; }}

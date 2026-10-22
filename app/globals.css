@@ -130,9 +130,10 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .search-results span { color: var(--muted); font-size: .88rem; }
 .section-head h1 { font-size: 1.45rem; }
 .version-label { font-size: .85rem; margin: 0 0 1rem; }
-.section-text { font-size: var(--reading-size); line-height: 1.7; max-width: 72ch; hyphens: auto; }
-.paragraph { margin: 0 0 1em; white-space: pre-wrap; overflow-wrap: break-word; hyphens: auto; }
-@media (min-width: 768px) { .paragraph { text-align: justify; } }
+.section-text { font-size: var(--reading-size); line-height: 1.7; max-width: 72ch; }
+.paragraph { margin: 0 0 1em; white-space: pre-wrap; overflow-wrap: break-word; }
+/* Justificado com hifenização só em tela larga; no celular, alinhado à esquerda e sem quebrar palavras. */
+@media (min-width: 768px) { .paragraph { text-align: justify; hyphens: auto; } }
 .paragraph .lead { font-weight: 700; }
 .para-article .lead { color: var(--accent-text); }
 .para-article { margin-top: 1.6em; padding-left: .85rem; border-left: 3px solid var(--accent-strong); }
@@ -141,6 +142,9 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .para-alinea { margin-left: 3.25rem; }
 .para-item { margin-left: 1rem; text-indent: -1rem; padding-left: 1rem; }
 .para-article + .para-par, .para-article + .para-inciso { margin-top: -.4em; }
+.paragraph-tip .lead { color: var(--accent); }
+.paragraph-tip.tip-head { margin-bottom: 0; padding-bottom: .25rem; border-radius: 0 var(--r-md) 0 0; font-weight: 700; }
+.paragraph.tip-text { margin-top: 0; background: var(--tip-bg); border-left: 4px solid var(--tip-border); padding: .25rem 1rem .75rem; border-radius: 0 0 var(--r-md) 0; }
 .paragraph-tip { background: var(--tip-bg); border-left: 4px solid var(--tip-border); padding: .75rem 1rem; border-radius: 0 10px 10px 0; }
 .paragraph-table { font-size: .92em; background: var(--surface); border: 1px solid var(--border); padding: .75rem; border-radius: var(--r-md); overflow-x: auto; }
 .paragraph-footnote { font-size: .85em; color: var(--muted); }
