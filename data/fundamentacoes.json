@@ -481,6 +481,198 @@
    ],
    "conferido": "2026-10-22"
   },
+  "dpesp-2025-propria-46": {
+   "nota": "A inimputabilidade por idade é objetiva: o art. 27 do CP declara penalmente inimputáveis os menores de 18 anos, que respondem pelo ECA. Quem tem 16 ou 17 anos está nessa faixa — alternativa B. Motivo torpe e vingança são circunstâncias do crime, não causas de inimputabilidade; o sono natural afasta a própria conduta; e a reincidência agrava a pena.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 27",
+     "tipo": "lei",
+     "texto": "Os menores de 18 (dezoito) anos são penalmente inimputáveis, ficando sujeitos às normas estabelecidas na legislação especial.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 228",
+     "tipo": "lei",
+     "texto": "São penalmente inimputáveis os menores de dezoito anos, sujeitos às normas da legislação especial.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-47": {
+   "nota": "A lei penal mais severa (novatio legis in pejus) não retroage: a Constituição só admite a retroatividade quando a lei beneficia o réu (art. 5º, XL), e o CP manda aplicar aos fatos anteriores a lei posterior que de qualquer modo favorecer o agente. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, XL",
+     "tipo": "lei",
+     "texto": "a lei penal não retroagirá, salvo para beneficiar o réu;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CP, art. 2º",
+     "tipo": "lei",
+     "texto": "Ninguém pode ser punido por fato que lei posterior deixa de considerar crime, cessando em virtude dela a execução e os efeitos penais da sentença condenatória.\nParágrafo único - A lei posterior, que de qualquer modo favorecer o agente, aplica-se aos fatos anteriores, ainda que decididos por sentença condenatória transitada em julgado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-48": {
+   "nota": "O art. 33, § 2º, do CP define o regime inicial pela quantidade de pena e pela reincidência: acima de 8 anos, fechado; entre 4 e 8, semiaberto se não reincidente; até 4, aberto se não reincidente — sempre observados os critérios do art. 59 (§ 3º). O regime inicial é fixado na sentença condenatória, pelo juiz da causa. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 33, §§ 2º e 3º",
+     "tipo": "lei",
+     "texto": "§ 2º - As penas privativas de liberdade deverão ser executadas em forma progressiva, segundo o mérito do condenado, observados os seguintes critérios e ressalvadas as hipóteses de transferência a regime mais rigoroso:\na) o condenado a pena superior a 8 (oito) anos deverá começar a cumpri-la em regime fechado;\nb) o condenado não reincidente, cuja pena seja superior a 4 (quatro) anos e não exceda a 8 (oito), poderá, desde o princípio, cumpri-la em regime semi-aberto;\nc) o condenado não reincidente, cuja pena seja igual ou inferior a 4 (quatro) anos, poderá, desde o início, cumpri-la em regime aberto.\n§ 3º - A determinação do regime inicial de cumprimento da pena far-se-á com observância dos critérios previstos no art. 59 deste Código.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-49": {
+   "nota": "A prescrição está no art. 107, IV, do CP, entre as causas de extinção da punibilidade — alternativa B. Ela começa a correr, em regra, da consumação do crime (art. 111, I), e não do oferecimento da denúncia (derruba A); e a pena de multa também prescreve (art. 114), o que derruba D.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 107",
+     "tipo": "lei",
+     "texto": "Extingue-se a punibilidade:\nI - pela morte do agente;\nII - pela anistia, graça ou indulto;\nIII - pela retroatividade de lei que não mais considera o fato como criminoso;\nIV - pela prescrição, decadência ou perempção;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 109, caput",
+     "tipo": "lei",
+     "texto": "A prescrição, antes de transitar em julgado a sentença final, salvo o disposto no § 1º do art. 110 deste Código, regula-se pelo máximo da pena privativa de liberdade cominada ao crime, verificando-se:",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-50": {
+   "nota": "O art. 1º da Lei 9.455/1997 descreve a tortura como constranger alguém com violência ou grave ameaça, causando sofrimento físico ou mental, com o fim de obter informação, declaração ou confissão, para provocar ação criminosa, ou por discriminação racial ou religiosa. A alternativa B sintetiza esse núcleo (meio + finalidade). As demais descrevem maus-tratos ou condições degradantes, que podem configurar o § 1º ou outros crimes, mas não o tipo do caput.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.455/1997, art. 1º, I e II",
+     "tipo": "lei",
+     "texto": "Constitui crime de tortura:\nI - constranger alguém com emprego de violência ou grave ameaça, causando-lhe sofrimento físico ou mental:\na) com o fim de obter informação, declaração ou confissão da vítima ou de terceira pessoa;\nb) para provocar ação ou omissão de natureza criminosa;\nc) em razão de discriminação racial ou religiosa;\nII - submeter alguém, sob sua guarda, poder ou autoridade, com emprego de violência ou grave ameaça, a intenso sofrimento físico ou mental, como forma de aplicar castigo pessoal ou medida de caráter preventivo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9455.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-51": {
+   "nota": "O motivo torpe é agravante expressa do art. 61, II, a, do CP — alternativa B. Primariedade e menoridade relativa (menor de 21 anos) são ATENUANTES (art. 65), e a embriaguez fortuita completa pode excluir a imputabilidade (art. 28, § 1º).",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 61, caput e II, a",
+     "tipo": "lei",
+     "texto": "São circunstâncias que sempre agravam a pena, quando não constituem ou qualificam o crime:\nII - ter o agente cometido o crime:\na) por motivo fútil ou torpe;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 65, I",
+     "tipo": "lei",
+     "texto": "São circunstâncias que sempre atenuam a pena:\nI - ser o agente menor de 21 (vinte e um) anos, na data do fato, ou maior de 70 (setenta) anos, na data da sentença, salvo se o crime envolver violência sexual contra a mulher;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-52": {
+   "nota": "O art. 21 trata do erro sobre a ilicitude do fato (erro de proibição): se inevitável, ISENTA DE PENA — isto é, exclui a culpabilidade por falta de potencial consciência da ilicitude; se evitável, apenas diminui a pena de um sexto a um terço. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 21",
+     "tipo": "lei",
+     "texto": "O desconhecimento da lei é inescusável. O erro sobre a ilicitude do fato, se inevitável, isenta de pena; se evitável, poderá diminuí-la de um sexto a um terço.\nParágrafo único - Considera-se evitável o erro se o agente atua ou se omite sem a consciência da ilicitude do fato, quando lhe era possível, nas circunstâncias, ter ou atingir essa consciência.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-53": {
+   "nota": "O art. 29 adota a teoria unitária: quem de qualquer modo concorre para o crime responde por ele, na medida da sua culpabilidade. O partícipe é exatamente isso — concorre (instiga, induz, auxilia) sem realizar o núcleo do tipo, que é tarefa do autor. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 29, caput e § 1º",
+     "tipo": "lei",
+     "texto": "Quem, de qualquer modo, concorre para o crime incide nas penas a este cominadas, na medida de sua culpabilidade.\n§ 1º - Se a participação for de menor importância, a pena pode ser diminuída de um sexto a um terço.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-54": {
+   "nota": "O indulto é causa de extinção da punibilidade (art. 107, II, do CP): não reduz a pena nem suspende a execução — apaga a punibilidade. É concedido por decreto do Presidente da República (art. 84, XII, da CF/1988), não pelo Legislativo. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 107, II",
+     "tipo": "lei",
+     "texto": "Extingue-se a punibilidade:\nII - pela anistia, graça ou indulto;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 84, XII",
+     "tipo": "lei",
+     "texto": "Compete privativamente ao Presidente da República:\nXII - conceder indulto e comutar penas, com audiência, se necessário, dos órgãos instituídos em lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-55": {
+   "nota": "O fato típico é composto de conduta, resultado, nexo causal e tipicidade. A culpabilidade é o terceiro substrato do conceito analítico de crime (fato típico, ilicitude e culpabilidade) e não integra o fato típico. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 13, caput",
+     "tipo": "lei",
+     "texto": "O resultado, de que depende a existência do crime, somente é imputável a quem lhe deu causa. Considera-se causa a ação ou omissão sem a qual o resultado não teria ocorrido.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 1º",
+     "tipo": "lei",
+     "texto": "Não há crime sem lei anterior que o defina. Não há pena sem prévia cominação legal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-56": {
+   "nota": "A legalidade penal (art. 5º, XXXIX, da CF e art. 1º do CP) proíbe crime e pena sem lei anterior, veda a analogia em prejuízo do réu e impõe a retroatividade benéfica — exatamente o que o art. 2º do CP afirma e o que diz a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, XXXIX",
+     "tipo": "lei",
+     "texto": "não há crime sem lei anterior que o defina, nem pena sem prévia cominação legal;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CP, art. 2º, caput",
+     "tipo": "lei",
+     "texto": "Ninguém pode ser punido por fato que lei posterior deixa de considerar crime, cessando em virtude dela a execução e os efeitos penais da sentença condenatória.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-57": {
+   "nota": "O art. 17 cuida do crime impossível: não se pune a tentativa quando, por ineficácia absoluta do meio ou absoluta impropriedade do objeto, é impossível consumar o crime — ou seja, quando o resultado é naturalisticamente impossível. Alternativa C. A desistência voluntária (A) tem regime próprio no art. 15: o agente responde pelos atos já praticados.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 17",
+     "tipo": "lei",
+     "texto": "Não se pune a tentativa quando, por ineficácia absoluta do meio ou por absoluta impropriedade do objeto, é impossível consumar-se o crime.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 15",
+     "tipo": "lei",
+     "texto": "O agente que, voluntariamente, desiste de prosseguir na execução ou impede que o resultado se produza, só responde pelos atos já praticados.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "dpesp-2025-propria-58": {
    "nota": "Na jurisdição voluntária o juiz administra interesses privados: não há lide nem partes em conflito, e por isso a atuação não é contenciosa — alternativa C. O CPC trata desses procedimentos em seção própria, onde se admite prova (art. 720 e seguintes) e a intervenção do Ministério Público só ocorre nos casos do art. 178.",
    "dispositivos": [
@@ -718,6 +910,108 @@
      "tipo": "lei",
      "texto": "Finda a instrução, o juiz dará a palavra ao advogado do autor e do réu, bem como ao membro do Ministério Público, se for o caso de sua intervenção, sucessivamente, pelo prazo de 20 (vinte) minutos para cada um, prorrogável por 10 (dez) minutos, a critério do juiz.",
      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-75": {
+   "nota": "Nulidade absoluta atinge interesse público e por isso não preclui: o juiz pode reconhecê-la de ofício, a qualquer tempo e grau. O CPP só considera sanadas pela falta de arguição oportuna as nulidades relativas do art. 572. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 572",
+     "tipo": "lei",
+     "texto": "As nulidades previstas no art. 564, Ill, d e e, segunda parte, g e h, e IV, considerar-se-ão sanadas:\nI - se não forem argüidas, em tempo oportuno, de acordo com o disposto no artigo anterior;\nII - se, praticado por outra forma, o ato tiver atingido o seu fim;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 564, III e V",
+     "tipo": "lei",
+     "texto": "A nulidade ocorrerá nos seguintes casos:\nI - por incompetência, suspeição ou suborno do juiz;\nII - por ilegitimidade de parte;\nIV - por omissão de formalidade que constitua elemento essencial do ato.\nV - em decorrência de decisão carente de fundamentação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-76": {
+   "nota": "O art. 157 do CPP manda desentranhar a prova ilícita e também as provas derivadas dela, salvo quando não houver nexo de causalidade ou quando puderem ser obtidas por fonte independente — exceções que a alternativa B reproduz (fonte independente e descoberta inevitável).",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 157, caput e §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "São inadmissíveis, devendo ser desentranhadas do processo, as provas ilícitas, assim entendidas as obtidas em violação a normas constitucionais ou legais.\n§ 1º São também inadmissíveis as provas derivadas das ilícitas, salvo quando não evidenciado o nexo de causalidade entre umas e outras, ou quando as derivadas puderem ser obtidas por uma fonte independente das primeiras.\n§ 2º Considera-se fonte independente aquela que por si só, seguindo os trâmites típicos e de praxe, próprios da investigação ou instrução criminal, seria capaz de conduzir ao fato objeto da prova.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LVI",
+     "tipo": "lei",
+     "texto": "são inadmissíveis, no processo, as provas obtidas por meios ilícitos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-77": {
+   "nota": "A ação penal pública é promovida por denúncia do Ministério Público; só depende de representação do ofendido ou requisição do Ministro da Justiça \"quando a lei o exigir\" — nesses casos é condicionada. Na incondicionada, o MP age sem qualquer autorização. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 24, caput",
+     "tipo": "lei",
+     "texto": "Nos crimes de ação pública, esta será promovida por denúncia do Ministério Público, mas dependerá, quando a lei o exigir, de requisição do Ministro da Justiça, ou de representação do ofendido ou de quem tiver qualidade para representá-lo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 129, I",
+     "tipo": "lei",
+     "texto": "São funções institucionais do Ministério Público:\nI - promover, privativamente, a ação penal pública, na forma da lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-78": {
+   "nota": "O art. 312 do CPP lista os fundamentos: garantia da ordem pública, da ordem econômica, conveniência da instrução criminal e garantia da aplicação da lei penal — a alternativa D reproduz três deles. A preventiva não é antecipação de pena (art. 313, § 2º) nem decorre automaticamente do flagrante ou de antecedentes.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 312, caput",
+     "tipo": "lei",
+     "texto": "A prisão preventiva poderá ser decretada como garantia da ordem pública, da ordem econômica, por conveniência da instrução criminal ou para assegurar a aplicação da lei penal, quando houver prova da existência do crime e indício suficiente de autoria e de perigo gerado pelo estado de liberdade do imputado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CPP, art. 313, § 2º",
+     "tipo": "lei",
+     "texto": "Não será admitida a decretação da prisão preventiva com a finalidade de antecipação de cumprimento de pena ou como decorrência imediata de investigação criminal ou da apresentação ou recebimento de denúncia.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-79": {
+   "nota": "A apelação criminal é o recurso contra a sentença de mérito — de condenação ou absolvição — proferida por juiz singular (art. 593, I). Decisões interlocutórias desafiam recurso em sentido estrito (art. 581), e a apelação se interpõe no juízo de origem, antes do trânsito em julgado. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 593, caput e I",
+     "tipo": "lei",
+     "texto": "Caberá apelação no prazo de 5 (cinco) dias:\nI - das sentenças definitivas de condenação ou absolvição proferidas por juiz singular;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-80": {
+   "nota": "O art. 302 define o flagrante: quem está cometendo a infração, quem acaba de cometê-la, quem é perseguido logo após e quem é encontrado logo depois com instrumentos ou objetos que o indiquem autor. \"Encontrado logo após cometer o crime\" é o flagrante próprio do inciso II. Alternativa C — e o flagrante é a prisão que dispensa ordem judicial (art. 5º, LXI, da CF).",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 302",
+     "tipo": "lei",
+     "texto": "Considera-se em flagrante delito quem:\nI - está cometendo a infração penal;\nII - acaba de cometê-la;\nIII - é perseguido, logo após, pela autoridade, pelo ofendido ou por qualquer pessoa, em situação que faça presumir ser autor da infração;\nIV - é encontrado, logo depois, com instrumentos, armas, objetos ou papéis que façam presumir ser ele autor da infração.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LXI",
+     "tipo": "lei",
+     "texto": "ninguém será preso senão em flagrante delito ou por ordem escrita e fundamentada de autoridade judiciária competente, salvo nos casos de transgressão militar ou crime propriamente militar, definidos em lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
     }
    ],
    "conferido": "2026-10-22"
@@ -1933,6 +2227,29 @@
      "tipo": "lei",
      "texto": "De comum acordo, o juiz e as partes podem fixar calendário para a prática dos atos processuais, quando for o caso.",
      "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-255": {
+   "nota": "Ao julgar as ADIs 3.360 e 4.109, o STF deu interpretação conforme à Lei 7.960/1989 e fixou, entre outras condições, que a prisão temporária não pode ser decretada — nem subsistir — depois de concluída a investigação, porque sua única razão de ser é viabilizar a apuração. É a alternativa C. A lei exige representação da autoridade policial ou requerimento do MP, nunca decretação de ofício (derruba D).",
+   "dispositivos": [
+    {
+     "ref": "Lei 7.960/1989, art. 1º, I e III",
+     "tipo": "lei",
+     "texto": "Caberá prisão temporária:\nI - quando imprescindível para as investigações do inquérito policial;\nII - quando o indicado não tiver residência fixa ou não fornecer elementos necessários ao esclarecimento de sua identidade;\nIII - quando houver fundadas razões, de acordo com qualquer prova admitida na legislação penal, de autoria ou participação do indiciado nos seguintes crimes:",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7960.htm"
+    },
+    {
+     "ref": "Lei 7.960/1989, art. 2º, caput",
+     "tipo": "lei",
+     "texto": "A prisão temporária será decretada pelo Juiz, em face da representação da autoridade policial ou de requerimento do Ministério Público, e terá o prazo de 5 (cinco) dias, prorrogável por igual período em caso de extrema e comprovada necessidade.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7960.htm"
+    },
+    {
+     "ref": "STF, ADI 3.360 e ADI 4.109",
+     "tipo": "entendimento",
+     "texto": "O STF deu interpretação conforme à Lei 7.960/1989 e condicionou a prisão temporária à presença cumulativa de requisitos, entre eles: ser imprescindível para a investigação do inquérito; haver fundadas razões de autoria ou participação nos crimes do rol taxativo; houver fundamento na gravidade concreta do delito; e, expressamente, não ser cabível — nem poder subsistir — quando a investigação já estiver concluída."
     }
    ],
    "conferido": "2026-10-22"
