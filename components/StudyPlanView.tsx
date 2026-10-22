@@ -4,11 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { bankDisciplinesFor, questionBankHref } from "@/lib/questions/day-link";
 import { WEEKDAY_NAMES } from "@/lib/study-plan";
+import { vadeFor, vadeMaterial } from "@/lib/vade";
 
 type Activity = { titulo: string; tempo: string; links: { href: string; rotulo: string }[] };
 type Day = { dia: number; titulo: string; html: string; atividades?: Activity[] };
 type Annex = { titulo: string; html: string };
-type Content = { plano: string; titulo: string; tipo: "docx"; geral: string; dias: Day[]; anexos: Annex[] } | { plano: string; titulo: string; tipo: "arquivo" };
+type Content = { plano: string; titulo: string; tipo: "docx"; geral: string; dias: Day[]; anexos: Annex[]; vade?: string[] } | { plano: string; titulo: string; tipo: "arquivo" };
 // Semana de estudo começa na segunda.
 const ORDER = [1, 2, 3, 4, 5, 6, 0];
 // "Defensoria de São Paulo" e "DPE/SP" são a mesma coisa para achar a trilha.
@@ -70,10 +71,12 @@ export function StudyPlanView() {
       const trail = annexFor(activity.titulo, annexes);
       // "Questões do dia" abre primeiro o banco do app nas disciplinas do dia; a trilha de cada disciplina, as questões dela.
       const isQuestions = /^quest/i.test(fold(activity.titulo).trim());
+      const vade = /^vade/i.test(fold(activity.titulo).trim()) ? vadeFor(activity.titulo).filter((slug) => content.vade?.includes(slug)) : [];
       const ownBank = isQuestions ? dayDisciplines : /^trilha/i.test(fold(activity.titulo).trim()) ? bankDisciplinesFor(activity.titulo) : [];
       return <li key={position} className="plan-activity">
         <div className="plan-activity-head"><span className="plan-activity-n">{position + 1}</span><strong>{activity.titulo}</strong>{activity.tempo && <span className="badge">{activity.tempo}</span>}</div>
-        {(activity.links.length > 0 || trail !== null || ownBank.length > 0) && <div className="plan-links">
+        {(activity.links.length > 0 || trail !== null || ownBank.length > 0 || vade.length > 0) && <div className="plan-links">
+          {vade.map((slug) => <a key={slug} className="button primary" href={`/api/vade-esperto/${slug}`} target="_blank" rel="noopener">{vade.length > 1 ? `Vade Esperto · ${vadeMaterial(slug)?.titulo}` : "Abrir o Vade Esperto"} ↗</a>)}
           {ownBank.length > 0 && <Link className="button primary" href={questionBankHref(ownBank)}>{isQuestions ? "Banco de questões DUO" : "Questões no app"} →</Link>}
           {activity.links.map((link) => <a key={link.href} className="button" href={link.href} target="_blank" rel="noopener noreferrer">{link.rotulo} ↗</a>)}
           {trail !== null && <button type="button" className="button ghost" onClick={() => show(trail)}>Ver a trilha ↓</button>}
