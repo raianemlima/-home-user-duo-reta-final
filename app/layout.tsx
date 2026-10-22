@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { AppShell } from "@/components/AppShell";
-import { isSupabaseConfigured } from "@/lib/supabase/config";
-import { createClient } from "@/lib/supabase/server";
+import { identityFromRequest } from "@/lib/server/identity";
 
 // Endereço público do app: deixa links, ícones e prévias compartilhadas resolverem no domínio dos alunos,
 // em vez de caminhos relativos. NEXT_PUBLIC_SITE_URL sobrescreve quando o domínio mudar.
@@ -20,15 +19,9 @@ export const viewport: Viewport = { themeColor: "#17401F", width: "device-width"
 // Aplica tema e tamanho de letra salvos antes da pintura (evita piscar).
 const PREFERENCES = `try{var t=localStorage.getItem("duo-tema");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;var f=localStorage.getItem("duo-fonte");if(f)document.documentElement.dataset.font=f}catch(e){}`;
 
+// A equipe vê o item "Equipe" no menu. O papel vem conferido do proxy, sem nova consulta por página.
 async function staffFlag(): Promise<boolean> {
-  if (!isSupabaseConfigured()) return false;
-  try {
-    const supabase = await createClient();
-    const { data } = await supabase.auth.getUser();
-    if (!data.user) return false;
-    const { data: profile } = await supabase.from("profiles").select("role, active").eq("user_id", data.user.id).maybeSingle();
-    return profile?.role === "equipe" && profile.active === true;
-  } catch { return false; }
+  return (await identityFromRequest())?.role === "equipe";
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

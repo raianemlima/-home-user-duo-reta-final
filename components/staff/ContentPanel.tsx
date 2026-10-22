@@ -9,7 +9,7 @@ import { uploadDocumentSecurely } from "@/lib/supabase/secure-documents";
 
 type Discipline = { id: string; slug: string; title: string; published: { id: string; label: string; publishedAt: string } | null; drafts: { id: string; label: string; createdAt: string }[] };
 type Preview = { version: { id: string; label: string; status: string }; toc: { id: string; level: number; numbering: string | null; title: string | null }[]; stats: { sections: number; paragraphs: number; tips: number }; sample: { id: string; numbering: string | null; title: string | null; paragraphs: string[] }[] };
-const label = (item: { numbering: string | null; title: string | null }) => [item.numbering, item.title].filter(Boolean).join(" ") || "Introdução";
+const label = (item: { numbering: string | null; title: string | null }) => [...new Set([item.numbering, item.title].filter(Boolean))].join(" ") || "Introdução";
 
 // O mesmo arquivo já enviado antes (mesmo hash) é reaproveitado: o processamento é idempotente.
 async function uploadOrReuse(file: File): Promise<string> {

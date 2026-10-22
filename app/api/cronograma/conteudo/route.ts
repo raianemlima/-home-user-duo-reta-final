@@ -31,6 +31,6 @@ export function GET() {
     if (error || !blob) throw new ApiError(404, "not_found", plano === "proprio" ? "Não foi possível abrir o seu cronograma." : "A equipe ainda não publicou este cronograma.");
     const [view, vade] = await Promise.all([studyPlanFromDocx(Buffer.from(await blob.arrayBuffer())), listVade(supabase)]);
     // Os Vade Espertos publicados: as atividades "Vade Esperto – X" ganham o botão para abrir o PDF.
-    return NextResponse.json({ plano, titulo, tipo: "docx", ...view, vade: vade.filter((item) => item.disponivel).map((item) => item.slug) }, { headers: { "cache-control": "private, max-age=300" } });
+    return NextResponse.json({ plano, titulo, tipo: "docx", ...view, vade: vade.filter((item) => item.disponivel || item.leitor).map((item) => item.slug), vadeLeitor: Object.fromEntries(vade.filter((item) => item.leitor).map((item) => [item.slug, item.leitor])) }, { headers: { "cache-control": "private, max-age=300" } });
   });
 }

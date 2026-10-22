@@ -136,3 +136,9 @@ Um PDF por matéria no bucket privado `vade-esperto` (`<slug>.pdf`); a tabela `v
 que o aluno vê (migração 0017). O catálogo e o vínculo com o cronograma ("Vade Esperto – Processo Penal" → `processo-penal`)
 estão em `lib/vade.ts`. O aluno abre em **Vade** (menu) ou direto pela atividade do cronograma; a equipe troca os PDFs em
 **Equipe › Vade Esperto** (a data do nome do arquivo, "atualizado em 14.09.26", vira a data exibida).
+
+No leitor, cada Vade Esperto é uma disciplina "Vade Esperto – <matéria>" (endereço `vade-esperto-…`), já criada para as
+12 matérias: em **Equipe › Conteúdo**, envie o **Word (.docx)** de cada uma (sai bem mais limpo que o PDF, que tem notas
+laterais) e publique. Ela fica fora da lista de ebooks; a página Vade Esperto e o cronograma passam a abrir o leitor
+("Ler no app"), com grifos, anotações e caderno. No Word, os nomes das leis viram títulos do sumário quando têm estilo
+de título ou "nível de tópico"; o sumário automático do Word é ignorado.

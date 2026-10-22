@@ -12,11 +12,13 @@ function check(error: { message: string } | null, context: string) {
 }
 
 export async function listDisciplines(supabase: SupabaseClient, userId: string): Promise<DisciplineCard[]> {
-  const { data: disciplines, error } = await supabase.from("disciplines").select("id, slug, title, position").order("position");
+  const [{ data: disciplines, error }, { data: versions, error: versionError }, { data: positions, error: positionError }] = await Promise.all([
+    supabase.from("disciplines").select("id, slug, title, position").order("position"),
+    supabase.from("content_versions").select("id, discipline_id, label, published_at").eq("status", "published"),
+    supabase.from("reading_positions").select("discipline_id, section_id, updated_at").eq("user_id", userId),
+  ]);
   check(error, "Falha ao listar disciplinas");
-  const { data: versions, error: versionError } = await supabase.from("content_versions").select("id, discipline_id, label, published_at").eq("status", "published");
   check(versionError, "Falha ao listar versões");
-  const { data: positions, error: positionError } = await supabase.from("reading_positions").select("discipline_id, section_id, updated_at").eq("user_id", userId);
   check(positionError, "Falha ao ler a posição de leitura");
   const versionOf = new Map((versions ?? []).map((version) => [version.discipline_id as string, version]));
   const positionOf = new Map((positions ?? []).map((position) => [position.discipline_id as string, position]));
@@ -41,9 +43,21 @@ async function publishedVersion(supabase: SupabaseClient, slug: string) {
   return version ? { discipline, version } : null;
 }
 
+// Uma versão publicada nunca muda (republicar cria outra versão): o sumário dela fica em memória e não é relido
+// a cada seção aberta. Só entra no cache depois de lido com a sessão do aluno (a RLS já liberou a leitura).
+const TOC_CACHE = new Map<string, Toc>();
+const TOC_CACHE_LIMIT = 40;
+
 export async function loadToc(supabase: SupabaseClient, versionId: string): Promise<Toc> {
+  const cached = TOC_CACHE.get(versionId);
+  if (cached) return cached;
   const rows = await readAll<TocItem & { position: number }>((from, to) => supabase.from("sections").select("id, level, numbering, title, path, position").eq("version_id", versionId).order("position").range(from, to), "Falha ao ler o sumário");
-  return rows.sort((a, b) => a.position - b.position).map(({ id, level, numbering, title, path }) => ({ id, level, numbering, title, path: path ?? [] }));
+  const toc = rows.sort((a, b) => a.position - b.position).map(({ id, level, numbering, title, path }) => ({ id, level, numbering, title, path: path ?? [] }));
+  if (toc.length) {
+    if (TOC_CACHE.size >= TOC_CACHE_LIMIT) TOC_CACHE.delete(TOC_CACHE.keys().next().value as string);
+    TOC_CACHE.set(versionId, toc);
+  }
+  return toc;
 }
 
 // Capítulos sem texto próprio não são seções, mas aparecem no caminho das subseções: o sumário mostra o nome deles.
@@ -69,12 +83,15 @@ export async function firstSectionId(supabase: SupabaseClient, slug: string): Pr
 export async function loadSection(supabase: SupabaseClient, slug: string, sectionId: string): Promise<SectionView | null> {
   const found = await publishedVersion(supabase, slug);
   if (!found) return null;
-  const { data: section, error } = await supabase.from("sections").select("id, numbering, title, path").eq("id", sectionId).eq("version_id", found.version.id).maybeSingle();
+  // Seção, parágrafos e sumário não dependem um do outro: vão juntos.
+  const [{ data: section, error }, { data: paragraphs, error: paragraphError }, toc] = await Promise.all([
+    supabase.from("sections").select("id, numbering, title, path").eq("id", sectionId).eq("version_id", found.version.id).maybeSingle(),
+    supabase.from("paragraphs").select("id, kind, text, position").eq("section_id", sectionId).order("position"),
+    loadToc(supabase, found.version.id),
+  ]);
   check(error, "Falha ao ler a seção");
   if (!section) return null;
-  const { data: paragraphs, error: paragraphError } = await supabase.from("paragraphs").select("id, kind, text, position").eq("section_id", sectionId).order("position");
   check(paragraphError, "Falha ao ler os parágrafos");
-  const toc = await loadToc(supabase, found.version.id);
   const index = toc.findIndex((item) => item.id === sectionId);
   return {
     discipline: found.discipline, versionId: found.version.id, versionLabel: found.version.label, hasOriginal: Boolean(found.version.source_path), toc,

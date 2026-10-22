@@ -18,20 +18,32 @@ export function extractText(format: "md" | "txt", bytes: Uint8Array): DocumentEx
   return plainResult(format, paragraphsToBlocks(paragraphs));
 }
 
+// Título no Word: estilo de título ("Heading 1", "Título 2") ou "nível de tópico" aplicado direto no parágrafo.
+const DOCX_HEADING_STYLE = /<w:pStyle w:val="(?:Heading|T[ií]?tulo|Ttulo)\d"/i;
+const DOCX_OUTLINE = /<w:outlineLvl w:val="[0-5]"\s*\/>/;
+// Sumário automático do Word ("Sumário 1", "TOC 1"): é índice, não conteúdo.
+const DOCX_TOC_STYLE = /<w:pStyle w:val="(?:Sum[áa]?rio\d|Sumrio\d|TOC\d|TOCHeading|Cabe[çc]?alhodoSum[áa]?rio|CabealhodoSumrio)"/i;
+
 export async function extractDocx(bytes: Uint8Array): Promise<DocumentExtraction> {
   let xml: string | undefined;
   try { xml = await (await JSZip.loadAsync(bytes)).file("word/document.xml")?.async("text"); }
   catch { throw new ExtractionError("corrupted", "O DOCX está corrompido e não pôde ser aberto. Reexporte o arquivo e tente novamente."); }
   if (!xml) throw new ExtractionError("corrupted", "O DOCX não contém o documento principal. Abra e salve novamente no Word.");
   const blocks: LayoutBlock[] = [];
-  const tables = xml.split(/(<w:tbl>[\s\S]*?<\/w:tbl>)/);
-  for (const part of tables) {
-    const textOf = (fragment: string) => collapseSpaces(decodeXml(fragment.replace(/<w:tab\s*\/>/g, " ").replace(/<w:br\s*\/>/g, " ").replace(/<[^>]+>/g, "")));
+  // Códigos de campo (" TOC \o ", " PAGEREF _Toc… ") não são texto do documento.
+  const textOf = (fragment: string) => collapseSpaces(decodeXml(fragment.replace(/<w:instrText[^>]*>[\s\S]*?<\/w:instrText>/g, "").replace(/<w:tab\s*\/>/g, " ").replace(/<w:br\s*\/>/g, " ").replace(/<[^>]+>/g, "")));
+  for (const part of xml.split(/(<w:tbl>[\s\S]*?<\/w:tbl>)/)) {
     if (part.startsWith("<w:tbl>")) {
       const rows = (part.match(/<w:tr[ >][\s\S]*?<\/w:tr>/g) ?? []).map((row) => (row.match(/<w:tc>[\s\S]*?<\/w:tc>/g) ?? []).map(textOf).join(" | "));
       blocks.push(...paragraphsToBlocks([rows.filter(Boolean).join("\n")], "table"));
-    } else {
-      blocks.push(...paragraphsToBlocks((part.match(/<w:p[ >][\s\S]*?<\/w:p>/g) ?? []).map(textOf)));
+      continue;
+    }
+    for (const paragraph of part.match(/<w:p[ >][\s\S]*?<\/w:p>/g) ?? []) {
+      if (DOCX_TOC_STYLE.test(paragraph)) continue;
+      const text = textOf(paragraph);
+      if (!text) continue;
+      const heading = text.length <= 150 && (DOCX_HEADING_STYLE.test(paragraph) || DOCX_OUTLINE.test(paragraph));
+      blocks.push({ kind: "body", text, fontSize: 0, y: -blocks.length, column: null, heading: heading || /^#{1,6}\s/.test(text), source: "text-layer" });
     }
   }
   return plainResult("docx", blocks);

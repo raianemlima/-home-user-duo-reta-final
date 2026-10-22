@@ -2,6 +2,9 @@ import { createServerClient } from "@supabase/ssr";
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
+// Mesmos nomes de lib/server/identity.ts (que não pode ser importado aqui por ser "server-only").
+const IDENTITY = { id: "x-duo-uid", email: "x-duo-email", role: "x-duo-role" } as const;
+
 const PUBLIC_PATHS = ["/login", "/configuracao", "/privacidade"];
 
 export async function proxy(request: NextRequest) {
@@ -15,21 +18,33 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/configuracao", request.url));
   }
 
-  let response = NextResponse.next({ request });
+  // Nunca aceitar identidade vinda do navegador: os cabeçalhos internos só saem daqui.
+  for (const name of Object.values(IDENTITY)) request.headers.delete(name);
+  const refreshed: { name: string; value: string; options?: Parameters<NextResponse["cookies"]["set"]>[2] }[] = [];
   const supabase = createServerClient(url, key, {
     cookies: {
       getAll() { return request.cookies.getAll(); },
       setAll(cookiesToSet) {
         cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
-        response = NextResponse.next({ request });
-        cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
+        refreshed.push(...cookiesToSet);
       },
     },
   });
-  const { data: { user } } = await supabase.auth.getUser();
+  // getClaims confere o token localmente (chaves públicas do projeto) e só vai ao servidor de login se precisar.
+  const { data: claimsData } = await supabase.auth.getClaims();
+  const claims = claimsData?.claims;
+  const user = claims?.sub ? { id: claims.sub, email: typeof claims.email === "string" ? claims.email : "" } : null;
+  // Segue a requisição com os cookies renovados e, se houver sessão válida, a identidade conferida.
+  const pass = (identity?: { id: string; email: string; role: string }) => {
+    const forwarded = new Headers(request.headers);
+    if (identity) { forwarded.set(IDENTITY.id, identity.id); forwarded.set(IDENTITY.email, identity.email); forwarded.set(IDENTITY.role, identity.role); }
+    const next = NextResponse.next({ request: { headers: forwarded } });
+    refreshed.forEach(({ name, value, options }) => next.cookies.set(name, value, options));
+    return next;
+  };
 
   if (!user) {
-    if (isPublic) return response;
+    if (isPublic) return pass();
     if (isApi) return NextResponse.json({ error: { code: "unauthenticated", message: "Sua sessão expirou. Entre novamente para continuar." } }, { status: 401 });
     const login = new URL("/login", request.url);
     login.searchParams.set("next", pathname + request.nextUrl.search);
@@ -40,7 +55,7 @@ export async function proxy(request: NextRequest) {
   const { data: profile } = await supabase.from("profiles").select("role, active, must_change_password").eq("user_id", user.id).maybeSingle();
   const active = Boolean(profile?.active);
   if (!active) {
-    if (isPublic) return response;
+    if (isPublic) return pass();
     if (isApi) return NextResponse.json({ error: { code: "forbidden", message: "Seu acesso ao curso não está ativo." } }, { status: 403 });
     return NextResponse.redirect(new URL("/login?motivo=sem-acesso", request.url));
   }
@@ -56,7 +71,7 @@ export async function proxy(request: NextRequest) {
     if (isApi) return NextResponse.json({ error: { code: "forbidden", message: "Acesso restrito à equipe." } }, { status: 403 });
     return NextResponse.redirect(new URL("/", request.url));
   }
-  return response;
+  return pass({ id: user.id, email: user.email, role: profile?.role === "equipe" ? "equipe" : "aluno" });
 }
 
 export const config = {

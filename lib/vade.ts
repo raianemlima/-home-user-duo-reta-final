@@ -34,3 +34,8 @@ export function vadeFor(title: string): string[] {
   }
   return found;
 }
+
+// No leitor, cada Vade Esperto é uma disciplina criada em Equipe › Conteúdo com o título "Vade Esperto – <matéria>"
+// (slug começando por "vade-esperto"): fica fora da lista de ebooks e é aberta pela página Vade Esperto e pelo cronograma.
+export const isVadeDiscipline = (slug: string) => slug.startsWith("vade-esperto");
+export const vadeOfDiscipline = (title: string) => vadeFor(title)[0] ?? null;

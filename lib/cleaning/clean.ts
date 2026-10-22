@@ -5,7 +5,7 @@ import { splitSentences } from "@/lib/cleaning/sentences";
 import { collapseSpaces, joinLines } from "@/lib/extraction/text-utils";
 import type { DocumentExtraction, LayoutBlock } from "@/lib/extraction/types";
 
-export const CLEANER_VERSION = "6";
+export const CLEANER_VERSION = "7";
 const MAX_SAMPLES = 100;
 
 export type CleanOptions = {
@@ -182,9 +182,10 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
   }
 
   // Modo fiel: a capa ("Ebook de Reta Final", nome da disciplina) não é conteúdo. Sai só o que vem antes do primeiro texto
-  // corrido da página 1: linhas curtas, sem pontuação final e que não são DICA DUO.
+  // corrido da página 1: linhas curtas, sem pontuação final e que não são DICA DUO. O título logo antes de um artigo
+  // ("Lei de Crimes Hediondos" seguido de "Art. 1º") é o nome da lei, não capa: fica.
   if (faithful) {
-    while (merged.length && merged[0].pages[0] === 1 && merged[0].kind !== "tip" && merged[0].kind !== "table" && merged[0].text.length <= 40 && !/[.!?:;]$/.test(merged[0].text)) {
+    while (merged.length && merged[0].pages[0] === 1 && merged[0].kind !== "tip" && merged[0].kind !== "table" && merged[0].text.length <= 40 && !/[.!?:;]$/.test(merged[0].text) && !/^Art(?:igo)?\.?\s*\d/i.test(merged[1]?.text ?? "")) {
       recorder.add("cover", 1, merged[0].text);
       merged.shift();
     }
