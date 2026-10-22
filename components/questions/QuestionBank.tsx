@@ -3,7 +3,7 @@
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { type Answer, parseQuestionFilter, type QuestionView, searchQuestions, type Situation } from "@/lib/questions/bank";
-import type { Letter, Question } from "@/lib/questions/types";
+import type { Fundamentacao, Letter, Question } from "@/lib/questions/types";
 
 type Bank = { questions: Question[]; answers: Map<string, Answer> };
 const FILTERS = ["disciplina", "assunto", "ano", "banca", "orgao", "situacao", "busca"] as const;
@@ -14,6 +14,41 @@ function Select({ label, name, value, options, onChange }: { label: string; name
     <option value="">Todos</option>
     {options.map(([option, total]) => <option key={option} value={option}>{option} ({total})</option>)}
   </select></label>;
+}
+
+// Fundamentação legal do gabarito: só é buscada quando o aluno já viu a correção, para a primeira carga ficar leve.
+function LegalBasis({ questionId }: { questionId: string }) {
+  const [state, setState] = useState<{ status: "loading" | "ready" | "error"; data: Fundamentacao | null }>({ status: "loading", data: null });
+  // Um cartão por questão (a lista usa key={question.id}), então questionId não muda: busca uma vez só.
+  useEffect(() => {
+    let alive = true;
+    fetch(`/api/questoes/${encodeURIComponent(questionId)}/fundamentacao`).then(async (response) => {
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error("");
+      if (alive) setState({ status: "ready", data: payload.fundamentacao ?? null });
+    }).catch(() => { if (alive) setState({ status: "error", data: null }); });
+    return () => { alive = false; };
+  }, [questionId]);
+
+  if (state.status === "loading") return <p className="q-basis-wait muted" role="status">Carregando a fundamentação…</p>;
+  if (state.status === "error") return <p className="q-basis-wait muted" role="status">Não foi possível carregar a fundamentação agora.</p>;
+  if (!state.data) return null;
+  const { nota, dispositivos, conferido, ressalva } = state.data;
+  return <section className="q-basis" aria-label="Fundamentação legal">
+    <h3>Fundamentação legal</h3>
+    <p className="q-basis-note">{nota}</p>
+    {ressalva && <p className="q-basis-caveat"><strong>Atenção:</strong> {ressalva}</p>}
+    <ol className="q-basis-list">
+      {dispositivos.map((dispositivo) => <li key={dispositivo.ref}>
+        <p className="q-basis-ref">{dispositivo.ref} <span className="q-basis-kind">{dispositivo.tipo === "lei" ? "texto da lei" : "entendimento (resumo)"}</span></p>
+        {dispositivo.tipo === "lei"
+          ? <blockquote className="q-basis-text">{dispositivo.texto}</blockquote>
+          : <p className="q-basis-gist">{dispositivo.texto}</p>}
+        {dispositivo.url && <a className="q-basis-src" href={dispositivo.url} target="_blank" rel="noreferrer noopener">Conferir na fonte oficial ↗</a>}
+      </li>)}
+    </ol>
+    <p className="q-basis-checked muted">Os trechos marcados como <em>texto da lei</em> são transcrição literal da fonte oficial; conferido em {new Date(`${conferido}T12:00:00Z`).toLocaleDateString("pt-BR", { timeZone: "UTC" })}.</p>
+  </section>;
 }
 
 function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnswered: (id: string, choice: Letter, correct: boolean) => void }) {
@@ -49,6 +84,7 @@ function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnsw
     {answer && <p className={answer.correct ? "q-result ok" : "q-result bad"} role="status">{answer.correct ? "Você acertou!" : `Você marcou ${answer.choice}. Gabarito: ${question.gabarito ?? "anulada"}.`} <button type="button" className="button ghost" onClick={() => setRetry(true)}>Responder de novo</button></p>}
     {answer && !answer.correct && question.gabarito && <p className="q-right"><strong>Alternativa correta ({question.gabarito}):</strong> {question.alternativas[question.gabarito]}</p>}
     {answer && question.comentario && <details className="q-comment" open><summary>Gabarito comentado</summary>{question.comentario.split(/\n{2,}/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</details>}
+    {answer && <LegalBasis questionId={question.id} />}
     {error && <p className="auth-error" role="alert">{error}</p>}
   </article>;
 }

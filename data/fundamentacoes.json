@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "itens": {
+  "fcc-defensorias-307": {
+   "nota": "A LEP dá à Defensoria Pública, de forma expressa, a visita periódica aos estabelecimentos penais, as providências para apurar responsabilidade e o pedido de interdição do local — exatamente o que descreve a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 81-B, V e VI",
+     "tipo": "lei",
+     "texto": "Incumbe, ainda, à Defensoria Pública:\nV - visitar os estabelecimentos penais, tomando providências para o adequado funcionamento, e requerer, quando for o caso, a apuração de responsabilidade;\nVI - requerer à autoridade competente a interdição, no todo ou em parte, de estabelecimento penal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 81-B, parágrafo único",
+     "tipo": "lei",
+     "texto": "O órgão da Defensoria Pública visitará periodicamente os estabelecimentos penais, registrando a sua presença em livro próprio.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-309": {
+   "nota": "A compensação penal nasceu da ideia de pena ilícita: o tempo cumprido em condições desumanas excede o que a condenação autoriza e gera dever estatal de reparar. A Corte Interamericana aplicou a tese ao caso brasileiro do Instituto Penal Plácido de Sá Carvalho (2018), mandando computar em dobro o tempo cumprido ali. Isso afasta as alternativas B, C, D e E e sustenta a A.",
+   "dispositivos": [
+    {
+     "ref": "Corte IDH, Instituto Penal Plácido de Sá Carvalho, resoluções de 22 e 28/11/2018",
+     "tipo": "entendimento",
+     "texto": "A Corte Interamericana reconheceu que a pena cumprida em superlotação e em condições degradantes impõe sofrimento antijurídico que vai além da privação de liberdade e, por isso, deve ser compensada com a redução do tempo de encarceramento — no caso, o cômputo em dobro do tempo cumprido no Instituto Penal Plácido de Sá Carvalho."
+    },
+    {
+     "ref": "Compensação penal: construção teórica",
+     "tipo": "entendimento",
+     "texto": "A tese é construção doutrinária de matriz crítica (pena ilícita e dever estatal de reparar), sem previsão expressa na Lei de Execução Penal — por isso a alternativa E está errada. A Corte IDH também já havia tratado de condições degradantes em outros casos brasileiros, como o do Complexo Penitenciário de Curado, o que afasta a alternativa D."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O gabarito oficial é a alternativa A. A ligação da compensação penal especificamente com a Criminologia Crítica é posição doutrinária: a busca confirmou a origem da tese no conceito de pena ilícita e a aplicação pela Corte IDH, mas não localizou fonte oficial que a atribua àquela escola. Questão sem base em lei."
+  },
+  "fcc-defensorias-310": {
+   "nota": "Falta grave é conduta do condenado que está cumprindo pena privativa de liberdade (LEP, art. 50). Quem está em livramento condicional cumpre a pena fora do cárcere, então o crime praticado no período de prova não vira falta grave: a consequência é a suspensão e a eventual revogação do benefício (CP, arts. 86 a 88). Daí a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 50, caput",
+     "tipo": "lei",
+     "texto": "Comete falta grave o condenado à pena privativa de liberdade que:",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "CP, art. 86, I",
+     "tipo": "lei",
+     "texto": "Revoga-se o livramento, se o liberado vem a ser condenado a pena privativa de liberdade, em sentença irrecorrível:\nI - por crime cometido durante a vigência do benefício;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 88",
+     "tipo": "lei",
+     "texto": "Revogado o livramento, não poderá ser novamente concedido, e, salvo quando a revogação resulta de condenação por outro crime anterior àquele benefício, não se desconta na pena o tempo em que esteve solto o condenado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "STJ, execução penal",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que o crime praticado durante o período de prova do livramento condicional não configura falta disciplinar grave, porque o benefício é cumprido fora do sistema prisional. Por isso não incidem os efeitos próprios da falta grave — perda de dias remidos, regressão e interrupção do prazo para novos benefícios —, mas apenas a suspensão e a eventual revogação do livramento."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-311": {
+   "nota": "A publicação dos relatórios de inspeção é regra expressa do Sistema Nacional de Prevenção e Combate à Tortura: o MNPCT publica os relatórios das visitas e o relatório anual e promove a difusão deles — o que confirma a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 12.847/2013, art. 9º, IV, V e VII",
+     "tipo": "lei",
+     "texto": "Compete ao MNPCT:\nIV - elaborar relatório circunstanciado de cada visita realizada nos termos do inciso I e, no prazo máximo de 30 (trinta) dias, apresentá-lo ao CNPCT, à Procuradoria-Geral da República e às autoridades responsáveis pela detenção e outras autoridades competentes;\nV - elaborar, anualmente, relatório circunstanciado e sistematizado sobre o conjunto de visitas realizadas e recomendações formuladas […];\nVII - publicar os relatórios de visitas periódicas e regulares realizadas e o relatório anual e promover a difusão deles;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12847.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  }
+ }
+}
