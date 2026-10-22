@@ -40,6 +40,8 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
 2. **Auth** (Authentication → Providers/Settings):
    - desligue o cadastro aberto ("Allow new users to sign up");
    - em URL Configuration, adicione `https://SEU_DOMINIO/auth/confirm` às Redirect URLs;
+   - alunos criados em Equipe › Alunos entram com a senha padrão (`ALUNO_SENHA_PADRAO`) e são levados a **trocar a senha no primeiro acesso**;
+     cada aluno só mantém **uma sessão ativa** (ao entrar em outro aparelho, o anterior é encerrado; a equipe pode usar vários);
    - o login é por **e-mail e senha**: não depende de e-mail enviado pelo Supabase. Só entra quem foi criado em
      Equipe › Alunos (ou em Authentication → Users); com o cadastro aberto desligado, ninguém mais se cria.
 3. **Primeiro usuário da equipe**: convide pelo painel do Supabase e rode no SQL Editor:
