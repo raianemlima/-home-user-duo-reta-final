@@ -309,4 +309,46 @@ structured("18b-citacoes-b.pdf", [
     ("p", "Conforme Autor Exemplo, Manual Fictício de Processo, p. 130, o conceito é amplo."),
 ])
 
+# --- App DUO: ebook no formato do curso (cabeçalho e rodapé em toda página, sumário, caixa "DICA DUO") ---
+# Conteúdo sintético; reproduz só a diagramação dos ebooks de reta final.
+def duo_ebook(name, pages):
+    """pages: lista de páginas; cada página é uma lista de ("h1"|"h2"|"p", texto)."""
+    c = canvas.Canvas(str(OUT / name), pagesize=A4)
+    for number, items in enumerate(pages, start=1):
+        c.setFont("Helvetica", 8)
+        c.drawString(50, H - 30, "EBOOK DE RETA FINAL")
+        y = H - 90
+        for kind, text in items:
+            if kind == "h1":
+                y -= 10; c.setFont("Helvetica-Bold", 15); c.drawString(50, y, text); y -= 26
+            elif kind == "h2":
+                y -= 6; c.setFont("Helvetica-Bold", 12.5); c.drawString(50, y, text); y -= 22
+            else:
+                c.setFont("Helvetica", 10.5)
+                for line in wrap(text, 92):
+                    c.drawString(50, y, line)
+                    y -= 14
+                y -= 8
+        c.setFont("Helvetica", 8)
+        c.drawString(50, 25, f"Cursos DUO \u00b7 Extensivo Inteligente \u00b7 Atualizado em 29/07/2026 P\u00e1gina {number}")
+        c.showPage()
+    c.save()
+
+
+duo_ebook("19-duo-ebook.pdf", [
+    [("h1", "Sumário"),
+     ("p", "1. MODELOS DE ASSISTÊNCIA JURÍDICA GRATUITA ........................................ 2"),
+     ("p", "1.1 Critérios para atendimento pela DPE-SP ........................................... 3"),
+     ("p", "2. AUTONOMIA DA DEFENSORIA PÚBLICA ..................................................... 4"),
+     ("p", "DICA DUO Como usar este material: aqui você terá um compilado dos pontos mais importantes de doutrina para a sua prova.")],
+    [("h1", "1. MODELOS DE ASSISTÊNCIA JURÍDICA GRATUITA"),
+     ("p", "Inicialmente, é importante distinguir assistência judiciária, assistência jurídica e gratuidade da justiça."),
+     ("p", "Como vimos, conforme a aula 3, a Defensoria Pública adota o modelo público de assistência jurídica integral.")],
+    [("h2", "1.1 Critérios para atendimento pela DPE-SP"),
+     ("p", "Os critérios de atendimento seguem a deliberação do Conselho Superior. A íntegra está em www.planalto.gov.br para consulta."),
+     ("p", "A renda familiar mensal é o primeiro critério analisado no atendimento inicial.")],
+    [("h1", "2. AUTONOMIA DA DEFENSORIA PÚBLICA"),
+     ("p", "A autonomia funcional, administrativa e orçamentária foi assegurada pela Emenda Constitucional nº 45/2004.")],
+])
+
 print("Corpus gerado em", OUT)

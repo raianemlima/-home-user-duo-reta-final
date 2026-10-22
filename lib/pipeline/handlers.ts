@@ -49,11 +49,11 @@ export const cleaningHandlerV2: StageHandler = {
   version: CLEANER_VERSION,
   inputKey({ stage, stages, deps }) {
     const extraction = previousOutput(stages, "extraction", stage.subjectId);
-    return sha256(JSON.stringify({ extraction, settings: settingsKey({ knownTerms: deps.knownTerms ?? [], keepReferences: deps.keepReferences ?? [], keepProfessors: deps.keepProfessors === true }) }));
+    return sha256(JSON.stringify({ extraction, settings: settingsKey({ knownTerms: deps.knownTerms ?? [], keepReferences: deps.keepReferences ?? [], keepProfessors: deps.keepProfessors === true }), ...(deps.cleaningMode ? { mode: deps.cleaningMode } : {}) }));
   },
   run({ stage, stages, deps }) {
     const extraction = previousOutput(stages, "extraction", stage.subjectId) as unknown as DocumentExtraction;
-    return Promise.resolve({ output: cleanDocument(extraction, { knownTerms: deps.knownTerms, keepReferences: deps.keepReferences, professors: deps.keepProfessors ? "keep" : "remove" }) as unknown as Json });
+    return Promise.resolve({ output: cleanDocument(extraction, { knownTerms: deps.knownTerms, keepReferences: deps.keepReferences, professors: deps.keepProfessors ? "keep" : "remove", mode: deps.cleaningMode }) as unknown as Json });
   },
 };
 
@@ -164,3 +164,5 @@ export const cleaningHandler: StageHandler = {
 
 export const LEGACY_HANDLERS: StageHandler[] = [extractionHandler, cleaningHandler];
 export const DEFAULT_HANDLERS: StageHandler[] = [extractionHandlerV2, cleaningHandlerV2, segmentationHandler, thematicMapHandler, citationRegistryHandler];
+// App DUO: material do próprio curso, sem mapa temático na V1.
+export const DUO_HANDLERS: StageHandler[] = [extractionHandlerV2, cleaningHandlerV2, segmentationHandler];

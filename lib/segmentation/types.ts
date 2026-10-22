@@ -1,4 +1,4 @@
-export type SegmentParagraph = { text: string; pages: number[]; kind: "body" | "table" | "footnote" };
+export type SegmentParagraph = { text: string; pages: number[]; kind: "body" | "table" | "footnote" | "tip" };
 
 // Janela de leitura de um trecho longo: cobre os parágrafos [from, core[1]); os "core" particionam o trecho
 // e [from, core[0]) é a sobreposição controlada com a janela anterior.

@@ -60,6 +60,8 @@ export type PipelineDeps = {
   knownTerms?: string[];
   keepReferences?: string[];
   keepProfessors?: boolean;
+  // "faithful": limpeza que só remove diagramação (material do próprio curso).
+  cleaningMode?: "faithful";
   // Disciplina do caderno (raiz do mapa temático) e onde guardar as versões do mapa.
   discipline?: string;
   mapStore?: import("@/lib/thematic/store").ThematicMapStore;

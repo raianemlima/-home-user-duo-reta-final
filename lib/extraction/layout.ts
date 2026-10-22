@@ -88,7 +88,7 @@ function lowerQuartile(values: number[]): number {
 }
 
 // Itens que abrem um parágrafo próprio em texto jurídico e em listas, mesmo sem espaço extra entre as linhas.
-const NEW_ITEM = /^(?:Art(?:igos?)?\.?\s*\d|§|Par[áa]grafo\s+[úu]nico|[IVXLC]{1,6}\s*[-–—)]\s|[a-z]\)\s|\d{1,2}(?:\.\d{1,2})*[.)]\s+\p{Lu})/u;
+const NEW_ITEM = /^(?:Art(?:igos?)?\.?\s*\d|§|Par[áa]grafo\s+[úu]nico|[IVXLC]{1,6}\s*[-–—)]\s|[a-z]\)\s|\d{1,2}(?:\.\d{1,2})*[.)]\s+\p{Lu}|\d{1,2}(?:\.\d{1,2})+\s+\p{Lu}|DICA DUO\b)/u;
 
 const isTabular = (line: Line) => line.cells.length >= 2 && line.cells.every((cell) => cell.text.length <= 40);
 const sameColumns = (a: Line, b: Line) => a.cells.filter((cell) => b.cells.some((other) => Math.abs(other.x0 - cell.x0) <= 4)).length >= 2;

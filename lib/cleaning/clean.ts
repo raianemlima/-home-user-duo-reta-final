@@ -5,7 +5,7 @@ import { splitSentences } from "@/lib/cleaning/sentences";
 import { collapseSpaces, joinLines } from "@/lib/extraction/text-utils";
 import type { DocumentExtraction, LayoutBlock } from "@/lib/extraction/types";
 
-export const CLEANER_VERSION = "4";
+export const CLEANER_VERSION = "5";
 const MAX_SAMPLES = 100;
 
 export type CleanOptions = {
@@ -15,9 +15,11 @@ export type CleanOptions = {
   keepReferences?: string[];
   // Padrão "remove": o material final não referencia professores. "keep" mantém todas as menções.
   professors?: "remove" | "keep";
+  // "faithful": material do próprio curso. Só sai ruído de diagramação (cabeçalho, rodapé, número de página); nenhuma frase é alterada.
+  mode?: "faithful" | "default";
 };
 type Policy = { knownTerms: RegExp[]; keepReferences: string[]; removeProfessors: boolean };
-export type CleanParagraph = { text: string; pages: number[]; kind: "body" | "table" | "footnote"; heading: boolean; fontSize: number };
+export type CleanParagraph = { text: string; pages: number[]; kind: "body" | "table" | "footnote" | "tip"; heading: boolean; fontSize: number };
 export type AmbiguousItem = { reason: "repeated_short_text" | "course_structure_marker" | "unique_header_footer_text"; text: string; pages: number[] };
 export type RemovalSample = { category: string; page: number; text: string };
 export type CleaningResult = {
@@ -114,6 +116,7 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
   };
   const entries: Entry[] = extraction.pages.flatMap((page) => page.blocks.map((block) => ({ block, page: page.page })));
   const pageCount = extraction.pages.length;
+  const faithful = options.mode === "faithful";
 
   const zoneKeys = new Map<string, Set<number>>();
   for (const { block, page } of entries) {
@@ -132,7 +135,7 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
     const zone = block.kind === "header" || block.kind === "footer";
     if (zone) {
       const repeated = (zoneKeys.get(frequencyKey(block.text))?.size ?? 0) >= threshold;
-      const noisy = lineRules.some((rule) => test(rule, block.text)) || hasHardNoise(block.text, policy);
+      const noisy = lineRules.some((rule) => test(rule, block.text)) || (!faithful && hasHardNoise(block.text, policy));
       if (repeated || noisy) {
         recorder.add(repeated ? `running_${block.kind}` : String(noisy), page, block.text);
         for (const phrase of block.text.match(/(?:[A-ZÁ-Ú][\wÀ-ú]+\s+){1,4}[A-ZÁ-Ú][\wÀ-ú]+/g) ?? []) if (learned.size < 20) learned.add(phrase.trim());
@@ -141,14 +144,15 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
     }
     if (lineRules.some((rule) => test(rule, block.text))) { recorder.add("page_number", page, block.text); continue; }
     if (block.kind === "table") {
-      const rows = block.text.split("\n").map((row) => cleanText(row, page, recorder, policy).replace(/^\|\s*|\s*\|$/g, "")).filter(hasContent);
+      const rows = block.text.split("\n").map((row) => (faithful ? collapseSpaces(row) : cleanText(row, page, recorder, policy)).replace(/^\|\s*|\s*\|$/g, "")).filter(hasContent);
       if (rows.length) paragraphs.push({ text: rows.join("\n"), pages: [page], kind: "table", heading: false, fontSize: block.fontSize });
       continue;
     }
-    const text = cleanText(block.text, page, recorder, policy);
+    const text = faithful ? collapseSpaces(block.text) : cleanText(block.text, page, recorder, policy);
     if (!hasContent(text)) continue;
     if (zone && !block.heading && text.length <= 60) ambiguous.push({ reason: "unique_header_footer_text", text, pages: [page] });
-    paragraphs.push({ text, pages: [page], kind: block.kind === "footnote" ? "footnote" : "body", heading: block.heading, fontSize: block.fontSize });
+    const kind = block.kind === "footnote" ? "footnote" : faithful && /^DICA DUO\b/.test(text) ? "tip" : "body";
+    paragraphs.push({ text, pages: [page], kind, heading: block.heading, fontSize: block.fontSize });
   }
 
   const merged: CleanParagraph[] = [];
