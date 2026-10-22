@@ -1,10 +1,9 @@
-# Publica na Vercel a cada merge em main, direto do GitHub (não depende da integração Git da Vercel).
-# Requer o segredo VERCEL_TOKEN (Settings > Secrets and variables > Actions). Os IDs abaixo não são secretos.
+# Publicação manual na Vercel pelo GitHub (Actions › Deploy produção › Run workflow).
+# O caminho normal é a própria Vercel publicar cada merge em main; este workflow é a alternativa se a integração Git falhar.
+# Requer o segredo VERCEL_TOKEN (Settings > Secrets and variables > Actions); sem ele, o job termina avisando, sem erro.
 name: Deploy produção
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -14,19 +13,31 @@ concurrency:
 env:
   VERCEL_ORG_ID: team_KtShbotK9blWFngaRlWXXasj
   VERCEL_PROJECT_ID: prj_im9KyZyQ2mt1znt60577ZHWAhCVG
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Conferir o segredo VERCEL_TOKEN
+        if: env.VERCEL_TOKEN == ''
+        run: echo "::notice::Segredo VERCEL_TOKEN não configurado; nada foi publicado. A Vercel continua publicando cada merge em main."
       - uses: actions/checkout@v4
+        if: env.VERCEL_TOKEN != ''
       - uses: actions/setup-node@v4
+        if: env.VERCEL_TOKEN != ''
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - run: npm test
-      - run: npm install --global vercel@latest
-      - run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-      - run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-      - run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - if: env.VERCEL_TOKEN != ''
+        run: npm ci
+      - if: env.VERCEL_TOKEN != ''
+        run: npm test
+      - if: env.VERCEL_TOKEN != ''
+        run: npm install --global vercel@latest
+      - if: env.VERCEL_TOKEN != ''
+        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+      - if: env.VERCEL_TOKEN != ''
+        run: vercel build --prod --token="$VERCEL_TOKEN"
+      - if: env.VERCEL_TOKEN != ''
+        run: vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
