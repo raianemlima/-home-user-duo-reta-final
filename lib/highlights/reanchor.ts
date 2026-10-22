@@ -1,21 +1,20 @@
 import { AnchorError, createAnchor } from "@/lib/highlights/anchor";
-import { flatten, pointAt, type Flat } from "@/lib/highlights/flat";
-import { normalize, normalizeWithMap } from "@/lib/highlights/normalize";
+import { flatten, normalizedOf, pointAt, type Flat } from "@/lib/highlights/flat";
+import { normalize } from "@/lib/highlights/normalize";
 import type { Anchor, ParagraphRef, ReanchorResult, VersionText } from "@/lib/highlights/types";
 
 const pathKey = (path: string[]) => path.join(" › ");
 
 // 1º passo: os parágrafos do grifo existem na nova versão com o mesmo hash, em sequência e na mesma seção.
-function byHash(anchor: Anchor, oldDoc: VersionText, newDoc: VersionText): Anchor | null {
-  const from = oldDoc.paragraphs.findIndex((paragraph) => paragraph.id === anchor.start.paragraphId);
-  const to = oldDoc.paragraphs.findIndex((paragraph) => paragraph.id === anchor.end.paragraphId);
+function byHash(anchor: Anchor, oldDoc: VersionText, newDoc: VersionText, index: Index): Anchor | null {
+  const from = index.oldById.get(anchor.start.paragraphId) ?? -1;
+  const to = index.oldById.get(anchor.end.paragraphId) ?? -1;
   if (from < 0 || to < from) return null;
   const hashes = oldDoc.paragraphs.slice(from, to + 1).map((paragraph) => paragraph.hash);
-  const matches: number[] = [];
-  for (let i = 0; i + hashes.length <= newDoc.paragraphs.length; i += 1) {
+  const matches = (index.newByHash.get(hashes[0]) ?? []).filter((i) => {
     const span = newDoc.paragraphs.slice(i, i + hashes.length);
-    if (span.every((paragraph, k) => paragraph.hash === hashes[k] && paragraph.sectionId === span[0].sectionId)) matches.push(i);
-  }
+    return span.length === hashes.length && span.every((paragraph, k) => paragraph.hash === hashes[k] && paragraph.sectionId === span[0].sectionId);
+  });
   if (matches.length !== 1) return null;
   const span = newDoc.paragraphs.slice(matches[0], matches[0] + hashes.length);
   return withQuote(createAnchor(newDoc, { paragraphId: span[0].id, offset: anchor.start.offset }, { paragraphId: span[span.length - 1].id, offset: anchor.end.offset }), anchor);
@@ -27,7 +26,7 @@ const commonPrefix = (a: string, b: string) => { let n = 0; while (n < a.length 
 // 2º passo: busca do trecho normalizado; várias ocorrências são desempatadas pelo contexto antes e depois.
 function byQuote(anchor: Anchor, flat: Flat, newDoc: VersionText): Anchor | null | "none" {
   const quote = normalize(anchor.quote);
-  const { text, map } = normalizeWithMap(flat.text);
+  const { text, map } = normalizedOf(flat);
   const hits: number[] = [];
   for (let at = text.indexOf(quote); at >= 0 && quote; at = text.indexOf(quote, at + 1)) hits.push(at);
   if (!hits.length) return "none";
@@ -44,12 +43,23 @@ function byQuote(anchor: Anchor, flat: Flat, newDoc: VersionText): Anchor | null
 
 const withQuote = (fresh: Anchor, saved: Anchor): Anchor => ({ ...fresh, quote: saved.quote });
 
-function reanchorOne(anchor: Anchor, oldDoc: VersionText, newDoc: VersionText): Anchor | null {
-  const viaHash = byHash(anchor, oldDoc, newDoc);
+type Index = { oldById: Map<string, number>; newByHash: Map<string, number[]>; sections: Map<string, ParagraphRef[]> };
+
+function indexOf(oldDoc: VersionText, newDoc: VersionText): Index {
+  const newByHash = new Map<string, number[]>();
+  newDoc.paragraphs.forEach((paragraph, index) => newByHash.set(paragraph.hash, [...(newByHash.get(paragraph.hash) ?? []), index]));
+  const sections = new Map<string, ParagraphRef[]>();
+  for (const paragraph of newDoc.paragraphs) { const key = pathKey(paragraph.sectionPath); sections.set(key, [...(sections.get(key) ?? []), paragraph]); }
+  return { oldById: new Map(oldDoc.paragraphs.map((paragraph, index) => [paragraph.id, index])), newByHash, sections };
+}
+
+function reanchorOne(anchor: Anchor, oldDoc: VersionText, newDoc: VersionText, index: Index): Anchor | null {
+  const viaHash = byHash(anchor, oldDoc, newDoc, index);
   if (viaHash) return viaHash;
-  const oldStart: ParagraphRef | undefined = oldDoc.paragraphs.find((paragraph) => paragraph.id === anchor.start.paragraphId);
+  const oldPosition = index.oldById.get(anchor.start.paragraphId);
+  const oldStart: ParagraphRef | undefined = oldPosition === undefined ? undefined : oldDoc.paragraphs[oldPosition];
   if (oldStart) {
-    const section = newDoc.paragraphs.filter((paragraph) => pathKey(paragraph.sectionPath) === pathKey(oldStart.sectionPath));
+    const section = index.sections.get(pathKey(oldStart.sectionPath)) ?? [];
     if (section.length) {
       const inSection = byQuote(anchor, flatten(section), newDoc);
       if (inSection !== "none") return inSection;
@@ -61,8 +71,9 @@ function reanchorOne(anchor: Anchor, oldDoc: VersionText, newDoc: VersionText): 
 
 // Determinística e sem I/O: roda em lote na publicação de uma nova versão. Nada é apagado; sem âncora segura, o grifo fica órfão.
 export function reanchor(highlights: { id: string; anchor: Anchor }[], oldDoc: VersionText, newDoc: VersionText): ReanchorResult[] {
+  const index = indexOf(oldDoc, newDoc);
   return highlights.map(({ id, anchor }) => {
-    const next = reanchorOne(anchor, oldDoc, newDoc);
+    const next = reanchorOne(anchor, oldDoc, newDoc, index);
     return next ? { highlightId: id, status: "active", anchor: next } : { highlightId: id, status: "orphaned" };
   });
 }

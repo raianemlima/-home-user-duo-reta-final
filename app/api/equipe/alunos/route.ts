@@ -5,6 +5,8 @@ import { ApiError, handleRoute, readJson } from "@/lib/server/http";
 import { MAX_STUDENTS_PER_BATCH, parseStudentList } from "@/lib/students/parse";
 
 export const dynamic = "force-dynamic";
+// Cada e-mail vai na URL do PostgREST: lotes pequenos evitam URLs longas demais para o gateway.
+const chunks = (values: string[], size = 100) => Array.from({ length: Math.ceil(values.length / size) }, (_, i) => values.slice(i * size, (i + 1) * size));
 
 export function GET() {
   return handleRoute("equipe.alunos.listar", async () => {
@@ -26,12 +28,15 @@ export function POST(request: Request) {
     if (parsed.valid.length > MAX_STUDENTS_PER_BATCH) throw new ApiError(400, "invalid_request", `Envie no máximo ${MAX_STUDENTS_PER_BATCH} alunos por vez.`);
 
     const emails = parsed.valid.map((student) => student.email);
-    const { data: existing, error } = emails.length ? await supabase.from("profiles").select("user_id, email").in("email", emails) : { data: [], error: null };
-    if (error) throw new Error(`Falha ao conferir cadastros: ${error.message}`);
-    const known = new Map(((existing ?? []) as { user_id: string; email: string }[]).map((row) => [row.email, row.user_id]));
+    const known = new Map<string, string>();
+    for (const batch of chunks(emails)) {
+      const { data: existing, error } = await supabase.from("profiles").select("user_id, email").in("email", batch);
+      if (error) throw new Error(`Falha ao conferir cadastros: ${error.message}`);
+      for (const row of (existing ?? []) as { user_id: string; email: string }[]) known.set(row.email, row.user_id);
+    }
     const reactivated = emails.filter((email) => known.has(email));
-    if (reactivated.length) {
-      const { error: updateError } = await supabase.from("profiles").update({ active: true }).in("email", reactivated);
+    for (const batch of chunks(reactivated)) {
+      const { error: updateError } = await supabase.from("profiles").update({ active: true }).in("email", batch);
       if (updateError) throw new Error(`Falha ao reativar alunos: ${updateError.message}`);
     }
 

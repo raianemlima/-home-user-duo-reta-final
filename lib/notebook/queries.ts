@@ -9,7 +9,8 @@ export type NotebookFilter = { disciplines?: string[]; colors?: HighlightColor[]
 export type NotebookGroup = { discipline: { slug: string; title: string }; topics: { path: string[]; items: NotebookItem[] }[] };
 
 type Row = { id: string; discipline_id: string; start_paragraph_id: string; start_offset: number; quote: string; note: string | null; color: HighlightColor; status: string; orphaned_at: string | null; reviewed_at: string | null };
-const CHUNK = 300;
+// Cada id vai na URL do PostgREST: lotes pequenos evitam URLs longas demais para o gateway.
+const CHUNK = 100;
 
 async function byIds<T>(supabase: SupabaseClient, table: string, columns: string, ids: string[]): Promise<T[]> {
   const rows: T[] = [];
