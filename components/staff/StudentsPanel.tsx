@@ -37,7 +37,7 @@ export function StudentsPanel() {
   const visible = (students ?? []).filter((student) => !query || student.email.includes(query.toLowerCase()) || student.name.toLowerCase().includes(query.toLowerCase()));
   return <div>
     <p className="eyebrow">Equipe</p><h1>Alunos</h1>
-    <form onSubmit={submit} className="auth-form"><label>Cole a lista de e-mails (um por linha, ou “Nome &lt;email&gt;”)<textarea rows={6} value={list} onChange={(event) => setList(event.target.value)} required /></label><button className="button primary" type="submit" disabled={busy}>{busy ? "Enviando convites…" : "Cadastrar e enviar convites"}</button></form>
+    <form onSubmit={submit} className="auth-form"><label>Cole a lista de e-mails (um por linha, ou “Nome &lt;email&gt;”)<textarea rows={6} value={list} onChange={(event) => setList(event.target.value)} required /></label><button className="button primary" type="submit" disabled={busy}>{busy ? "Cadastrando…" : "Cadastrar alunos"}</button></form>
     {progress && <p role="status">{progress}</p>}
     {error && <p className="auth-error" role="alert">{error}</p>}
     {report && <div className="staff-report" role="status">

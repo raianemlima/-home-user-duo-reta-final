@@ -4,8 +4,9 @@ import { FakeDb, makeFakeSupabase } from "../phase2/fake-supabase";
 
 const staff = vi.fn();
 const invite = vi.fn();
+const listUsers = vi.fn(), updateUserById = vi.fn();
 vi.mock("@/lib/server/auth", () => ({ requireStaff: () => staff() }));
-vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ ...makeFakeSupabase(db, "service"), auth: { admin: { createUser: (attributes: unknown) => invite(attributes) } } }) }));
+vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ ...makeFakeSupabase(db, "service"), auth: { admin: { createUser: (attributes: unknown) => invite(attributes), listUsers: (...args: unknown[]) => listUsers(...args), updateUserById: (...args: unknown[]) => updateUserById(...args) } } }) }));
 
 import { GET as listStudents, POST as addStudents } from "@/app/api/equipe/alunos/route";
 import { PATCH as patchStudent } from "@/app/api/equipe/alunos/[id]/route";
@@ -65,6 +66,25 @@ describe("POST /api/equipe/alunos", () => {
     vi.stubEnv("ALUNO_SENHA_PADRAO", "");
     expect((await post("ana@x.com")).status).toBe(500);
     expect(invite).not.toHaveBeenCalled();
+  });
+  it("e-mail já criado no painel do Supabase (sem perfil) é vinculado e recebe a senha padrão", async () => {
+    invite.mockImplementationOnce(async () => ({ data: { user: null }, error: { message: "A user with this email address has already been registered" } }));
+    listUsers.mockResolvedValue({ data: { users: [{ id: "painel-1", email: "ana@x.com", last_sign_in_at: null }] }, error: null });
+    updateUserById.mockResolvedValue({ data: {}, error: null });
+    const body = await (await post("ana@x.com")).json();
+    expect(body.invited).toEqual(["ana@x.com"]);
+    expect(body.failed).toEqual([]);
+    expect(updateUserById).toHaveBeenCalledWith("painel-1", { password: "senha-de-teste", email_confirm: true });
+    expect(db.tables.profiles).toEqual([expect.objectContaining({ user_id: "painel-1", email: "ana@x.com", role: "aluno", must_change_password: true })]);
+  });
+  it("conta já usada antes mantém a própria senha ao ser vinculada", async () => {
+    updateUserById.mockReset();
+    invite.mockImplementationOnce(async () => ({ data: { user: null }, error: { message: "A user with this email address has already been registered" } }));
+    listUsers.mockResolvedValue({ data: { users: [{ id: "antiga", email: "bia@x.com", last_sign_in_at: "2026-10-01" }] }, error: null });
+    const body = await (await post("bia@x.com")).json();
+    expect(body.invited).toEqual(["bia@x.com"]);
+    expect(updateUserById).not.toHaveBeenCalled();
+    expect(db.tables.profiles[0]).toMatchObject({ user_id: "antiga", must_change_password: false });
   });
   it("recusa lote acima de 500", async () => {
     const list = Array.from({ length: 501 }, (_, i) => `a${i}@x.com`).join("\n");
