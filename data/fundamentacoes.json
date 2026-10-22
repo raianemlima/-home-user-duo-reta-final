@@ -76,6 +76,211 @@
     }
    ],
    "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-375": {
+   "nota": "Receber presente de quem tem interesse em decisão do agente público é hipótese expressa de conflito de interesses, e é assim que a Resolução 018/2023/DPG da DPE-MT trata o tema. A norma estadual se espelha na Lei 12.813/2013, que define o conflito e arrola exatamente essa conduta.",
+   "dispositivos": [
+    {
+     "ref": "Lei 12.813/2013, art. 3º, I",
+     "tipo": "lei",
+     "texto": "Para os fins desta Lei, considera-se:\nI - conflito de interesses: a situação gerada pelo confronto entre interesses públicos e privados, que possa comprometer o interesse coletivo ou influenciar, de maneira imprópria, o desempenho da função pública; e",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12813.htm"
+    },
+    {
+     "ref": "Lei 12.813/2013, art. 5º, VI",
+     "tipo": "lei",
+     "texto": "Configura conflito de interesses no exercício de cargo ou emprego no âmbito do Poder Executivo federal:\nVI - receber presente de quem tenha interesse em decisão do agente público ou de colegiado do qual este participe fora dos limites e condições estabelecidos em regulamento; e",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12813.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão sobre norma interna da Defensoria Pública de Mato Grosso (Resolução 018/2023/DPG), que não está no Portal da Legislação e não foi possível conferir nas fontes acessíveis desta sessão. A fundamentação traz o modelo federal em que a norma estadual se espelha. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-376": {
+   "nota": "O SOLAR é o sistema finalístico da DPE-MT: cadastro de usuários, registro de atendimentos, prática de atos processuais, petições, atividades judiciais e extrajudiciais, relatórios e controle de dados — por isso a alternativa B. As demais restringem indevidamente o alcance do sistema.",
+   "dispositivos": [
+    {
+     "ref": "Resolução Conjunta 009/2023/DPG/CG (DPE-MT)",
+     "tipo": "entendimento",
+     "texto": "A resolução institui o SOLAR como sistema finalístico padrão da Defensoria Pública de Mato Grosso, abrangendo o processamento de informações, a prática de atos processuais, o registro dos atendimentos, a geração de relatórios e o controle de dados, com cadastro dos usuários e registro de petições e atividades judiciais e extrajudiciais."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública de Mato Grosso: não está no Portal da Legislação e não foi possível conferir o texto nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-377": {
+   "nota": "Transversalidade é o nome que se dá à integração de um tema a todas as políticas e dimensões de uma organização, em vez de confiná-lo a um setor. É nesse sentido que a Resolução 16/2023/DPG da DPE-MT usa o termo ao tratar do enfrentamento do assédio moral e sexual.",
+   "dispositivos": [
+    {
+     "ref": "Resolução 16/2023/DPG (DPE-MT)",
+     "tipo": "entendimento",
+     "texto": "A política de prevenção e enfrentamento do assédio moral e sexual da DPE-MT chama de transversalidade a integração dos conhecimentos e diretrizes sobre o tema ao conjunto das políticas estratégicas institucionais, de modo a garantir sua implementação em todas as dimensões da organização."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública de Mato Grosso, não conferível nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-378": {
+   "nota": "A Resolução AG/RES 2656 (XLI-O/11) — \"Garantias para o acesso à justiça: o papel dos defensores públicos oficiais\" — foi aprovada pela Assembleia Geral da OEA em 7 de junho de 2011, em San Salvador, e é o marco interamericano que trata o acesso à justiça como direito e recomenda o modelo público de Defensoria, com autonomia e independência funcional.",
+   "dispositivos": [
+    {
+     "ref": "OEA, AG/RES 2656 (XLI-O/11)",
+     "tipo": "entendimento",
+     "texto": "Aprovada na quarta sessão plenária da Assembleia Geral da OEA, em 7 de junho de 2011 (41ª sessão ordinária, San Salvador), sob o título \"Garantías para el acceso a la justicia: el rol de los defensores públicos oficiales\". Recomenda aos Estados membros a adoção do modelo público de Defensoria, com autonomia funcional e financeira, apoia a capacitação dos defensores e a instalação do serviço onde ainda não exista, o que afasta as alternativas A, B e E. A Resolução AG/RES 2714 (XLII-O/12) dá seguimento aos seus mandatos."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A afirmação do gabarito de que esta foi a \"primeira\" norma da OEA a tratar o acesso à justiça como direito autônomo não foi confirmada em fonte oficial: as buscas confirmam o conteúdo, a data e a importância da resolução, mas não essa precedência. É a alternativa menos incorreta."
+  },
+  "fcc-defensorias-379": {
+   "nota": "A LC 80/1994 fixa o desenho nacional: administração superior é Defensoria Pública-Geral, Subdefensoria, Conselho Superior e Corregedoria-Geral; os Núcleos são órgãos de atuação e a Ouvidoria-Geral é órgão auxiliar. Os estados podem desdobrar a Corregedoria-Geral em Subcorregedorias-Gerais, que seguem a natureza do órgão de origem — daí a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 98",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública dos Estados compreende:\nI - órgãos de administração superior:\na) a Defensoria Pública-Geral do Estado;\nb) a Subdefensoria Pública-Geral do Estado;\nc) o Conselho Superior da Defensoria Pública do Estado;\nd) a Corregedoria-Geral da Defensoria Pública do Estado;\nII - órgãos de atuação:\na) as Defensorias Públicas do Estado;\nb) os Núcleos da Defensoria Pública do Estado;\nIII - órgãos de execução:\na) os Defensores Públicos do Estado.\nIV – órgão auxiliar: Ouvidoria-Geral da Defensoria Pública do Estado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A composição exata dos órgãos de administração superior da DPE-MT vem da lei complementar daquele estado, não conferível nas fontes acessíveis desta sessão; o art. 98 da LC 80/1994 é o parâmetro nacional, que já descarta as alternativas A, C, D e E."
+  },
+  "fcc-defensorias-380": {
+   "nota": "A diretriz apontada pelo gabarito é evitar palavras estrangeiras: linguagem simples quer o termo em português e de uso comum, no lugar do estrangeirismo. As outras alternativas enunciam objetivos ou princípios da política, não a diretriz cobrada.",
+   "dispositivos": [
+    {
+     "ref": "Resolução 009/2024/DPG (DPE-MT)",
+     "tipo": "entendimento",
+     "texto": "A resolução que institui a política de linguagem simples na DPE-MT lista entre suas diretrizes evitar o uso de palavras estrangeiras nos atos e comunicações da instituição."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública de Mato Grosso, não conferível nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-381": {
+   "nota": "A Constituição de Mato Grosso trata o Pantanal como objeto de ação conjunta com Mato Grosso do Sul — o bioma é dividido entre os dois estados —, para preservá-lo e preservar seus recursos naturais: é a alternativa D. O parâmetro federal é o art. 225, § 4º, da CF/1988, que declara o Pantanal Mato-Grossense patrimônio nacional, e não estadual, o que afasta a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 225, § 4º",
+     "tipo": "lei",
+     "texto": "A Floresta Amazônica brasileira, a Mata Atlântica, a Serra do Mar, o Pantanal Mato-Grossense e a Zona Costeira são patrimônio nacional, e sua utilização far-se-á, na forma da lei, dentro de condições que assegurem a preservação do meio ambiente, inclusive quanto ao uso dos recursos naturais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado de Mato Grosso, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-382": {
+   "nota": "O requisito acrescido ao Estatuto baiano em 2018 veda o ingresso de quem foi condenado por feminicídio ou por crime contra mulher em violência doméstica e familiar; a exceção legal é a extinção da punibilidade (alternativa C). As demais alternativas inventam limites que a norma não traz. No plano federal, a mesma lógica aparece na Lei 8.112/1990, que exige quitação com as obrigações legais e aptidão para o cargo.",
+   "dispositivos": [
+    {
+     "ref": "Lei 8.112/1990, art. 5º",
+     "tipo": "lei",
+     "texto": "São requisitos básicos para investidura em cargo público:\nI - a nacionalidade brasileira;\nII - o gozo dos direitos políticos;\nIII - a quitação com as obrigações militares e eleitorais;\nIV - o nível de escolaridade exigido para o exercício do cargo;\nV - a idade mínima de dezoito anos;\nVI - aptidão física e mental.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L8112compilado.htm"
+    },
+    {
+     "ref": "Lei 6.677/1994 (Estatuto dos Servidores do Estado da Bahia)",
+     "tipo": "entendimento",
+     "texto": "O dispositivo acrescido em 2018 inclui entre os requisitos básicos para ingresso no serviço público estadual a não condenação, em decisão transitada em julgado ou proferida por órgão colegiado, pela prática ou concurso em feminicídio ou em crime contra mulher em situação de violência doméstica e familiar, ressalvada a hipótese de extinção da punibilidade."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é de lei estadual da Bahia, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-383": {
+   "nota": "A Constituição do Espírito Santo dá aos membros da Defensoria Pública foro no Tribunal de Justiça do Estado, sem condicionar a nenhuma autorização da Assembleia Legislativa — alternativa E. A Corregedoria-Geral, na LC 80/1994, é órgão de correição e inspeção funcional: não julga crime.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 105, I e V",
+     "tipo": "lei",
+     "texto": "À Corregedoria-Geral da Defensoria Pública do Estado compete:\nI - realizar correições e inspeções funcionais;\nV - receber e processar as representações contra os membros da Defensoria Pública do Estado, encaminhado­as, com parecer, ao Conselho Superior;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado do Espírito Santo, que não foi possível conferir nas fontes acessíveis desta sessão. A fundamentação mostra que a Corregedoria-Geral tem função correicional, e não jurisdicional, o que descarta as alternativas B, C e D. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-384": {
+   "nota": "No capítulo da Segurança Pública, a Constituição paulista manda a legislação penitenciária estadual assegurar defesa técnica ao preso nas infrações disciplinares e respeitar as Regras Mínimas da ONU para o Tratamento de Reclusos (hoje Regras de Mandela) — alternativa A. A LEP e a CF/1988 dão o mesmo parâmetro no plano nacional: a falta disciplinar exige procedimento com direito de defesa e decisão motivada.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 59",
+     "tipo": "lei",
+     "texto": "Praticada a falta disciplinar, deverá ser instaurado o procedimento para sua apuração, conforme regulamento, assegurado o direito de defesa.\nParágrafo único. A decisão será motivada.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LV",
+     "tipo": "lei",
+     "texto": "aos litigantes, em processo judicial ou administrativo, e aos acusados em geral são assegurados o contraditório e ampla defesa, com os meios e recursos a ela inerentes;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado de São Paulo, que não está no Portal da Legislação federal e não foi possível conferir na Assembleia Legislativa nas fontes acessíveis desta sessão. A fundamentação traz o parâmetro federal equivalente."
+  },
+  "fcc-defensorias-385": {
+   "nota": "A Constituição paulista determina que o atendimento médico para o aborto nos casos em que a lei penal exclui a ilicitude seja feito pela rede pública, com corpo clínico especializado — alternativa E. O parâmetro federal é o art. 128 do Código Penal, que define essas hipóteses.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 128",
+     "tipo": "lei",
+     "texto": "Não se pune o aborto praticado por médico:\nI - se não há outro meio de salvar a vida da gestante;\nII - se a gravidez resulta de estupro e o aborto é precedido de consentimento da gestante ou, quando incapaz, de seu representante legal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado de São Paulo, não conferível nas fontes acessíveis desta sessão; a fundamentação traz o art. 128 do Código Penal, que define os casos de aborto legal a que a norma estadual remete."
+  },
+  "fcc-defensorias-386": {
+   "nota": "Questão de leitura, não de direito: o trecho mostra o autor expondo e criticando um discurso (\"eleito pelo 'discurso do Norte'\", \"adquire uma conotação pejorativa\", \"estigma\") — ele descreve a construção depreciativa do cangaço, não a endossa. Daí a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Interpretação de texto (Albuquerque Júnior, A invenção do Nordeste, p. 74)",
+     "tipo": "entendimento",
+     "texto": "O autor atribui a conotação pejorativa a um discurso (\"o discurso do Norte\") e a nomeia como estigma, marcando distância crítica. As alternativas A, B, C e E imputam ao autor as teses que ele apresenta como construção de terceiros."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de interpretação de texto, sem fundamento legal. Veio classificada no banco como Princípios Institucionais da Defensoria › Legislação Estadual pela origem da prova (DPE-BA 2021), mas o tema é leitura."
+  },
+  "fcc-defensorias-387": {
+   "nota": "Questão de história, não de direito. A Revolta dos Malês (Salvador, 1835) foi levante de africanos muçulmanos — sobretudo nagôs e hauçás — e revela laços étnicos e religiosos que serviram de base à organização contra a escravidão: alternativa E. A B erra ao dizer que o islamismo era a religião hegemônica na Bahia; a D, ao dizer que a revolta revogou a obrigação de usar chapa de identificação.",
+   "dispositivos": [
+    {
+     "ref": "Revolta dos Malês (Salvador, 1835)",
+     "tipo": "entendimento",
+     "texto": "A historiografia descreve o levante como articulação de africanos islamizados, com protagonismo de nagôs e hauçás, em que a solidariedade étnica e religiosa funcionou como elemento aglutinador do desafio ao sistema escravista. O islamismo era religião de minoria entre os africanos na Bahia, e a revolta foi reprimida, sem conquistas normativas para os escravizados urbanos."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de história, sem fundamento legal. Veio classificada no banco como Princípios Institucionais da Defensoria › Legislação Estadual pela origem da prova (DPE-BA 2021)."
+  },
+  "fcc-defensorias-388": {
+   "nota": "O Curso de Preparação à Carreira mede o aproveitamento pela atividade-fim do cargo, e atender usuários e usuárias da Defensoria é o indicador apontado pela Resolução 04/2020 do Conselho Superior da DPE-BA — alternativa C. As demais descrevem produtos acessórios (relatório semanal, artigo, palestra, visita), não o indicador da norma.",
+   "dispositivos": [
+    {
+     "ref": "Resolução 04/2020 (Conselho Superior da DPE-BA)",
+     "tipo": "entendimento",
+     "texto": "A resolução arrola, entre os indicadores de aproveitamento satisfatório no Curso de Preparação à Carreira, o atendimento aos usuários e às usuárias da Defensoria Pública."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública da Bahia, não conferível nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-389": {
+   "nota": "A LC estadual 26/2006 da Bahia organiza a Defensoria em três blocos — Órgãos da Administração Superior, Órgãos de Execução e Órgãos Auxiliares (alternativa D). As outras alternativas listam órgãos específicos (Defensoria Pública-Geral, Corregedoria, Escola Superior) como se fossem blocos da estrutura. O molde é o art. 98 da LC 80/1994, que também separa a Defensoria em administração superior, atuação, execução e órgão auxiliar.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 98",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública dos Estados compreende:\nI - órgãos de administração superior:\na) a Defensoria Pública-Geral do Estado;\nb) a Subdefensoria Pública-Geral do Estado;\nc) o Conselho Superior da Defensoria Pública do Estado;\nd) a Corregedoria-Geral da Defensoria Pública do Estado;\nII - órgãos de atuação:\na) as Defensorias Públicas do Estado;\nb) os Núcleos da Defensoria Pública do Estado;\nIII - órgãos de execução:\na) os Defensores Públicos do Estado.\nIV – órgão auxiliar: Ouvidoria-Geral da Defensoria Pública do Estado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A estrutura cobrada é da Lei Complementar estadual 26/2006 da Bahia, não conferível nas fontes acessíveis desta sessão; o art. 98 da LC 80/1994 é o parâmetro nacional. Não é matéria da prova da DPE-SP."
   }
  }
 }
