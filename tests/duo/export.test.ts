@@ -54,6 +54,8 @@ describe("renderDocx", () => {
     expect(xml).toContain("Trecho a");
     expect(xml).toContain("cai muito");
     expect(xml).toContain("Arial");
+    // Sem a linha de referência por trecho ("Direito Penal › CRIMES › Homicídio"): o caderno sai só com o texto.
+    expect(xml).not.toContain("Direito Penal › CRIMES");
     const footer = Object.keys(zip.files).find((name) => /^word\/footer\d*\.xml$/.test(name));
     expect(await zip.file(footer as string)?.async("string")).toContain("ana@x.com");
   });

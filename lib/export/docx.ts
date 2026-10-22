@@ -1,10 +1,9 @@
-import { AlignmentType, BorderStyle, Document, Footer, HeadingLevel, Packer, PageBreak, PageNumber, Paragraph, ShadingType, TextRun } from "docx";
+import { AlignmentType, BorderStyle, Document, Footer, HeadingLevel, Packer, PageBreak, PageNumber, Paragraph, TextRun } from "docx";
 import type { ExportDoc } from "@/lib/export/model";
 import { HIGHLIGHT_COLORS } from "@/lib/highlights/types";
 
 // Mesmo modelo do PDF, em Word: Arial como nos e-books, títulos em verde-floresta, cada trecho com a barra da cor do grifo.
 const FONT = "Arial", INK = "231F1E", MUTED = "4C5F54", BRAND = "17401F";
-const label = (color: string) => HIGHLIGHT_COLORS.find((item) => item.key === color)?.label ?? "";
 const hex = (color: string) => (HIGHLIGHT_COLORS.find((item) => item.key === color)?.swatch ?? "#DDDDDD").replace("#", "");
 // Word não aceita caracteres de controle no XML; o resto (inclusive emoji) passa.
 const clean = (text: string) => text.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "");
@@ -27,10 +26,10 @@ export async function renderDocx(doc: ExportDoc): Promise<Uint8Array> {
       ...topic.items.flatMap((item) => {
         const bar = { left: { style: BorderStyle.SINGLE, size: 24, color: hex(item.color), space: 8 } };
         const lines = [
-          new Paragraph({ border: bar, keepNext: true, indent: { left: 160 }, spacing: { before: 120 }, children: [text(item.quote, { size: 22 })] }),
-          ...(item.note ? [new Paragraph({ border: bar, keepNext: true, indent: { left: 160 }, children: [text(item.note, { italics: true })] })] : []),
-          ...(item.orphanedNotice ? [new Paragraph({ border: bar, keepNext: true, indent: { left: 160 }, children: [text(item.orphanedNotice, { size: 17, color: MUTED })] })] : []),
-          new Paragraph({ border: bar, indent: { left: 160 }, spacing: { after: 120 }, shading: { type: ShadingType.CLEAR, fill: "FFFFFF" }, children: [text(`${label(item.color)} · ${item.reference}${item.reviewed ? " · revisado" : ""}`, { size: 17, color: MUTED })] }),
+          // Sem linha de referência (cor · disciplina › seção): a seção já está no título acima; fica só o texto, justificado.
+          new Paragraph({ border: bar, keepNext: Boolean(item.note || item.orphanedNotice), alignment: AlignmentType.JUSTIFIED, indent: { left: 160 }, spacing: { before: 120, after: item.note || item.orphanedNotice ? 0 : 160, line: 300 }, children: [text(item.quote, { size: 22 })] }),
+          ...(item.note ? [new Paragraph({ border: bar, keepNext: Boolean(item.orphanedNotice), alignment: AlignmentType.JUSTIFIED, indent: { left: 160 }, spacing: { before: 60, after: item.orphanedNotice ? 0 : 160 }, children: [text(item.note, { italics: true, color: MUTED })] })] : []),
+          ...(item.orphanedNotice ? [new Paragraph({ border: bar, indent: { left: 160 }, spacing: { after: 160 }, children: [text(item.orphanedNotice, { size: 17, color: MUTED })] })] : []),
         ];
         return lines;
       }),
