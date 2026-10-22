@@ -76,3 +76,9 @@ Resultado em 22/10/2026, com os 11 ebooks do Reta Final DPE-SP (PDF):
   Os títulos restantes sem seção são, em geral, subtítulos muito longos que quebram em várias linhas.
 - **Atualização do Penal (21/10/2026)**: dos 50 grifos sorteados na versão anterior, **50 foram reposicionados** e 0 ficaram
   como "trecho alterado".
+
+## Banco de questões
+
+As questões vêm do repositório REVIEW-RAI (`ferramentas/conteudo/dados/simulados/*.json`) e ficam em `data/questoes.json`.
+Para atualizar depois de mudar as questões lá: `node scripts/questoes/importar.mjs /caminho/para/review-rai`, confira e faça o commit.
+As respostas de cada aluno ficam na tabela `question_answers` (migração 0015).
