@@ -68,4 +68,12 @@ wait
 mine=$(grep -E '^[0-9]+$' /tmp/v1.out | head -1); other=$(grep -E '^[0-9]+$' /tmp/v2.out | head -1)
 if [ -n "$mine" ] && [ -n "$other" ] && [ "$mine" != "$other" ]; then echo "OK  concorrência real: duas edições simultâneas receberam versões distintas ($mine e $other)"; else echo "FALHA concorrência de versões: $mine / $other"; exit 1; fi
 rm -f /tmp/v1.out /tmp/v2.out
+# 0009: app DUO (conteúdo, grifos, alunos)
+apply supabase/migrations/0009_duo_core.sql
+apply supabase/migrations/0009_duo_core.down.sql
+test "$("${PSQL[@]}" -d "$DB" -Atc "select count(*) from information_schema.tables where table_schema='public' and table_name in ('profiles','disciplines','content_versions','sections','paragraphs','highlights','reading_positions')")" = "0"
+test "$("${PSQL[@]}" -d "$DB" -Atc "select count(*) from information_schema.tables where table_schema='public' and table_name='notebooks'")" = "1"
+apply supabase/migrations/0009_duo_core.sql
+echo "OK  0009: aplica, reverte (sem afetar o pipeline) e reaplica"
+"${PSQL[@]}" -d "$DB" -f tests/db/assertions-duo.sql | grep -E "OK|FALHA"
 echo "TODAS AS VERIFICAÇÕES DE BANCO PASSARAM"
