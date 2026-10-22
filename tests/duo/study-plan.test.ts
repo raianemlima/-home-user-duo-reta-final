@@ -3,15 +3,26 @@ import { daysUntilExam, examCountdown } from "@/lib/exam";
 import { studyPlanPath } from "@/lib/study-plan";
 
 const student = vi.fn();
-const storage = { list: vi.fn(), remove: vi.fn(), createSignedUploadUrl: vi.fn(), createSignedUrl: vi.fn() };
+const storage = { list: vi.fn(), remove: vi.fn(), createSignedUploadUrl: vi.fn(), createSignedUrl: vi.fn(), download: vi.fn() };
+// Escolha de cronograma guardada em study_plan_choices (a sessão do aluno, com RLS).
+let choice: { plano: string } | null = null;
+const choices = { upsert: vi.fn(async (row: { plano: string }) => { choice = { plano: row.plano }; return { error: null }; }), deleted: vi.fn() };
+const supabase = { from: () => ({
+  select: () => ({ eq: () => ({ maybeSingle: async () => ({ data: choice, error: null }) }) }),
+  upsert: choices.upsert,
+  delete: () => ({ eq: () => ({ eq: async (_column: string, value: string) => { choices.deleted(value); if (choice?.plano === value) choice = null; return { error: null }; } }) }),
+}) };
 vi.mock("@/lib/server/auth", () => ({ requireStudent: () => student() }));
 vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ storage: { from: () => storage } }) }));
 import { DELETE, GET, POST } from "@/app/api/cronograma/route";
 import { GET as openPlan } from "@/app/api/cronograma/arquivo/route";
+import { GET as planContent } from "@/app/api/cronograma/conteudo/route";
+import { PUT as choosePlan } from "@/app/api/cronograma/plano/route";
 
 beforeEach(() => {
   vi.stubEnv("NEXT_PUBLIC_PIPELINE_V2", "true");
-  student.mockResolvedValue({ user: { id: "u1" } });
+  student.mockResolvedValue({ supabase, user: { id: "u1" } });
+  choice = null;
   Object.values(storage).forEach((fn) => fn.mockReset());
   storage.remove.mockResolvedValue({ error: null });
 });
@@ -51,11 +62,27 @@ describe("/api/cronograma", () => {
   it("POST recusa formato não aceito", async () => {
     expect((await POST(new Request("http://x/api/cronograma", { method: "POST", body: JSON.stringify({ fileName: "a.exe", size: 10 }) }))).status).toBe(400);
   });
-  it("GET informa o cronograma atual; DELETE remove só os arquivos do aluno", async () => {
-    storage.list.mockResolvedValue({ data: [{ name: "plano.pdf", updated_at: "2026-10-22T10:00:00Z", metadata: { size: 2048 } }], error: null });
-    expect(await (await GET()).json()).toEqual({ file: { name: "plano.pdf", size: 2048, updatedAt: "2026-10-22T10:00:00Z" } });
+  it("GET informa o cronograma atual e os oficiais publicados; DELETE remove só os arquivos do aluno", async () => {
+    storage.list.mockImplementation(async (folder: string) => ({ data: folder === "oficiais" ? [{ name: "6h.docx" }] : [{ name: "plano.pdf", updated_at: "2026-10-22T10:00:00Z", metadata: { size: 2048 } }], error: null }));
+    expect(await (await GET()).json()).toEqual({ plano: "proprio", oficiais: { "4h": false, "6h": true }, file: { name: "plano.pdf", size: 2048, updatedAt: "2026-10-22T10:00:00Z" } });
     expect(await (await DELETE()).json()).toEqual({ removed: 1 });
     expect(storage.remove).toHaveBeenCalledWith(["u1/plano.pdf"]);
+    expect(choices.deleted).toHaveBeenCalledWith("proprio");
+  });
+  it("o aluno escolhe o cronograma de 4h, de 6h ou o próprio; outro valor é recusado", async () => {
+    const put = (plano: unknown) => choosePlan(new Request("http://x/api/cronograma/plano", { method: "PUT", body: JSON.stringify({ plano }) }));
+    expect(await (await put("6h")).json()).toEqual({ plano: "6h" });
+    expect(choices.upsert).toHaveBeenCalledWith(expect.objectContaining({ user_id: "u1", plano: "6h" }), { onConflict: "user_id" });
+    expect((await put("8h")).status).toBe(400);
+  });
+  it("conteúdo: lê o cronograma oficial escolhido; arquivo próprio que não é Word só abre", async () => {
+    choice = { plano: "6h" };
+    storage.download.mockResolvedValue({ data: null, error: { message: "not found" } });
+    expect((await planContent()).status).toBe(404);
+    expect(storage.download).toHaveBeenCalledWith("oficiais/6h.docx");
+    choice = null;
+    storage.list.mockResolvedValue({ data: [{ name: "plano.pdf" }], error: null });
+    expect(await (await planContent()).json()).toEqual({ plano: "proprio", titulo: "plano.pdf", tipo: "arquivo" });
   });
   it("abrir redireciona para a URL assinada; sem arquivo, 404", async () => {
     storage.list.mockResolvedValue({ data: [{ name: "plano.pdf" }], error: null });

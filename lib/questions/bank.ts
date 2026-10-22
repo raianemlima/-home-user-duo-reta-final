@@ -25,7 +25,8 @@ function count(values: (string | null)[]): [string, number][] {
 
 export function matches(question: Question, filter: QuestionFilter, answers: Map<string, Answer>, ignore?: keyof QuestionFilter): boolean {
   const answer = answers.get(question.id);
-  if (ignore !== "disciplina" && filter.disciplina && question.disciplina !== filter.disciplina) return false;
+  // Várias disciplinas separadas por "|" (o link "Questões do dia" do cronograma junta as disciplinas do dia).
+  if (ignore !== "disciplina" && filter.disciplina && !filter.disciplina.split("|").includes(question.disciplina)) return false;
   if (ignore !== "assunto" && filter.assunto && question.assunto !== filter.assunto) return false;
   if (ignore !== "ano" && filter.ano && String(question.ano) !== filter.ano) return false;
   if (ignore !== "banca" && filter.banca && question.banca !== filter.banca) return false;

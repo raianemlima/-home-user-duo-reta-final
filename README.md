@@ -114,3 +114,18 @@ a correção: o texto de lei inteiro na primeira carga pesaria no celular.
 
 Confira o arquivo com `node scripts/questoes/conferir-fundamentacao.mjs` (`--cobertura` mostra o andamento
 por disciplina). Os mesmos invariantes estão em `tests/duo/questions.test.ts`.
+
+As transcrições do tipo `lei` são conferidas palavra por palavra contra a página oficial com
+`node scripts/questoes/conferir-transcricao.mjs` (baixa cada `url` uma vez e guarda em `.cache/leis`).
+
+## Cronograma de estudos
+
+O aluno escolhe, na página inicial, o **cronograma oficial de 4h ou de 6h por dia** ou envia o dele. Os oficiais são
+enviados em Word (.docx) pela equipe em **Equipe › Cronogramas** e ficam no bucket privado `cronogramas`, pasta
+`oficiais/` (não são versionados aqui: são material do curso). A escolha de cada aluno fica em `study_plan_choices`
+(migração 0016).
+
+Em `/cronograma` o Word é lido no app (`lib/study-plan-view.ts`): o HTML é limpo (só formatação, tabelas e links
+http/https, que abrem fora do app), dividido pelos títulos dos dias ("SEGUNDA-FEIRA"… "DOMINGO · SIMULADO") e, depois
+dos dias, cada título vira um anexo (as trilhas por disciplina). As tabelas "ATIVIDADE n | TEMPO" viram a lista do dia,
+com os links de cada atividade; "Questões do dia" abre primeiro o banco de questões do app nas disciplinas do dia.

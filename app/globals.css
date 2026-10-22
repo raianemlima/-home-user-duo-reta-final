@@ -90,6 +90,32 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .plan-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--s-4); margin: var(--s-4) 0 0; display: grid; gap: var(--s-2); }
 .plan-card p { margin: 0; }
 .plan-file { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.plan-today { justify-self: start; }
+.plan-choice { border: 0; padding: 0; margin: 0; display: grid; gap: var(--s-2); }
+.plan-choice legend { padding: 0; margin-bottom: var(--s-1); }
+.plan-option { display: flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-3); border: 1px solid var(--border); border-radius: var(--r-sm); cursor: pointer; flex-wrap: wrap; }
+.plan-option.is-on { border-color: var(--accent); background: var(--surface-2); }
+.plan-option input { accent-color: var(--accent); }
+.plan-view { display: grid; gap: var(--s-3); }
+.plan-view h1 { margin: 0; }
+.plan-days { display: flex; gap: var(--s-1); flex-wrap: wrap; }
+.plan-day { border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 999px; padding: var(--s-1) var(--s-3); font: inherit; font-weight: 700; cursor: pointer; }
+.plan-day.is-on { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.plan-html { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--s-4); overflow-wrap: anywhere; line-height: 1.6; }
+.plan-html h1, .plan-html h2, .plan-html h3 { font-size: 1.05rem; margin: var(--s-3) 0 var(--s-1); }
+.plan-html p { margin: 0 0 var(--s-2); }
+.plan-html a { color: var(--accent); font-weight: 700; text-decoration: underline; }
+.plan-html table { width: 100%; border-collapse: collapse; margin: var(--s-3) 0; display: block; overflow-x: auto; }
+.plan-html td, .plan-html th { border: 1px solid var(--border); padding: var(--s-2); vertical-align: top; }
+.plan-html td p, .plan-html th p { margin: 0; }
+.plan-activities { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
+.plan-activity { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--r-md); padding: var(--s-3); display: grid; gap: var(--s-2); }
+.plan-activity-head { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-2); }
+.plan-activity-n { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 999px; background: var(--accent); color: var(--surface); font-weight: 700; font-size: .85rem; }
+.plan-links { display: flex; gap: var(--s-2); flex-wrap: wrap; align-items: center; }
+.plan-annexes { display: grid; gap: var(--s-2); }
+.plan-annexes .section-title { margin: var(--s-3) 0 0; }
+.plan-general summary { cursor: pointer; font-weight: 700; color: var(--accent); margin-bottom: var(--s-2); }
 
 /* Início */
 .grid-paper { background-color: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; border-radius: var(--r-lg); padding: var(--s-5) var(--s-4); margin: 0 0 var(--s-4); }
