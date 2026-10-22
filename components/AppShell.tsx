@@ -6,7 +6,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { createClient } from "@/lib/supabase/client";
 
-const PLAIN = ["/login", "/configuracao", "/privacidade"];
+const PLAIN = ["/login", "/configuracao", "/privacidade", "/trocar-senha"];
 
 export function AppShell({ children, isStaff }: { children: React.ReactNode; isStaff: boolean }) {
   const pathname = usePathname(); const router = useRouter();

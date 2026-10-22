@@ -37,14 +37,20 @@ export async function proxy(request: NextRequest) {
   }
 
   // Papel e situação vêm do perfil a cada requisição: desativar um aluno vale na hora, sem esperar o token expirar.
-  const { data: profile } = await supabase.from("profiles").select("role, active").eq("user_id", user.id).maybeSingle();
+  const { data: profile } = await supabase.from("profiles").select("role, active, must_change_password").eq("user_id", user.id).maybeSingle();
   const active = Boolean(profile?.active);
   if (!active) {
     if (isPublic) return response;
     if (isApi) return NextResponse.json({ error: { code: "forbidden", message: "Seu acesso ao curso não está ativo." } }, { status: 403 });
     return NextResponse.redirect(new URL("/login?motivo=sem-acesso", request.url));
   }
-  if (pathname === "/login") return NextResponse.redirect(new URL("/", request.url));
+  if (pathname === "/login") return NextResponse.redirect(new URL(profile?.must_change_password ? "/trocar-senha" : "/", request.url));
+  // Senha padrão ainda não trocada: só a tela de troca e a API de conta ficam disponíveis.
+  if (profile?.must_change_password && pathname !== "/trocar-senha" && !pathname.startsWith("/api/conta/")) {
+    if (isApi) return NextResponse.json({ error: { code: "password_change_required", message: "Troque a senha inicial para continuar." } }, { status: 403 });
+    return NextResponse.redirect(new URL("/trocar-senha", request.url));
+  }
+  if (pathname === "/trocar-senha" && !profile?.must_change_password) return NextResponse.redirect(new URL("/", request.url));
   const staffArea = pathname === "/equipe" || pathname.startsWith("/equipe/") || pathname.startsWith("/api/equipe/") || pathname === "/api/equipe";
   if (staffArea && profile?.role !== "equipe") {
     if (isApi) return NextResponse.json({ error: { code: "forbidden", message: "Acesso restrito à equipe." } }, { status: 403 });

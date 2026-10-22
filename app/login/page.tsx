@@ -14,7 +14,7 @@ function LoginForm() {
   const [email, setEmail] = useState(""); const [password, setPassword] = useState(""); const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
   async function signIn(event: FormEvent) {
     event.preventDefault(); setBusy(true); setError("");
-    try { const { error: signInError } = await createClient().auth.signInWithPassword({ email: email.trim().toLowerCase(), password }); if (signInError) throw signInError; router.replace(next); router.refresh(); }
+    try { const { error: signInError } = await createClient().auth.signInWithPassword({ email: email.trim().toLowerCase(), password }); if (signInError) throw signInError; await fetch("/api/conta/sessao", { method: "POST" }).catch(() => undefined); router.replace(next); router.refresh(); }
     catch { setError(LOGIN_FAILED_MESSAGE); }
     finally { setBusy(false); }
   }
