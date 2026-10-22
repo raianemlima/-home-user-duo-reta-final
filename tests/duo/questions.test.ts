@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { type Answer, parseQuestionFilter, searchQuestions } from "@/lib/questions/bank";
 import { QUESTIONS } from "@/lib/questions/data";
+import { FUNDAMENTACOES } from "@/lib/questions/fundamentacao";
 import type { Question } from "@/lib/questions/types";
 
 const q = (id: string, extra: Partial<Question> = {}): Question => ({ id, concurso: "DPE-SP 2023", orgao: "DPE-SP", ano: 2023, banca: "FCC", cargo: "Defensor", disciplina: "Direito Penal", materia: "Direito Penal", assunto: "Dolo", enunciado: `Enunciado ${id} sobre culpabilidade`, alternativas: { A: "a", B: "b", C: "c", D: "d", E: "e" }, gabarito: "B", anulada: false, ...extra });
@@ -42,9 +43,42 @@ describe("searchQuestions", () => {
   });
 });
 
+// Fontes oficiais aceitas na fundamentação; a mesma lista está em scripts/questoes/conferir-fundamentacao.mjs.
+const OFFICIAL = ["planalto.gov.br", "stf.jus.br", "stj.jus.br", "senado.leg.br", "camara.leg.br", "cnj.jus.br", "tst.jus.br", "tse.jus.br", "defensoria.sp.def.br", "al.sp.gov.br", "oas.org", "ohchr.org", "un.org", "mpsp.mp.br", "condege.org.br", "gov.br"];
+
+describe("fundamentação legal do gabarito", () => {
+  const ids = new Set(QUESTIONS.map((question) => question.id));
+  it("só aponta para questões do banco e sempre cita dispositivo com texto e fonte oficial", () => {
+    for (const [id, item] of FUNDAMENTACOES) {
+      expect(ids, `${id} não está no banco`).toContain(id);
+      expect(item.nota.trim().length, `${id}: nota curta`).toBeGreaterThan(14);
+      expect(item.conferido, `${id}: data`).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(item.dispositivos.length, `${id}: sem dispositivos`).toBeGreaterThan(0);
+      for (const dispositivo of item.dispositivos) {
+        const where = `${id} (${dispositivo.ref})`;
+        expect(dispositivo.ref.trim(), `${id}: ref vazia`).not.toBe("");
+        expect(["lei", "entendimento"], `${where}: tipo`).toContain(dispositivo.tipo);
+        expect(dispositivo.texto.trim().length, `${where}: texto curto`).toBeGreaterThan(19);
+        // Transcrição literal só entra com a página oficial de onde veio; resumo de entendimento pode não ter link.
+        if (dispositivo.tipo === "lei") expect(dispositivo.url, `${where}: lei sem url`).toBeTruthy();
+        if (!dispositivo.url) continue;
+        const host = new URL(dispositivo.url).hostname;
+        expect(OFFICIAL.some((domain) => host === domain || host.endsWith(`.${domain}`)), `${where}: ${host} não é fonte oficial`).toBe(true);
+      }
+      const refs = item.dispositivos.map((dispositivo) => dispositivo.ref);
+      expect(new Set(refs).size, `${id}: refs repetidas`).toBe(refs.length);
+    }
+  });
+  it("questão anulada não recebe fundamentação de gabarito", () => {
+    const anuladas = QUESTIONS.filter((question) => question.anulada).map((question) => question.id);
+    for (const id of anuladas) expect(FUNDAMENTACOES.has(id) ? FUNDAMENTACOES.get(id)?.ressalva : "ok", `${id}: anulada precisa de ressalva`).toBeTruthy();
+  });
+});
+
 const student = vi.fn();
 vi.mock("@/lib/server/auth", () => ({ requireStudent: () => student() }));
 import { POST as answer } from "@/app/api/questoes/responder/route";
+import { GET as basis } from "@/app/api/questoes/[id]/fundamentacao/route";
 
 describe("POST /api/questoes/responder", () => {
   const upsert = vi.fn();
@@ -60,5 +94,21 @@ describe("POST /api/questoes/responder", () => {
   it("questão ou alternativa inválida é recusada", async () => {
     expect((await post({ id: "nao-existe", choice: "A" })).status).toBe(404);
     expect((await post({ id: QUESTIONS[0].id, choice: "Z" })).status).toBe(400);
+  });
+});
+
+describe("GET /api/questoes/[id]/fundamentacao", () => {
+  beforeEach(() => { vi.stubEnv("NEXT_PUBLIC_PIPELINE_V2", "true"); student.mockResolvedValue({ supabase: {}, user: { id: "u1" } }); });
+  const get = (id: string) => basis(new Request(`http://x/api/questoes/${id}/fundamentacao`), { params: Promise.resolve({ id }) });
+  it("devolve a fundamentação conferida da questão", async () => {
+    const first = [...FUNDAMENTACOES][0];
+    expect(first, "data/fundamentacoes.json está vazio").toBeTruthy();
+    const [id, item] = first;
+    expect(await (await get(id)).json()).toEqual({ fundamentacao: item });
+  });
+  it("devolve null quando a questão ainda não tem fundamentação, e 404 quando não existe", async () => {
+    const sem = QUESTIONS.find((question) => !FUNDAMENTACOES.has(question.id));
+    if (sem) expect(await (await get(sem.id)).json()).toEqual({ fundamentacao: null });
+    expect((await get("nao-existe")).status).toBe(404);
   });
 });

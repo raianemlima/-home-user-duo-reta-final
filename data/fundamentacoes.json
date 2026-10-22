@@ -1,0 +1,1815 @@
+{
+ "schema": 1,
+ "itens": {
+  "dpesp-2025-propria-1": {
+   "nota": "A eficiência é princípio expresso do art. 37, caput, da CF/1988 e não dispensa a legalidade: exige o melhor resultado com o menor custo, dentro da lei. Por isso a alternativa C; as demais sacrificam legalidade (A), qualidade (B) ou inventam deveres (D e E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, caput",
+     "tipo": "lei",
+     "texto": "A administração pública direta e indireta de qualquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios obedecerá aos princípios de legalidade, impessoalidade, moralidade, publicidade e eficiência e, também, ao seguinte:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-2": {
+   "nota": "A responsabilidade do Estado por dano causado por seus agentes é objetiva (art. 37, § 6º), e o STF aplicou essa regra aos jornalistas feridos por agentes de segurança durante a cobertura de manifestações: basta o nexo entre a conduta do agente e o dano. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 6º",
+     "tipo": "lei",
+     "texto": "As pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes, nessa qualidade, causarem a terceiros, assegurado o direito de regresso contra o responsável nos casos de dolo ou culpa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, dano a jornalista em cobertura de manifestação",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que o Estado responde objetivamente pelos danos sofridos por jornalista atingido por agente de segurança pública durante cobertura de manifestação, por força do art. 37, § 6º, da Constituição e da proteção constitucional da liberdade de informação jornalística; ao profissional é assegurada a cobertura do evento."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-3": {
+   "nota": "A moralidade é princípio expresso do art. 37, caput: deixou de ser recomendação ética e passou a ser requisito de validade do ato administrativo — ato imoral é inválido, ainda que formalmente legal. Alternativa B. Ela alcança os agentes políticos (o que derruba A) e não cede a juízo de conveniência (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, caput",
+     "tipo": "lei",
+     "texto": "A administração pública direta e indireta de qualquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios obedecerá aos princípios de legalidade, impessoalidade, moralidade, publicidade e eficiência e, também, ao seguinte:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LXXIII",
+     "tipo": "lei",
+     "texto": "qualquer cidadão é parte legítima para propor ação popular que vise a anular ato lesivo ao patrimônio público ou de entidade de que o Estado participe, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural, ficando o autor, salvo comprovada má-fé, isento de custas judiciais e do ônus da sucumbência;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-4": {
+   "nota": "O controle exercido pela própria sociedade sobre a Administração é o controle popular ou social, e a Constituição o viabiliza pela participação do usuário (art. 37, § 3º) e pela ação popular (art. 5º, LXXIII). Legislativo, jurisdicional, interno e financeiro são controles institucionais. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 3º",
+     "tipo": "lei",
+     "texto": "A lei disciplinará as formas de participação do usuário na administração pública direta e indireta, regulando especialmente:\nI - as reclamações relativas à prestação dos serviços públicos em geral, asseguradas a manutenção de serviços de atendimento ao usuário e a avaliação periódica, externa e interna, da qualidade dos serviços;\nII - o acesso dos usuários a registros administrativos e a informações sobre atos de governo, observado o disposto no art. 5º, X e XXXIII;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-5": {
+   "nota": "A Lei 14.133/2021 é expressa: a licitação é inexigível quando inviável a competição. Urgência e celeridade são hipóteses de DISPENSA (art. 75), não de inexigibilidade, o que afasta as alternativas B e D. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 74, caput",
+     "tipo": "lei",
+     "texto": "É inexigível a licitação quando inviável a competição, em especial nos casos de:\nI - aquisição de materiais, de equipamentos ou de gêneros ou contratação de serviços que só possam ser fornecidos por produtor, empresa ou representante comercial exclusivos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-6": {
+   "nota": "O equilíbrio econômico-financeiro preserva a equação original do contrato: a Lei 14.133/2021 manda restabelecê-la em caso de força maior, caso fortuito, fato do príncipe ou fatos imprevisíveis (ou previsíveis de consequências incalculáveis). Não é reajuste automático por inflação (B), nem transferência de todos os riscos ao Estado (D). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 124, II, d",
+     "tipo": "lei",
+     "texto": "para restabelecer o equilíbrio econômico-financeiro inicial do contrato em caso de força maior, caso fortuito ou fato do príncipe ou em decorrência de fatos imprevisíveis ou previsíveis de consequências incalculáveis, que inviabilizem a execução do contrato tal como pactuado, respeitada, em qualquer caso, a repartição objetiva de risco estabelecida no contrato.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-7": {
+   "nota": "O poder disciplinar pressupõe vínculo: alcança servidores e também particulares ligados juridicamente à Administração — contratados, concessionários, permissionários. Não julga ação penal (A), não fiscaliza contrato entre privados (B) nem a conduta de qualquer cidadão (C é a correta, D é essa confusão), e não autoriza reduzir vencimentos, que são irredutíveis (art. 37, XV).",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 155, caput",
+     "tipo": "lei",
+     "texto": "O licitante ou o contratado será responsabilizado administrativamente pelas seguintes infrações:",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    },
+    {
+     "ref": "CF/1988, art. 37, XV",
+     "tipo": "lei",
+     "texto": "o subsídio e os vencimentos dos ocupantes de cargos e empregos públicos são irredutíveis, ressalvado o disposto nos incisos XI e XIV deste artigo e nos arts. 39, § 4º, 150, II, 153, III, e 153, § 2º, I;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-8": {
+   "nota": "A segregação de funções é princípio expresso da Lei 14.133/2021 (art. 5º): quem planeja não deve julgar, para não validar o próprio trabalho. O mesmo servidor elaborar o projeto básico e atuar como pregoeiro acumula essas funções incompatíveis — alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 5º",
+     "tipo": "lei",
+     "texto": "Na aplicação desta Lei, serão observados os princípios da legalidade, da impessoalidade, da moralidade, da publicidade, da eficiência, do interesse público, da probidade administrativa, da igualdade, do planejamento, da transparência, da eficácia, da segregação de funções, da motivação, da vinculação ao edital, do julgamento objetivo, da segurança jurídica, da razoabilidade, da competitividade, da proporcionalidade, da celeridade, da economicidade e do desenvolvimento nacional sustentável, assim como as disposições do Decreto-Lei nº 4.657, de 4 de setembro de 1942 (Lei de Introdução às Normas do Direito Brasileiro).",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-9": {
+   "nota": "A movimentação do servidor entre unidades do mesmo ente, sem mudança de cargo, é ato de gestão interna motivado pelo interesse público — chamado relotação ou remoção de ofício. Não depende de falta disciplinar, permuta, concurso interno nem de ato do governador quando se trata de município. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 8.112/1990, art. 36, caput e parágrafo único, I",
+     "tipo": "lei",
+     "texto": "Remoção é o deslocamento do servidor, a pedido ou de ofício, no âmbito do mesmo quadro, com ou sem mudança de sede.\nParágrafo único. Para fins do disposto neste artigo, entende-se por modalidades de remoção:\nI - de ofício, no interesse da Administração;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L8112compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O nome do instituto (\"relotação\") e o regime concreto são do estatuto do servidor municipal, não conferível nas fontes acessíveis desta sessão; a Lei 8.112/1990 é o modelo federal da movimentação de ofício no interesse da Administração."
+  },
+  "dpesp-2025-propria-10": {
+   "nota": "A definição legal do diálogo competitivo está no art. 6º, XLII, da Lei 14.133/2021: a Administração dialoga com licitantes previamente selecionados para desenvolver alternativas capazes de atender à sua necessidade, e só depois eles apresentam proposta final. A interação prévia é justamente o traço da modalidade — alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 6º, XLII",
+     "tipo": "lei",
+     "texto": "diálogo competitivo: modalidade de licitação para contratação de obras, serviços e compras em que a Administração Pública realiza diálogos com licitantes previamente selecionados mediante critérios objetivos, com o intuito de desenvolver uma ou mais alternativas capazes de atender às suas necessidades, devendo os licitantes apresentar proposta final após o encerramento dos diálogos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-11": {
+   "nota": "O art. 37, XVI, veda a acumulação remunerada de cargos públicos, com três exceções, todas condicionadas à compatibilidade de horários: dois cargos de professor (alínea a), um de professor com outro de qualquer natureza (b) e dois privativos de profissionais de saúde (c). A alternativa B reúne os dois requisitos corretos.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, XVI",
+     "tipo": "lei",
+     "texto": "é vedada a acumulação remunerada de cargos públicos, exceto, quando houver compatibilidade de horários, observado em qualquer caso o disposto no inciso XI:\na) a de dois cargos de professor;\nb) a de um cargo de professor com outro de qualquer natureza;\nc) a de dois cargos ou empregos privativos de profissionais de saúde, com profissões regulamentadas;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-12": {
+   "nota": "O art. 37, § 6º, consagra a responsabilidade objetiva do Estado pelos danos — materiais ou morais — causados por seus agentes nessa qualidade: a vítima não precisa provar culpa. O direito de regresso contra o agente depende de dolo ou culpa, e o STF (Tema 940) só admite a ação contra o Estado, não diretamente contra o agente. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 6º",
+     "tipo": "lei",
+     "texto": "As pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes, nessa qualidade, causarem a terceiros, assegurado o direito de regresso contra o responsável nos casos de dolo ou culpa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, RE 1.027.633 (Tema 940)",
+     "tipo": "entendimento",
+     "texto": "Tese: a teor do art. 37, § 6º, da Constituição, a ação por danos causados por agente público deve ser ajuizada contra o Estado ou a pessoa jurídica de direito privado prestadora de serviço público, sendo parte ilegítima o agente, salvo em caso de ação regressiva."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-26": {
+   "nota": "Nomear e exonerar Ministros de Estado é o inciso I do art. 84 da CF/1988, a lista da competência privativa do Presidente. As demais alternativas trocam de titular: votar no Congresso é dos parlamentares, a iniciativa das leis orçamentárias é do Executivo mas por projeto de lei (art. 165), e emenda à Constituição pode ser proposta por vários legitimados (art. 60).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 84, I",
+     "tipo": "lei",
+     "texto": "Compete privativamente ao Presidente da República:\nI - nomear e exonerar os Ministros de Estado;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-27": {
+   "nota": "A intervenção federal é excepcional e só cabe nas hipóteses taxativas do art. 34 da CF/1988; garantir o livre exercício de qualquer dos Poderes nas unidades da Federação é o inciso IV. Isso afasta a vontade do Presidente (A), a infração a norma infraconstitucional (B), o auxílio para obras (D) e a sanção por inadimplência (E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 34, IV",
+     "tipo": "lei",
+     "texto": "A União não intervirá nos Estados nem no Distrito Federal, exceto para:\nIV - garantir o livre exercício de qualquer dos Poderes nas unidades da Federação;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-28": {
+   "nota": "O mandado de injunção combate a omissão normativa: cabe quando a falta de norma regulamentadora torna inviável o exercício de direito ou liberdade constitucional. Direito líquido e certo (A) é mandado de segurança; ato administrativo ilegal (D) e direito patrimonial (E) não são objeto do writ.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, LXXI",
+     "tipo": "lei",
+     "texto": "conceder-se-á mandado de injunção sempre que a falta de norma regulamentadora torne inviável o exercício dos direitos e liberdades constitucionais e das prerrogativas inerentes à nacionalidade, à soberania e à cidadania;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-29": {
+   "nota": "O habeas corpus é o remédio mais informal do sistema: o CPP diz expressamente que pode ser impetrado por qualquer pessoa, em seu favor ou de outrem, e a Constituição o declara gratuito. Não exige advogado, procuração, custas nem trânsito em julgado.",
+   "dispositivos": [
+    {
+     "ref": "CPP, art. 654",
+     "tipo": "lei",
+     "texto": "O habeas corpus poderá ser impetrado por qualquer pessoa, em seu favor ou de outrem, bem como pelo Ministério Público.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del3689Compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LXVIII e LXXVII",
+     "tipo": "lei",
+     "texto": "LXVIII - conceder-se-á habeas corpus sempre que alguém sofrer ou se achar ameaçado de sofrer violência ou coação em sua liberdade de locomoção, por ilegalidade ou abuso de poder;\nLXXVII - são gratuitas as ações de habeas corpus e habeas data, e, na forma da lei, os atos necessários ao exercício da cidadania.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-30": {
+   "nota": "O art. 62 da CF/1988 manda o Presidente submeter a medida provisória de imediato ao Congresso Nacional — é a alternativa E. O prazo de vigência é de 60 dias, prorrogável uma vez por igual período (§ 3º), o que derruba a alternativa A; a MP é do Presidente, não do Congresso (C), e não depende do STF (D). Matéria penal é vedada pelo § 1º, I, b — a alternativa B está certa no conteúdo, mas não é o que o caput exige.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 62, caput",
+     "tipo": "lei",
+     "texto": "Em caso de relevância e urgência, o Presidente da República poderá adotar medidas provisórias, com força de lei, devendo submetê-las de imediato ao Congresso Nacional.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de redação frouxa: a alternativa B (\"não pode tratar de matéria penal\") também é verdadeira, por força do art. 62, § 1º, I, b, da CF/1988. O gabarito oficial é E, que reproduz o caput."
+  },
+  "dpesp-2025-propria-31": {
+   "nota": "A fiscalização contábil, financeira e orçamentária da União é do Congresso Nacional, por controle externo, exercido com o auxílio do Tribunal de Contas da União (arts. 70 e 71 da CF/1988) — alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 70, caput",
+     "tipo": "lei",
+     "texto": "A fiscalização contábil, financeira, orçamentária, operacional e patrimonial da União e das entidades da administração direta e indireta, quanto à legalidade, legitimidade, economicidade, aplicação das subvenções e renúncia de receitas, será exercida pelo Congresso Nacional, mediante controle externo, e pelo sistema de controle interno de cada Poder.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 71, caput",
+     "tipo": "lei",
+     "texto": "O controle externo, a cargo do Congresso Nacional, será exercido com o auxílio do Tribunal de Contas da União, ao qual compete:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-32": {
+   "nota": "As terras tradicionalmente ocupadas são bens da União (art. 20, XI), destinadas à posse permanente dos indígenas, e são inalienáveis, indisponíveis e os direitos sobre elas imprescritíveis (art. 231, § 4º). Isso afasta as alternativas A, B, D e E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 231, § 2º",
+     "tipo": "lei",
+     "texto": "As terras tradicionalmente ocupadas pelos índios destinam-se a sua posse permanente, cabendo-lhes o usufruto exclusivo das riquezas do solo, dos rios e dos lagos nelas existentes.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 20, XI",
+     "tipo": "lei",
+     "texto": "São bens da União:\nXI - as terras tradicionalmente ocupadas pelos índios.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A alternativa dada como correta inverte o titular do usufruto: pelo art. 231, § 2º, da CF/1988, o usufruto exclusivo das riquezas do solo, dos rios e dos lagos é DOS INDÍGENAS, e a propriedade da terra é da União (art. 20, XI). A alternativa C é a menos incorreta porque acerta a posse permanente; nenhuma das outras se sustenta."
+  },
+  "dpesp-2025-propria-33": {
+   "nota": "A Constituição paulista arrola vários legitimados para a representação de inconstitucionalidade estadual — entre eles o Procurador-Geral do Estado —, e a CF/1988 proíbe que a legitimação fique com um único órgão, o que derruba a alternativa B. A Defensoria Pública, quando legitimada, age em nome próprio no controle abstrato, não como substituto processual (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 125, § 2º",
+     "tipo": "lei",
+     "texto": "Cabe aos Estados a instituição de representação de inconstitucionalidade de leis ou atos normativos estaduais ou municipais em face da Constituição Estadual, vedada a atribuição da legitimação para agir a um único órgão.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A lista exata de legitimados é da Constituição do Estado de São Paulo, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. O art. 125, § 2º, da CF/1988 é o parâmetro que já descarta as alternativas A, B e E."
+  },
+  "dpesp-2025-propria-34": {
+   "nota": "Os arts. 136 e 137 da CF/1988 abrem do mesmo modo: o Presidente age \"ouvidos o Conselho da República e o Conselho de Defesa Nacional\". Essa é a característica comum (alternativa C). O prazo máximo de 30 dias, prorrogável, é só do estado de defesa (art. 136, § 2º), e o estado de sítio depende de autorização prévia do Congresso.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 136, caput",
+     "tipo": "lei",
+     "texto": "O Presidente da República pode, ouvidos o Conselho da República e o Conselho de Defesa Nacional, decretar estado de defesa para preservar ou prontamente restabelecer, em locais restritos e determinados, a ordem pública ou a paz social ameaçadas por grave e iminente instabilidade institucional ou atingidas por calamidades de grandes proporções na natureza.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 137, caput",
+     "tipo": "lei",
+     "texto": "O Presidente da República pode, ouvidos o Conselho da República e o Conselho de Defesa Nacional, solicitar ao Congresso Nacional autorização para decretar o estado de sítio nos casos de:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-35": {
+   "nota": "No julgamento da ADI 7261 (rel. Min. Edson Fachin), em que manteve a Resolução TSE 23.714/2022, o STF assentou que a desinformação na internet, se não enfrentada, pode afetar a formação livre da vontade do eleitor — por isso o combate não é censura prévia. É a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "STF, ADI 7261 (rel. Min. Edson Fachin)",
+     "tipo": "entendimento",
+     "texto": "O Plenário referendou a liminar em outubro de 2022 e, em dezembro de 2023, confirmou a validade da Resolução TSE 23.714/2022. A tese firmada é que a desinformação propagada na internet, se não fiscalizada pela Justiça Eleitoral, pode restringir a formação livre da vontade do eleitor; o controle é posterior ao fato, restrito ao período eleitoral, e a liberdade de expressão não ampara a disseminação de informação falsa.",
+     "url": "https://noticias.stf.jus.br/?p=59755"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-36": {
+   "nota": "A região metropolitana é instituída por lei complementar estadual (CF, art. 25, § 3º) e não tem personalidade jurídica nem autonomia de ente federativo. No julgamento da ADI 1842/RJ o STF exigiu governança interfederativa compartilhada, sem concentração do poder decisório no Estado nem em um só município — daí a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 25, § 3º",
+     "tipo": "lei",
+     "texto": "Os Estados poderão, mediante lei complementar, instituir regiões metropolitanas, aglomerações urbanas e microrregiões, constituídas por agrupamentos de municípios limítrofes, para integrar a organização, o planejamento e a execução de funções públicas de interesse comum.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, ADI 1842/RJ",
+     "tipo": "entendimento",
+     "texto": "O STF decidiu que a instituição de região metropolitana não transfere ao Estado a titularidade das funções públicas de interesse comum: a gestão deve ser compartilhada em colegiado interfederativo, sem que o poder decisório se concentre em um único ente — nem no Estado, nem no município-polo."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-37": {
+   "nota": "A igualdade material é a igualdade na prática: a Constituição assume como objetivo reduzir desigualdades e promover o bem de todos sem discriminação, o que legitima as ações afirmativas (discriminação positiva). O STF reconheceu essa leitura ao julgar constitucionais as cotas raciais (ADPF 186).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 3º, III e IV",
+     "tipo": "lei",
+     "texto": "Constituem objetivos fundamentais da República Federativa do Brasil:\nIII - erradicar a pobreza e a marginalização e reduzir as desigualdades sociais e regionais;\nIV - promover o bem de todos, sem preconceitos de origem, raça, sexo, cor, idade e quaisquer outras formas de discriminação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, ADPF 186",
+     "tipo": "entendimento",
+     "texto": "O STF declarou constitucional a política de reserva de vagas com critério étnico-racial, firmando que a igualdade material autoriza o tratamento diferenciado destinado a corrigir desigualdades históricas de grupos vulnerabilizados."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-38": {
+   "nota": "O art. 196 define a saúde como direito de todos e dever do Estado, garantido por políticas sociais e econômicas, com acesso universal e igualitário — e não por contribuição. Isso derruba as alternativas A, D e E, e afasta a subsidiariedade (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 196",
+     "tipo": "lei",
+     "texto": "A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas que visem à redução do risco de doença e de outros agravos e ao acesso universal e igualitário às ações e serviços para sua promoção, proteção e recuperação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-39": {
+   "nota": "A reserva legal vem do art. 5º, II: só a lei pode obrigar alguém a fazer ou deixar de fazer algo. Decreto e norma administrativa não criam direito nem dever novos (alternativas A e D), e a Constituição não se altera por medida provisória (E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, II",
+     "tipo": "lei",
+     "texto": "ninguém será obrigado a fazer ou deixar de fazer alguma coisa senão em virtude de lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-40": {
+   "nota": "O art. 5º, IV, garante a livre manifestação do pensamento e, no mesmo inciso, veda o anonimato — é literalmente a alternativa B. Isso afasta C; e a liberdade de expressão não é imunidade para qualquer discurso (D) nem privilégio da imprensa (E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, IV",
+     "tipo": "lei",
+     "texto": "é livre a manifestação do pensamento, sendo vedado o anonimato;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-58": {
+   "nota": "Na jurisdição voluntária o juiz administra interesses privados: não há lide nem partes em conflito, e por isso a atuação não é contenciosa — alternativa C. O CPC trata desses procedimentos em seção própria, onde se admite prova (art. 720 e seguintes) e a intervenção do Ministério Público só ocorre nos casos do art. 178.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 719",
+     "tipo": "lei",
+     "texto": "Quando este Código não estabelecer procedimento especial, regem os procedimentos de jurisdição voluntária as disposições constantes desta Seção.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 723",
+     "tipo": "lei",
+     "texto": "O juiz decidirá o pedido no prazo de 10 (dez) dias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-59": {
+   "nota": "O art. 1.022 do CPC lista as hipóteses: esclarecer obscuridade, eliminar contradição, suprir omissão e corrigir erro material. A alternativa B reúne as três primeiras. Embargos não servem para rediscutir o mérito (C) nem para alegar injustiça (D), e a suspeição do juiz se argui por exceção própria (A).",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 1.022",
+     "tipo": "lei",
+     "texto": "Cabem embargos de declaração contra qualquer decisão judicial para:\nI - esclarecer obscuridade ou eliminar contradição;\nII - suprir omissão de ponto ou questão sobre o qual devia se pronunciar o juiz de ofício ou a requerimento;\nIII - corrigir erro material.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-60": {
+   "nota": "A coisa julgada cobre o dispositivo, não a fundamentação: o art. 504 é expresso ao dizer que não fazem coisa julgada os motivos nem a verdade dos fatos. Daí a alternativa D, e a C é exatamente o inverso.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 504",
+     "tipo": "lei",
+     "texto": "Não fazem coisa julgada:\nI - os motivos, ainda que importantes para determinar o alcance da parte dispositiva da sentença;\nII - a verdade dos fatos, estabelecida como fundamento da sentença.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 502",
+     "tipo": "lei",
+     "texto": "Denomina-se coisa julgada material a autoridade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-61": {
+   "nota": "A audiência de conciliação ou mediação é a regra (art. 334, caput): o juiz a designa sempre que a inicial estiver em ordem. Só não se realiza se AMBAS as partes manifestarem expressamente desinteresse, ou se a autocomposição não for admitida (§ 4º). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 334, caput e § 4º",
+     "tipo": "lei",
+     "texto": "Se a petição inicial preencher os requisitos essenciais e não for o caso de improcedência liminar do pedido, o juiz designará audiência de conciliação ou de mediação com antecedência mínima de 30 (trinta) dias, devendo ser citado o réu com pelo menos 20 (vinte) dias de antecedência.\n§ 4º A audiência não será realizada:\nI - se ambas as partes manifestarem, expressamente, desinteresse na composição consensual;\nII - quando não se admitir a autocomposição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-62": {
+   "nota": "A indicação das provas com que o autor pretende demonstrar os fatos é o inciso VI do art. 319 — alternativa B. Autoridade coatora é do mandado de segurança; a inicial é dirigida ao juízo (inciso I), não ao Ministério Público; e não há exigência de documentos públicos autenticados.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 319",
+     "tipo": "lei",
+     "texto": "A petição inicial indicará:\nI - o juízo a que é dirigida;\nIII - o fato e os fundamentos jurídicos do pedido;\nIV - o pedido com as suas especificações;\nV - o valor da causa;\nVI - as provas com que o autor pretende demonstrar a verdade dos fatos alegados;\nVII - a opção do autor pela realização ou não de audiência de conciliação ou de mediação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão com duas alternativas corretas: a C (\"exposição dos fatos com fundamentação jurídica\") também é requisito da inicial, pelo art. 319, III, do CPC. O gabarito oficial é B, que corresponde ao inciso VI."
+  },
+  "dpesp-2025-propria-63": {
+   "nota": "Jurisdição é a função pelo qual o Estado, por meio de juízes e tribunais, aplica o direito e resolve conflitos — alternativa D. Não é facultativa, nem poder administrativo, nem função legislativa, nem pertence às partes.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 16",
+     "tipo": "lei",
+     "texto": "A jurisdição civil é exercida pelos juízes e pelos tribunais em todo o território nacional, conforme as disposições deste Código.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, XXXV",
+     "tipo": "lei",
+     "texto": "a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-64": {
+   "nota": "A tutela provisória — e portanto a de urgência — é requerida ao juízo da causa e, nas ações originárias de tribunal e nos recursos, ao órgão competente para apreciar o mérito. Ou seja: cabe em qualquer grau de jurisdição (alternativa C). A caução é facultativa e dispensável ao hipossuficiente (art. 300, § 1º), o que derruba D.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 299",
+     "tipo": "lei",
+     "texto": "A tutela provisória será requerida ao juízo da causa e, quando antecedente, ao juízo competente para conhecer do pedido principal.\nParágrafo único. Ressalvada disposição especial, na ação de competência originária de tribunal e nos recursos a tutela provisória será requerida ao órgão jurisdicional competente para apreciar o mérito.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 300, caput e § 1º",
+     "tipo": "lei",
+     "texto": "A tutela de urgência será concedida quando houver elementos que evidenciem a probabilidade do direito e o perigo de dano ou o risco ao resultado útil do processo.\n§ 1º Para a concessão da tutela de urgência, o juiz pode, conforme o caso, exigir caução real ou fidejussória idônea para ressarcir os danos que a outra parte possa vir a sofrer, podendo a caução ser dispensada se a parte economicamente hipossuficiente não puder oferecê-la.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-65": {
+   "nota": "O art. 6º do CPC é curto e decisivo: TODOS os sujeitos do processo devem cooperar entre si para se obter, em tempo razoável, decisão de mérito justa e efetiva. A cooperação alcança partes e juiz (o que derruba D) e não se limita à instrução (E). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 6º",
+     "tipo": "lei",
+     "texto": "Todos os sujeitos do processo devem cooperar entre si para que se obtenha, em tempo razoável, decisão de mérito justa e efetiva.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-66": {
+   "nota": "O art. 1.003, § 5º, fixa em 15 dias o prazo para interpor e responder recursos, salvo embargos de declaração (5 dias); e o art. 219 manda contar em dias úteis os prazos processuais. Logo, 15 dias úteis — alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 1.003, § 5º",
+     "tipo": "lei",
+     "texto": "Excetuados os embargos de declaração, o prazo para interpor os recursos e para responder-lhes é de 15 (quinze) dias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 219, caput",
+     "tipo": "lei",
+     "texto": "Na contagem de prazo em dias, estabelecido por lei ou pelo juiz, computar-se-ão somente os dias úteis.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-67": {
+   "nota": "O § 3º do art. 373 admite a distribuição diversa do ônus da prova por convenção das partes, salvo se recair sobre direito indisponível ou tornar excessivamente difícil o exercício do direito. É a alternativa C. A regra legal (caput) reparte o ônus entre autor e réu, o que derruba A.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 373, caput e §§ 3º e 4º",
+     "tipo": "lei",
+     "texto": "O ônus da prova incumbe:\nI - ao autor, quanto ao fato constitutivo de seu direito;\nII - ao réu, quanto à existência de fato impeditivo, modificativo ou extintivo do direito do autor.\n§ 3º A distribuição diversa do ônus da prova também pode ocorrer por convenção das partes, salvo quando:\nI - recair sobre direito indisponível da parte;\nII - tornar excessivamente difícil a uma parte o exercício do direito.\n§ 4º A convenção de que trata o § 3º pode ser celebrada antes ou durante o processo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-68": {
+   "nota": "A tutela da evidência dispensa urgência: o art. 311 começa dizendo que ela será concedida \"independentemente da demonstração de perigo de dano ou de risco ao resultado útil do processo\". O que se exige é a evidência do direito nas hipóteses dos incisos I a IV — não apenas verossimilhança (o que derruba E). Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 311",
+     "tipo": "lei",
+     "texto": "A tutela da evidência será concedida, independentemente da demonstração de perigo de dano ou de risco ao resultado útil do processo, quando:\nI - ficar caracterizado o abuso do direito de defesa ou o manifesto propósito protelatório da parte;\nII - as alegações de fato puderem ser comprovadas apenas documentalmente e houver tese firmada em julgamento de casos repetitivos ou em súmula vinculante;\nIII - se tratar de pedido reipersecutório fundado em prova documental adequada do contrato de depósito, caso em que será decretada a ordem de entrega do objeto custodiado, sob cominação de multa;\nIV - a petição inicial for instruída com prova documental suficiente dos fatos constitutivos do direito do autor, a que o réu não oponha prova capaz de gerar dúvida razoável.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-69": {
+   "nota": "Sentença sem resolução de mérito não produz coisa julgada material: o art. 486 diz que o pronunciamento que não resolve o mérito não obsta a que a parte proponha de novo a ação — basta, em certos casos, corrigir o vício. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 486, caput e § 1º",
+     "tipo": "lei",
+     "texto": "O pronunciamento judicial que não resolve o mérito não obsta a que a parte proponha de novo a ação.\n§ 1º No caso de extinção em razão de litispendência e nos casos dos incisos I, IV, VI e VII do art. 485, a propositura da nova ação depende da correção do vício que levou à sentença sem resolução do mérito.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-83": {
+   "nota": "Na periodização da assistência jurídica no Brasil, a fase assistencial-caritativa (ou honorífica) é a do múnus da advocacia privada: o advogado atendia gratuitamente o pobre por dever moral ou de classe, sem estrutura estatal. É a alternativa D. As outras descrevem as fases posteriores — órgãos estatais próprios (A, C, E) e a Defensoria Pública constitucional (B).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, caput",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, na forma do inciso LXXIV do art. 5º desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Evolução histórica da assistência jurídica",
+     "tipo": "entendimento",
+     "texto": "A doutrina divide a trajetória em fase caritativa ou honorífica (dever moral da advocacia privada, sem remuneração e sem estrutura pública), fase da assistência judiciária estatal (criação de órgãos e remuneração pelo Estado) e fase da assistência jurídica integral, que a CF/1988 entrega à Defensoria Pública e que vai além do processo."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A periodização cobrada é doutrinária, sem texto legal que a fixe. A fundamentação indica a norma do estágio atual (art. 134 da CF/1988) e descreve as fases como a doutrina as apresenta."
+  },
+  "fcc-defensorias-84": {
+   "nota": "No sistema judicare, descrito por Cappelletti e Garth em \"Acesso à Justiça\", o Estado paga advogados privados para atender quem é pobre, mas mantém o modelo tradicional de atuação individual e passiva: não ensina a pessoa a reconhecer seus direitos nem identifica, de ofício, os campos em que ela poderia buscar remédio jurídico. Essa é justamente a crítica da alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Cappelletti e Garth, Acesso à Justiça (as três ondas renovatórias)",
+     "tipo": "entendimento",
+     "texto": "O sistema judicare remunera advogados privados com dinheiro público para atender os pobres, mas sem equipes, sem escritórios de vizinhança e sem atuação proativa: o serviço continua reativo e individual, e por isso não capacita a pessoa pobre a compreender seus direitos nem a identificar as áreas em que caberia um remédio jurídico. O modelo do advocate (staff model), com advogados assalariados em escritórios de vizinhança e trabalho em equipe, é o que supre essa lacuna — o que torna a alternativa E uma descrição do modelo oposto."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de doutrina (Cappelletti e Garth), sem fundamento em texto legal."
+  },
+  "fcc-defensorias-85": {
+   "nota": "As Regras de Brasília e a Resolução CNJ 425/2021 (política nacional para a população em situação de rua no Judiciário) seguem a mesma lógica: remover barreiras formais e adaptar o procedimento para que o acesso à justiça seja efetivo para grupos vulneráveis. Por isso a alternativa C. No direito interno, o CPC veda o indeferimento liminar da gratuidade e manda intimar a parte para provar antes de negar.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 99, §§ 2º e 3º",
+     "tipo": "lei",
+     "texto": "§ 2º O juiz somente poderá indeferir o pedido se houver nos autos elementos que evidenciem a falta dos pressupostos legais para a concessão de gratuidade, devendo, antes de indeferir o pedido, determinar à parte a comprovação do preenchimento dos referidos pressupostos.\n§ 3º Presume-se verdadeira a alegação de insuficiência deduzida exclusivamente por pessoa natural.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LXXIV",
+     "tipo": "lei",
+     "texto": "o Estado prestará assistência jurídica integral e gratuita aos que comprovarem insuficiência de recursos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Regras de Brasília e Resolução CNJ 425/2021",
+     "tipo": "entendimento",
+     "texto": "As Regras de Brasília sobre acesso à justiça das pessoas em condição de vulnerabilidade não se limitam ao processo penal: alcançam qualquer ramo e recomendam a revisão de formalidades que dificultem o acesso. A Resolução CNJ 425/2021 institui no Judiciário a política nacional para a população em situação de rua e manda afastar exigências incompatíveis com essa condição, como a comprovação de endereço fixo. São parâmetros de atuação, e não normas vinculantes no mesmo grau da lei — o que afasta a alternativa E."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-86": {
+   "nota": "Princípios constitucionais sensíveis são os do art. 34, VII, da CF/1988: sua inobservância autoriza intervenção federal. A lista inclui os direitos da pessoa humana (alínea b) e a autonomia municipal (alínea c) — alternativa A. Legalidade, isonomia, publicidade, soberania, livre iniciativa, separação de Poderes e propriedade não estão nessa lista.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 34, VII",
+     "tipo": "lei",
+     "texto": "VII - assegurar a observância dos seguintes princípios constitucionais:\na) forma republicana, sistema representativo e regime democrático;\nb) direitos da pessoa humana;\nc) autonomia municipal;\nd) prestação de contas da administração pública, direta e indireta.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-87": {
+   "nota": "A \"sociedade aberta dos intérpretes\", de Häberle, sustenta que a interpretação constitucional não é monopólio dos juristas: quem vive a norma também a interpreta. No STF isso se realiza pela audiência pública e pelo amicus curiae, abertos pela Lei 9.868/1999 — alternativa C. Repercussão geral, efeito vinculante, coisa julgada, reserva de plenário e os remédios individuais não abrem o processo a novos intérpretes.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.868/1999, art. 7º, § 2º",
+     "tipo": "lei",
+     "texto": "O relator, considerando a relevância da matéria e a representatividade dos postulantes, poderá, por despacho irrecorrível, admitir, observado o prazo fixado no parágrafo anterior, a manifestação de outros órgãos ou entidades.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9868.htm"
+    },
+    {
+     "ref": "Lei 9.868/1999, art. 9º, § 1º",
+     "tipo": "lei",
+     "texto": "Em caso de necessidade de esclarecimento de matéria ou circunstância de fato ou de notória insuficiência das informações existentes nos autos, poderá o relator requisitar informações adicionais, designar perito ou comissão de peritos para que emita parecer sobre a questão, ou fixar data para, em audiência pública, ouvir depoimentos de pessoas com experiência e autoridade na matéria.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9868.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-88": {
+   "nota": "Eficácia horizontal é a incidência dos direitos fundamentais nas relações entre particulares. O caso da penhora do bem de família do fiador na locação é discutido exatamente nessa chave: um contrato privado (fiança) é confrontado com o direito social à moradia do art. 6º da CF/1988. As demais alternativas tratam de relações entre o indivíduo e o Estado — eficácia vertical.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 6º, caput",
+     "tipo": "lei",
+     "texto": "São direitos sociais a educação, a saúde, a alimentação, o trabalho, a moradia, o transporte, o lazer, a segurança, a previdência social, a proteção à maternidade e à infância, a assistência aos desamparados, na forma desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, penhorabilidade do bem de família do fiador (RE 407.688 e RE 1.307.334, Tema 1.127)",
+     "tipo": "entendimento",
+     "texto": "O STF manteve a penhorabilidade do bem de família do fiador na locação, inclusive residencial, prestigiando a autonomia privada e o mercado locatício; a discussão se dá entre particulares e opõe o contrato de fiança ao direito social à moradia, o que a torna o exemplo de eficácia horizontal entre as alternativas."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-89": {
+   "nota": "O art. 15 da CF/1988 lista de forma fechada as hipóteses de perda ou suspensão dos direitos políticos; a condenação criminal transitada em julgado, enquanto durarem seus efeitos, é o inciso III. Ilícito eleitoral, falta de alistamento e descumprimento de condenação ao ressarcimento não estão na lista; a objeção de consciência só repercute se houver recusa de cumprir a prestação alternativa (inciso IV).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 15",
+     "tipo": "lei",
+     "texto": "É vedada a cassação de direitos políticos, cuja perda ou suspensão só se dará nos casos de:\nI - cancelamento da naturalização por sentença transitada em julgado;\nII - incapacidade civil absoluta;\nIII - condenação criminal transitada em julgado, enquanto durarem seus efeitos;\nIV - recusa de cumprir obrigação a todos imposta ou prestação alternativa, nos termos do art. 5º, VIII;\nV - improbidade administrativa, nos termos do art. 37, § 4º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-90": {
+   "nota": "A regra é a inafastabilidade da jurisdição sem esgotamento administrativo (art. 5º, XXXV). O habeas data é exceção: a Lei 9.507/1997 exige que a petição inicial venha instruída com a prova da recusa — ou do silêncio — da autoridade quanto ao acesso, à retificação ou à anotação. É o que diz a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, XXXV",
+     "tipo": "lei",
+     "texto": "a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Lei 9.507/1997, art. 8º, parágrafo único",
+     "tipo": "lei",
+     "texto": "A petição inicial deverá ser instruída com prova:\nI - da recusa ao acesso às informações ou do decurso de mais de dez dias sem decisão;\nII - da recusa em fazer-se a retificação ou do decurso de mais de quinze dias, sem decisão; ou",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9507.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-91": {
+   "nota": "A CF/1988 só admite a rejeição do veto por maioria absoluta dos Deputados e Senadores. O processo legislativo é norma de observância obrigatória pelos estados (princípio da simetria), então a Constituição estadual que exigisse apenas maioria simples seria inconstitucional — alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 66, § 4º",
+     "tipo": "lei",
+     "texto": "O veto será apreciado em sessão conjunta, dentro de trinta dias a contar de seu recebimento, só podendo ser rejeitado pelo voto da maioria absoluta dos Deputados e Senadores.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 25, caput",
+     "tipo": "lei",
+     "texto": "Os Estados organizam-se e regem-se pelas Constituições e leis que adotarem, observados os princípios desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-92": {
+   "nota": "Os princípios da ordem econômica estão no art. 170 da CF/1988: soberania nacional (I), defesa do consumidor (V) e busca do pleno emprego (VIII) são todos da lista — alternativa C. As outras alternativas misturam itens do art. 170 com direitos (herança, mínimo existencial), com a Seguridade Social e com princípios inventados (equidade fiscal, equilíbrio das contas públicas, proteção ao empreendedor).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 170, caput e incisos I, V e VIII",
+     "tipo": "lei",
+     "texto": "A ordem econômica, fundada na valorização do trabalho humano e na livre iniciativa, tem por fim assegurar a todos existência digna, conforme os ditames da justiça social, observados os seguintes princípios:\nI - soberania nacional;\nV - defesa do consumidor;\nVIII - busca do pleno emprego;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-93": {
+   "nota": "O art. 62, § 6º, é literal: passados 45 dias da publicação sem apreciação, a medida provisória entra em regime de urgência, sucessivamente, em cada Casa, e tranca a pauta — alternativa E. Não há aprovação por decurso de prazo (D) nem prorrogação automática nesse prazo (A).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 62, § 6º",
+     "tipo": "lei",
+     "texto": "Se a medida provisória não for apreciada em até quarenta e cinco dias contados de sua publicação, entrará em regime de urgência, subseqüentemente, em cada uma das Casas do Congresso Nacional, ficando sobrestadas, até que se ultime a votação, todas as demais deliberações legislativas da Casa em que estiver tramitando.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-94": {
+   "nota": "Duas teses do STF se somam no caso. No Tema 1.234, firmou-se que, para medicamento fora das políticas do SUS, a União deve integrar o polo passivo, o que leva a demanda à Justiça Federal. No Tema 500 (RE 657.718), o fornecimento de fármaco sem registro na ANVISA é excepcional e exige, cumulativamente, pedido de registro pendente há mais de um ano, registro em agência estrangeira de renome e inexistência de substituto terapêutico registrado. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 196",
+     "tipo": "lei",
+     "texto": "A saúde é direito de todos e dever do Estado, garantido mediante políticas sociais e econômicas que visem à redução do risco de doença e de outros agravos e ao acesso universal e igualitário às ações e serviços para sua promoção, proteção e recuperação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, RE 657.718 (Tema 500) e Tema 1.234",
+     "tipo": "entendimento",
+     "texto": "Tema 500: o Estado não pode ser obrigado a fornecer medicamento sem registro na ANVISA, salvo em caso de mora irrazoável da agência, exigindo-se de forma cumulativa o pedido de registro no Brasil (pendente há mais de um ano), o registro em renomada agência reguladora no exterior e a inexistência de substituto terapêutico registrado; a ação deve ser proposta contra a União. Tema 1.234: nas demandas por medicamento não incorporado às políticas públicas do SUS, a União é litisconsorte necessária, firmando a competência da Justiça Federal."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-95": {
+   "nota": "O STF superou a tese da confusão: como a Defensoria Pública tem autonomia funcional, administrativa e financeira, são devidos honorários sucumbenciais mesmo quando ela litiga contra o ente federativo a que pertence, e a verba vai ao fundo da instituição. Por isso o recurso da Procuradoria não deve ser provido — alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, § 2º",
+     "tipo": "lei",
+     "texto": "Às Defensorias Públicas Estaduais são asseguradas autonomia funcional e administrativa e a iniciativa de sua proposta orçamentária dentro dos limites estabelecidos na lei de diretrizes orçamentárias e subordinação ao disposto no art. 99, § 2º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, honorários sucumbenciais à Defensoria Pública (repercussão geral)",
+     "tipo": "entendimento",
+     "texto": "O STF firmou, em repercussão geral, que são devidos honorários sucumbenciais à Defensoria Pública quando vence demanda contra o ente federativo a que é vinculada, afastando a tese da confusão entre credor e devedor em razão da autonomia funcional, administrativa e financeira da instituição; a verba é recolhida ao fundo da Defensoria."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-96": {
+   "nota": "No MI 7452 (rel. Min. Alexandre de Moraes, fevereiro de 2025), o STF reconheceu omissão legislativa e estendeu as regras protetivas da Lei Maria da Penha a casais homoafetivos masculinos e a mulheres transexuais e travestis — sempre no contexto de relações domésticas, familiares ou de afeto, isto é, intrafamiliares. É a alternativa C; as demais ou retiram a exigência do contexto intrafamiliar ou recortam mal os beneficiados.",
+   "dispositivos": [
+    {
+     "ref": "Lei 11.340/2006, art. 5º",
+     "tipo": "lei",
+     "texto": "Para os efeitos desta Lei, configura violência doméstica e familiar contra a mulher qualquer ação ou omissão baseada no gênero que lhe cause morte, lesão, sofrimento físico, sexual ou psicológico e dano moral ou patrimonial:\nI - no âmbito da unidade doméstica, compreendida como o espaço de convívio permanente de pessoas, com ou sem vínculo familiar, inclusive as esporadicamente agregadas;\nII - no âmbito da família, compreendida como a comunidade formada por indivíduos que são ou se consideram aparentados, unidos por laços naturais, por afinidade ou por vontade expressa;\nIII - em qualquer relação íntima de afeto, na qual o agressor conviva ou tenha convivido com a ofendida, independentemente de coabitação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11340.htm"
+    },
+    {
+     "ref": "STF, MI 7452/DF (rel. Min. Alexandre de Moraes)",
+     "tipo": "entendimento",
+     "texto": "Decisão unânime de fevereiro de 2025: reconhecida a omissão legislativa, as regras protetivas da Lei Maria da Penha aplicam-se a casais homoafetivos masculinos — quando fatores contextuais colocam a vítima em posição de subalternidade na relação — e a mulheres transexuais e travestis, no âmbito das relações domésticas, familiares ou de afeto. A extensão alcança as medidas protetivas e o plano extrapenal, sem criar tipos penais novos."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-97": {
+   "nota": "Cappelletti e Garth agrupam os obstáculos ao acesso à justiça em três: as custas (econômico), a aptidão para reconhecer direitos e propor ação (possibilidades das partes) e os problemas especiais dos interesses difusos — este último é o obstáculo organizacional, justamente a dificuldade de organizar e levar a juízo direitos de grupos e coletividades. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Cappelletti e Garth, Acesso à Justiça",
+     "tipo": "entendimento",
+     "texto": "A obra agrupa as barreiras em custas judiciais e economia de escala das pequenas causas (obstáculo econômico), possibilidades das partes — recursos financeiros, aptidão para reconhecer um direito e litigantes habituais contra eventuais — e os problemas especiais dos interesses difusos, em que a dificuldade está em organizar a coletividade titular do direito e levá-lo a juízo: o obstáculo organizacional."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de doutrina (Cappelletti e Garth), sem fundamento em texto legal."
+  },
+  "fcc-defensorias-98": {
+   "nota": "Direito fundamental heterotópico é o que está fora do lugar: materialmente fundamental, mas escrito fora do catálogo dos arts. 5º a 17 da CF/1988. O meio ambiente é o exemplo clássico — vem no art. 225, no título da ordem social, e se liga à dignidade da pessoa humana e à sadia qualidade de vida. É a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 225, caput",
+     "tipo": "lei",
+     "texto": "Todos têm direito ao meio ambiente ecologicamente equilibrado, bem de uso comum do povo e essencial à sadia qualidade de vida, impondo-se ao Poder Público e à coletividade o dever de defendê-lo e preservá- lo para as presentes e futuras gerações.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Direitos fundamentais heterotópicos",
+     "tipo": "entendimento",
+     "texto": "A doutrina chama heterotópicos os direitos que são materialmente fundamentais mas estão positivados fora do Título II da Constituição (arts. 5º a 17). O art. 5º, § 2º, confirma a abertura do catálogo, ao dizer que os direitos ali enumerados não excluem outros decorrentes do regime e dos princípios adotados pela Constituição."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-99": {
+   "nota": "A Emenda Constitucional 85/2015 desenhou o Sistema Nacional de Ciência, Tecnologia e Inovação no art. 219-B: a União edita as normas gerais por lei federal (§ 1º) e Estados, Distrito Federal e Municípios legislam concorrentemente sobre suas peculiaridades (§ 2º). É a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 219-B, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º Lei federal disporá sobre as normas gerais do SNCTI.\n§ 2º Os Estados, o Distrito Federal e os Municípios legislarão concorrentemente sobre suas peculiaridades.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-100": {
+   "nota": "O direito à alimentação adequada se realiza pela segurança alimentar e nutricional, definida na LOSAN: acesso regular e permanente a alimentos de qualidade, com práticas que respeitem a diversidade cultural e sejam ambiental, cultural, econômica e socialmente sustentáveis — alternativa C, quase palavra por palavra. A alimentação, aliás, tem previsão expressa no art. 6º da CF/1988 (incluída pela EC 64/2010), o que derruba a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Lei 11.346/2006 (LOSAN), art. 3º",
+     "tipo": "lei",
+     "texto": "A segurança alimentar e nutricional consiste na realização do direito de todos ao acesso regular e permanente a alimentos de qualidade, em quantidade suficiente, sem comprometer o acesso a outras necessidades essenciais, tendo como base práticas alimentares promotoras de saúde que respeitem a diversidade cultural e que sejam ambiental, cultural, econômica e socialmente sustentáveis.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2006/Lei/L11346.htm"
+    },
+    {
+     "ref": "CF/1988, art. 6º, caput",
+     "tipo": "lei",
+     "texto": "São direitos sociais a educação, a saúde, a alimentação, o trabalho, a moradia, o transporte, o lazer, a segurança, a previdência social, a proteção à maternidade e à infância, a assistência aos desamparados, na forma desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-101": {
+   "nota": "A Lei 13.352/2016 autorizou o contrato de parceria entre salão-parceiro e profissional-parceiro, e o STF a declarou constitucional (ADI 5625), em nome dos valores sociais do trabalho e da livre iniciativa — ressalvando que a parceria não vale quando estiverem presentes os elementos da relação de emprego. É exatamente a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.352/2016, art. 1º (art. 1º-A da Lei 12.592/2012)",
+     "tipo": "lei",
+     "texto": "Os salões de beleza poderão celebrar contratos de parceria, por escrito, nos termos definidos nesta Lei, com os profissionais que desempenham as atividades de Cabeleireiro, Barbeiro, Esteticista, Manicure, Pedicure, Depilador e Maquiador.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2016/Lei/L13352.htm"
+    },
+    {
+     "ref": "CF/1988, art. 1º, IV",
+     "tipo": "lei",
+     "texto": "A República Federativa do Brasil, formada pela união indissolúvel dos Estados e Municípios e do Distrito Federal, constitui-se em Estado Democrático de Direito e tem como fundamentos:\nIV - os valores sociais do trabalho e da livre iniciativa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, ADI 5625 (Lei do Salão-Parceiro)",
+     "tipo": "entendimento",
+     "texto": "O STF julgou constitucional a Lei 13.352/2016, reconhecendo a validade do contrato de parceria no setor de beleza como expressão dos valores sociais do trabalho e da livre iniciativa, desde que o contrato corresponda à realidade dos fatos e não estejam presentes os elementos caracterizadores da relação de emprego — caso em que incide a CLT."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-102": {
+   "nota": "A decisão posterior do STF não rescinde sozinha as sentenças já transitadas em julgado, mas, em relações jurídicas de trato continuado, faz cessar a eficácia prospectiva da coisa julgada: os efeitos futuros deixam de ser exigíveis. É a tese dos Temas 881 e 885 do STF, e é a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 505, I",
+     "tipo": "lei",
+     "texto": "Nenhum juiz decidirá novamente as questões já decididas relativas à mesma lide, salvo:\nI - se, tratando-se de relação jurídica de trato continuado, sobreveio modificação no estado de fato ou de direito, caso em que poderá a parte pedir a revisão do que foi estatuído na sentença;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "STF, RE 955.227 (Tema 885) e RE 949.297 (Tema 881)",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que a decisão superveniente do Plenário, em controle concentrado ou em recurso extraordinário com repercussão geral, altera o estado de direito e faz cessar automaticamente os efeitos futuros da coisa julgada nas relações jurídicas tributárias de trato continuado, sem necessidade de ação rescisória; o que já se consumou antes permanece."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-103": {
+   "nota": "A escusa de consciência não libera de tudo: o art. 5º, VIII, só protege quem aceita cumprir a prestação alternativa. Daí decorre que a Administração pode e deve fixar critérios alternativos para o cumprimento dos deveres funcionais de quem invoca convicção religiosa — por exemplo, remarcar etapa de concurso ou reorganizar escala. É a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, VIII",
+     "tipo": "lei",
+     "texto": "ninguém será privado de direitos por motivo de crença religiosa ou de convicção filosófica ou política, salvo se as invocar para eximir-se de obrigação legal a todos imposta e recusar-se a cumprir prestação alternativa, fixada em lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, escusa de consciência no serviço público",
+     "tipo": "entendimento",
+     "texto": "O STF admite a adoção de alternativas razoáveis para acomodar a convicção religiosa do servidor ou candidato — inclusive a designação de data alternativa em etapa de concurso público —, desde que não haja ônus desproporcional à Administração nem quebra da isonomia. A escusa não dispensa, por si, da obrigação legal, e não afasta a obrigatoriedade da vacinação constante do Programa Nacional de Imunização."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-104": {
+   "nota": "A autonomia do Judiciário é cláusula de observância obrigatória: o STF reiteradamente declarou inconstitucionais dispositivos de Constituição estadual que criam órgão de controle externo da magistratura com assento de representantes de outros Poderes ou de entidades. É a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 99, caput",
+     "tipo": "lei",
+     "texto": "Ao Poder Judiciário é assegurada autonomia administrativa e financeira.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 2º",
+     "tipo": "lei",
+     "texto": "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, controle externo do Judiciário por norma estadual",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que Constituição estadual não pode instituir órgão de controle administrativo, financeiro ou disciplinar do Poder Judiciário local integrado por representantes de outros Poderes ou de entidades da sociedade civil: a fiscalização externa da magistratura cabe ao Conselho Nacional de Justiça, criado pela própria Constituição Federal."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-105": {
+   "nota": "O art. 58, § 3º, da CF/1988 exige três coisas na criação de CPI: requerimento de um terço dos membros, apuração de fato determinado e prazo certo. Em comissão mista, o terço é de cada Casa — um terço dos Senadores e um terço dos Deputados. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 58, § 3º",
+     "tipo": "lei",
+     "texto": "As comissões parlamentares de inquérito, que terão poderes de investigação próprios das autoridades judiciais, além de outros previstos nos regimentos das respectivas Casas, serão criadas pela Câmara dos Deputados e pelo Senado Federal, em conjunto ou separadamente, mediante requerimento de um terço de seus membros, para a apuração de fato determinado e por prazo certo, sendo suas conclusões, se for o caso, encaminhadas ao Ministério Público, para que promova a responsabilidade civil ou criminal dos infratores.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-106": {
+   "nota": "No HC 70.514 o STF tratou o prazo em dobro da Defensoria no processo penal como caso de \"lei ainda constitucional\" — inconstitucionalidade progressiva: a norma se justifica enquanto a Defensoria não estiver estruturada como o Ministério Público, e perderá fundamento quando essa desigualdade material desaparecer. É a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, caput",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, na forma do inciso LXXIV do art. 5º desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, HC 70.514 (prazo em dobro da Defensoria Pública)",
+     "tipo": "entendimento",
+     "texto": "O STF reputou válido o prazo em dobro para a Defensoria Pública no processo penal como norma \"ainda constitucional\", de inconstitucionalidade progressiva: a diferença de prazo se legitima enquanto a instituição não tiver estrutura e organização equivalentes às do Ministério Público, e deixará de se legitimar quando essa assimetria for superada."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-107": {
+   "nota": "Lewá é migrante com visto permanente, condenada por sentença penal: a medida cabível é a expulsão, retirada compulsória conjugada com impedimento de reingresso, que a Lei de Migração admite diante de condenação transitada em julgado por crime doloso com pena de prisão. Deportação pressupõe irregularidade migratória; repatriação, impedimento na entrada; extradição, pedido de outro Estado; entrega, tribunal internacional.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.445/2017, art. 54, caput e § 1º",
+     "tipo": "lei",
+     "texto": "A expulsão consiste em medida administrativa de retirada compulsória de migrante ou visitante do território nacional, conjugada com o impedimento de reingresso por prazo determinado.\n§ 1º Poderá dar causa à expulsão a condenação com sentença transitada em julgado relativa à prática de:",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2017/Lei/L13445.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-108": {
+   "nota": "A EC 71/2012 criou o Sistema Nacional de Cultura e listou os conselhos de política cultural entre os órgãos que compõem a sua estrutura (art. 216-A, § 2º, II). É a alternativa E; as outras descrevem órgãos inexistentes ou com atribuição trocada.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 216-A, § 2º, I e II",
+     "tipo": "lei",
+     "texto": "Constitui a estrutura do Sistema Nacional de Cultura, nas respectivas esferas da Federação:\nI - órgãos gestores da cultura;\nII - conselhos de política cultural;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-109": {
+   "nota": "O art. 49, V, da CF/1988 só autoriza o Congresso a sustar atos normativos do Poder EXECUTIVO que exorbitem do poder regulamentar ou dos limites da delegação. Não há previsão para decreto legislativo que suste decisão do Judiciário — fazê-lo viola a separação de Poderes. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 49, V",
+     "tipo": "lei",
+     "texto": "É da competência exclusiva do Congresso Nacional:\nV - sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 2º",
+     "tipo": "lei",
+     "texto": "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-110": {
+   "nota": "O STF reconheceu omissão legislativa e, aplicando diretamente a proteção constitucional à infância e a isonomia, assegurou licença de 120 dias ao servidor público que é único genitor de criança gerada por fertilização in vitro com gestação por substituição: o prazo protege a criança, não só a gestante. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 227, caput",
+     "tipo": "lei",
+     "texto": "É dever da família, da sociedade e do Estado assegurar à criança, ao adolescente e ao jovem, com absoluta prioridade, o direito à vida, à saúde, à alimentação, à educação, ao lazer, à profissionalização, à cultura, à dignidade, ao respeito, à liberdade e à convivência familiar e comunitária, além de colocá-los a salvo de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 7º, XVIII",
+     "tipo": "lei",
+     "texto": "licença à gestante, sem prejuízo do emprego e do salário, com a duração de cento e vinte dias;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, licença-maternidade ao genitor monoparental",
+     "tipo": "entendimento",
+     "texto": "O STF reconheceu a omissão legislativa e estendeu a licença de 120 dias ao servidor público que seja genitor monoparental de criança gerada por fertilização in vitro e gestação por substituição, com fundamento na proteção integral da criança (art. 227) e na isonomia: o prazo existe para assegurar os cuidados iniciais à criança, e não apenas para a recuperação da gestante."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-111": {
+   "nota": "A reparação estadual às vítimas da ditadura é autônoma: o pagamento pela União com o mesmo fundamento não impede o recebimento da indenização prevista na lei do Espírito Santo — alternativa D. No plano federal, o reconhecimento das pessoas desaparecidas como mortas é obra da Lei 9.140/1995, e não da lei estadual, o que afasta a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.140/1995, art. 1º",
+     "tipo": "lei",
+     "texto": "São reconhecidos como mortas, para todos os efeitos legais, as pessoas que tenham participado, ou tenham sido acusadas de participação, em atividades políticas, no período de 2 de setembro de 1961 a 5 de outubro de 1988, e que, por este motivo, tenham sido detidas por agentes públicos, achando-se, deste então, desaparecidas, sem que delas haja notícias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9140compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Lei estadual 5.751/1998 do Espírito Santo, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-112": {
+   "nota": "Em 1997 o STF declarou inconstitucional o Conselho Estadual de Justiça criado pela Constituição de Mato Grosso: controle externo da magistratura por órgão estadual com participação estranha ao Judiciário fere a autonomia do Poder Judiciário e não encontra paralelo na Constituição Federal. É a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 99, caput",
+     "tipo": "lei",
+     "texto": "Ao Poder Judiciário é assegurada autonomia administrativa e financeira.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, Conselho Estadual de Justiça de Mato Grosso (1997)",
+     "tipo": "entendimento",
+     "texto": "O STF declarou inconstitucionais os dispositivos da Constituição mato-grossense que instituíam Conselho Estadual de Justiça com poderes de fiscalização sobre o Judiciário local: o controle externo da magistratura não podia ser criado por constituição estadual, por violar a autonomia do Poder Judiciário e por falta de simetria com a Constituição Federal — o Conselho Nacional de Justiça só veio depois, pela EC 45/2004."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-113": {
+   "nota": "A imunidade material do art. 53 cobre opiniões, palavras e votos, e o STF a estende, por simetria, a quem responde de imediato à ofensa do parlamentar — a retorsão imediata do ofendido fica igualmente acobertada. É a alternativa A. A imunidade material afasta responsabilidade civil E penal (o que derruba D) e, quando incide, não é excepcionada por o crime ser de injúria racial (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 53, caput",
+     "tipo": "lei",
+     "texto": "Os Deputados e Senadores são invioláveis, civil e penalmente, por quaisquer de suas opiniões, palavras e votos.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A extensão da imunidade material a quem responde imediatamente à ofensa é construção jurisprudencial; a busca não localizou o julgado em fonte oficial acessível nesta sessão. O texto do art. 53 confirma o alcance civil e penal da imunidade, o que já descarta as alternativas D e E."
+  },
+  "fcc-defensorias-114": {
+   "nota": "A Lei 8.629/1993 é expressa: imóvel objeto de esbulho ou invasão por conflito agrário coletivo não será vistoriado, avaliado nem desapropriado nos dois anos seguintes à desocupação (o dobro em caso de reincidência). A alternativa C reproduz essa regra, inclusive a vedação da simples vistoria.",
+   "dispositivos": [
+    {
+     "ref": "Lei 8.629/1993, art. 2º, § 6º",
+     "tipo": "lei",
+     "texto": "O imóvel rural de domínio público ou particular objeto de esbulho possessório ou invasão motivada por conflito agrário ou fundiário de caráter coletivo não será vistoriado, avaliado ou desapropriado nos dois anos seguintes à sua desocupação, ou no dobro desse prazo, em caso de reincidência; e deverá ser apurada a responsabilidade civil e administrativa de quem concorra com qualquer ato omissivo ou comissivo que propicie o descumprimento dessas vedações.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L8629compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-115": {
+   "nota": "O art. 217, §§ 1º e 2º, da CF/1988 condiciona o acesso ao Judiciário em matéria desportiva ao esgotamento da justiça desportiva, que tem prazo máximo de sessenta dias, da instauração do processo, para decidir. É a alternativa D, literalmente.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 217, §§ 1º e 2º",
+     "tipo": "lei",
+     "texto": "§ 1º O Poder Judiciário só admitirá ações relativas à disciplina e às competições desportivas após esgotarem-se as instâncias da justiça desportiva, regulada em lei.\n§ 2º A justiça desportiva terá o prazo máximo de sessenta dias, contados da instauração do processo, para proferir decisão final.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-116": {
+   "nota": "A Defensoria estadual tem iniciativa da própria proposta orçamentária, dentro dos limites da LDO, e a encaminha nos termos do art. 99, § 2º, da CF/1988 — é a alternativa E. O Executivo não pode reduzir unilateralmente proposta compatível com a LDO (C), e o limite da LDO não se fixa sem a instituição (D).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, § 2º",
+     "tipo": "lei",
+     "texto": "Às Defensorias Públicas Estaduais são asseguradas autonomia funcional e administrativa e a iniciativa de sua proposta orçamentária dentro dos limites estabelecidos na lei de diretrizes orçamentárias e subordinação ao disposto no art. 99, § 2º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 99, § 2º",
+     "tipo": "lei",
+     "texto": "O encaminhamento da proposta, ouvidos os outros tribunais interessados, compete:\nI - no âmbito da União, aos Presidentes do Supremo Tribunal Federal e dos Tribunais Superiores, com a aprovação dos respectivos tribunais;\nII - no âmbito dos Estados e no do Distrito Federal e Territórios, aos Presidentes dos Tribunais de Justiça, com a aprovação dos respectivos tribunais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-117": {
+   "nota": "Saúde é competência comum (art. 23, II) e o STF firmou, no Tema 793, que União, Estados, Distrito Federal e Municípios são solidariamente responsáveis nas demandas prestacionais de saúde — o autor pode escolher contra quem litigar, cabendo ao juiz direcionar o cumprimento conforme as regras de repartição e determinar o ressarcimento a quem suportou o ônus. É a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 23, II",
+     "tipo": "lei",
+     "texto": "É competência comum da União, dos Estados, do Distrito Federal e dos Municípios:\nII - cuidar da saúde e assistência pública, da proteção e garantia das pessoas portadoras de deficiência;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, RE 855.178 (Tema 793)",
+     "tipo": "entendimento",
+     "texto": "Tese: os entes da federação, em decorrência da competência comum, são solidariamente responsáveis nas demandas prestacionais na área da saúde; diante dos critérios constitucionais de descentralização e hierarquização, compete à autoridade judicial direcionar o cumprimento conforme as regras de repartição de competências e determinar o ressarcimento a quem suportou o ônus financeiro."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-118": {
+   "nota": "A Lei dos Planos de Saúde só alcança os contratos firmados a partir de sua vigência e os antigos que tenham sido adaptados; quem optou por manter o plano antigo inalterado não se beneficia das suas regras, inclusive as que vedam exclusão de coberturas. É o art. 35 da Lei 9.656/1998, confirmado pelo STF ao julgar a ADI 1931. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Lei 9.656/1998, art. 35, caput",
+     "tipo": "lei",
+     "texto": "Aplicam-se as disposições desta Lei a todos os contratos celebrados a partir de sua vigência, assegurada aos consumidores com contratos anteriores, bem como àqueles com contratos celebrados entre 2 de setembro de 1998 e 1º de janeiro de 1999, a possibilidade de optar pela adaptação ao sistema previsto nesta Lei.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9656compilado.htm"
+    },
+    {
+     "ref": "STF, ADI 1931",
+     "tipo": "entendimento",
+     "texto": "O STF assentou que a aplicação da Lei 9.656/1998 aos contratos anteriores dependeria de adaptação voluntária, por força da proteção do ato jurídico perfeito: as regras novas, inclusive as de cobertura obrigatória, não incidem sobre os planos antigos mantidos sem alteração."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-119": {
+   "nota": "Dano ambiental gera responsabilidade objetiva pela teoria do risco integral (art. 14, § 1º, da Lei 6.938/1981): o dever de reparar é objetivo, solidário e ilimitado, qualquer que seja o pedido — indenizatório, restaurador ou demolitório —, e o STJ admite a inversão do ônus da prova em favor da vítima quanto aos demais elementos. É a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 225, § 3º",
+     "tipo": "lei",
+     "texto": "As condutas e atividades consideradas lesivas ao meio ambiente sujeitarão os infratores, pessoas físicas ou jurídicas, a sanções penais e administrativas, independentemente da obrigação de reparar os danos causados.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Lei 6.938/1981, art. 14, § 1º",
+     "tipo": "lei",
+     "texto": "Sem obstar a aplicação das penalidades previstas neste artigo, é o poluidor obrigado, independentemente da existência de culpa, a indenizar ou reparar os danos causados ao meio ambiente e a terceiros, afetados por sua atividade.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L6938compilada.htm"
+    },
+    {
+     "ref": "STJ, risco integral e inversão do ônus da prova em dano ambiental",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que a responsabilidade por dano ambiental é objetiva, informada pela teoria do risco integral, solidária e ilimitada, sendo irrelevante a natureza do pedido; aplica-se a inversão do ônus da prova em favor da vítima quanto aos demais elementos da responsabilidade civil (Súmula 618 do STJ: a inversão do ônus da prova aplica-se às ações de degradação ambiental)."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-120": {
+   "nota": "No RE 1.240.999 e na ADI 4.636 o STF declarou inconstitucional exigir inscrição na OAB do defensor público — a capacidade postulatória decorre da nomeação no cargo. A decisão não expulsa ninguém dos quadros: quem já é inscrito pode manter o vínculo se quiser. É a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 4º, § 6º",
+     "tipo": "lei",
+     "texto": "A capacidade postulatória do Defensor Público decorre exclusivamente de sua nomeação e posse no cargo público. (Incluído pela Lei Complementar nº 132, de 2009).",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    },
+    {
+     "ref": "STF, RE 1.240.999 e ADI 4.636",
+     "tipo": "entendimento",
+     "texto": "O STF assentou que a inscrição na OAB não pode ser exigida do defensor público, porque sua capacidade postulatória decorre da investidura no cargo, e facultou a quem já é inscrito manter o vínculo com a Ordem após a posse. A vedação ao exercício da advocacia fora das atribuições institucionais já constava do art. 134, § 1º, da Constituição, e não foi inaugurada por esse julgamento."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-121": {
+   "nota": "O incidente de deslocamento de competência (\"federalização\") tem legitimado único: o Procurador-Geral da República, que o suscita perante o STJ, nas hipóteses de grave violação de direitos humanos. É o art. 109, § 5º, da CF/1988 — alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 109, § 5º",
+     "tipo": "lei",
+     "texto": "Nas hipóteses de grave violação de direitos humanos, o Procurador-Geral da República, com a finalidade de assegurar o cumprimento de obrigações decorrentes de tratados internacionais de direitos humanos dos quais o Brasil seja parte, poderá suscitar, perante o Superior Tribunal de Justiça, em qualquer fase do inquérito ou processo, incidente de deslocamento de competência para a Justiça Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-122": {
+   "nota": "A ação popular é instrumento de exercício da cidadania: o art. 5º, LXXIII, dá legitimidade a \"qualquer cidadão\", isto é, a quem está no gozo dos direitos políticos. Por isso é exercício de direito político — alternativa B. Ação civil pública e mandado de segurança coletivo têm legitimados próprios, sem exigir cidadania.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, LXXIII",
+     "tipo": "lei",
+     "texto": "qualquer cidadão é parte legítima para propor ação popular que vise a anular ato lesivo ao patrimônio público ou de entidade de que o Estado participe, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural, ficando o autor, salvo comprovada má-fé, isento de custas judiciais e do ônus da sucumbência;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-123": {
+   "nota": "O art. 134 da CF/1988 incumbe a Defensoria Pública, \"como expressão e instrumento do regime democrático\", da promoção dos direitos humanos — texto expresso, alternativa A. A prevalência dos direitos humanos é princípio das relações internacionais (art. 4º, II), e não objetivo fundamental da República (o que derruba C); e os tratados aprovados pelo rito do art. 5º, § 3º, são equivalentes a emenda constitucional, não supralegais (derruba B).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, caput",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, na forma do inciso LXXIV do art. 5º desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, § 3º",
+     "tipo": "lei",
+     "texto": "Os tratados e convenções internacionais sobre direitos humanos que forem aprovados, em cada Casa do Congresso Nacional, em dois turnos, por três quintos dos votos dos respectivos membros, serão equivalentes às emendas constitucionais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-124": {
+   "nota": "Desconstitucionalização é o fenômeno em que a Constituição anterior continua em vigor, mas rebaixada: perde a hierarquia constitucional e passa a valer como lei comum. Recepção é a manutenção da legislação infraconstitucional compatível; repristinação é o retorno de norma revogada. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "Desconstitucionalização (teoria da Constituição)",
+     "tipo": "entendimento",
+     "texto": "Na desconstitucionalização, normas da Constituição antiga são recebidas pela nova ordem com status de legislação ordinária, desde que materialmente compatíveis e desde que a nova Constituição o admita expressamente — o que não ocorreu na CF/1988. Difere da recepção (que alcança a legislação infraconstitucional anterior compatível) e da repristinação (retorno da vigência de norma revogada, que o direito brasileiro só admite se expressa)."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de teoria da Constituição: o nome do fenômeno é doutrinário e não vem de texto legal."
+  },
+  "fcc-defensorias-125": {
+   "nota": "O art. 74, § 2º, da CF/1988 dá a qualquer cidadão, partido político, associação ou sindicato legitimidade para denunciar irregularidades ou ilegalidades perante o Tribunal de Contas da União — é a alternativa E, previsão expressa.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 74, § 2º",
+     "tipo": "lei",
+     "texto": "Qualquer cidadão, partido político, associação ou sindicato é parte legítima para, na forma da lei, denunciar irregularidades ou ilegalidades perante o Tribunal de Contas da União.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-126": {
+   "nota": "A Lei 13.300/2016 arrola a Defensoria Pública entre os legitimados ao mandado de injunção coletivo (art. 12, IV), sem prejuízo dos mandados individuais. Já o art. 103 da CF/1988, que lista os legitimados à ADI e à ADO, não inclui a Defensoria Pública. Por isso a alternativa B. A omissão aqui é do art. 245 da CF/1988.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.300/2016, art. 12, IV",
+     "tipo": "lei",
+     "texto": "pela Defensoria Pública, quando a tutela requerida for especialmente relevante para a promoção dos direitos humanos e a defesa dos direitos individuais e coletivos dos necessitados, na forma do inciso LXXIV do art. 5º da Constituição Federal .",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2016/Lei/L13300.htm"
+    },
+    {
+     "ref": "CF/1988, art. 245",
+     "tipo": "lei",
+     "texto": "A lei disporá sobre as hipóteses e condições em que o Poder Público dará assistência aos herdeiros e dependentes carentes de pessoas vitimadas por crime doloso, sem prejuízo da responsabilidade civil do autor do ilícito.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-127": {
+   "nota": "O parágrafo único do art. 7º divide os direitos do trabalhador doméstico em dois blocos: os de aplicação imediata e os que dependem das condições da lei e da simplificação tributária. O aviso prévio proporcional (inciso XXI) está no primeiro bloco; seguro-desemprego (II), FGTS (III), adicional noturno (IX) e seguro contra acidentes (XXVIII) estão no segundo. Daí a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 7º, parágrafo único",
+     "tipo": "lei",
+     "texto": "São assegurados à categoria dos trabalhadores domésticos os direitos previstos nos incisos IV, VI, VII, VIII, X, XIII, XV, XVI, XVII, XVIII, XIX, XXI, XXII, XXIV, XXVI, XXX, XXXI e XXXIII e, atendidas as condições estabelecidas em lei e observada a simplificação do cumprimento das obrigações tributárias, principais e acessórias, decorrentes da relação de trabalho e suas peculiaridades, os previstos nos incisos I, II, III, IX, XII, XXV e XXVIII, bem como a sua integração à previdência social.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 7º, XXI",
+     "tipo": "lei",
+     "texto": "aviso prévio proporcional ao tempo de serviço, sendo no mínimo de trinta dias, nos termos da lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-128": {
+   "nota": "O art. 212, § 5º, da CF/1988 é expresso: a educação básica pública tem como fonte adicional de financiamento a contribuição social do salário-educação, recolhida pelas empresas. Educação básica compreende a educação especial, o que valida a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 212, § 5º",
+     "tipo": "lei",
+     "texto": "A educação básica pública terá como fonte adicional de financiamento a contribuição social do salário-educação, recolhida pelas empresas na forma da lei.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-129": {
+   "nota": "O Ministério Público de Contas atua junto ao Tribunal de Contas e não tem iniciativa legislativa própria: quem propõe a lei de organização da sua carreira é o Tribunal de Contas, que detém iniciativa quanto à organização dos seus serviços auxiliares (art. 73, caput, c/c art. 96, II, da CF/1988). Daí a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 130",
+     "tipo": "lei",
+     "texto": "Aos membros do Ministério Público junto aos Tribunais de Contas aplicam-se as disposições desta seção pertinentes a direitos, vedações e forma de investidura.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 96, II, b",
+     "tipo": "lei",
+     "texto": "II - ao Supremo Tribunal Federal, aos Tribunais Superiores e aos Tribunais de Justiça propor ao Poder Legislativo respectivo, observado o disposto no art. 169:\nb) a criação e a extinção de cargos e a remuneração dos seus serviços auxiliares e dos juízos que lhes forem vinculados, bem como a fixação do subsídio de seus membros e dos juízes, inclusive dos tribunais inferiores, onde houver;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A iniciativa concreta vem da Constituição e da legislação do Estado de Mato Grosso, não conferíveis nas fontes acessíveis desta sessão; os dispositivos federais mostram que o Ministério Público de Contas não tem iniciativa própria e atua junto ao Tribunal de Contas. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-130": {
+   "nota": "A diretriz do SUS violada é a descentralização com direção única em cada esfera de governo (art. 198, I): criar uma secretaria estadual só para vigilância em saúde, com o mesmo status da secretaria de saúde, fraciona a direção única no âmbito do Estado. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 198, I",
+     "tipo": "lei",
+     "texto": "descentralização, com direção única em cada esfera de governo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-131": {
+   "nota": "O art. 146, II, da CF/1988 reserva à lei complementar a regulação das limitações constitucionais ao poder de tributar — alternativa D. As limitações em si (as imunidades, por exemplo) estão na Constituição; quem as regula é a lei complementar.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 146, II",
+     "tipo": "lei",
+     "texto": "Cabe à lei complementar:\nII - regular as limitações constitucionais ao poder de tributar;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-132": {
+   "nota": "A EC 45/2004 trouxe para a Defensoria a autonomia funcional e administrativa e a iniciativa da proposta orçamentária (art. 134, § 2º) e, no art. 168, incluiu a Defensoria Pública entre os órgãos que recebem suas dotações em duodécimos, até o dia 20 de cada mês — alternativa C. Os princípios institucionais (art. 134, § 4º) e a seção própria vieram com a EC 80/2014, o que afasta A e E; não há Conselho Nacional da Defensoria Pública na Constituição (B).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 168, caput",
+     "tipo": "lei",
+     "texto": "Os recursos correspondentes às dotações orçamentárias, compreendidos os créditos suplementares e especiais, destinados aos órgãos dos Poderes Legislativo e Judiciário, do Ministério Público e da Defensoria Pública, ser-lhes-ão entregues até o dia 20 de cada mês, em duodécimos, na forma da lei complementar a que se refere o art. 165, § 9º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 134, § 4º",
+     "tipo": "lei",
+     "texto": "São princípios institucionais da Defensoria Pública a unidade, a indivisibilidade e a independência funcional, aplicando-se também, no que couber, o disposto no art. 93 e no inciso II do art. 96 desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-133": {
+   "nota": "A apreciação conclusiva (ou terminativa) das comissões vem do art. 58, § 2º, I, da CF/1988: a comissão discute e vota o projeto dispensando a competência do Plenário, salvo recurso de um décimo dos membros da Casa. É a alternativa A; as demais nomeiam formas inexistentes.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 58, § 2º, I",
+     "tipo": "lei",
+     "texto": "Às comissões, em razão da matéria de sua competência, cabe:\nI - discutir e votar projeto de lei que dispensar, na forma do regimento, a competência do Plenário, salvo se houver recurso de um décimo dos membros da Casa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-134": {
+   "nota": "O art. 105, I, b, dá ao STJ competência originária para mandado de segurança e habeas data contra ato de Ministro de Estado, dos Comandantes das Forças Armadas ou do próprio Tribunal. Contra TCU, chefe de missão diplomática, PGR e Presidente do Senado, a competência é do STF (art. 102, I, d). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 105, I, b",
+     "tipo": "lei",
+     "texto": "Compete ao Superior Tribunal de Justiça:\nI - processar e julgar, originariamente:\nb) os mandados de segurança e os habeas data contra ato de Ministro de Estado, dos Comandantes da Marinha, do Exército e da Aeronáutica ou do próprio Tribunal;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-135": {
+   "nota": "Não existe habeas data coletivo: nem o art. 5º, LXXII, da CF/1988 nem a Lei 9.507/1997 o preveem. O writ protege informação relativa à pessoa do impetrante, o que é incompatível com a tutela coletiva. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, LXXII",
+     "tipo": "lei",
+     "texto": "conceder-se-á habeas data:\na) para assegurar o conhecimento de informações relativas à pessoa do impetrante, constantes de registros ou bancos de dados de entidades governamentais ou de caráter público;\nb) para a retificação de dados, quando não se prefira fazê-lo por processo sigiloso, judicial ou administrativo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Lei 9.507/1997, art. 7º",
+     "tipo": "lei",
+     "texto": "Conceder-se-á habeas data:\nI - para assegurar o conhecimento de informações relativas à pessoa do impetrante, constantes de registro ou banco de dados de entidades governamentais ou de caráter público;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9507.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-136": {
+   "nota": "O art. 215, § 1º, da CF/1988 é expresso: o Estado protegerá as manifestações das culturas populares, indígenas e afro-brasileiras, e das de outros grupos participantes do processo civilizatório nacional — alternativa B. O racismo é crime inafiançável e imprescritível, mas a Constituição não o declara insuscetível de graça ou anistia (art. 5º, XLII), o que derruba A; e o tombamento dos sítios de quilombos é previsão do art. 216, § 5º, sem a concessão de uso que a alternativa C acrescenta.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 215, § 1º",
+     "tipo": "lei",
+     "texto": "O Estado protegerá as manifestações das culturas populares, indígenas e afro-brasileiras, e das de outros grupos participantes do processo civilizatório nacional.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, XLII",
+     "tipo": "lei",
+     "texto": "a prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-137": {
+   "nota": "O art. 98, II, da CF/1988 descreve a justiça de paz: remunerada, composta de cidadãos eleitos pelo voto direto, universal e secreto, com mandato de quatro anos, competente para celebrar casamentos, verificar o processo de habilitação e exercer atribuições conciliatórias, sem caráter jurisdicional. A alternativa C reproduz esse núcleo; a A erra o mandato e exige formação jurídica, e a D fala de união estável, que não está no texto.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 98, II",
+     "tipo": "lei",
+     "texto": "justiça de paz, remunerada, composta de cidadãos eleitos pelo voto direto, universal e secreto, com mandato de quatro anos e competência para, na forma da lei, celebrar casamentos, verificar, de ofício ou em face de impugnação apresentada, o processo de habilitação e exercer atribuições conciliatórias, sem caráter jurisdicional, além de outras previstas na legislação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-138": {
+   "nota": "Dois incisos do art. 7º abrem expressamente espaço para a negociação coletiva: o VI (irredutibilidade do salário, \"salvo o disposto em convenção ou acordo coletivo\") e o XIV (jornada de seis horas em turnos ininterruptos de revezamento, \"salvo negociação coletiva\"). É a alternativa B. O XIII admite compensação e redução de jornada por acordo, mas o FGTS, que a alternativa A junta, não é negociável.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 7º, VI",
+     "tipo": "lei",
+     "texto": "irredutibilidade do salário, salvo o disposto em convenção ou acordo coletivo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 7º, XIV",
+     "tipo": "lei",
+     "texto": "jornada de seis horas para o trabalho realizado em turnos ininterruptos de revezamento, salvo negociação coletiva;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-139": {
+   "nota": "As limitações expressas ao poder de reforma são três: circunstanciais (art. 60, § 1º — nada de emenda na vigência de intervenção federal, estado de defesa ou de sítio), materiais (art. 60, § 4º — as cláusulas pétreas) e formais ou procedimentais (art. 60, I a III e § 2º — iniciativa, dois turnos, três quintos). Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 60, § 1º",
+     "tipo": "lei",
+     "texto": "A Constituição não poderá ser emendada na vigência de intervenção federal, de estado de defesa ou de estado de sítio.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 60, § 4º",
+     "tipo": "lei",
+     "texto": "Não será objeto de deliberação a proposta de emenda tendente a abolir:\nI - a forma federativa de Estado;\nII - o voto direto, secreto, universal e periódico;\nIII - a separação dos Poderes;\nIV - os direitos e garantias individuais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 60, § 2º",
+     "tipo": "lei",
+     "texto": "A proposta será discutida e votada em cada Casa do Congresso Nacional, em dois turnos, considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos respectivos membros.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-140": {
+   "nota": "Mutação constitucional é a mudança de sentido da norma sem alteração do texto: o mesmo enunciado passa a significar outra coisa por força da realidade social e da interpretação. Reforma e revisão alteram o texto; interpretação é o método, não o fenômeno. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Mutação constitucional (teoria da Constituição)",
+     "tipo": "entendimento",
+     "texto": "A doutrina chama mutação constitucional o processo informal de mudança do significado da norma constitucional, sem alteração do texto, operado pela interpretação dos tribunais, pela prática dos Poderes e pela transformação da realidade social. Opõe-se à reforma, que é processo formal regido pelo art. 60 da Constituição."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de teoria da Constituição: o nome do fenômeno é doutrinário e não vem de texto legal."
+  },
+  "fcc-defensorias-141": {
+   "nota": "O poder constituinte derivado reformador é o que altera o texto da Constituição pelo processo de emenda do art. 60 — amplia ou modifica o texto, nos limites das cláusulas pétreas. É a alternativa E. O poder decorrente é o que dá aos Estados sua Constituição (D), e o revisor, previsto no art. 3º do ADCT, é que estava preso a prazo (B e C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 60, caput",
+     "tipo": "lei",
+     "texto": "A Constituição poderá ser emendada mediante proposta:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 25, caput",
+     "tipo": "lei",
+     "texto": "Os Estados organizam-se e regem-se pelas Constituições e leis que adotarem, observados os princípios desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-142": {
+   "nota": "O instrumento é o decreto legislativo: o art. 49, V, dá ao Congresso Nacional competência exclusiva para sustar atos normativos do Executivo que exorbitem do poder regulamentar ou dos limites da delegação, e as matérias de competência exclusiva do Congresso se veiculam por decreto legislativo. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 49, V",
+     "tipo": "lei",
+     "texto": "É da competência exclusiva do Congresso Nacional:\nV - sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 59, VI",
+     "tipo": "lei",
+     "texto": "O processo legislativo compreende a elaboração de:\nVI - decretos legislativos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-143": {
+   "nota": "A alternativa A reproduz o art. 74, § 2º, da CF/1988. As outras erram os números e os titulares: o TCU tem nove Ministros (art. 73, caput), o Congresso escolhe dois terços deles (art. 73, § 2º, II), a aprovação prévia dos indicados pelo Presidente é do Senado (art. 52, III, b) e os Ministros do TCU têm as garantias e vantagens dos Ministros do STJ, não do STF (art. 73, § 3º).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 74, § 2º",
+     "tipo": "lei",
+     "texto": "Qualquer cidadão, partido político, associação ou sindicato é parte legítima para, na forma da lei, denunciar irregularidades ou ilegalidades perante o Tribunal de Contas da União.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 73, caput",
+     "tipo": "lei",
+     "texto": "O Tribunal de Contas da União, integrado por nove Ministros, tem sede no Distrito Federal, quadro próprio de pessoal e jurisdição em todo o território nacional, exercendo, no que couber, as atribuições previstas no art. 96.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-307": {
+   "nota": "A LEP dá à Defensoria Pública, de forma expressa, a visita periódica aos estabelecimentos penais, as providências para apurar responsabilidade e o pedido de interdição do local — exatamente o que descreve a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 81-B, V e VI",
+     "tipo": "lei",
+     "texto": "Incumbe, ainda, à Defensoria Pública:\nV - visitar os estabelecimentos penais, tomando providências para o adequado funcionamento, e requerer, quando for o caso, a apuração de responsabilidade;\nVI - requerer à autoridade competente a interdição, no todo ou em parte, de estabelecimento penal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 81-B, parágrafo único",
+     "tipo": "lei",
+     "texto": "O órgão da Defensoria Pública visitará periodicamente os estabelecimentos penais, registrando a sua presença em livro próprio.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-309": {
+   "nota": "A compensação penal nasceu da ideia de pena ilícita: o tempo cumprido em condições desumanas excede o que a condenação autoriza e gera dever estatal de reparar. A Corte Interamericana aplicou a tese ao caso brasileiro do Instituto Penal Plácido de Sá Carvalho (2018), mandando computar em dobro o tempo cumprido ali. Isso afasta as alternativas B, C, D e E e sustenta a A.",
+   "dispositivos": [
+    {
+     "ref": "Corte IDH, Instituto Penal Plácido de Sá Carvalho, resoluções de 22 e 28/11/2018",
+     "tipo": "entendimento",
+     "texto": "A Corte Interamericana reconheceu que a pena cumprida em superlotação e em condições degradantes impõe sofrimento antijurídico que vai além da privação de liberdade e, por isso, deve ser compensada com a redução do tempo de encarceramento — no caso, o cômputo em dobro do tempo cumprido no Instituto Penal Plácido de Sá Carvalho."
+    },
+    {
+     "ref": "Compensação penal: construção teórica",
+     "tipo": "entendimento",
+     "texto": "A tese é construção doutrinária de matriz crítica (pena ilícita e dever estatal de reparar), sem previsão expressa na Lei de Execução Penal — por isso a alternativa E está errada. A Corte IDH também já havia tratado de condições degradantes em outros casos brasileiros, como o do Complexo Penitenciário de Curado, o que afasta a alternativa D."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O gabarito oficial é a alternativa A. A ligação da compensação penal especificamente com a Criminologia Crítica é posição doutrinária: a busca confirmou a origem da tese no conceito de pena ilícita e a aplicação pela Corte IDH, mas não localizou fonte oficial que a atribua àquela escola. Questão sem base em lei."
+  },
+  "fcc-defensorias-310": {
+   "nota": "Falta grave é conduta do condenado que está cumprindo pena privativa de liberdade (LEP, art. 50). Quem está em livramento condicional cumpre a pena fora do cárcere, então o crime praticado no período de prova não vira falta grave: a consequência é a suspensão e a eventual revogação do benefício (CP, arts. 86 a 88). Daí a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 50, caput",
+     "tipo": "lei",
+     "texto": "Comete falta grave o condenado à pena privativa de liberdade que:",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "CP, art. 86, I",
+     "tipo": "lei",
+     "texto": "Revoga-se o livramento, se o liberado vem a ser condenado a pena privativa de liberdade, em sentença irrecorrível:\nI - por crime cometido durante a vigência do benefício;",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "CP, art. 88",
+     "tipo": "lei",
+     "texto": "Revogado o livramento, não poderá ser novamente concedido, e, salvo quando a revogação resulta de condenação por outro crime anterior àquele benefício, não se desconta na pena o tempo em que esteve solto o condenado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    },
+    {
+     "ref": "STJ, execução penal",
+     "tipo": "entendimento",
+     "texto": "O STJ firmou que o crime praticado durante o período de prova do livramento condicional não configura falta disciplinar grave, porque o benefício é cumprido fora do sistema prisional. Por isso não incidem os efeitos próprios da falta grave — perda de dias remidos, regressão e interrupção do prazo para novos benefícios —, mas apenas a suspensão e a eventual revogação do livramento."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-311": {
+   "nota": "A publicação dos relatórios de inspeção é regra expressa do Sistema Nacional de Prevenção e Combate à Tortura: o MNPCT publica os relatórios das visitas e o relatório anual e promove a difusão deles — o que confirma a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 12.847/2013, art. 9º, IV, V e VII",
+     "tipo": "lei",
+     "texto": "Compete ao MNPCT:\nIV - elaborar relatório circunstanciado de cada visita realizada nos termos do inciso I e, no prazo máximo de 30 (trinta) dias, apresentá-lo ao CNPCT, à Procuradoria-Geral da República e às autoridades responsáveis pela detenção e outras autoridades competentes;\nV - elaborar, anualmente, relatório circunstanciado e sistematizado sobre o conjunto de visitas realizadas e recomendações formuladas […];\nVII - publicar os relatórios de visitas periódicas e regulares realizadas e o relatório anual e promover a difusão deles;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12847.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-375": {
+   "nota": "Receber presente de quem tem interesse em decisão do agente público é hipótese expressa de conflito de interesses, e é assim que a Resolução 018/2023/DPG da DPE-MT trata o tema. A norma estadual se espelha na Lei 12.813/2013, que define o conflito e arrola exatamente essa conduta.",
+   "dispositivos": [
+    {
+     "ref": "Lei 12.813/2013, art. 3º, I",
+     "tipo": "lei",
+     "texto": "Para os fins desta Lei, considera-se:\nI - conflito de interesses: a situação gerada pelo confronto entre interesses públicos e privados, que possa comprometer o interesse coletivo ou influenciar, de maneira imprópria, o desempenho da função pública; e",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12813.htm"
+    },
+    {
+     "ref": "Lei 12.813/2013, art. 5º, VI",
+     "tipo": "lei",
+     "texto": "Configura conflito de interesses no exercício de cargo ou emprego no âmbito do Poder Executivo federal:\nVI - receber presente de quem tenha interesse em decisão do agente público ou de colegiado do qual este participe fora dos limites e condições estabelecidos em regulamento; e",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2011-2014/2013/Lei/L12813.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão sobre norma interna da Defensoria Pública de Mato Grosso (Resolução 018/2023/DPG), que não está no Portal da Legislação e não foi possível conferir nas fontes acessíveis desta sessão. A fundamentação traz o modelo federal em que a norma estadual se espelha. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-376": {
+   "nota": "O SOLAR é o sistema finalístico da DPE-MT: cadastro de usuários, registro de atendimentos, prática de atos processuais, petições, atividades judiciais e extrajudiciais, relatórios e controle de dados — por isso a alternativa B. As demais restringem indevidamente o alcance do sistema.",
+   "dispositivos": [
+    {
+     "ref": "Resolução Conjunta 009/2023/DPG/CG (DPE-MT)",
+     "tipo": "entendimento",
+     "texto": "A resolução institui o SOLAR como sistema finalístico padrão da Defensoria Pública de Mato Grosso, abrangendo o processamento de informações, a prática de atos processuais, o registro dos atendimentos, a geração de relatórios e o controle de dados, com cadastro dos usuários e registro de petições e atividades judiciais e extrajudiciais."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública de Mato Grosso: não está no Portal da Legislação e não foi possível conferir o texto nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-377": {
+   "nota": "Transversalidade é o nome que se dá à integração de um tema a todas as políticas e dimensões de uma organização, em vez de confiná-lo a um setor. É nesse sentido que a Resolução 16/2023/DPG da DPE-MT usa o termo ao tratar do enfrentamento do assédio moral e sexual.",
+   "dispositivos": [
+    {
+     "ref": "Resolução 16/2023/DPG (DPE-MT)",
+     "tipo": "entendimento",
+     "texto": "A política de prevenção e enfrentamento do assédio moral e sexual da DPE-MT chama de transversalidade a integração dos conhecimentos e diretrizes sobre o tema ao conjunto das políticas estratégicas institucionais, de modo a garantir sua implementação em todas as dimensões da organização."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública de Mato Grosso, não conferível nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-378": {
+   "nota": "A Resolução AG/RES 2656 (XLI-O/11) — \"Garantias para o acesso à justiça: o papel dos defensores públicos oficiais\" — foi aprovada pela Assembleia Geral da OEA em 7 de junho de 2011, em San Salvador, e é o marco interamericano que trata o acesso à justiça como direito e recomenda o modelo público de Defensoria, com autonomia e independência funcional.",
+   "dispositivos": [
+    {
+     "ref": "OEA, AG/RES 2656 (XLI-O/11)",
+     "tipo": "entendimento",
+     "texto": "Aprovada na quarta sessão plenária da Assembleia Geral da OEA, em 7 de junho de 2011 (41ª sessão ordinária, San Salvador), sob o título \"Garantías para el acceso a la justicia: el rol de los defensores públicos oficiales\". Recomenda aos Estados membros a adoção do modelo público de Defensoria, com autonomia funcional e financeira, apoia a capacitação dos defensores e a instalação do serviço onde ainda não exista, o que afasta as alternativas A, B e E. A Resolução AG/RES 2714 (XLII-O/12) dá seguimento aos seus mandatos."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A afirmação do gabarito de que esta foi a \"primeira\" norma da OEA a tratar o acesso à justiça como direito autônomo não foi confirmada em fonte oficial: as buscas confirmam o conteúdo, a data e a importância da resolução, mas não essa precedência. É a alternativa menos incorreta."
+  },
+  "fcc-defensorias-379": {
+   "nota": "A LC 80/1994 fixa o desenho nacional: administração superior é Defensoria Pública-Geral, Subdefensoria, Conselho Superior e Corregedoria-Geral; os Núcleos são órgãos de atuação e a Ouvidoria-Geral é órgão auxiliar. Os estados podem desdobrar a Corregedoria-Geral em Subcorregedorias-Gerais, que seguem a natureza do órgão de origem — daí a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 98",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública dos Estados compreende:\nI - órgãos de administração superior:\na) a Defensoria Pública-Geral do Estado;\nb) a Subdefensoria Pública-Geral do Estado;\nc) o Conselho Superior da Defensoria Pública do Estado;\nd) a Corregedoria-Geral da Defensoria Pública do Estado;\nII - órgãos de atuação:\na) as Defensorias Públicas do Estado;\nb) os Núcleos da Defensoria Pública do Estado;\nIII - órgãos de execução:\na) os Defensores Públicos do Estado.\nIV – órgão auxiliar: Ouvidoria-Geral da Defensoria Pública do Estado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A composição exata dos órgãos de administração superior da DPE-MT vem da lei complementar daquele estado, não conferível nas fontes acessíveis desta sessão; o art. 98 da LC 80/1994 é o parâmetro nacional, que já descarta as alternativas A, C, D e E."
+  },
+  "fcc-defensorias-380": {
+   "nota": "A diretriz apontada pelo gabarito é evitar palavras estrangeiras: linguagem simples quer o termo em português e de uso comum, no lugar do estrangeirismo. As outras alternativas enunciam objetivos ou princípios da política, não a diretriz cobrada.",
+   "dispositivos": [
+    {
+     "ref": "Resolução 009/2024/DPG (DPE-MT)",
+     "tipo": "entendimento",
+     "texto": "A resolução que institui a política de linguagem simples na DPE-MT lista entre suas diretrizes evitar o uso de palavras estrangeiras nos atos e comunicações da instituição."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública de Mato Grosso, não conferível nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-381": {
+   "nota": "A Constituição de Mato Grosso trata o Pantanal como objeto de ação conjunta com Mato Grosso do Sul — o bioma é dividido entre os dois estados —, para preservá-lo e preservar seus recursos naturais: é a alternativa D. O parâmetro federal é o art. 225, § 4º, da CF/1988, que declara o Pantanal Mato-Grossense patrimônio nacional, e não estadual, o que afasta a alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 225, § 4º",
+     "tipo": "lei",
+     "texto": "A Floresta Amazônica brasileira, a Mata Atlântica, a Serra do Mar, o Pantanal Mato-Grossense e a Zona Costeira são patrimônio nacional, e sua utilização far-se-á, na forma da lei, dentro de condições que assegurem a preservação do meio ambiente, inclusive quanto ao uso dos recursos naturais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado de Mato Grosso, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-382": {
+   "nota": "O requisito acrescido ao Estatuto baiano em 2018 veda o ingresso de quem foi condenado por feminicídio ou por crime contra mulher em violência doméstica e familiar; a exceção legal é a extinção da punibilidade (alternativa C). As demais alternativas inventam limites que a norma não traz. No plano federal, a mesma lógica aparece na Lei 8.112/1990, que exige quitação com as obrigações legais e aptidão para o cargo.",
+   "dispositivos": [
+    {
+     "ref": "Lei 8.112/1990, art. 5º",
+     "tipo": "lei",
+     "texto": "São requisitos básicos para investidura em cargo público:\nI - a nacionalidade brasileira;\nII - o gozo dos direitos políticos;\nIII - a quitação com as obrigações militares e eleitorais;\nIV - o nível de escolaridade exigido para o exercício do cargo;\nV - a idade mínima de dezoito anos;\nVI - aptidão física e mental.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L8112compilado.htm"
+    },
+    {
+     "ref": "Lei 6.677/1994 (Estatuto dos Servidores do Estado da Bahia)",
+     "tipo": "entendimento",
+     "texto": "O dispositivo acrescido em 2018 inclui entre os requisitos básicos para ingresso no serviço público estadual a não condenação, em decisão transitada em julgado ou proferida por órgão colegiado, pela prática ou concurso em feminicídio ou em crime contra mulher em situação de violência doméstica e familiar, ressalvada a hipótese de extinção da punibilidade."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é de lei estadual da Bahia, que não está no Portal da Legislação federal e não foi possível conferir nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-383": {
+   "nota": "A Constituição do Espírito Santo dá aos membros da Defensoria Pública foro no Tribunal de Justiça do Estado, sem condicionar a nenhuma autorização da Assembleia Legislativa — alternativa E. A Corregedoria-Geral, na LC 80/1994, é órgão de correição e inspeção funcional: não julga crime.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 105, I e V",
+     "tipo": "lei",
+     "texto": "À Corregedoria-Geral da Defensoria Pública do Estado compete:\nI - realizar correições e inspeções funcionais;\nV - receber e processar as representações contra os membros da Defensoria Pública do Estado, encaminhado­as, com parecer, ao Conselho Superior;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado do Espírito Santo, que não foi possível conferir nas fontes acessíveis desta sessão. A fundamentação mostra que a Corregedoria-Geral tem função correicional, e não jurisdicional, o que descarta as alternativas B, C e D. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-384": {
+   "nota": "No capítulo da Segurança Pública, a Constituição paulista manda a legislação penitenciária estadual assegurar defesa técnica ao preso nas infrações disciplinares e respeitar as Regras Mínimas da ONU para o Tratamento de Reclusos (hoje Regras de Mandela) — alternativa A. A LEP e a CF/1988 dão o mesmo parâmetro no plano nacional: a falta disciplinar exige procedimento com direito de defesa e decisão motivada.",
+   "dispositivos": [
+    {
+     "ref": "LEP (Lei 7.210/1984), art. 59",
+     "tipo": "lei",
+     "texto": "Praticada a falta disciplinar, deverá ser instaurado o procedimento para sua apuração, conforme regulamento, assegurado o direito de defesa.\nParágrafo único. A decisão será motivada.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L7210compilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LV",
+     "tipo": "lei",
+     "texto": "aos litigantes, em processo judicial ou administrativo, e aos acusados em geral são assegurados o contraditório e ampla defesa, com os meios e recursos a ela inerentes;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado de São Paulo, que não está no Portal da Legislação federal e não foi possível conferir na Assembleia Legislativa nas fontes acessíveis desta sessão. A fundamentação traz o parâmetro federal equivalente."
+  },
+  "fcc-defensorias-385": {
+   "nota": "A Constituição paulista determina que o atendimento médico para o aborto nos casos em que a lei penal exclui a ilicitude seja feito pela rede pública, com corpo clínico especializado — alternativa E. O parâmetro federal é o art. 128 do Código Penal, que define essas hipóteses.",
+   "dispositivos": [
+    {
+     "ref": "CP, art. 128",
+     "tipo": "lei",
+     "texto": "Não se pune o aborto praticado por médico:\nI - se não há outro meio de salvar a vida da gestante;\nII - se a gravidez resulta de estupro e o aborto é precedido de consentimento da gestante ou, quando incapaz, de seu representante legal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/Decreto-Lei/Del2848compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O dispositivo cobrado é da Constituição do Estado de São Paulo, não conferível nas fontes acessíveis desta sessão; a fundamentação traz o art. 128 do Código Penal, que define os casos de aborto legal a que a norma estadual remete."
+  },
+  "fcc-defensorias-386": {
+   "nota": "Questão de leitura, não de direito: o trecho mostra o autor expondo e criticando um discurso (\"eleito pelo 'discurso do Norte'\", \"adquire uma conotação pejorativa\", \"estigma\") — ele descreve a construção depreciativa do cangaço, não a endossa. Daí a alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Interpretação de texto (Albuquerque Júnior, A invenção do Nordeste, p. 74)",
+     "tipo": "entendimento",
+     "texto": "O autor atribui a conotação pejorativa a um discurso (\"o discurso do Norte\") e a nomeia como estigma, marcando distância crítica. As alternativas A, B, C e E imputam ao autor as teses que ele apresenta como construção de terceiros."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de interpretação de texto, sem fundamento legal. Veio classificada no banco como Princípios Institucionais da Defensoria › Legislação Estadual pela origem da prova (DPE-BA 2021), mas o tema é leitura."
+  },
+  "fcc-defensorias-387": {
+   "nota": "Questão de história, não de direito. A Revolta dos Malês (Salvador, 1835) foi levante de africanos muçulmanos — sobretudo nagôs e hauçás — e revela laços étnicos e religiosos que serviram de base à organização contra a escravidão: alternativa E. A B erra ao dizer que o islamismo era a religião hegemônica na Bahia; a D, ao dizer que a revolta revogou a obrigação de usar chapa de identificação.",
+   "dispositivos": [
+    {
+     "ref": "Revolta dos Malês (Salvador, 1835)",
+     "tipo": "entendimento",
+     "texto": "A historiografia descreve o levante como articulação de africanos islamizados, com protagonismo de nagôs e hauçás, em que a solidariedade étnica e religiosa funcionou como elemento aglutinador do desafio ao sistema escravista. O islamismo era religião de minoria entre os africanos na Bahia, e a revolta foi reprimida, sem conquistas normativas para os escravizados urbanos."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de história, sem fundamento legal. Veio classificada no banco como Princípios Institucionais da Defensoria › Legislação Estadual pela origem da prova (DPE-BA 2021)."
+  },
+  "fcc-defensorias-388": {
+   "nota": "O Curso de Preparação à Carreira mede o aproveitamento pela atividade-fim do cargo, e atender usuários e usuárias da Defensoria é o indicador apontado pela Resolução 04/2020 do Conselho Superior da DPE-BA — alternativa C. As demais descrevem produtos acessórios (relatório semanal, artigo, palestra, visita), não o indicador da norma.",
+   "dispositivos": [
+    {
+     "ref": "Resolução 04/2020 (Conselho Superior da DPE-BA)",
+     "tipo": "entendimento",
+     "texto": "A resolução arrola, entre os indicadores de aproveitamento satisfatório no Curso de Preparação à Carreira, o atendimento aos usuários e às usuárias da Defensoria Pública."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Norma interna da Defensoria Pública da Bahia, não conferível nas fontes acessíveis desta sessão. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-389": {
+   "nota": "A LC estadual 26/2006 da Bahia organiza a Defensoria em três blocos — Órgãos da Administração Superior, Órgãos de Execução e Órgãos Auxiliares (alternativa D). As outras alternativas listam órgãos específicos (Defensoria Pública-Geral, Corregedoria, Escola Superior) como se fossem blocos da estrutura. O molde é o art. 98 da LC 80/1994, que também separa a Defensoria em administração superior, atuação, execução e órgão auxiliar.",
+   "dispositivos": [
+    {
+     "ref": "LC 80/1994, art. 98",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública dos Estados compreende:\nI - órgãos de administração superior:\na) a Defensoria Pública-Geral do Estado;\nb) a Subdefensoria Pública-Geral do Estado;\nc) o Conselho Superior da Defensoria Pública do Estado;\nd) a Corregedoria-Geral da Defensoria Pública do Estado;\nII - órgãos de atuação:\na) as Defensorias Públicas do Estado;\nb) os Núcleos da Defensoria Pública do Estado;\nIII - órgãos de execução:\na) os Defensores Públicos do Estado.\nIV – órgão auxiliar: Ouvidoria-Geral da Defensoria Pública do Estado.",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/LCP/Lcp80.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A estrutura cobrada é da Lei Complementar estadual 26/2006 da Bahia, não conferível nas fontes acessíveis desta sessão; o art. 98 da LC 80/1994 é o parâmetro nacional. Não é matéria da prova da DPE-SP."
+  }
+ }
+}
