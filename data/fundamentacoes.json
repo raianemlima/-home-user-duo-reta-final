@@ -1,6 +1,173 @@
 {
  "schema": 1,
  "itens": {
+  "dpesp-2025-propria-1": {
+   "nota": "A eficiência é princípio expresso do art. 37, caput, da CF/1988 e não dispensa a legalidade: exige o melhor resultado com o menor custo, dentro da lei. Por isso a alternativa C; as demais sacrificam legalidade (A), qualidade (B) ou inventam deveres (D e E).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, caput",
+     "tipo": "lei",
+     "texto": "A administração pública direta e indireta de qualquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios obedecerá aos princípios de legalidade, impessoalidade, moralidade, publicidade e eficiência e, também, ao seguinte:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-2": {
+   "nota": "A responsabilidade do Estado por dano causado por seus agentes é objetiva (art. 37, § 6º), e o STF aplicou essa regra aos jornalistas feridos por agentes de segurança durante a cobertura de manifestações: basta o nexo entre a conduta do agente e o dano. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 6º",
+     "tipo": "lei",
+     "texto": "As pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes, nessa qualidade, causarem a terceiros, assegurado o direito de regresso contra o responsável nos casos de dolo ou culpa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, dano a jornalista em cobertura de manifestação",
+     "tipo": "entendimento",
+     "texto": "O STF firmou que o Estado responde objetivamente pelos danos sofridos por jornalista atingido por agente de segurança pública durante cobertura de manifestação, por força do art. 37, § 6º, da Constituição e da proteção constitucional da liberdade de informação jornalística; ao profissional é assegurada a cobertura do evento."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-3": {
+   "nota": "A moralidade é princípio expresso do art. 37, caput: deixou de ser recomendação ética e passou a ser requisito de validade do ato administrativo — ato imoral é inválido, ainda que formalmente legal. Alternativa B. Ela alcança os agentes políticos (o que derruba A) e não cede a juízo de conveniência (C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, caput",
+     "tipo": "lei",
+     "texto": "A administração pública direta e indireta de qualquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios obedecerá aos princípios de legalidade, impessoalidade, moralidade, publicidade e eficiência e, também, ao seguinte:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, LXXIII",
+     "tipo": "lei",
+     "texto": "qualquer cidadão é parte legítima para propor ação popular que vise a anular ato lesivo ao patrimônio público ou de entidade de que o Estado participe, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural, ficando o autor, salvo comprovada má-fé, isento de custas judiciais e do ônus da sucumbência;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-4": {
+   "nota": "O controle exercido pela própria sociedade sobre a Administração é o controle popular ou social, e a Constituição o viabiliza pela participação do usuário (art. 37, § 3º) e pela ação popular (art. 5º, LXXIII). Legislativo, jurisdicional, interno e financeiro são controles institucionais. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 3º",
+     "tipo": "lei",
+     "texto": "A lei disciplinará as formas de participação do usuário na administração pública direta e indireta, regulando especialmente:\nI - as reclamações relativas à prestação dos serviços públicos em geral, asseguradas a manutenção de serviços de atendimento ao usuário e a avaliação periódica, externa e interna, da qualidade dos serviços;\nII - o acesso dos usuários a registros administrativos e a informações sobre atos de governo, observado o disposto no art. 5º, X e XXXIII;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-5": {
+   "nota": "A Lei 14.133/2021 é expressa: a licitação é inexigível quando inviável a competição. Urgência e celeridade são hipóteses de DISPENSA (art. 75), não de inexigibilidade, o que afasta as alternativas B e D. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 74, caput",
+     "tipo": "lei",
+     "texto": "É inexigível a licitação quando inviável a competição, em especial nos casos de:\nI - aquisição de materiais, de equipamentos ou de gêneros ou contratação de serviços que só possam ser fornecidos por produtor, empresa ou representante comercial exclusivos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-6": {
+   "nota": "O equilíbrio econômico-financeiro preserva a equação original do contrato: a Lei 14.133/2021 manda restabelecê-la em caso de força maior, caso fortuito, fato do príncipe ou fatos imprevisíveis (ou previsíveis de consequências incalculáveis). Não é reajuste automático por inflação (B), nem transferência de todos os riscos ao Estado (D). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 124, II, d",
+     "tipo": "lei",
+     "texto": "para restabelecer o equilíbrio econômico-financeiro inicial do contrato em caso de força maior, caso fortuito ou fato do príncipe ou em decorrência de fatos imprevisíveis ou previsíveis de consequências incalculáveis, que inviabilizem a execução do contrato tal como pactuado, respeitada, em qualquer caso, a repartição objetiva de risco estabelecida no contrato.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-7": {
+   "nota": "O poder disciplinar pressupõe vínculo: alcança servidores e também particulares ligados juridicamente à Administração — contratados, concessionários, permissionários. Não julga ação penal (A), não fiscaliza contrato entre privados (B) nem a conduta de qualquer cidadão (C é a correta, D é essa confusão), e não autoriza reduzir vencimentos, que são irredutíveis (art. 37, XV).",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 155, caput",
+     "tipo": "lei",
+     "texto": "O licitante ou o contratado será responsabilizado administrativamente pelas seguintes infrações:",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    },
+    {
+     "ref": "CF/1988, art. 37, XV",
+     "tipo": "lei",
+     "texto": "o subsídio e os vencimentos dos ocupantes de cargos e empregos públicos são irredutíveis, ressalvado o disposto nos incisos XI e XIV deste artigo e nos arts. 39, § 4º, 150, II, 153, III, e 153, § 2º, I;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-8": {
+   "nota": "A segregação de funções é princípio expresso da Lei 14.133/2021 (art. 5º): quem planeja não deve julgar, para não validar o próprio trabalho. O mesmo servidor elaborar o projeto básico e atuar como pregoeiro acumula essas funções incompatíveis — alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 5º",
+     "tipo": "lei",
+     "texto": "Na aplicação desta Lei, serão observados os princípios da legalidade, da impessoalidade, da moralidade, da publicidade, da eficiência, do interesse público, da probidade administrativa, da igualdade, do planejamento, da transparência, da eficácia, da segregação de funções, da motivação, da vinculação ao edital, do julgamento objetivo, da segurança jurídica, da razoabilidade, da competitividade, da proporcionalidade, da celeridade, da economicidade e do desenvolvimento nacional sustentável, assim como as disposições do Decreto-Lei nº 4.657, de 4 de setembro de 1942 (Lei de Introdução às Normas do Direito Brasileiro).",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-9": {
+   "nota": "A movimentação do servidor entre unidades do mesmo ente, sem mudança de cargo, é ato de gestão interna motivado pelo interesse público — chamado relotação ou remoção de ofício. Não depende de falta disciplinar, permuta, concurso interno nem de ato do governador quando se trata de município. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "Lei 8.112/1990, art. 36, caput e parágrafo único, I",
+     "tipo": "lei",
+     "texto": "Remoção é o deslocamento do servidor, a pedido ou de ofício, no âmbito do mesmo quadro, com ou sem mudança de sede.\nParágrafo único. Para fins do disposto neste artigo, entende-se por modalidades de remoção:\nI - de ofício, no interesse da Administração;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L8112compilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "O nome do instituto (\"relotação\") e o regime concreto são do estatuto do servidor municipal, não conferível nas fontes acessíveis desta sessão; a Lei 8.112/1990 é o modelo federal da movimentação de ofício no interesse da Administração."
+  },
+  "dpesp-2025-propria-10": {
+   "nota": "A definição legal do diálogo competitivo está no art. 6º, XLII, da Lei 14.133/2021: a Administração dialoga com licitantes previamente selecionados para desenvolver alternativas capazes de atender à sua necessidade, e só depois eles apresentam proposta final. A interação prévia é justamente o traço da modalidade — alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Lei 14.133/2021, art. 6º, XLII",
+     "tipo": "lei",
+     "texto": "diálogo competitivo: modalidade de licitação para contratação de obras, serviços e compras em que a Administração Pública realiza diálogos com licitantes previamente selecionados mediante critérios objetivos, com o intuito de desenvolver uma ou mais alternativas capazes de atender às suas necessidades, devendo os licitantes apresentar proposta final após o encerramento dos diálogos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2021/Lei/L14133.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-11": {
+   "nota": "O art. 37, XVI, veda a acumulação remunerada de cargos públicos, com três exceções, todas condicionadas à compatibilidade de horários: dois cargos de professor (alínea a), um de professor com outro de qualquer natureza (b) e dois privativos de profissionais de saúde (c). A alternativa B reúne os dois requisitos corretos.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, XVI",
+     "tipo": "lei",
+     "texto": "é vedada a acumulação remunerada de cargos públicos, exceto, quando houver compatibilidade de horários, observado em qualquer caso o disposto no inciso XI:\na) a de dois cargos de professor;\nb) a de um cargo de professor com outro de qualquer natureza;\nc) a de dois cargos ou empregos privativos de profissionais de saúde, com profissões regulamentadas;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-12": {
+   "nota": "O art. 37, § 6º, consagra a responsabilidade objetiva do Estado pelos danos — materiais ou morais — causados por seus agentes nessa qualidade: a vítima não precisa provar culpa. O direito de regresso contra o agente depende de dolo ou culpa, e o STF (Tema 940) só admite a ação contra o Estado, não diretamente contra o agente. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 37, § 6º",
+     "tipo": "lei",
+     "texto": "As pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos responderão pelos danos que seus agentes, nessa qualidade, causarem a terceiros, assegurado o direito de regresso contra o responsável nos casos de dolo ou culpa.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "STF, RE 1.027.633 (Tema 940)",
+     "tipo": "entendimento",
+     "texto": "Tese: a teor do art. 37, § 6º, da Constituição, a ação por danos causados por agente público deve ser ajuizada contra o Estado ou a pessoa jurídica de direito privado prestadora de serviço público, sendo parte ilegítima o agente, salvo em caso de ação regressiva."
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "dpesp-2025-propria-26": {
    "nota": "Nomear e exonerar Ministros de Estado é o inciso I do art. 84 da CF/1988, a lista da competência privativa do Presidente. As demais alternativas trocam de titular: votar no Congresso é dos parlamentares, a iniciativa das leis orçamentárias é do Executivo mas por projeto de lei (art. 165), e emenda à Constituição pode ser proposta por vários legitimados (art. 60).",
    "dispositivos": [
@@ -214,6 +381,181 @@
      "tipo": "lei",
      "texto": "é livre a manifestação do pensamento, sendo vedado o anonimato;",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-58": {
+   "nota": "Na jurisdição voluntária o juiz administra interesses privados: não há lide nem partes em conflito, e por isso a atuação não é contenciosa — alternativa C. O CPC trata desses procedimentos em seção própria, onde se admite prova (art. 720 e seguintes) e a intervenção do Ministério Público só ocorre nos casos do art. 178.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 719",
+     "tipo": "lei",
+     "texto": "Quando este Código não estabelecer procedimento especial, regem os procedimentos de jurisdição voluntária as disposições constantes desta Seção.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 723",
+     "tipo": "lei",
+     "texto": "O juiz decidirá o pedido no prazo de 10 (dez) dias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-59": {
+   "nota": "O art. 1.022 do CPC lista as hipóteses: esclarecer obscuridade, eliminar contradição, suprir omissão e corrigir erro material. A alternativa B reúne as três primeiras. Embargos não servem para rediscutir o mérito (C) nem para alegar injustiça (D), e a suspeição do juiz se argui por exceção própria (A).",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 1.022",
+     "tipo": "lei",
+     "texto": "Cabem embargos de declaração contra qualquer decisão judicial para:\nI - esclarecer obscuridade ou eliminar contradição;\nII - suprir omissão de ponto ou questão sobre o qual devia se pronunciar o juiz de ofício ou a requerimento;\nIII - corrigir erro material.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-60": {
+   "nota": "A coisa julgada cobre o dispositivo, não a fundamentação: o art. 504 é expresso ao dizer que não fazem coisa julgada os motivos nem a verdade dos fatos. Daí a alternativa D, e a C é exatamente o inverso.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 504",
+     "tipo": "lei",
+     "texto": "Não fazem coisa julgada:\nI - os motivos, ainda que importantes para determinar o alcance da parte dispositiva da sentença;\nII - a verdade dos fatos, estabelecida como fundamento da sentença.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 502",
+     "tipo": "lei",
+     "texto": "Denomina-se coisa julgada material a autoridade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-61": {
+   "nota": "A audiência de conciliação ou mediação é a regra (art. 334, caput): o juiz a designa sempre que a inicial estiver em ordem. Só não se realiza se AMBAS as partes manifestarem expressamente desinteresse, ou se a autocomposição não for admitida (§ 4º). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 334, caput e § 4º",
+     "tipo": "lei",
+     "texto": "Se a petição inicial preencher os requisitos essenciais e não for o caso de improcedência liminar do pedido, o juiz designará audiência de conciliação ou de mediação com antecedência mínima de 30 (trinta) dias, devendo ser citado o réu com pelo menos 20 (vinte) dias de antecedência.\n§ 4º A audiência não será realizada:\nI - se ambas as partes manifestarem, expressamente, desinteresse na composição consensual;\nII - quando não se admitir a autocomposição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-62": {
+   "nota": "A indicação das provas com que o autor pretende demonstrar os fatos é o inciso VI do art. 319 — alternativa B. Autoridade coatora é do mandado de segurança; a inicial é dirigida ao juízo (inciso I), não ao Ministério Público; e não há exigência de documentos públicos autenticados.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 319",
+     "tipo": "lei",
+     "texto": "A petição inicial indicará:\nI - o juízo a que é dirigida;\nIII - o fato e os fundamentos jurídicos do pedido;\nIV - o pedido com as suas especificações;\nV - o valor da causa;\nVI - as provas com que o autor pretende demonstrar a verdade dos fatos alegados;\nVII - a opção do autor pela realização ou não de audiência de conciliação ou de mediação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão com duas alternativas corretas: a C (\"exposição dos fatos com fundamentação jurídica\") também é requisito da inicial, pelo art. 319, III, do CPC. O gabarito oficial é B, que corresponde ao inciso VI."
+  },
+  "dpesp-2025-propria-63": {
+   "nota": "Jurisdição é a função pelo qual o Estado, por meio de juízes e tribunais, aplica o direito e resolve conflitos — alternativa D. Não é facultativa, nem poder administrativo, nem função legislativa, nem pertence às partes.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 16",
+     "tipo": "lei",
+     "texto": "A jurisdição civil é exercida pelos juízes e pelos tribunais em todo o território nacional, conforme as disposições deste Código.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, XXXV",
+     "tipo": "lei",
+     "texto": "a lei não excluirá da apreciação do Poder Judiciário lesão ou ameaça a direito;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-64": {
+   "nota": "A tutela provisória — e portanto a de urgência — é requerida ao juízo da causa e, nas ações originárias de tribunal e nos recursos, ao órgão competente para apreciar o mérito. Ou seja: cabe em qualquer grau de jurisdição (alternativa C). A caução é facultativa e dispensável ao hipossuficiente (art. 300, § 1º), o que derruba D.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 299",
+     "tipo": "lei",
+     "texto": "A tutela provisória será requerida ao juízo da causa e, quando antecedente, ao juízo competente para conhecer do pedido principal.\nParágrafo único. Ressalvada disposição especial, na ação de competência originária de tribunal e nos recursos a tutela provisória será requerida ao órgão jurisdicional competente para apreciar o mérito.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 300, caput e § 1º",
+     "tipo": "lei",
+     "texto": "A tutela de urgência será concedida quando houver elementos que evidenciem a probabilidade do direito e o perigo de dano ou o risco ao resultado útil do processo.\n§ 1º Para a concessão da tutela de urgência, o juiz pode, conforme o caso, exigir caução real ou fidejussória idônea para ressarcir os danos que a outra parte possa vir a sofrer, podendo a caução ser dispensada se a parte economicamente hipossuficiente não puder oferecê-la.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-65": {
+   "nota": "O art. 6º do CPC é curto e decisivo: TODOS os sujeitos do processo devem cooperar entre si para se obter, em tempo razoável, decisão de mérito justa e efetiva. A cooperação alcança partes e juiz (o que derruba D) e não se limita à instrução (E). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 6º",
+     "tipo": "lei",
+     "texto": "Todos os sujeitos do processo devem cooperar entre si para que se obtenha, em tempo razoável, decisão de mérito justa e efetiva.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-66": {
+   "nota": "O art. 1.003, § 5º, fixa em 15 dias o prazo para interpor e responder recursos, salvo embargos de declaração (5 dias); e o art. 219 manda contar em dias úteis os prazos processuais. Logo, 15 dias úteis — alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 1.003, § 5º",
+     "tipo": "lei",
+     "texto": "Excetuados os embargos de declaração, o prazo para interpor os recursos e para responder-lhes é de 15 (quinze) dias.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    },
+    {
+     "ref": "CPC/2015, art. 219, caput",
+     "tipo": "lei",
+     "texto": "Na contagem de prazo em dias, estabelecido por lei ou pelo juiz, computar-se-ão somente os dias úteis.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-67": {
+   "nota": "O § 3º do art. 373 admite a distribuição diversa do ônus da prova por convenção das partes, salvo se recair sobre direito indisponível ou tornar excessivamente difícil o exercício do direito. É a alternativa C. A regra legal (caput) reparte o ônus entre autor e réu, o que derruba A.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 373, caput e §§ 3º e 4º",
+     "tipo": "lei",
+     "texto": "O ônus da prova incumbe:\nI - ao autor, quanto ao fato constitutivo de seu direito;\nII - ao réu, quanto à existência de fato impeditivo, modificativo ou extintivo do direito do autor.\n§ 3º A distribuição diversa do ônus da prova também pode ocorrer por convenção das partes, salvo quando:\nI - recair sobre direito indisponível da parte;\nII - tornar excessivamente difícil a uma parte o exercício do direito.\n§ 4º A convenção de que trata o § 3º pode ser celebrada antes ou durante o processo.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-68": {
+   "nota": "A tutela da evidência dispensa urgência: o art. 311 começa dizendo que ela será concedida \"independentemente da demonstração de perigo de dano ou de risco ao resultado útil do processo\". O que se exige é a evidência do direito nas hipóteses dos incisos I a IV — não apenas verossimilhança (o que derruba E). Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 311",
+     "tipo": "lei",
+     "texto": "A tutela da evidência será concedida, independentemente da demonstração de perigo de dano ou de risco ao resultado útil do processo, quando:\nI - ficar caracterizado o abuso do direito de defesa ou o manifesto propósito protelatório da parte;\nII - as alegações de fato puderem ser comprovadas apenas documentalmente e houver tese firmada em julgamento de casos repetitivos ou em súmula vinculante;\nIII - se tratar de pedido reipersecutório fundado em prova documental adequada do contrato de depósito, caso em que será decretada a ordem de entrega do objeto custodiado, sob cominação de multa;\nIV - a petição inicial for instruída com prova documental suficiente dos fatos constitutivos do direito do autor, a que o réu não oponha prova capaz de gerar dúvida razoável.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "dpesp-2025-propria-69": {
+   "nota": "Sentença sem resolução de mérito não produz coisa julgada material: o art. 486 diz que o pronunciamento que não resolve o mérito não obsta a que a parte proponha de novo a ação — basta, em certos casos, corrigir o vício. Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CPC/2015, art. 486, caput e § 1º",
+     "tipo": "lei",
+     "texto": "O pronunciamento judicial que não resolve o mérito não obsta a que a parte proponha de novo a ação.\n§ 1º No caso de extinção em razão de litispendência e nos casos dos incisos I, IV, VI e VII do art. 485, a propositura da nova ação depende da correção do vício que levou à sentença sem resolução do mérito.",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Lei/L13105compilada.htm"
     }
    ],
    "conferido": "2026-10-22"
@@ -1182,7 +1524,7 @@
     {
      "ref": "CF/1988, art. 73, caput",
      "tipo": "lei",
-     "texto": "Tribunal de Contas da União, integrado por nove Ministros, tem sede no Distrito Federal, quadro próprio de pessoal e jurisdição em todo o território nacional, exercendo, no que couber, as atribuições previstas no art. 96.",
+     "texto": "O Tribunal de Contas da União, integrado por nove Ministros, tem sede no Distrito Federal, quadro próprio de pessoal e jurisdição em todo o território nacional, exercendo, no que couber, as atribuições previstas no art. 96.",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
     }
    ],
