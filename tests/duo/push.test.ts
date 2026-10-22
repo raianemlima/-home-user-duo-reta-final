@@ -5,6 +5,8 @@ const sendNotification = vi.fn();
 vi.mock("web-push", () => ({ default: { setVapidDetails: vi.fn(), sendNotification: (...args: unknown[]) => sendNotification(...args) } }));
 const student = vi.fn();
 vi.mock("@/lib/server/auth", () => ({ requireStudent: () => student() }));
+const adminUpsert = vi.fn();
+vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ from: () => ({ upsert: (...args: unknown[]) => adminUpsert(...args) }) }) }));
 import { notifyStudents } from "@/lib/push/send";
 import { DELETE, POST } from "@/app/api/notificacoes/inscricao/route";
 
@@ -36,11 +38,11 @@ describe("notifyStudents", () => {
 
 describe("/api/notificacoes/inscricao", () => {
   const request = (method: string, body: unknown) => new Request("http://app.duo/api/notificacoes/inscricao", { method, body: JSON.stringify(body) });
-  it("grava a inscrição do aluno logado", async () => {
-    const upsert = vi.fn().mockResolvedValue({ error: null });
-    student.mockResolvedValue({ supabase: { from: () => ({ upsert }) }, user: { id: "u1" } });
+  it("grava a inscrição do aluno logado, mesmo se o aparelho era de outro aluno", async () => {
+    adminUpsert.mockReset().mockResolvedValue({ error: null });
+    student.mockResolvedValue({ supabase: {}, user: { id: "u1" } });
     expect((await POST(request("POST", { endpoint: "https://push.example/a", keys: { p256dh: "k", auth: "a" } }))).status).toBe(201);
-    expect(upsert).toHaveBeenCalledWith({ user_id: "u1", endpoint: "https://push.example/a", p256dh: "k", auth: "a" }, { onConflict: "endpoint" });
+    expect(adminUpsert).toHaveBeenCalledWith({ user_id: "u1", endpoint: "https://push.example/a", p256dh: "k", auth: "a" }, { onConflict: "endpoint" });
   });
   it("recusa inscrição incompleta ou fora de https", async () => {
     student.mockResolvedValue({ supabase: { from: () => ({}) }, user: { id: "u1" } });

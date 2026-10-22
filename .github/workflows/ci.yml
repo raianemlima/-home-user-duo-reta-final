@@ -1,0 +1,30 @@
+# Confere cada PR antes do merge: lint, tipos, testes e build. Não publica nada.
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm test
+      - run: npm run build
+        env:
+          # Valores de mentira só para o build compilar; nenhum serviço é acessado. Ficam fora dos testes, que controlam as próprias variáveis.
+          NEXT_PUBLIC_SUPABASE_URL: https://exemplo.supabase.co
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: chave-de-teste
+          NEXT_PUBLIC_PIPELINE_V2: "true"

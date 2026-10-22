@@ -10,7 +10,10 @@ const RULES: { pattern: RegExp; className: string }[] = [
   { pattern: /^\d{1,2}[.)]\s+(?=\p{L})/u, className: "para-item" },
 ];
 
+const TIP_LEAD = /^DICA DUO\b:?/;
+
 export function paragraphFormat(text: string, kind: string): ParagraphFormat {
+  if (kind === "tip") return { className: "", lead: TIP_LEAD.exec(text)?.[0].length ?? 0 };
   if (kind !== "body") return { className: "", lead: 0 };
   for (const rule of RULES) {
     const match = rule.pattern.exec(text);
@@ -33,4 +36,18 @@ export function markLead<T extends { text: string }>(segments: T[], lead: number
     offset = end;
   }
   return out;
+}
+
+// Caixa "DICA DUO": quando o parágrafo da dica é só o título ("DICA DUO Como usar este material"), o texto da dica vem
+// no parágrafo seguinte. Os dois são desenhados como uma caixa só (título + corpo); o texto não muda.
+export function tipRoles(paragraphs: { id: string; kind: string; text: string }[]): Map<string, "tip-head" | "tip-text"> {
+  const roles = new Map<string, "tip-head" | "tip-text">();
+  paragraphs.forEach((paragraph, index) => {
+    const next = paragraphs[index + 1];
+    if (paragraph.kind === "tip" && paragraph.text.length <= 90 && !/[.!?]$/.test(paragraph.text) && next?.kind === "body") {
+      roles.set(paragraph.id, "tip-head");
+      roles.set(next.id, "tip-text");
+    }
+  });
+  return roles;
 }

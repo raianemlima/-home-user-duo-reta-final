@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { publishVersion } from "@/lib/content/repository";
 import { notifyStudents } from "@/lib/push/send";
 import { createAdminClient } from "@/lib/server/admin";
@@ -20,7 +20,8 @@ export function POST(_request: Request, context: { params: Promise<{ id: string 
     const result = await publishVersion(admin, id);
     if (!result.alreadyPublished) {
       const { data: discipline } = await supabase.from("disciplines").select("slug, title").eq("id", data.discipline_id).maybeSingle();
-      await notifyStudents(admin, { title: "Material novo no app DUO", body: `${discipline?.title ?? "Um material"} foi atualizado: ${data.label}. Toque para ler e baixar o PDF.`, url: discipline ? `/disciplinas/${discipline.slug}` : "/" });
+      // Avisos depois da resposta: com muitos aparelhos inscritos, a tela de publicação não fica esperando o envio.
+      after(() => notifyStudents(admin, { title: "Material novo no app DUO", body: `${discipline?.title ?? "Um material"} foi atualizado: ${data.label}. Toque para ler e baixar o PDF.`, url: discipline ? `/disciplinas/${discipline.slug}` : "/" }));
     }
     return NextResponse.json(result);
   });

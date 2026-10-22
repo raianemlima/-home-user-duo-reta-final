@@ -5,7 +5,7 @@ import { splitSentences } from "@/lib/cleaning/sentences";
 import { collapseSpaces, joinLines } from "@/lib/extraction/text-utils";
 import type { DocumentExtraction, LayoutBlock } from "@/lib/extraction/types";
 
-export const CLEANER_VERSION = "5";
+export const CLEANER_VERSION = "6";
 const MAX_SAMPLES = 100;
 
 export type CleanOptions = {
@@ -171,7 +171,7 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
   for (const paragraph of paragraphs) {
     const previous = merged[merged.length - 1];
     const continues = previous && previous.kind === "body" && paragraph.kind === "body" && !previous.heading && !paragraph.heading && (!faithful || previous.fontSize === paragraph.fontSize)
-      && !/[.!?:;”"')\]]$/.test(previous.text) && /^[a-zà-úç]/.test(paragraph.text) && !LIST_MARKER.test(paragraph.text)
+      && !/[.!?:;”"')\]]$/.test(previous.text) && /^\(?[a-zà-úç]/.test(paragraph.text) && !LIST_MARKER.test(paragraph.text)
       && (paragraph.pages[0] === previous.pages[previous.pages.length - 1] + 1 || paragraph.pages[0] === previous.pages[previous.pages.length - 1]);
     // Modo fiel: título de capítulo quebrado em duas linhas ("2. EVOLUÇÃO DA ASSISTÊNCIA" + "NO BRASIL") vira um título só.
     const headingContinues = faithful && previous && previous.heading && paragraph.heading && previous.fontSize === paragraph.fontSize
@@ -179,6 +179,15 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
     if (headingContinues) { previous.text = `${previous.text} ${paragraph.text}`; continue; }
     if (continues) { previous.text = joinLines([previous.text, paragraph.text]); previous.pages = [...new Set([...previous.pages, ...paragraph.pages])]; }
     else merged.push({ ...paragraph, pages: [...paragraph.pages] });
+  }
+
+  // Modo fiel: a capa ("Ebook de Reta Final", nome da disciplina) não é conteúdo. Sai só o que vem antes do primeiro texto
+  // corrido da página 1: linhas curtas, sem pontuação final e que não são DICA DUO.
+  if (faithful) {
+    while (merged.length && merged[0].pages[0] === 1 && merged[0].kind !== "tip" && merged[0].kind !== "table" && merged[0].text.length <= 40 && !/[.!?:;]$/.test(merged[0].text)) {
+      recorder.add("cover", 1, merged[0].text);
+      merged.shift();
+    }
   }
 
   const shortCount = new Map<string, { text: string; pages: Set<number> }>();
