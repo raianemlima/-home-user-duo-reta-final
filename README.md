@@ -24,7 +24,8 @@ npm run dev
 |---|---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | público | URL do projeto Supabase |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | público | chave publicável |
-| `SUPABASE_SERVICE_ROLE_KEY` | só servidor | convites de alunos e reancoragem de grifos |
+| `SUPABASE_SERVICE_ROLE_KEY` | só servidor | criação de alunos e reancoragem de grifos |
+| `ALUNO_SENHA_PADRAO` | só servidor | senha inicial dos alunos criados em Equipe › Alunos (não versionar) |
 
 Os ebooks do curso **não** são versionados neste repositório (direitos autorais).
 
@@ -36,8 +37,8 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
 2. **Auth** (Authentication → Providers/Settings):
    - desligue o cadastro aberto ("Allow new users to sign up");
    - em URL Configuration, adicione `https://SEU_DOMINIO/auth/confirm` às Redirect URLs;
-   - nos modelos de e-mail "Magic Link" e "Invite", inclua o código `{{ .Token }}` e o link
-     `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email` (convite: `type=invite`).
+   - o login é por **e-mail e senha**: não depende de e-mail enviado pelo Supabase. Só entra quem foi criado em
+     Equipe › Alunos (ou em Authentication → Users); com o cadastro aberto desligado, ninguém mais se cria.
 3. **Primeiro usuário da equipe**: convide pelo painel do Supabase e rode no SQL Editor:
    `insert into public.profiles(user_id, email, role) select id, email, 'equipe' from auth.users where email = 'equipe@cursosduo.com.br';`
 4. **Vercel**: importe o repositório e defina `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`,
