@@ -11,15 +11,15 @@ const swatch = (color: string) => HIGHLIGHT_COLORS.find((item) => item.key === c
 const printable = (text: string) => text.replace(/[\u{10000}-\u{10FFFF}︎️‍]/gu, "");
 
 const styles = StyleSheet.create({
-  page: { fontFamily: "Inter", fontSize: 10.5, color: INK, paddingTop: 48, paddingBottom: 56, paddingHorizontal: 48, lineHeight: 1.45 },
-  cover: { fontFamily: "Inter", backgroundColor: PAPER, color: INK, padding: 64, justifyContent: "center" },
+  page: { fontFamily: "Arimo", fontSize: 10.5, color: INK, paddingTop: 48, paddingBottom: 56, paddingHorizontal: 48, lineHeight: 1.45 },
+  cover: { fontFamily: "Arimo", backgroundColor: PAPER, color: INK, padding: 64, justifyContent: "center" },
   brand: { flexDirection: "row", alignItems: "center", gap: 12, marginBottom: 48 },
   brandWords: { fontFamily: "Montserrat", fontWeight: 700, color: TERRACOTTA, lineHeight: 1 },
-  title: { fontFamily: "Montserrat", fontWeight: 700, fontSize: 30, marginBottom: 8 },
+  title: { fontFamily: "Arimo", fontWeight: 700, fontSize: 30, marginBottom: 8 },
   subtitle: { fontSize: 15, color: MUTED, marginBottom: 24 },
-  tocTitle: { fontFamily: "Montserrat", fontWeight: 700, fontSize: 14, marginTop: 24, marginBottom: 6 },
-  discipline: { fontFamily: "Montserrat", fontWeight: 700, fontSize: 17, color: TERRACOTTA, marginBottom: 10 },
-  topic: { fontWeight: 600, fontSize: 11, color: MUTED, marginTop: 10, marginBottom: 6 },
+  tocTitle: { fontFamily: "Arimo", fontWeight: 700, fontSize: 14, marginTop: 24, marginBottom: 6 },
+  discipline: { fontFamily: "Arimo", fontWeight: 700, fontSize: 17, color: TERRACOTTA, marginBottom: 10 },
+  topic: { fontWeight: 700, fontSize: 11, color: MUTED, marginTop: 10, marginBottom: 6 },
   item: { flexDirection: "row", marginBottom: 10 },
   bar: { width: 4, borderRadius: 2, marginRight: 10 },
   body: { flex: 1 },

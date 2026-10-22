@@ -6,8 +6,10 @@
   --duo-terracotta: #AE4941;
   --duo-paper: #F4F5F0;
 
-  --font-title: "Montserrat", system-ui, sans-serif;
-  --font-text: "Inter", system-ui, sans-serif;
+  /* Mesma fonte dos e-books em PDF (Arial). Arimo é a versão livre e métrica-idêntica: garante o mesmo desenho no Android, onde Arial não existe. */
+  --font-text: "Arimo", Arial, "Liberation Sans", Helvetica, sans-serif;
+  --font-title: var(--font-text);
+  --font-brand: "Montserrat", system-ui, sans-serif; /* só o logotipo CURSOS/DUO */
   --reading-size: 1.0625rem;
 }
 

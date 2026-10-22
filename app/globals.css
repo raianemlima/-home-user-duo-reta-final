@@ -1,6 +1,8 @@
 @import "@fontsource/montserrat/700.css";
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/600.css";
+@import "@fontsource/arimo/400.css";
+@import "@fontsource/arimo/400-italic.css";
+@import "@fontsource/arimo/700.css";
+@import "@fontsource/arimo/700-italic.css";
 @import "./theme.css";
 
 * { box-sizing: border-box; }
@@ -29,7 +31,7 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 /* Marca */
 .brand-logo { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--brand); }
 .brand-logo img { display: block; }
-.brand-words { display: grid; font-family: var(--font-title); font-weight: 700; line-height: .95; letter-spacing: .02em; }
+.brand-words { display: grid; font-family: var(--font-brand); font-weight: 700; line-height: .95; letter-spacing: .02em; }
 .brand-words small { font-size: .62em; }
 .brand-words strong { font-size: 1.15em; }
 
@@ -108,7 +110,8 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .section-head h1 { font-size: 1.45rem; }
 .version-label { font-size: .85rem; margin: 0 0 1rem; }
 .section-text { font-size: var(--reading-size); line-height: 1.7; max-width: 72ch; hyphens: auto; }
-.paragraph { margin: 0 0 1em; white-space: pre-wrap; overflow-wrap: break-word; text-align: justify; hyphens: auto; }
+.paragraph { margin: 0 0 1em; white-space: pre-wrap; overflow-wrap: break-word; hyphens: auto; }
+@media (min-width: 768px) { .paragraph { text-align: justify; } }
 .paragraph .lead { font-weight: 700; }
 .para-article { margin-top: 1.6em; padding-left: .85rem; border-left: 3px solid var(--accent-strong); }
 .para-par { margin-left: 1.25rem; }
