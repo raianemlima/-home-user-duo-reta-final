@@ -845,6 +845,349 @@
    ],
    "conferido": "2026-10-22"
   },
+  "fcc-defensorias-122": {
+   "nota": "A ação popular é instrumento de exercício da cidadania: o art. 5º, LXXIII, dá legitimidade a \"qualquer cidadão\", isto é, a quem está no gozo dos direitos políticos. Por isso é exercício de direito político — alternativa B. Ação civil pública e mandado de segurança coletivo têm legitimados próprios, sem exigir cidadania.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, LXXIII",
+     "tipo": "lei",
+     "texto": "qualquer cidadão é parte legítima para propor ação popular que vise a anular ato lesivo ao patrimônio público ou de entidade de que o Estado participe, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural, ficando o autor, salvo comprovada má-fé, isento de custas judiciais e do ônus da sucumbência;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-123": {
+   "nota": "O art. 134 da CF/1988 incumbe a Defensoria Pública, \"como expressão e instrumento do regime democrático\", da promoção dos direitos humanos — texto expresso, alternativa A. A prevalência dos direitos humanos é princípio das relações internacionais (art. 4º, II), e não objetivo fundamental da República (o que derruba C); e os tratados aprovados pelo rito do art. 5º, § 3º, são equivalentes a emenda constitucional, não supralegais (derruba B).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 134, caput",
+     "tipo": "lei",
+     "texto": "A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, na forma do inciso LXXIV do art. 5º desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, § 3º",
+     "tipo": "lei",
+     "texto": "Os tratados e convenções internacionais sobre direitos humanos que forem aprovados, em cada Casa do Congresso Nacional, em dois turnos, por três quintos dos votos dos respectivos membros, serão equivalentes às emendas constitucionais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-124": {
+   "nota": "Desconstitucionalização é o fenômeno em que a Constituição anterior continua em vigor, mas rebaixada: perde a hierarquia constitucional e passa a valer como lei comum. Recepção é a manutenção da legislação infraconstitucional compatível; repristinação é o retorno de norma revogada. Alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "Desconstitucionalização (teoria da Constituição)",
+     "tipo": "entendimento",
+     "texto": "Na desconstitucionalização, normas da Constituição antiga são recebidas pela nova ordem com status de legislação ordinária, desde que materialmente compatíveis e desde que a nova Constituição o admita expressamente — o que não ocorreu na CF/1988. Difere da recepção (que alcança a legislação infraconstitucional anterior compatível) e da repristinação (retorno da vigência de norma revogada, que o direito brasileiro só admite se expressa)."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de teoria da Constituição: o nome do fenômeno é doutrinário e não vem de texto legal."
+  },
+  "fcc-defensorias-125": {
+   "nota": "O art. 74, § 2º, da CF/1988 dá a qualquer cidadão, partido político, associação ou sindicato legitimidade para denunciar irregularidades ou ilegalidades perante o Tribunal de Contas da União — é a alternativa E, previsão expressa.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 74, § 2º",
+     "tipo": "lei",
+     "texto": "Qualquer cidadão, partido político, associação ou sindicato é parte legítima para, na forma da lei, denunciar irregularidades ou ilegalidades perante o Tribunal de Contas da União.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-126": {
+   "nota": "A Lei 13.300/2016 arrola a Defensoria Pública entre os legitimados ao mandado de injunção coletivo (art. 12, IV), sem prejuízo dos mandados individuais. Já o art. 103 da CF/1988, que lista os legitimados à ADI e à ADO, não inclui a Defensoria Pública. Por isso a alternativa B. A omissão aqui é do art. 245 da CF/1988.",
+   "dispositivos": [
+    {
+     "ref": "Lei 13.300/2016, art. 12, IV",
+     "tipo": "lei",
+     "texto": "pela Defensoria Pública, quando a tutela requerida for especialmente relevante para a promoção dos direitos humanos e a defesa dos direitos individuais e coletivos dos necessitados, na forma do inciso LXXIV do art. 5º da Constituição Federal .",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2016/Lei/L13300.htm"
+    },
+    {
+     "ref": "CF/1988, art. 245",
+     "tipo": "lei",
+     "texto": "A lei disporá sobre as hipóteses e condições em que o Poder Público dará assistência aos herdeiros e dependentes carentes de pessoas vitimadas por crime doloso, sem prejuízo da responsabilidade civil do autor do ilícito.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-127": {
+   "nota": "O parágrafo único do art. 7º divide os direitos do trabalhador doméstico em dois blocos: os de aplicação imediata e os que dependem das condições da lei e da simplificação tributária. O aviso prévio proporcional (inciso XXI) está no primeiro bloco; seguro-desemprego (II), FGTS (III), adicional noturno (IX) e seguro contra acidentes (XXVIII) estão no segundo. Daí a alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 7º, parágrafo único",
+     "tipo": "lei",
+     "texto": "São assegurados à categoria dos trabalhadores domésticos os direitos previstos nos incisos IV, VI, VII, VIII, X, XIII, XV, XVI, XVII, XVIII, XIX, XXI, XXII, XXIV, XXVI, XXX, XXXI e XXXIII e, atendidas as condições estabelecidas em lei e observada a simplificação do cumprimento das obrigações tributárias, principais e acessórias, decorrentes da relação de trabalho e suas peculiaridades, os previstos nos incisos I, II, III, IX, XII, XXV e XXVIII, bem como a sua integração à previdência social.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 7º, XXI",
+     "tipo": "lei",
+     "texto": "aviso prévio proporcional ao tempo de serviço, sendo no mínimo de trinta dias, nos termos da lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-128": {
+   "nota": "O art. 212, § 5º, da CF/1988 é expresso: a educação básica pública tem como fonte adicional de financiamento a contribuição social do salário-educação, recolhida pelas empresas. Educação básica compreende a educação especial, o que valida a alternativa E.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 212, § 5º",
+     "tipo": "lei",
+     "texto": "A educação básica pública terá como fonte adicional de financiamento a contribuição social do salário-educação, recolhida pelas empresas na forma da lei.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-129": {
+   "nota": "O Ministério Público de Contas atua junto ao Tribunal de Contas e não tem iniciativa legislativa própria: quem propõe a lei de organização da sua carreira é o Tribunal de Contas, que detém iniciativa quanto à organização dos seus serviços auxiliares (art. 73, caput, c/c art. 96, II, da CF/1988). Daí a alternativa A.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 130",
+     "tipo": "lei",
+     "texto": "Aos membros do Ministério Público junto aos Tribunais de Contas aplicam-se as disposições desta seção pertinentes a direitos, vedações e forma de investidura.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 96, II, b",
+     "tipo": "lei",
+     "texto": "II - ao Supremo Tribunal Federal, aos Tribunais Superiores e aos Tribunais de Justiça propor ao Poder Legislativo respectivo, observado o disposto no art. 169:\nb) a criação e a extinção de cargos e a remuneração dos seus serviços auxiliares e dos juízos que lhes forem vinculados, bem como a fixação do subsídio de seus membros e dos juízes, inclusive dos tribunais inferiores, onde houver;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "A iniciativa concreta vem da Constituição e da legislação do Estado de Mato Grosso, não conferíveis nas fontes acessíveis desta sessão; os dispositivos federais mostram que o Ministério Público de Contas não tem iniciativa própria e atua junto ao Tribunal de Contas. Não é matéria da prova da DPE-SP."
+  },
+  "fcc-defensorias-130": {
+   "nota": "A diretriz do SUS violada é a descentralização com direção única em cada esfera de governo (art. 198, I): criar uma secretaria estadual só para vigilância em saúde, com o mesmo status da secretaria de saúde, fraciona a direção única no âmbito do Estado. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 198, I",
+     "tipo": "lei",
+     "texto": "descentralização, com direção única em cada esfera de governo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-131": {
+   "nota": "O art. 146, II, da CF/1988 reserva à lei complementar a regulação das limitações constitucionais ao poder de tributar — alternativa D. As limitações em si (as imunidades, por exemplo) estão na Constituição; quem as regula é a lei complementar.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 146, II",
+     "tipo": "lei",
+     "texto": "Cabe à lei complementar:\nII - regular as limitações constitucionais ao poder de tributar;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-132": {
+   "nota": "A EC 45/2004 trouxe para a Defensoria a autonomia funcional e administrativa e a iniciativa da proposta orçamentária (art. 134, § 2º) e, no art. 168, incluiu a Defensoria Pública entre os órgãos que recebem suas dotações em duodécimos, até o dia 20 de cada mês — alternativa C. Os princípios institucionais (art. 134, § 4º) e a seção própria vieram com a EC 80/2014, o que afasta A e E; não há Conselho Nacional da Defensoria Pública na Constituição (B).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 168, caput",
+     "tipo": "lei",
+     "texto": "Os recursos correspondentes às dotações orçamentárias, compreendidos os créditos suplementares e especiais, destinados aos órgãos dos Poderes Legislativo e Judiciário, do Ministério Público e da Defensoria Pública, ser-lhes-ão entregues até o dia 20 de cada mês, em duodécimos, na forma da lei complementar a que se refere o art. 165, § 9º.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 134, § 4º",
+     "tipo": "lei",
+     "texto": "São princípios institucionais da Defensoria Pública a unidade, a indivisibilidade e a independência funcional, aplicando-se também, no que couber, o disposto no art. 93 e no inciso II do art. 96 desta Constituição Federal.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-133": {
+   "nota": "A apreciação conclusiva (ou terminativa) das comissões vem do art. 58, § 2º, I, da CF/1988: a comissão discute e vota o projeto dispensando a competência do Plenário, salvo recurso de um décimo dos membros da Casa. É a alternativa A; as demais nomeiam formas inexistentes.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 58, § 2º, I",
+     "tipo": "lei",
+     "texto": "Às comissões, em razão da matéria de sua competência, cabe:\nI - discutir e votar projeto de lei que dispensar, na forma do regimento, a competência do Plenário, salvo se houver recurso de um décimo dos membros da Casa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-134": {
+   "nota": "O art. 105, I, b, dá ao STJ competência originária para mandado de segurança e habeas data contra ato de Ministro de Estado, dos Comandantes das Forças Armadas ou do próprio Tribunal. Contra TCU, chefe de missão diplomática, PGR e Presidente do Senado, a competência é do STF (art. 102, I, d). Alternativa C.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 105, I, b",
+     "tipo": "lei",
+     "texto": "Compete ao Superior Tribunal de Justiça:\nI - processar e julgar, originariamente:\nb) os mandados de segurança e os habeas data contra ato de Ministro de Estado, dos Comandantes da Marinha, do Exército e da Aeronáutica ou do próprio Tribunal;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-135": {
+   "nota": "Não existe habeas data coletivo: nem o art. 5º, LXXII, da CF/1988 nem a Lei 9.507/1997 o preveem. O writ protege informação relativa à pessoa do impetrante, o que é incompatível com a tutela coletiva. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 5º, LXXII",
+     "tipo": "lei",
+     "texto": "conceder-se-á habeas data:\na) para assegurar o conhecimento de informações relativas à pessoa do impetrante, constantes de registros ou bancos de dados de entidades governamentais ou de caráter público;\nb) para a retificação de dados, quando não se prefira fazê-lo por processo sigiloso, judicial ou administrativo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "Lei 9.507/1997, art. 7º",
+     "tipo": "lei",
+     "texto": "Conceder-se-á habeas data:\nI - para assegurar o conhecimento de informações relativas à pessoa do impetrante, constantes de registro ou banco de dados de entidades governamentais ou de caráter público;",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/L9507.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-136": {
+   "nota": "O art. 215, § 1º, da CF/1988 é expresso: o Estado protegerá as manifestações das culturas populares, indígenas e afro-brasileiras, e das de outros grupos participantes do processo civilizatório nacional — alternativa B. O racismo é crime inafiançável e imprescritível, mas a Constituição não o declara insuscetível de graça ou anistia (art. 5º, XLII), o que derruba A; e o tombamento dos sítios de quilombos é previsão do art. 216, § 5º, sem a concessão de uso que a alternativa C acrescenta.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 215, § 1º",
+     "tipo": "lei",
+     "texto": "O Estado protegerá as manifestações das culturas populares, indígenas e afro-brasileiras, e das de outros grupos participantes do processo civilizatório nacional.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 5º, XLII",
+     "tipo": "lei",
+     "texto": "a prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-137": {
+   "nota": "O art. 98, II, da CF/1988 descreve a justiça de paz: remunerada, composta de cidadãos eleitos pelo voto direto, universal e secreto, com mandato de quatro anos, competente para celebrar casamentos, verificar o processo de habilitação e exercer atribuições conciliatórias, sem caráter jurisdicional. A alternativa C reproduz esse núcleo; a A erra o mandato e exige formação jurídica, e a D fala de união estável, que não está no texto.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 98, II",
+     "tipo": "lei",
+     "texto": "justiça de paz, remunerada, composta de cidadãos eleitos pelo voto direto, universal e secreto, com mandato de quatro anos e competência para, na forma da lei, celebrar casamentos, verificar, de ofício ou em face de impugnação apresentada, o processo de habilitação e exercer atribuições conciliatórias, sem caráter jurisdicional, além de outras previstas na legislação.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-138": {
+   "nota": "Dois incisos do art. 7º abrem expressamente espaço para a negociação coletiva: o VI (irredutibilidade do salário, \"salvo o disposto em convenção ou acordo coletivo\") e o XIV (jornada de seis horas em turnos ininterruptos de revezamento, \"salvo negociação coletiva\"). É a alternativa B. O XIII admite compensação e redução de jornada por acordo, mas o FGTS, que a alternativa A junta, não é negociável.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 7º, VI",
+     "tipo": "lei",
+     "texto": "irredutibilidade do salário, salvo o disposto em convenção ou acordo coletivo;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 7º, XIV",
+     "tipo": "lei",
+     "texto": "jornada de seis horas para o trabalho realizado em turnos ininterruptos de revezamento, salvo negociação coletiva;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-139": {
+   "nota": "As limitações expressas ao poder de reforma são três: circunstanciais (art. 60, § 1º — nada de emenda na vigência de intervenção federal, estado de defesa ou de sítio), materiais (art. 60, § 4º — as cláusulas pétreas) e formais ou procedimentais (art. 60, I a III e § 2º — iniciativa, dois turnos, três quintos). Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 60, § 1º",
+     "tipo": "lei",
+     "texto": "A Constituição não poderá ser emendada na vigência de intervenção federal, de estado de defesa ou de estado de sítio.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 60, § 4º",
+     "tipo": "lei",
+     "texto": "Não será objeto de deliberação a proposta de emenda tendente a abolir:\nI - a forma federativa de Estado;\nII - o voto direto, secreto, universal e periódico;\nIII - a separação dos Poderes;\nIV - os direitos e garantias individuais.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 60, § 2º",
+     "tipo": "lei",
+     "texto": "A proposta será discutida e votada em cada Casa do Congresso Nacional, em dois turnos, considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos respectivos membros.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-140": {
+   "nota": "Mutação constitucional é a mudança de sentido da norma sem alteração do texto: o mesmo enunciado passa a significar outra coisa por força da realidade social e da interpretação. Reforma e revisão alteram o texto; interpretação é o método, não o fenômeno. Alternativa D.",
+   "dispositivos": [
+    {
+     "ref": "Mutação constitucional (teoria da Constituição)",
+     "tipo": "entendimento",
+     "texto": "A doutrina chama mutação constitucional o processo informal de mudança do significado da norma constitucional, sem alteração do texto, operado pela interpretação dos tribunais, pela prática dos Poderes e pela transformação da realidade social. Opõe-se à reforma, que é processo formal regido pelo art. 60 da Constituição."
+    }
+   ],
+   "conferido": "2026-10-22",
+   "ressalva": "Questão de teoria da Constituição: o nome do fenômeno é doutrinário e não vem de texto legal."
+  },
+  "fcc-defensorias-141": {
+   "nota": "O poder constituinte derivado reformador é o que altera o texto da Constituição pelo processo de emenda do art. 60 — amplia ou modifica o texto, nos limites das cláusulas pétreas. É a alternativa E. O poder decorrente é o que dá aos Estados sua Constituição (D), e o revisor, previsto no art. 3º do ADCT, é que estava preso a prazo (B e C).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 60, caput",
+     "tipo": "lei",
+     "texto": "A Constituição poderá ser emendada mediante proposta:",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 25, caput",
+     "tipo": "lei",
+     "texto": "Os Estados organizam-se e regem-se pelas Constituições e leis que adotarem, observados os princípios desta Constituição.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-142": {
+   "nota": "O instrumento é o decreto legislativo: o art. 49, V, dá ao Congresso Nacional competência exclusiva para sustar atos normativos do Executivo que exorbitem do poder regulamentar ou dos limites da delegação, e as matérias de competência exclusiva do Congresso se veiculam por decreto legislativo. Alternativa B.",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 49, V",
+     "tipo": "lei",
+     "texto": "É da competência exclusiva do Congresso Nacional:\nV - sustar os atos normativos do Poder Executivo que exorbitem do poder regulamentar ou dos limites de delegação legislativa;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 59, VI",
+     "tipo": "lei",
+     "texto": "O processo legislativo compreende a elaboração de:\nVI - decretos legislativos;",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
+  "fcc-defensorias-143": {
+   "nota": "A alternativa A reproduz o art. 74, § 2º, da CF/1988. As outras erram os números e os titulares: o TCU tem nove Ministros (art. 73, caput), o Congresso escolhe dois terços deles (art. 73, § 2º, II), a aprovação prévia dos indicados pelo Presidente é do Senado (art. 52, III, b) e os Ministros do TCU têm as garantias e vantagens dos Ministros do STJ, não do STF (art. 73, § 3º).",
+   "dispositivos": [
+    {
+     "ref": "CF/1988, art. 74, § 2º",
+     "tipo": "lei",
+     "texto": "Qualquer cidadão, partido político, associação ou sindicato é parte legítima para, na forma da lei, denunciar irregularidades ou ilegalidades perante o Tribunal de Contas da União.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    },
+    {
+     "ref": "CF/1988, art. 73, caput",
+     "tipo": "lei",
+     "texto": "Tribunal de Contas da União, integrado por nove Ministros, tem sede no Distrito Federal, quadro próprio de pessoal e jurisdição em todo o território nacional, exercendo, no que couber, as atribuições previstas no art. 96.",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/ConstituicaoCompilado.htm"
+    }
+   ],
+   "conferido": "2026-10-22"
+  },
   "fcc-defensorias-307": {
    "nota": "A LEP dá à Defensoria Pública, de forma expressa, a visita periódica aos estabelecimentos penais, as providências para apurar responsabilidade e o pedido de interdição do local — exatamente o que descreve a alternativa D.",
    "dispositivos": [
