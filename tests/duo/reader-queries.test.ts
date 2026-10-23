@@ -71,6 +71,9 @@ describe("loadSection", () => {
     expect(readingPages([item("a", 1, 100), item("b", 9, 50), item("c", 9, 1400), item("d", 9, 30), item("e", 1, 200), item("f", 9, 3000), item("g", 2, 10)]))
       .toEqual([["a", "b", "c"], ["d", "e", "f"], ["g"]]);
     expect(readingPages([item("a", 1, 500), item("b", 1, 100)])).toEqual([["a"], ["b"]]);
+    // Título sem texto ("TÍTULO IV") nunca fecha a página: vai com o conteúdo que abre.
+    expect(readingPages([item("a", 9, 1600), item("t", 1, 0), item("c", 2, 0), item("d", 9, 300)])).toEqual([["a"], ["t", "c", "d"]]);
+    expect(readingPages([item("a", 9, 1400), item("t", 2, 0), item("d", 9, 300)])).toEqual([["a", "t", "d"]]);
   });
   it("o texto antes do primeiro título não vira página: sai do sumário e abre no topo da primeira seção", async () => {
     // Versão própria: o sumário de uma versão publicada fica em cache entre os testes.

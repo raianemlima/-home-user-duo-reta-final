@@ -99,10 +99,13 @@ const CHAPTER_BREAK_CHARS = 400;
 export function readingPages(reading: Toc): string[][] {
   const pages: string[][] = [];
   let size = 0;
+  let lastEmpty = false;
   for (const item of reading) {
     const current = pages.at(-1);
-    if (!current || size >= PAGE_TARGET_CHARS || (item.level <= 1 && size >= CHAPTER_BREAK_CHARS)) { pages.push([item.id]); size = item.chars ?? 0; }
+    // Título sem texto próprio nunca fecha a página: fica junto do conteúdo que ele abre.
+    if (!current || (!lastEmpty && (size >= PAGE_TARGET_CHARS || (item.level <= 1 && size >= CHAPTER_BREAK_CHARS)))) { pages.push([item.id]); size = item.chars ?? 0; }
     else { current.push(item.id); size += item.chars ?? 0; }
+    lastEmpty = !item.chars;
   }
   return pages;
 }

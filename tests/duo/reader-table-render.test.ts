@@ -15,7 +15,7 @@ describe("tabela desenhada no leitor", () => {
     expect(domText).toBe(text);
   });
   it("seções seguintes da mesma página ganham título próprio antes do primeiro parágrafo", () => {
-    const html = renderToStaticMarkup(createElement(HighlightLayer, { versionId: "v", sectionId: "s1", paragraphs: [{ id: "a", kind: "body", text: "Art. 1º Texto." }, { id: "b", kind: "body", text: "Art. 2º Outro." }], breaks: { b: { sectionId: "s2", label: "Art. 2º" } } }));
+    const html = renderToStaticMarkup(createElement(HighlightLayer, { versionId: "v", sectionId: "s1", paragraphs: [{ id: "a", kind: "body", text: "Art. 1º Texto." }, { id: "b", kind: "body", text: "Art. 2º Outro." }], breaks: { b: [{ sectionId: "s2", label: "Art. 2º" }] } }));
     expect(html).toContain('<h2 class="section-subhead" id="s-s2">Art. 2º</h2>');
   });
 });
