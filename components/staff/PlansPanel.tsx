@@ -7,7 +7,7 @@ import { api } from "@/components/staff/api";
 
 type Plan = { plano: OfficialPlan; label: string; publicado: boolean; atualizadoEm: string | null };
 
-// Cronogramas oficiais do DUO: a equipe envia o Word de 4h e o de 6h por dia; o aluno escolhe um e lê no app.
+// Cronogramas oficiais do DUO: a equipe envia o Word de 3h, de 4h e de 6h por dia; o aluno escolhe um e lê no app.
 export function PlansPanel() {
   const [plans, setPlans] = useState<Plan[] | null>(null); const [busy, setBusy] = useState<OfficialPlan | null>(null);
   const [message, setMessage] = useState(""); const [error, setError] = useState("");

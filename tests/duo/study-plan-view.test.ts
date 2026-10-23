@@ -1,6 +1,6 @@
 import { Document, ExternalHyperlink, HeadingLevel, Packer, Paragraph, TextRun } from "docx";
 import { describe, expect, it } from "vitest";
-import { activitiesOf, splitByWeekday, studyPlanFromDocx, weekdayOf } from "@/lib/study-plan-view";
+import { activitiesOf, dropToc, splitByWeekday, studyPlanFromDocx, weekdayOf } from "@/lib/study-plan-view";
 
 const docx = (children: Paragraph[]) => Packer.toBuffer(new Document({ sections: [{ children }] }));
 
@@ -41,5 +41,13 @@ describe("cronograma lido no app", () => {
       { titulo: "Questões do dia", tempo: "1h", links: [{ href: "https://www.qconcursos.com/q?x=1", rotulo: "qconcursos.com" }] },
       { titulo: "Súmulas do dia", tempo: "10min", links: [{ href: "https://a.com/1", rotulo: "Súmulas" }, { href: "https://a.com/2", rotulo: "a.com" }, { href: "https://a.com/3", rotulo: "a.com (2)" }] },
     ]);
+  });
+  it("ignora o sumário do Word (linhas só com link interno), que repetiria os dias", () => {
+    const html = '<p><strong>SUMÁRIO </strong></p><p><a href="#_Toc1">SEGUNDA FEIRA\t6</a></p><p><a href="#_Toc2">DOMINGO· SIMULADO\t19</a></p><p>Veja <a href="#_Toc3">aqui</a> as regras.</p><h2>SEGUNDA FEIRA</h2><p>Questões</p>';
+    const clean = dropToc(html);
+    expect(clean).not.toContain("SUMÁRIO");
+    expect(clean).not.toContain("SIMULADO");
+    expect(clean).toContain("Veja");
+    expect(splitByWeekday(clean).dias.map((day) => day.dia)).toEqual([1]);
   });
 });

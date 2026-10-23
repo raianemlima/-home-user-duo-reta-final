@@ -64,16 +64,18 @@ describe("/api/cronograma", () => {
   });
   it("GET informa o cronograma atual e os oficiais publicados; DELETE remove só os arquivos do aluno", async () => {
     storage.list.mockImplementation(async (folder: string) => ({ data: folder === "oficiais" ? [{ name: "6h.docx" }] : [{ name: "plano.pdf", updated_at: "2026-10-22T10:00:00Z", metadata: { size: 2048 } }], error: null }));
-    expect(await (await GET()).json()).toEqual({ plano: "proprio", oficiais: { "4h": false, "6h": true }, file: { name: "plano.pdf", size: 2048, updatedAt: "2026-10-22T10:00:00Z" } });
+    expect(await (await GET()).json()).toEqual({ plano: "proprio", oficiais: { "3h": false, "4h": false, "6h": true }, file: { name: "plano.pdf", size: 2048, updatedAt: "2026-10-22T10:00:00Z" } });
     expect(await (await DELETE()).json()).toEqual({ removed: 1 });
     expect(storage.remove).toHaveBeenCalledWith(["u1/plano.pdf"]);
     expect(choices.deleted).toHaveBeenCalledWith("proprio");
   });
-  it("o aluno escolhe o cronograma de 4h, de 6h ou o próprio; outro valor é recusado", async () => {
+  it("o aluno escolhe o cronograma de 3h, 4h, 6h ou o próprio; outro valor é recusado", async () => {
     const put = (plano: unknown) => choosePlan(new Request("http://x/api/cronograma/plano", { method: "PUT", body: JSON.stringify({ plano }) }));
     expect(await (await put("6h")).json()).toEqual({ plano: "6h" });
     expect(choices.upsert).toHaveBeenCalledWith(expect.objectContaining({ user_id: "u1", plano: "6h" }), { onConflict: "user_id" });
+    expect(await (await put("3h")).json()).toEqual({ plano: "3h" });
     expect((await put("8h")).status).toBe(400);
+    expect((await put("toString")).status).toBe(400);
   });
   it("conteúdo: lê o cronograma oficial escolhido; arquivo próprio que não é Word só abre", async () => {
     choice = { plano: "6h" };

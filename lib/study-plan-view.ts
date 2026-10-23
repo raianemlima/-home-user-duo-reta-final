@@ -98,6 +98,19 @@ export function splitByWeekday(html: string): StudyPlanView {
   return { geral: general.join(""), dias: days, anexos: annexes };
 }
 
+// Sumário do Word ("SEGUNDA FEIRA<tab>6", com link interno "#_Toc…"): repete os títulos e confundiria a divisão
+// por dia; o app já mostra os dias como abas. Sai a linha "SUMÁRIO" e cada linha que só tem link interno.
+const isTocLine = (node: ChildNode) => {
+  if (node.type !== "tag" || (node as Element).name !== "p") return false;
+  const anchors = findAll((item) => item.name === "a", [node]);
+  return anchors.length > 0 && anchors.every((anchor) => (anchor.attribs.href ?? "").startsWith("#")) && textContent(node).trim() === anchors.map((anchor) => textContent(anchor)).join("").trim();
+};
+export function dropToc(html: string): string {
+  const document = parseDocument(html);
+  document.children = document.children.filter((node) => !isTocLine(node) && !/^sum[áa]rio$/i.test(textContent(node).trim()));
+  return render(document, { encodeEntities: "utf8" });
+}
+
 // Endereço enorme como texto do link quebra a leitura no celular: o link passa a mostrar só o site.
 function shortenUrlLinks(html: string): string {
   const document = parseDocument(html);
@@ -110,7 +123,7 @@ function shortenUrlLinks(html: string): string {
 
 export async function studyPlanFromDocx(buffer: Buffer): Promise<StudyPlanView> {
   const { value } = await mammoth.convertToHtml({ buffer }, { ignoreEmptyParagraphs: true });
-  const view = splitByWeekday(shortenUrlLinks(sanitizeHtml(value, SANITIZE)));
+  const view = splitByWeekday(shortenUrlLinks(sanitizeHtml(dropToc(value), SANITIZE)));
   // Segunda passada só para garantir que a divisão não produziu nada fora da lista permitida.
   const clean = <T extends { html: string }>(item: T): T => ({ ...item, html: sanitizeHtml(item.html, SANITIZE) });
   return { geral: sanitizeHtml(view.geral, SANITIZE), dias: view.dias.map(clean).map((day) => ({ ...day, atividades: activitiesOf(day.html) })), anexos: view.anexos.map(clean).filter((annex) => annex.html.trim()) };
