@@ -34,7 +34,12 @@ export function PUT(request: Request) {
     const { supabase } = await requireStaff();
     const body = await readJson(request);
     if (typeof body.slug !== "string" || !vadeMaterial(body.slug)) throw new ApiError(400, "invalid_request", "Escolha a matéria do Vade Esperto.");
-    const versao = typeof body.versao === "string" ? body.versao.trim().slice(0, 80) : "";
+    let versao = typeof body.versao === "string" ? body.versao.trim().slice(0, 80) : "";
+    // Arquivo sem data no nome: mantém a data já publicada, em vez de deixar o cartão sem "Atualizado em".
+    if (!versao) {
+      const { data: current } = await supabase.from("vade_esperto").select("versao").eq("slug", body.slug).maybeSingle();
+      versao = (current?.versao as string | undefined) ?? "";
+    }
     const { error } = await supabase.from("vade_esperto").upsert({ slug: body.slug, versao, updated_at: new Date().toISOString() }, { onConflict: "slug" });
     if (error) throw new Error(`Falha ao publicar: ${error.message}`);
     return NextResponse.json({ slug: body.slug, versao });

@@ -59,7 +59,7 @@ describe("fluxo da equipe: ebook → rascunho → publicação → leitura", () 
 
     const sectionId = preview.toc[2].id;
     const reader = await loadSection(makeFakeSupabase(db, "aluno") as never, "penal", sectionId);
-    expect(reader?.section.paragraphs.map((paragraph) => paragraph.text).join(" ")).toContain("Os critérios de atendimento");
+    expect([reader?.section, ...(reader?.more ?? [])].flatMap((section) => section?.paragraphs ?? []).map((paragraph) => paragraph.text).join(" ")).toContain("Os critérios de atendimento");
 
     // Excluir o material publicado: pede confirmação, mostra o impacto e apaga a versão e os grifos dela.
     db.tables.highlights.push({ id: "g1", user_id: "aluno-1", version_id: versionId, status: "active" }, { id: "g2", user_id: "aluno-2", version_id: versionId, status: "active" }, { id: "g3", user_id: "aluno-1", version_id: "outra", status: "active" });

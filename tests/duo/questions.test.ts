@@ -80,6 +80,7 @@ const student = vi.fn();
 vi.mock("@/lib/server/auth", () => ({ requireStudent: () => student() }));
 import { POST as answer } from "@/app/api/questoes/responder/route";
 import { GET as basis } from "@/app/api/questoes/[id]/fundamentacao/route";
+import { DELETE as restart } from "@/app/api/questoes/route";
 
 describe("POST /api/questoes/responder", () => {
   const upsert = vi.fn();
@@ -95,6 +96,21 @@ describe("POST /api/questoes/responder", () => {
   it("questão ou alternativa inválida é recusada", async () => {
     expect((await post({ id: "nao-existe", choice: "A" })).status).toBe(404);
     expect((await post({ id: QUESTIONS[0].id, choice: "Z" })).status).toBe(400);
+  });
+});
+
+describe("DELETE /api/questoes (recomeçar)", () => {
+  const calls: unknown[][] = [];
+  const builder = { delete: (...args: unknown[]) => { calls.push(["delete", ...args]); return builder; }, eq: (...args: unknown[]) => { calls.push(["eq", ...args]); return builder; }, in: (...args: unknown[]) => { calls.push(["in", ...args]); return builder; }, then: (resolve: (value: unknown) => void) => resolve({ error: null, count: 2 }) };
+  beforeEach(() => { vi.stubEnv("NEXT_PUBLIC_PIPELINE_V2", "true"); calls.length = 0; student.mockResolvedValue({ supabase: { from: () => builder }, user: { id: "u1" } }); });
+  const del = (body?: unknown) => restart(new Request("http://x/api/questoes", { method: "DELETE", body: body === undefined ? undefined : JSON.stringify(body) }));
+  it("apaga todas as respostas do aluno, ou só as da seleção", async () => {
+    expect(await (await del()).json()).toEqual({ removed: 2 });
+    expect(calls).toEqual([["delete", { count: "exact" }], ["eq", "user_id", "u1"]]);
+    calls.length = 0;
+    await del({ ids: ["q1", "q2"] });
+    expect(calls).toContainEqual(["in", "question_id", ["q1", "q2"]]);
+    expect((await del({ ids: "tudo" })).status).toBe(400);
   });
 });
 

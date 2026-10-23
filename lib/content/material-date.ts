@@ -33,6 +33,7 @@ export function dateFromFileName(name: string): string | null {
 
 // No texto, só cabeçalhos, rodapés e a primeira página: no corpo, "atualizado em" aparece em artigos de lei.
 export function materialDate(extraction: Pick<DocumentExtraction, "pages"> | null, fileName: string | null): string | null {
-  const texts = (extraction?.pages ?? []).flatMap((page, index) => page.blocks.filter((block) => index === 0 || block.kind === "header" || block.kind === "footer").map((block) => block.text));
+  // Word vem como uma "página" só: da primeira página, só o começo (capa), não o documento inteiro.
+  const texts = (extraction?.pages ?? []).flatMap((page, index) => page.blocks.filter((block, position) => (index === 0 && position < 40) || block.kind === "header" || block.kind === "footer").map((block) => block.text));
   return dateFromText(texts) ?? (fileName ? dateFromFileName(fileName) : null);
 }

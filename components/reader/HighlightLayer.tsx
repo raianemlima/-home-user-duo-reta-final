@@ -7,6 +7,7 @@ import { paragraphSpans, rangeToPoints, segmentText } from "@/lib/highlights/dom
 import { markLead, paragraphFormat, tipRoles } from "@/lib/reader/format";
 import { HIGHLIGHT_COLORS, type HighlightColor, type Point } from "@/lib/highlights/types";
 import type { ReaderParagraph } from "@/lib/reader/queries";
+import { piecesOf, tableLayout } from "@/lib/reader/table";
 
 type Highlight = { id: string; start: Point; end: Point; quote: string; color: HighlightColor; note: string | null; reviewed: boolean };
 type Selection = { start: Point; end: Point };
@@ -20,7 +21,8 @@ async function call(url: string, method: string, body?: unknown) {
 }
 
 // Texto da seção com os grifos do aluno. Marcas vêm do estado (React), nunca de manipulação direta do DOM.
-export function HighlightLayer({ versionId, sectionId, paragraphs }: { versionId: string; sectionId: string; paragraphs: ReaderParagraph[] }) {
+// breaks: título de cada seção seguinte da mesma página de leitura, desenhado antes do primeiro parágrafo dela.
+export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { versionId: string; sectionId: string; paragraphs: ReaderParagraph[]; breaks?: Record<string, { sectionId: string; label: string }> }) {
   const root = useRef<HTMLDivElement>(null);
   const [highlights, setHighlights] = useState<Highlight[]>([]);
   const [selection, setSelection] = useState<Selection | null>(null);
@@ -77,13 +79,25 @@ export function HighlightLayer({ versionId, sectionId, paragraphs }: { versionId
     <ColorLegend />
     {notice && <p className="reader-notice" role="alert">{notice} <button className="icon-button" onClick={() => setNotice("")} aria-label="Fechar aviso">✕</button></p>}
     <div className="section-text" data-section-id={sectionId} ref={root} onMouseUp={capture} onTouchEnd={capture}>
-      {paragraphs.map((paragraph) => { const format = paragraphFormat(paragraph.text, paragraph.kind); return <Fragment key={paragraph.id}><p id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind} ${format.className} ${tips.get(paragraph.id) ?? ""}`.trim()} data-paragraph-id={paragraph.id}>
-        {markLead(segmentText(paragraph.text, spans.get(paragraph.id) ?? []), format.lead).map((segment, index) => segment.marks.length
+      {paragraphs.map((paragraph) => {
+        const format = paragraphFormat(paragraph.text, paragraph.kind);
+        const segments = markLead(segmentText(paragraph.text, spans.get(paragraph.id) ?? []), format.lead);
+        const renderSegment = (segment: (typeof segments)[number], index: number | string) => segment.marks.length
           ? <mark key={index} className={`hl hl-${segment.marks[segment.marks.length - 1].color}${segment.lead ? " lead" : ""}${noteOf(segment.marks[segment.marks.length - 1].id) ? " has-note" : ""}`} title={noteOf(segment.marks[segment.marks.length - 1].id) ?? undefined} data-highlight-id={segment.marks[segment.marks.length - 1].id} tabIndex={0} role="button" aria-label="Grifo: abrir opções"
               onClick={() => { const id = segment.marks[segment.marks.length - 1].id; if (!id.startsWith("tmp-")) { const found = highlights.find((item) => item.id === id); setEditing({ id, note: found?.note ?? "", color: found?.color ?? "importante" }); }; }}
               onKeyDown={(event) => { if (event.key === "Enter") (event.currentTarget as HTMLElement).click(); }}>{segment.text}</mark>
-          : <span key={index} className={segment.lead ? "lead" : undefined}>{segment.text}</span>)}
-      </p>{notesOf(paragraph.id).map((item) => <aside key={item.id} className="para-note" style={{ borderColor: swatch(item.color) }} role="button" tabIndex={0} aria-label="Abrir anotação"
+          : <span key={index} className={segment.lead ? "lead" : undefined}>{segment.text}</span>;
+        const table = paragraph.kind === "table" ? tableLayout(paragraph.text) : null;
+        const subhead = breaks?.[paragraph.id];
+        return <Fragment key={paragraph.id}>{subhead && <h2 className="section-subhead" id={`s-${subhead.sectionId}`}>{subhead.label}</h2>}{table
+          // Tabela do material desenhada como tabela; o texto (com os separadores escondidos) é o mesmo, então os grifos continuam valendo.
+          ? <div id={`p-${paragraph.id}`} className="paragraph paragraph-table table-wrap" data-paragraph-id={paragraph.id}><table className="material-table"><tbody>
+              {table.map((row, r) => <tr key={r}>{row.map((cell, c) => { const Cell = r === 0 && table.length > 1 ? "th" : "td"; return <Cell key={c}>{piecesOf(segments, cell.from, cell.to).flatMap((piece, k) => piece.text.split("\u2028").map((part, n) => <Fragment key={`${c}-${k}-${n}`}>{n > 0 && <><span className="tsep">{"\u2028"}</span><br /></>}{part && renderSegment({ ...piece, text: part }, `${c}-${k}-${n}`)}</Fragment>))}{cell.sepTo > cell.to && <span className="tsep">{paragraph.text.slice(cell.to, cell.sepTo)}</span>}</Cell>; })}</tr>)}
+            </tbody></table></div>
+          : <p id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind} ${format.className} ${tips.get(paragraph.id) ?? ""}`.trim()} data-paragraph-id={paragraph.id}>
+              {segments.map((segment, index) => renderSegment(segment, index))}
+            </p>}
+      {notesOf(paragraph.id).map((item) => <aside key={item.id} className="para-note" style={{ borderColor: swatch(item.color) }} role="button" tabIndex={0} aria-label="Abrir anotação"
           onClick={() => { if (!item.id.startsWith("tmp-")) setEditing({ id: item.id, note: item.note ?? "", color: item.color }); }}
           onKeyDown={(event) => { if (event.key === "Enter") (event.currentTarget as HTMLElement).click(); }}><span aria-hidden="true">✎</span> {item.note}</aside>)}</Fragment>; })}
     </div>
