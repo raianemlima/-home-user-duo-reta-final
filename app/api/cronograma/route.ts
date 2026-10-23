@@ -14,7 +14,7 @@ async function listOwn(userId: string): Promise<StoredFile[]> {
   return ((data ?? []) as StoredFile[]).filter((file) => file.name && file.name !== ".emptyFolderPlaceholder");
 }
 
-// O que o aluno segue hoje: um cronograma oficial (4h/6h) ou o próprio arquivo; e quais oficiais a equipe já publicou.
+// O que o aluno segue hoje: um cronograma oficial (3h, 4h ou 6h) ou o próprio arquivo; e quais oficiais a equipe já publicou.
 export function GET() {
   return handleRoute("cronograma.ler", async () => {
     const { supabase, user } = await requireStudent();

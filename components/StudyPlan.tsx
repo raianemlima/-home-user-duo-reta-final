@@ -15,7 +15,7 @@ async function call<T>(url: string, init?: RequestInit): Promise<T> {
   return payload as T;
 }
 
-// "Meu cronograma": o aluno segue o cronograma oficial de 4h ou de 6h por dia, ou envia o dele, e vê no app o que estudar hoje.
+// "Meu cronograma": o aluno segue o cronograma oficial de 3h, 4h ou 6h por dia, ou envia o dele, e vê no app o que estudar hoje.
 export function StudyPlan() {
   const [state, setState] = useState<PlanState | null | undefined>(undefined);
   const [busy, setBusy] = useState(false); const [message, setMessage] = useState(""); const [error, setError] = useState("");
