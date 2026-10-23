@@ -2,7 +2,7 @@
 
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { type Answer, parseQuestionFilter, type QuestionView, searchQuestions, type Situation } from "@/lib/questions/bank";
+import { type Answer, matches, parseQuestionFilter, type QuestionView, searchQuestions, type Situation } from "@/lib/questions/bank";
 import type { Fundamentacao, Letter, Question } from "@/lib/questions/types";
 
 type Bank = { questions: Question[]; answers: Map<string, Answer> };
@@ -122,6 +122,25 @@ export function QuestionBank() {
     setBank((current) => current && { ...current, answers: new Map(current.answers).set(id, { choice, correct }) });
   }
 
+  // Recomeçar: apaga as respostas (todas ou só as da seleção filtrada) e as questões voltam a ficar em branco.
+  const [resetting, setResetting] = useState(false);
+  async function restart(onlySelection: boolean) {
+    if (!bank) return;
+    const filter = parseQuestionFilter(new URLSearchParams(query));
+    const ids = onlySelection ? bank.questions.filter((question) => bank.answers.has(question.id) && matches(question, filter, bank.answers)).map((question) => question.id) : null;
+    const count = ids ? ids.length : bank.answers.size;
+    if (!count) return;
+    if (!window.confirm(`Apagar ${count} resposta(s) ${ids ? "desta seleção" : "de todo o banco"} e recomeçar? Seu histórico de acertos dessas questões será zerado.`)) return;
+    setResetting(true);
+    try {
+      const response = await fetch("/api/questoes", { method: "DELETE", headers: { "content-type": "application/json" }, body: JSON.stringify(ids ? { ids } : {}) });
+      if (!response.ok) throw new Error((await response.json().catch(() => ({})))?.error?.message ?? "Não foi possível apagar as respostas.");
+      setBank((current) => { if (!current) return current; const answers = new Map(current.answers); for (const id of ids ?? [...answers.keys()]) answers.delete(id); return { ...current, answers }; });
+      setError("");
+    } catch (failure) { setError(failure instanceof Error ? failure.message : "Não foi possível apagar as respostas."); }
+    finally { setResetting(false); }
+  }
+
   const value = (name: (typeof FILTERS)[number]) => params.get(name) ?? "";
   const active = FILTERS.some((name) => params.get(name));
   const facets = result?.facets;
@@ -129,6 +148,10 @@ export function QuestionBank() {
   return <div className="question-bank">
     <p className="eyebrow">Reta Final DPE-SP</p><h1>Banco de questões</h1>
     <p className="muted">Provas da DPE-SP e de Defensor da FCC desde 2021.{result ? ` Você respondeu ${result.stats.respondidas} de ${result.stats.total}${rate !== null ? ` · ${rate}% de acerto` : ""}.` : ""}</p>
+    {bank && bank.answers.size > 0 && <div className="sheet-actions qb-restart">
+      {active && <button type="button" className="button ghost" onClick={() => restart(true)} disabled={resetting}>Recomeçar esta seleção</button>}
+      <button type="button" className="button ghost" onClick={() => restart(false)} disabled={resetting}>{resetting ? "Apagando…" : "Recomeçar do zero (apagar todas as respostas)"}</button>
+    </div>}
     <form className="qb-search" onSubmit={submitSearch} role="search"><input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar palavras no enunciado ou nas alternativas" aria-label="Buscar questões" /><button className="button" type="submit">Buscar</button></form>
     {facets && <div className="qb-filters">
       <Select label="Disciplina" name="disciplina" value={value("disciplina")} options={facets.disciplinas} onChange={onSelect} />

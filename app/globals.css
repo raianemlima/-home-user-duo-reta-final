@@ -163,6 +163,9 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 /* Sumário recolhido (só no computador): o texto ocupa a largura toda e a barra mostra "Mostrar sumário". */
 .reader.toc-hidden { grid-template-columns: minmax(0, 1fr); }
 .reader.toc-hidden .toc { display: none; }
+/* Sumário recolhido: o texto usa a largura toda da tela. */
+.content:has(> .reader.toc-hidden) { max-width: none; }
+.reader.toc-hidden .section-text, .reader.toc-hidden .section-nav { max-width: none; }
 .section-intro-title { font-family: var(--font-title); font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 0 .75rem; }
 .section-intro { margin-bottom: 1.25rem; }
 .section-intro-more { margin-bottom: 1.25rem; }
@@ -336,3 +339,12 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .vade-staff .section-title { margin: 0; }
 .vade-staff-part { display: grid; gap: var(--s-2); }
 .vade-staff-part > p { margin: 0; }
+
+/* Tabelas do material: linhas, colunas e cabeçalho como no arquivo; rola na horizontal no celular. */
+.table-wrap { overflow-x: auto; padding: 0; }
+.material-table { border-collapse: collapse; width: 100%; font-size: .95em; line-height: 1.45; }
+.material-table th, .material-table td { border: 1px solid var(--border); padding: .5rem .65rem; vertical-align: top; text-align: left; white-space: pre-wrap; }
+.material-table th { background: var(--surface-2); font-weight: 700; }
+.material-table tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-2) 40%, transparent); }
+.tsep { display: none; }
+.section-subhead { font-size: 1.15rem; margin: 1.75rem 0 .75rem; scroll-margin-top: 1rem; }

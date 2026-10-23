@@ -8,7 +8,7 @@ import { type Discipline, DisciplineRow } from "@/components/staff/ContentPanel"
 
 type Material = { slug: string; titulo: string; versao: string; atualizadoEm: string | null; disponivel: boolean };
 // "Vade Esperto - CPP - atualizado em 14.09.26.pdf" → "atualizado em 14.09.26": vira a data que o aluno vê.
-const versionFrom = (fileName: string) => { const date = /atualiza\w*\s*(?:em\s*)?([\d.]+\d)/i.exec(fileName)?.[1]; return date ? `Atualizado em ${date}` : ""; };
+const versionFrom = (fileName: string) => { const date = /atualiza\w*\s*(?:em\s*)?([\d.]+\d)/i.exec(fileName)?.[1] ?? /(?:^|[\s\-–_[(])(\d{1,2}\.\d{1,2}\.\d{2,4})(?=$|[\s\])_.])/.exec(fileName.replace(/\.pdf$/i, ""))?.[1]; return date ? `Atualizado em ${date}` : ""; };
 
 // Vade Esperto: um PDF por matéria; enviar de novo substitui o anterior.
 export function VadePanel() {

@@ -149,3 +149,14 @@ describe("janelas com sobreposição controlada", () => {
     expect(windows.every((w) => w.from === w.core[0])).toBe(true);
   });
 });
+
+describe("títulos que não são títulos", () => {
+  it("\"Art. 59 - O juiz…\" é o Art. 59 (o travessão com espaço não é letra de artigo incluído)", () => {
+    expect(classifyHeading("Art. 59 - O juiz, atendendo à culpabilidade, aos antecedentes", false)?.numbering).toBe("Art. 59");
+    expect(classifyHeading("Art. 28-A. Não sendo caso de arquivamento", false)?.numbering).toBe("Art. 28-A");
+  });
+  it("item de lista que abre explicação (\"3. Confissão Retratada:\") não vira seção, a não ser com estilo de título", () => {
+    expect(classifyHeading("3. Confissão Retratada:", false)).toBeNull();
+    expect(classifyHeading("3. Confissão Retratada:", true)?.kind).toBe("numbered");
+  });
+});

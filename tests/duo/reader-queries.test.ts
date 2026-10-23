@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { firstSectionId, listDisciplines, loadSection, searchDiscipline } from "@/lib/reader/queries";
+import { firstSectionId, listDisciplines, loadSection, readingPages, searchDiscipline } from "@/lib/reader/queries";
 import { FakeDb, makeFakeSupabase } from "../phase2/fake-supabase";
 
 const student = vi.fn();
@@ -53,14 +53,24 @@ describe("listDisciplines", () => {
 });
 
 describe("loadSection", () => {
-  it("devolve sumário, parágrafos na ordem e vizinhos", async () => {
+  it("devolve sumário, parágrafos na ordem e junta seções curtas numa página de leitura", async () => {
     const view = await loadSection(sb(), "penal", "s1");
     expect(view?.toc.map((item) => item.id)).toEqual(["s1", "s2", "s3"]);
     expect(view?.toc[1].path).toEqual([]);
     expect(view?.section.paragraphs.map((p) => p.id)).toEqual(["p1", "p2"]);
-    expect([view?.prevId, view?.nextId]).toEqual([null, "s2"]);
-    const last = await loadSection(sb(), "penal", "s3");
-    expect([last?.prevId, last?.nextId]).toEqual(["s2", null]);
+    // As três seções são curtas: ficam na mesma página, sem anterior/próxima.
+    expect(view?.pageIds).toEqual(["s1", "s2", "s3"]);
+    expect(view?.more.map((section) => [section.id, section.paragraphs.map((p) => p.id)])).toEqual([["s2", ["p3"]], ["s3", ["p4"]]]);
+    expect([view?.prevId, view?.nextId]).toEqual([null, null]);
+    // Pedindo a seção do meio: mesma página, com foco nela.
+    const middle = await loadSection(sb(), "penal", "s2");
+    expect([middle?.section.id, middle?.focusId]).toEqual(["s1", "s2"]);
+  });
+  it("páginas: enche até o tamanho-alvo; capítulo novo começa página se a atual já tem texto", () => {
+    const item = (id: string, level: number, chars: number) => ({ id, level, numbering: null, title: id, path: [], chars });
+    expect(readingPages([item("a", 1, 100), item("b", 9, 50), item("c", 9, 1400), item("d", 9, 30), item("e", 1, 200), item("f", 9, 3000), item("g", 2, 10)]))
+      .toEqual([["a", "b", "c"], ["d", "e", "f"], ["g"]]);
+    expect(readingPages([item("a", 1, 500), item("b", 1, 100)])).toEqual([["a"], ["b"]]);
   });
   it("o texto antes do primeiro título não vira página: sai do sumário e abre no topo da primeira seção", async () => {
     // Versão própria: o sumário de uma versão publicada fica em cache entre os testes.
@@ -72,11 +82,11 @@ describe("loadSection", () => {
     const view = await loadSection(sb(), "lei", "l1");
     expect(view?.toc.map((item) => item.id)).toEqual(["l1", "l2"]);
     expect(view?.intro.map((p) => p.text)).toEqual(["Dos Princípios Fundamentais"]);
-    expect([view?.prevId, view?.nextId]).toEqual([null, "l2"]);
+    expect([view?.prevId, view?.nextId]).toEqual([null, null]);
     // Link antigo para a introdução abre a primeira seção.
     const old = await loadSection(sb(), "lei", "l0");
     expect([old?.section.id, old?.intro.length]).toEqual(["l1", 1]);
-    expect((await loadSection(sb(), "lei", "l2"))?.intro).toEqual([]);
+    expect((await loadSection(sb(), "lei", "l2"))?.focusId).toBe("l2");
     expect(await firstSectionId(sb(), "lei")).toBe("l1");
   });
   it("slug desconhecido ou seção de outra versão: null", async () => {
