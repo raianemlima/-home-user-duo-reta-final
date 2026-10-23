@@ -60,7 +60,7 @@ export const cleaningHandlerV2: StageHandler = {
 // ---------------------------------------------------------------------------------------------------------------
 // Fase 4: segmentação estrutural por documento e mapa temático do caderno.
 // ---------------------------------------------------------------------------------------------------------------
-export const SEGMENTATION_VERSION = "3";
+export const SEGMENTATION_VERSION = "4";
 
 export const segmentationHandler: StageHandler = {
   stage: "segmentation",

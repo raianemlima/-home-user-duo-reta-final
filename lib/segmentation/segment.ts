@@ -65,7 +65,9 @@ export function segmentDocument(documentId: string, documentSha: string, input: 
     if (info?.needsContinuation) {
       const next = input[index + 1];
       // "TÍTULO II" sozinho numa linha: o nome ("DOS DIREITOS E GARANTIAS…") vem no parágrafo seguinte.
-      if (next && next.kind === "body" && next.text.length <= 120 && !isTocEntry(next.text) && !classifyHeading(next.text, false) && (next.heading || next.text === next.text.toUpperCase())) { info = { ...info, title: next.text.trim() }; consumed.add(index + 1); }
+      // Nome em caixa alta, com estilo de título ou no formato da lei ("Do Crime", "Da Aplicação da Lei Penal").
+      const lawName = /^(D[aeo]s?|Disposi[çc][õo]es)\s/.test(next?.text ?? "") && !/[.;:!?]$/.test(next?.text ?? "");
+      if (next && next.kind === "body" && next.text.length <= 120 && !isTocEntry(next.text) && !classifyHeading(next.text, false) && (next.heading || next.text === next.text.toUpperCase() || lawName)) { info = { ...info, title: next.text.trim() }; consumed.add(index + 1); }
     }
     if (info && info.kind !== "article") {
       headings += 1;
