@@ -22,7 +22,7 @@ async function call(url: string, method: string, body?: unknown) {
 
 // Texto da seção com os grifos do aluno. Marcas vêm do estado (React), nunca de manipulação direta do DOM.
 // breaks: título de cada seção seguinte da mesma página de leitura, desenhado antes do primeiro parágrafo dela.
-export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { versionId: string; sectionId: string; paragraphs: ReaderParagraph[]; breaks?: Record<string, { sectionId: string; label: string }[]> }) {
+export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { versionId: string; sectionId: string; paragraphs: ReaderParagraph[]; breaks?: Record<string, { sectionId: string; label: string; hidden?: boolean }[]> }) {
   const root = useRef<HTMLDivElement>(null);
   const [highlights, setHighlights] = useState<Highlight[]>([]);
   const [selection, setSelection] = useState<Selection | null>(null);
@@ -89,7 +89,7 @@ export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { v
           : <span key={index} className={segment.lead ? "lead" : undefined}>{segment.text}</span>;
         const table = paragraph.kind === "table" ? tableLayout(paragraph.text) : null;
         const subheads = breaks?.[paragraph.id] ?? [];
-        return <Fragment key={paragraph.id}>{subheads.map((subhead) => <h2 key={subhead.sectionId} className="section-subhead" id={`s-${subhead.sectionId}`}>{subhead.label}</h2>)}{table
+        return <Fragment key={paragraph.id}>{subheads.map((subhead) => subhead.hidden ? <span key={subhead.sectionId} className="section-anchor" id={`s-${subhead.sectionId}`} /> : <h2 key={subhead.sectionId} className="section-subhead" id={`s-${subhead.sectionId}`}>{subhead.label}</h2>)}{table
           // Tabela do material desenhada como tabela; o texto (com os separadores escondidos) é o mesmo, então os grifos continuam valendo.
           ? <div id={`p-${paragraph.id}`} className="paragraph paragraph-table table-wrap" data-paragraph-id={paragraph.id}><table className="material-table"><tbody>
               {table.map((row, r) => <tr key={r}>{row.map((cell, c) => { const Cell = r === 0 && table.length > 1 ? "th" : "td"; return <Cell key={c} colSpan={cell.span > 1 ? cell.span : undefined}>{piecesOf(segments, cell.from, cell.to).flatMap((piece, k) => piece.text.split("\u2028").map((part, n) => <Fragment key={`${c}-${k}-${n}`}>{n > 0 && <><span className="tsep">{"\u2028"}</span><br /></>}{part && renderSegment({ ...piece, text: part }, `${c}-${k}-${n}`)}</Fragment>))}{cell.sepTo > cell.to && <span className="tsep">{paragraph.text.slice(cell.to, cell.sepTo)}</span>}</Cell>; })}</tr>)}

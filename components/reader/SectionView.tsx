@@ -10,6 +10,8 @@ import { sectionLabel, TocDrawer } from "@/components/reader/TocDrawer";
 import type { SectionView as View } from "@/lib/reader/queries";
 
 const TOC_KEY = "duo:sumario-recolhido";
+// Seção de artigo: nasce do próprio parágrafo do artigo ("Art. 1.196. Considera-se…", "Artigo 2º – …"), que já mostra o número.
+const isArticleSection = (section: { numbering: string | null; paragraphs: { text: string }[] }) => Boolean(section.numbering && /^Art\./.test(section.numbering) && /^Art(?:igos?)?\.?\s*\d/i.test(section.paragraphs[0]?.text ?? ""));
 const tocListeners = new Set<() => void>();
 const readTocHidden = () => { try { return window.localStorage.getItem(TOC_KEY) === "1"; } catch { return false; } };
 const subscribeToc = (listener: () => void) => { tocListeners.add(listener); return () => { tocListeners.delete(listener); }; };
@@ -29,10 +31,11 @@ export function SectionView({ view, children }: { view: View; children?: React.R
   }, [view.focusId, view.section.id]);
   const paragraphs = [...view.section.paragraphs, ...view.more.flatMap((section) => section.paragraphs)];
   // Títulos das seções seguintes da página; título sem texto próprio ("TÍTULO IV", "CAPÍTULO I") vai junto do próximo.
-  const breaks: Record<string, { sectionId: string; label: string }[]> = {};
-  let pending: { sectionId: string; label: string }[] = [];
+  // Artigo de lei: o próprio texto já começa com "Art. 5º" — no meio da página fica só a âncora do sumário, sem repetir.
+  const breaks: Record<string, { sectionId: string; label: string; hidden?: boolean }[]> = {};
+  let pending: { sectionId: string; label: string; hidden?: boolean }[] = [];
   for (const section of view.more) {
-    pending.push({ sectionId: section.id, label: sectionLabel(section) });
+    pending.push({ sectionId: section.id, label: sectionLabel(section), hidden: isArticleSection(section) });
     if (section.paragraphs.length) { breaks[section.paragraphs[0].id] = pending; pending = []; }
   }
   useEffect(() => {
@@ -50,7 +53,7 @@ export function SectionView({ view, children }: { view: View; children?: React.R
       </header>
       <IntroBlock paragraphs={view.intro} />
       <HighlightLayer key={view.section.id} versionId={view.versionId} sectionId={view.section.id} paragraphs={paragraphs} breaks={breaks} />
-      {pending.map((subhead) => <h2 key={subhead.sectionId} className="section-subhead" id={`s-${subhead.sectionId}`}>{subhead.label}</h2>)}
+      {pending.map((subhead) => subhead.hidden ? <span key={subhead.sectionId} className="section-anchor" id={`s-${subhead.sectionId}`} /> : <h2 key={subhead.sectionId} className="section-subhead" id={`s-${subhead.sectionId}`}>{subhead.label}</h2>)}
       {children}
       <nav className="section-nav" aria-label="Navegação entre seções">
         {view.prevId ? <Link className="button" href={`/disciplinas/${slug}/${view.prevId}`}>← Anterior</Link> : <span />}

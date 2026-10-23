@@ -18,7 +18,7 @@ const para = (text: string, heading = false, fontSize = 10.5): SegmentInput => (
 describe("estrutura de documentos reais do corpus", () => {
   it("apostila com títulos numerados (1., 1.1, 1.2, 2.)", async () => {
     const { result } = await segmentsOf("14a-apostila-a.pdf");
-    expect(shape(result.segments)).toEqual([[1, "1", "RESPONSABILIDADE CIVIL DO ESTADO"], [2, "1.1", "Teoria do risco administrativo"], [2, "1.2", "Responsabilidade por omissao"], [1, "2", "IMPROBIDADE ADMINISTRATIVA"]]);
+    expect(shape(result.segments)).toEqual([[1, "1.", "RESPONSABILIDADE CIVIL DO ESTADO"], [2, "1.1", "Teoria do risco administrativo"], [2, "1.2", "Responsabilidade por omissao"], [1, "2.", "IMPROBIDADE ADMINISTRATIVA"]]);
     expect(result.segments[1].path).toEqual(["RESPONSABILIDADE CIVIL DO ESTADO"]);
     expect(result.segments[3].path).toEqual([]);
     expect(result.segments.every((s) => s.chars > 0 && !s.container)).toBe(true);
@@ -41,7 +41,7 @@ describe("estrutura de documentos reais do corpus", () => {
   it("sumário com pontilhado é ignorado (e registrado), nunca vira tema", async () => {
     const { result } = await segmentsOf("17-com-sumario.pdf");
     expect(result.ignored.map((i) => i.reason)).toEqual(["toc_title", "toc_entry", "toc_entry"]);
-    expect(shape(result.segments)).toEqual([[1, "1", "RESPONSABILIDADE CIVIL DO ESTADO"], [1, "2", "IMPROBIDADE ADMINISTRATIVA"]]);
+    expect(shape(result.segments)).toEqual([[1, "1.", "RESPONSABILIDADE CIVIL DO ESTADO"], [1, "2.", "IMPROBIDADE ADMINISTRATIVA"]]);
     expect(result.segments.every((s) => s.chars > 0)).toBe(true);
   });
   it("documento sem títulos: um trecho de preâmbulo e aviso explícito", async () => {
@@ -82,7 +82,7 @@ describe("completude: nada se perde na segmentação", () => {
 
 describe("reconhecimento de títulos", () => {
   it.each([
-    ["1. Responsabilidade civil", false, "numbered", 1, "1"],
+    ["1. Responsabilidade civil", false, "numbered", 1, "1."],
     ["2.3.1 Prazo prescricional", false, "numbered", 3, "2.3.1"],
     ["CAPÍTULO II DOS DIREITOS SOCIAIS", false, "structural", 2, "CAPÍTULO II"],
     ["SEÇÃO III", false, "structural", 3, "SEÇÃO III"],
@@ -158,5 +158,43 @@ describe("títulos que não são títulos", () => {
   it("item de lista que abre explicação (\"3. Confissão Retratada:\") não vira seção, a não ser com estilo de título", () => {
     expect(classifyHeading("3. Confissão Retratada:", false)).toBeNull();
     expect(classifyHeading("3. Confissão Retratada:", true)?.kind).toBe("numbered");
+  });
+});
+
+describe("títulos iguais ao arquivo", () => {
+  it("divisão incluída depois (\"CAPÍTULO VII-A\", \"Título IX-A\") é título, com a grafia do arquivo", () => {
+    expect(classifyHeading("CAPÍTULO VII-A", false)).toMatchObject({ kind: "structural", numbering: "CAPÍTULO VII-A", level: 2 });
+    expect(classifyHeading("Título IX-A", false)).toMatchObject({ kind: "structural", numbering: "Título IX-A", level: 1 });
+    expect(classifyHeading("Seção V-A", false)?.numbering).toBe("Seção V-A");
+  });
+  it("número do título como escrito (\"1.\", \"2)\") e ponto final preservado", () => {
+    expect(classifyHeading("2) Lei nº 15.371/2026: AMPLIAÇÃO DA LICENÇA-PATERNIDADE", true)).toMatchObject({ numbering: "2)", level: 1 });
+    expect(classifyHeading("5.1 Direitos dos usuários das concessões de serviço público.", true)).toMatchObject({ numbering: "5.1", title: "Direitos dos usuários das concessões de serviço público." });
+  });
+  it("\"Título II\" seguido de \"Do Crime\" vira um título só", () => {
+    const result = segmentDocument("d", "s", [
+      { text: "Título II", pages: [1], kind: "body", heading: false, fontSize: 0 },
+      { text: "Do Crime", pages: [1], kind: "body", heading: false, fontSize: 0 },
+      { text: "Art. 13. O resultado, de que depende a existência do crime, somente é imputável a quem lhe deu causa.", pages: [1], kind: "body", heading: false, fontSize: 0 },
+    ]);
+    expect(result.segments.map((segment) => [segment.numbering, segment.title])).toEqual([["Título II", "Do Crime"], ["Art. 13", "Art. 13"]]);
+  });
+});
+
+describe("Word no modo fiel", () => {
+  const word = (texts: string[]) => {
+    const blocks = texts.map((text, index) => ({ kind: "body" as const, text, fontSize: 0, y: -index, column: null, heading: false, source: "text-layer" as const }));
+    const page = { page: 1, width: 0, height: 0, blocks, charCount: 100, hasTextLayer: true, hasImages: false, blank: false, needsOcr: false, ocr: "not-needed" as const };
+    return cleanDocument({ format: "docx", status: "text", pageCount: 1, pages: [page], warnings: [] }, { mode: "faithful" }).paragraphs.map((paragraph) => paragraph.text);
+  };
+  it("nada do arquivo sai como capa ou número de página: tudo o que está no Word aparece", () => {
+    expect(word(["Vade Esperto", "Código Penal", "PARTE GERAL", "Título I", "Da Aplicação da Lei Penal", "2026", "Art. 1º - Não há crime sem lei anterior que o defina."]))
+      .toEqual(["Vade Esperto", "Código Penal", "PARTE GERAL", "Título I", "Da Aplicação da Lei Penal", "2026", "Art. 1º - Não há crime sem lei anterior que o defina."]);
+  });
+  it("\"[...]\" (trecho omitido na citação) fica", () => {
+    expect(word(["O STJ decidiu:", "[...]", "Mediante averbação, no registro de imóveis."])).toContain("[...]");
+    const blocks = [{ kind: "table" as const, text: "Notícia de destaque\n[…]\nFim da notícia.", fontSize: 0, y: 0, column: null, heading: false, source: "text-layer" as const }];
+    const page = { page: 1, width: 0, height: 0, blocks, charCount: 30, hasTextLayer: true, hasImages: false, blank: false, needsOcr: false, ocr: "not-needed" as const };
+    expect(cleanDocument({ format: "docx", status: "text", pageCount: 1, pages: [page], warnings: [] }, { mode: "faithful" }).paragraphs[0].text).toBe("Notícia de destaque\n[…]\nFim da notícia.");
   });
 });

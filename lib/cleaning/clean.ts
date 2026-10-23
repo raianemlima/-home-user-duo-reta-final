@@ -5,7 +5,7 @@ import { splitSentences } from "@/lib/cleaning/sentences";
 import { collapseSpaces, joinLines } from "@/lib/extraction/text-utils";
 import type { DocumentExtraction, LayoutBlock } from "@/lib/extraction/types";
 
-export const CLEANER_VERSION = "7";
+export const CLEANER_VERSION = "8";
 const MAX_SAMPLES = 100;
 
 export type CleanOptions = {
@@ -108,6 +108,9 @@ function cleanText(rawText: string, page: number, recorder: Recorder, policy: Po
 type Entry = { block: LayoutBlock; page: number };
 const SUBSECTION = /^\d{1,2}(?:\.\d{1,2})+\.?\s+\S/;
 const medianOf = (values: number[]) => { const sorted = [...values].sort((a, b) => a - b); return sorted.length ? sorted[Math.floor(sorted.length / 2)] : 0; };
+// "[...]" / "[…]" / "(...)": trecho omitido na citação. É texto do material, mesmo sem letras.
+const OMITTED = /^[[(]\s*(?:\.\.\.|…)\s*[\])]$/;
+
 // Alínea ("a) …") abre item próprio: nunca é continuação da frase anterior.
 const LIST_MARKER = /^[a-z]\)\s/;
 const NUMBERED_HEADING = /^(?:\d{1,2}(?:\.\d{1,2})*\.?\s|art(?:igo)?\.?\s*\d|cap[ií]tulo\b|se[cç][aã]o\b|t[ií]tulo\b)/i;
@@ -122,6 +125,8 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
   const entries: Entry[] = extraction.pages.flatMap((page) => page.blocks.map((block) => ({ block, page: page.page })));
   const pageCount = extraction.pages.length;
   const faithful = options.mode === "faithful";
+  // Word não tem número de página nem capa "de diagramação" no corpo: no modo fiel, nada dele é tirado como ruído.
+  const wordFile = faithful && extraction.format === "docx";
 
   const zoneKeys = new Map<string, Set<number>>();
   for (const { block, page } of entries) {
@@ -147,14 +152,15 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
         continue;
       }
     }
-    if (lineRules.some((rule) => test(rule, block.text))) { recorder.add("page_number", page, block.text); continue; }
+    if (!wordFile && lineRules.some((rule) => test(rule, block.text))) { recorder.add("page_number", page, block.text); continue; }
     if (block.kind === "table") {
-      const rows = block.text.split("\n").map((row) => (faithful ? collapseSpaces(row) : cleanText(row, page, recorder, policy)).replace(/^\|\s*|\s*\|$/g, "")).filter(hasContent);
+      const rows = block.text.split("\n").map((row) => (faithful ? collapseSpaces(row) : cleanText(row, page, recorder, policy)).replace(/^\|\s*|\s*\|$/g, "")).filter((row) => hasContent(row) || (faithful && OMITTED.test(row)));
       if (rows.length) paragraphs.push({ text: rows.join("\n"), pages: [page], kind: "table", heading: false, fontSize: block.fontSize });
       continue;
     }
     const text = faithful ? collapseSpaces(block.text) : cleanText(block.text, page, recorder, policy);
-    if (!hasContent(text)) continue;
+    // "[...]" (trecho omitido na citação) é texto do material.
+    if (!hasContent(text) && !(faithful && OMITTED.test(text))) continue;
     if (zone && !block.heading && text.length <= 60) ambiguous.push({ reason: "unique_header_footer_text", text, pages: [page] });
     const kind = block.kind === "footnote" ? "footnote" : faithful && /^DICA DUO\b/.test(text) ? "tip" : "body";
     paragraphs.push({ text, pages: [page], kind, heading: block.heading, fontSize: block.fontSize });
@@ -184,8 +190,10 @@ export function cleanDocument(extraction: DocumentExtraction, options: CleanOpti
   // Modo fiel: a capa ("Ebook de Reta Final", nome da disciplina) não é conteúdo. Sai só o que vem antes do primeiro texto
   // corrido da página 1: linhas curtas, sem pontuação final e que não são DICA DUO. O título logo antes de um artigo
   // ("Lei de Crimes Hediondos" seguido de "Art. 1º") é o nome da lei, não capa: fica.
-  if (faithful) {
-    while (merged.length && merged[0].pages[0] === 1 && merged[0].kind !== "tip" && merged[0].kind !== "table" && merged[0].text.length <= 40 && !/[.!?:;]$/.test(merged[0].text) && !/^Art(?:igo)?\.?\s*\d/i.test(merged[1]?.text ?? "")) {
+  if (faithful && !wordFile) {
+    // A capa acaba no primeiro título de verdade ("PARTE GERAL", "TÍTULO I", "1. …"): no Word tudo é "página 1".
+    const realHeading = (text: string) => /^(LIVRO|PARTE|T[ÍI]TULO|CAP[ÍI]TULO|SE[ÇC][ÃA]O|SUBSE[ÇC][ÃA]O)\s/i.test(text) || /^\d{1,2}(\.\d{1,2})*[.)]?\s+\p{Lu}/u.test(text);
+    while (merged.length && merged[0].pages[0] === 1 && merged[0].kind !== "tip" && merged[0].kind !== "table" && merged[0].text.length <= 40 && !/[.!?:;]$/.test(merged[0].text) && !realHeading(merged[0].text) && !/^Art(?:igo)?\.?\s*\d/i.test(merged[1]?.text ?? "")) {
       recorder.add("cover", 1, merged[0].text);
       merged.shift();
     }

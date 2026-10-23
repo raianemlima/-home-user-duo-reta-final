@@ -16,7 +16,7 @@ describe("buildDraft", () => {
   it("seções seguem a numeração do ebook", async () => {
     const sections = await draft();
     const titled = sections.filter((section) => section.title);
-    expect(titled.map((section) => [section.numbering, section.title])).toEqual([["1", "MODELOS DE ASSISTÊNCIA JURÍDICA GRATUITA"], ["1.1", "Critérios para atendimento pela DPE-SP"], ["1.2", "Exceções ao critério de renda"], ["2", "AUTONOMIA DA DEFENSORIA PÚBLICA"]]);
+    expect(titled.map((section) => [section.numbering, section.title])).toEqual([["1.", "MODELOS DE ASSISTÊNCIA JURÍDICA GRATUITA"], ["1.1", "Critérios para atendimento pela DPE-SP"], ["1.2", "Exceções ao critério de renda"], ["2.", "AUTONOMIA DA DEFENSORIA PÚBLICA"]]);
     expect(titled[1].level).toBeGreaterThan(titled[0].level);
     expect(titled[1].path).toEqual(["MODELOS DE ASSISTÊNCIA JURÍDICA GRATUITA"]);
     expect(sections.map((section) => section.position)).toEqual(sections.map((_, index) => index + 1));
