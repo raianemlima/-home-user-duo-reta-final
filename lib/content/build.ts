@@ -8,11 +8,12 @@ export type DraftSection = { position: number; level: number; numbering: string 
 
 export const paragraphHash = (text: string) => sha256(normalize(text).trim());
 
-// Uma seção por segmento com conteúdo próprio; títulos sem conteúdo (contêineres) só aparecem no caminho dos filhos.
+// Uma seção por segmento com conteúdo próprio ou com título. Título sem texto próprio ("TÍTULO IV – Da Tutela" logo antes
+// de "CAPÍTULO I") também fica: some do material se só aparecesse no caminho dos filhos.
 // Trechos longos já vêm inteiros em `paragraphs` (as janelas de leitura do atelie não importam aqui).
 export function buildDraft(segmentation: SegmentationResult): DraftSection[] {
   return segmentation.segments
-    .filter((segment) => segment.paragraphs.length > 0)
+    .filter((segment) => segment.paragraphs.length > 0 || Boolean(segment.title || segment.numbering))
     .map((segment, index) => ({
       position: index + 1,
       level: segment.level,

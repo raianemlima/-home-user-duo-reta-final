@@ -39,6 +39,11 @@ describe("buildDraft", () => {
     expect(tips[0].text.startsWith("DICA DUO")).toBe(true);
   });
 
+  it("título sem texto próprio (\"TÍTULO IV\" logo antes do capítulo) não some do material", () => {
+    const sections = buildDraft(segmentDocument("d", "s", [{ text: "TÍTULO IV", pages: [1], kind: "body", heading: true, fontSize: 15 }, { text: "Da Tutela, da Curatela", pages: [1], kind: "body", heading: true, fontSize: 15 }, { text: "CAPÍTULO I", pages: [1], kind: "body", heading: true, fontSize: 14 }, { text: "Da Tutela", pages: [1], kind: "body", heading: true, fontSize: 14 }, { text: "Art. 1.728. Os filhos menores são postos em tutela.", pages: [1], kind: "body", heading: false, fontSize: 10 }]));
+    expect(sections.map((section) => [section.numbering, section.title, section.paragraphs.length])).toEqual([["TÍTULO IV", "Da Tutela, da Curatela", 0], ["CAPÍTULO I", "Da Tutela", 0], ["Art. 1.728", "Art. 1.728", 1]]);
+  });
+
   it("hash ignora diferenças de espaço e aspas", () => {
     const segmentation = (text: string) => segmentDocument("d", "s", [{ text: "1. TÍTULO", pages: [1], kind: "body", heading: true, fontSize: 15 }, { text, pages: [1], kind: "body", heading: false, fontSize: 10 }]);
     const a = buildDraft(segmentation('O  "modelo"  público.'))[0].paragraphs[0].hash;
