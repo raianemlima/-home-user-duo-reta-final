@@ -39,7 +39,8 @@ jobs:
       - if: env.VERCEL_TOKEN != ''
         run: npm test
       - if: env.VERCEL_TOKEN != ''
-        run: npm install --global vercel@latest
+        # Versão fixa: uma CLI nova não muda o deploy de produção sem passar por um PR.
+        run: npm install --global vercel@63.1.2
       - if: env.VERCEL_TOKEN != ''
         run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
       - if: env.VERCEL_TOKEN != ''

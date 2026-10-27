@@ -58,6 +58,30 @@ describe("publishVersion", () => {
     expect(JSON.stringify(db.tables.highlights)).toBe(snapshot);
   });
 
+  it("banco ainda sem a função da migração 0019: publica do jeito antigo, sem parar", async () => {
+    db.missingRpcs.add("publish_content_version");
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    expect(await publishVersion(makeFakeSupabase(db, "service") as never, NEW)).toEqual({ published: true, alreadyPublished: false, reanchored: 1, orphaned: 1 });
+    expect(Object.fromEntries(db.tables.content_versions.map((row) => [row.id, row.status]))).toEqual({ [OLD]: "archived", [NEW]: "published" });
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining("migração 0019"));
+    warn.mockRestore();
+  });
+
+  it("grifo que uma publicação interrompida deixou numa versão antiga é levado na publicação seguinte (ou ao repetir)", async () => {
+    // A versão nova já foi publicada, mas a reancoragem não chegou a rodar: g1 e g2 continuam na versão arquivada.
+    Object.assign(db.tables.content_versions.find((row) => row.id === OLD)!, { status: "archived" });
+    Object.assign(db.tables.content_versions.find((row) => row.id === NEW)!, { status: "published" });
+    const again = await publishVersion(makeFakeSupabase(db, "service") as never, NEW);
+    expect(again).toEqual({ published: true, alreadyPublished: true, reanchored: 1, orphaned: 1 });
+    expect(db.tables.highlights.find((row) => row.id === "g1")).toMatchObject({ status: "active", version_id: NEW, start_paragraph_id: `${NEW}-p2` });
+  });
+
+  it("versão arquivada não volta a ser publicada", async () => {
+    Object.assign(db.tables.content_versions.find((row) => row.id === NEW)!, { status: "archived" });
+    await expect(publishVersion(makeFakeSupabase(db, "service") as never, NEW)).rejects.toThrow("Só rascunhos podem ser publicados.");
+    expect(db.tables.content_versions.find((row) => row.id === OLD)!.status).toBe("published");
+  });
+
   it("primeira publicação de uma disciplina não tem grifos a reancorar", async () => {
     db.tables.content_versions = db.tables.content_versions.filter((row) => row.id !== OLD);
     db.tables.highlights = [];

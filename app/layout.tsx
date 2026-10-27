@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import { AppShell } from "@/components/AppShell";
+import { NONCE_HEADER } from "@/lib/csp";
 import { identityFromRequest } from "@/lib/server/identity";
 
 // Endereço público do app: deixa links, ícones e prévias compartilhadas resolverem no domínio dos alunos,
@@ -25,9 +27,13 @@ async function staffFlag(): Promise<boolean> {
 }
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  // Nonce da política de conteúdo desta resposta (proxy.ts): sem ele, o navegador não roda o script de tema.
+  // Ler o cabeçalho também deixa toda página dinâmica, que é o que permite um nonce novo a cada resposta.
+  const nonce = (await headers()).get(NONCE_HEADER) ?? undefined;
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <head><script dangerouslySetInnerHTML={{ __html: PREFERENCES }} /></head>
+      {/* O navegador esconde o nonce depois de ler a página; a diferença na hidratação é esperada. */}
+      <head><script nonce={nonce} suppressHydrationWarning dangerouslySetInnerHTML={{ __html: PREFERENCES }} /></head>
       <body>
         <AppShell isStaff={await staffFlag()}>{children}</AppShell>
       </body>

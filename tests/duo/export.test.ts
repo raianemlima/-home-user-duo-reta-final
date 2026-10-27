@@ -63,6 +63,9 @@ describe("renderDocx", () => {
 
 const student = vi.fn();
 const load = vi.fn();
+// Cota de exportações (take_rate_limit): true = dentro da cota.
+const quota = vi.fn();
+const session = { rpc: (...args: unknown[]) => quota(...args) };
 vi.mock("@/lib/server/auth", () => ({ requireStudent: () => student() }));
 vi.mock("@/lib/notebook/queries", async (original) => ({ ...(await original<typeof import("@/lib/notebook/queries")>()), loadNotebook: (...args: unknown[]) => load(...args) }));
 import { GET as exportRoute } from "@/app/api/caderno/exportar/route";
@@ -70,7 +73,8 @@ import { GET as exportRoute } from "@/app/api/caderno/exportar/route";
 describe("GET /api/caderno/exportar", () => {
   beforeEach(() => {
     vi.stubEnv("NEXT_PUBLIC_PIPELINE_V2", "true");
-    student.mockResolvedValue({ supabase: {}, user: { id: "u", email: "ana@x.com" }, profile: { role: "aluno", active: true } });
+    student.mockResolvedValue({ supabase: session, user: { id: "u", email: "ana@x.com" }, profile: { role: "aluno", active: true } });
+    quota.mockReset().mockResolvedValue({ data: true, error: null });
   });
   it("devolve o PDF como anexo, repassando os filtros", async () => {
     load.mockResolvedValue(notebook);
@@ -78,7 +82,8 @@ describe("GET /api/caderno/exportar", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("content-type")).toBe("application/pdf");
     expect(response.headers.get("content-disposition")).toMatch(/^attachment; filename="caderno-duo-\d{4}-\d{2}-\d{2}\.pdf"$/);
-    expect(load).toHaveBeenCalledWith({}, "u", { disciplines: ["penal"], colors: ["revisar"], reviewed: "pending" });
+    expect(load).toHaveBeenCalledWith(session, "u", { disciplines: ["penal"], colors: ["revisar"], reviewed: "pending" });
+    expect(quota).toHaveBeenCalledWith("take_rate_limit", { p_bucket: "export" });
   }, 60_000);
   it("formato=docx devolve o Word como anexo", async () => {
     load.mockResolvedValue(notebook);
@@ -92,6 +97,21 @@ describe("GET /api/caderno/exportar", () => {
     const response = await exportRoute(new Request("http://x/api/caderno/exportar"));
     expect(response.status).toBe(413);
     expect((await response.json()).error.message).toBe("Seu caderno ficou grande demais para um arquivo só. Filtre por disciplina e exporte em partes.");
+  });
+  it("acima da cota de exportações: 429 com orientação, sem gerar o arquivo", async () => {
+    load.mockResolvedValue(notebook);
+    quota.mockResolvedValue({ data: false, error: null });
+    const response = await exportRoute(new Request("http://x/api/caderno/exportar"));
+    expect(response.status).toBe(429);
+    expect((await response.json()).error.message).toBe("Você exportou o caderno muitas vezes em pouco tempo. Aguarde alguns minutos e tente de novo.");
+  });
+  it("banco sem a função da cota (migração 0020 não aplicada): exporta normalmente", async () => {
+    load.mockResolvedValue(notebook);
+    quota.mockResolvedValue({ data: null, error: { code: "PGRST202", message: "Could not find the function public.take_rate_limit" } });
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+    expect((await exportRoute(new Request("http://x/api/caderno/exportar?formato=docx"))).status).toBe(200);
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining("take_rate_limit"));
+    warn.mockRestore();
   });
   it("caderno vazio: 404", async () => {
     load.mockResolvedValue([]);

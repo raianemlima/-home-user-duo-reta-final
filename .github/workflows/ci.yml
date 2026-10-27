@@ -1,4 +1,5 @@
-# Confere cada PR antes do merge: lint, tipos, testes e build. Não publica nada.
+# Confere cada PR antes do merge: lint, tipos, testes e build; migrações e RLS num Postgres descartável; e as telas no
+# navegador (política de conteúdo, contraste). Não publica nada nem acessa o Supabase ou a Vercel de verdade.
 name: CI
 
 on:
@@ -28,3 +29,52 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: https://exemplo.supabase.co
           NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: chave-de-teste
           NEXT_PUBLIC_PIPELINE_V2: "true"
+
+  # Migrações (aplicar, reverter, reaplicar), RLS e concorrência num Postgres 16 que só existe durante o job.
+  db:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash tests/db/verify.sh
+        env:
+          PGHOST: localhost
+          PGPORT: "5432"
+          PGUSER: postgres
+          PGPASSWORD: postgres
+
+  # Telas no navegador contra o Supabase simulado (tests/e2e/support/mock-supabase.mjs). O fluxo com Supabase de
+  # desenvolvimento real (tests/e2e/aluno.spec.ts) fica de fora: ele se pula sem as variáveis E2E_SUPABASE_*.
+  e2e:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: chave-publica-do-simulado
+      NEXT_PUBLIC_PIPELINE_V2: "true"
+      E2E_SUPABASE_MOCK: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npm run test:e2e
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright
+          path: test-results/
+          retention-days: 7

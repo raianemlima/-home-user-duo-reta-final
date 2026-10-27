@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
-import { chapterBreaks, type Toc } from "@/lib/reader/queries";
+import { chapterBreaks, type Toc } from "@/lib/reader/toc";
 
 export const sectionLabel = (item: { numbering: string | null; title: string | null }) => [...new Set([item.numbering, item.title].filter(Boolean))].join(" ") || "Introdução";
 

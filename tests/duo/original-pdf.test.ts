@@ -5,12 +5,14 @@ const student = vi.fn();
 const sign = vi.fn();
 const download = vi.fn();
 const upload = vi.fn();
+const quota = vi.fn();
 vi.mock("@/lib/server/auth", () => ({ requireStudent: () => student() }));
 vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ storage: { from: (bucket: string) => ({ createSignedUrl: (...args: unknown[]) => sign(bucket, ...args), download: (...args: unknown[]) => download(bucket, ...args), upload: (...args: unknown[]) => upload(bucket, ...args) }) } }) }));
 import { GET } from "@/app/api/disciplinas/[slug]/original/route";
 
 // vade: as matérias do Vade Esperto com PDF publicado (tabela vade_esperto).
 const rows = (version: unknown, title = "Direito Penal", vade: string[] = []) => ({
+  rpc: (...args: unknown[]) => quota(...args),
   from: (table: string) => {
     const chain: Record<string, unknown> = {}; const filters: Record<string, unknown> = {};
     chain.select = () => chain; chain.eq = (column: string, value: unknown) => { filters[column] = value; return chain; };
@@ -28,6 +30,7 @@ beforeEach(async () => {
   const bytes = await pdf.save();
   download.mockReset().mockResolvedValue({ data: new Blob([bytes]), error: null });
   upload.mockReset().mockResolvedValue({ error: null });
+  quota.mockReset().mockResolvedValue({ data: true, error: null });
 });
 
 describe("GET /api/disciplinas/[slug]/original", () => {
@@ -58,6 +61,16 @@ describe("GET /api/disciplinas/[slug]/original", () => {
     const response = await get("vade-esperto-codigo-de-processo-penal");
     expect(response.status).toBe(404);
     expect((await response.json()).error.message).toBe("O PDF deste Vade Esperto ainda não foi publicado.");
+    expect(download).not.toHaveBeenCalled();
+  });
+  it("cada PDF gerado conta na cota do aluno; acima dela, 429 sem gerar o arquivo", async () => {
+    student.mockResolvedValue({ supabase: rows({ source_path: "u/penal.pdf", source_file_name: "Direito Penal.pdf" }), user });
+    await get();
+    expect(quota).toHaveBeenCalledWith("take_rate_limit", { p_bucket: "pdf" });
+    download.mockClear(); quota.mockResolvedValue({ data: false, error: null });
+    const response = await get();
+    expect(response.status).toBe(429);
+    expect((await response.json()).error.message).toBe("Você abriu muitos PDFs em pouco tempo. Aguarde alguns minutos e tente de novo.");
     expect(download).not.toHaveBeenCalled();
   });
   it("versão sem PDF original (ou só com Word): 404", async () => {

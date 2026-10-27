@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/server/admin";
 import { requireStudent } from "@/lib/server/auth";
 import { ApiError, handleRoute } from "@/lib/server/http";
+import { ownPlanFiles } from "@/lib/server/study-plan-files";
 import { isOfficialPlan, isPlanChoice, OFFICIAL_PLANS, STUDY_PLAN_BUCKET } from "@/lib/study-plan";
 import { studyPlanFromDocx } from "@/lib/study-plan-view";
 import { listVade } from "@/lib/server/vade";
@@ -20,10 +21,8 @@ export function GET() {
     let path: string | null = null; let titulo = "";
     if (isOfficialPlan(plano)) { path = OFFICIAL_PLANS[plano].path; titulo = OFFICIAL_PLANS[plano].label; }
     else {
-      const { data, error } = await storage.list(user.id, { limit: 20 });
-      if (error) throw new Error(`Falha ao ler o cronograma: ${error.message}`);
-      const own = (data ?? []).find((item) => item.name && item.name !== ".emptyFolderPlaceholder");
-      if (own) { plano = "proprio"; path = `${user.id}/${own.name}`; titulo = own.name; }
+      const [own] = await ownPlanFiles(user.id);
+      if (own) { plano = "proprio"; path = own.path; titulo = own.name; }
     }
     if (!path) throw new ApiError(404, "not_found", "Escolha um cronograma ou envie o seu.");
     if (!path.toLowerCase().endsWith(".docx")) return NextResponse.json({ plano, titulo, tipo: "arquivo" });

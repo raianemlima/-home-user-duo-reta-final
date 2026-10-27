@@ -10,8 +10,13 @@ vi.mock("@/lib/server/admin", () => ({ createAdminClient: () => ({ from: () => (
 import { notifyStudents } from "@/lib/push/send";
 import { DELETE, POST } from "@/app/api/notificacoes/inscricao/route";
 
-const subs = [{ id: "1", endpoint: "https://push.example/a", p256dh: "k", auth: "a" }, { id: "2", endpoint: "https://push.example/b", p256dh: "k", auth: "a" }];
-const fakeAdmin = (deleted: string[][]) => ({ from: () => ({ select: () => ({ order: () => ({ range: async () => ({ data: subs, error: null }) }) }), delete: () => ({ in: async (_column: string, ids: string[]) => { deleted.push(ids); return { error: null }; } }) }) }) as never;
+const subs = [{ id: "1", user_id: "u1", endpoint: "https://push.example/a", p256dh: "k", auth: "a" }, { id: "2", user_id: "u2", endpoint: "https://push.example/b", p256dh: "k", auth: "a" }];
+// active: alunos com acesso ativo (tabela profiles); null = a consulta aos perfis falha.
+const fakeAdmin = (deleted: string[][], active: string[] | null = ["u1", "u2"]) => ({
+  from: (table: string) => table === "profiles"
+    ? { select: () => ({ eq: (_column: string, value: boolean) => ({ in: async (_c: string, ids: string[]) => (active ? { data: ids.filter((id) => value && active.includes(id)).map((user_id) => ({ user_id })), error: null } : { data: null, error: { message: "fora do ar" } }) }) }) }
+    : { select: () => ({ order: () => ({ range: async () => ({ data: subs, error: null }) }) }), delete: () => ({ in: async (_column: string, ids: string[]) => { deleted.push(ids); return { error: null }; } }) },
+}) as never;
 
 beforeEach(() => {
   sendNotification.mockReset().mockResolvedValue({});
@@ -28,6 +33,16 @@ describe("notifyStudents", () => {
     const deleted: string[][] = [];
     expect(await notifyStudents(fakeAdmin(deleted), { title: "t", body: "b", url: "/" })).toEqual({ sent: 1, removed: 1 });
     expect(deleted).toEqual([["1"]]);
+  });
+  it("aparelho de aluno desativado não recebe, e a inscrição dele continua guardada", async () => {
+    const deleted: string[][] = [];
+    expect(await notifyStudents(fakeAdmin(deleted, ["u2"]), { title: "t", body: "b", url: "/" })).toEqual({ sent: 1, removed: 0 });
+    expect(sendNotification.mock.calls.map((call) => call[0].endpoint)).toEqual(["https://push.example/b"]);
+    expect(deleted).toEqual([]);
+  });
+  it("sem conseguir conferir quem está ativo, não avisa ninguém (e não lança)", async () => {
+    expect(await notifyStudents(fakeAdmin([], null), { title: "t", body: "b", url: "/" })).toEqual({ sent: 0, removed: 0 });
+    expect(sendNotification).not.toHaveBeenCalled();
   });
   it("sem chaves VAPID não envia nada nem lança", async () => {
     vi.stubEnv("VAPID_PRIVATE_KEY", "");

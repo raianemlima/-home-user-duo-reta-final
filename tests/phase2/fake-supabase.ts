@@ -7,6 +7,8 @@ export class FakeDb {
   tables: Record<string, Row[]> = { documents: [], notebooks: [], notebook_sources: [], jobs: [], job_stages: [], stage_cache: [], thematic_maps: [], profiles: [], disciplines: [], content_versions: [], sections: [], paragraphs: [], highlights: [], reading_positions: [] };
   clock = () => Date.now();
   objects = new Map<string, Uint8Array>();
+  // Funções SQL que este banco ainda não tem (migração não aplicada): o PostgREST responde PGRST202.
+  missingRpcs = new Set<string>();
 }
 
 const DEFAULTS: Record<string, () => Row> = {
@@ -112,6 +114,18 @@ export function makeFakeSupabase(db: FakeDb, userId: string) {
     },
     // Mesma semântica da função SQL public.claim_next_stage.
     rpc: async (name: string, args: Record<string, unknown>) => {
+      if (db.missingRpcs.has(name)) return { data: null, error: { code: "PGRST202", message: `Could not find the function public.${name} in the schema cache` } };
+      // Mesma semântica da função SQL public.publish_content_version (validada em Postgres real, tests/db/assertions-later.sql).
+      if (name === "publish_content_version") {
+        const version = db.tables.content_versions.find((row) => row.id === args.p_version_id);
+        if (!version) return { data: null, error: { code: "P0002", message: "version_not_found" } };
+        if (version.status === "published") return { data: [{ promoted: false, previous_id: null }], error: null };
+        if (version.status !== "draft") return { data: null, error: { code: "P0001", message: "version_not_draft" } };
+        const previous = db.tables.content_versions.find((row) => row.discipline_id === version.discipline_id && row.status === "published");
+        if (previous) previous.status = "archived";
+        Object.assign(version, { status: "published", published_at: new Date(db.clock()).toISOString() });
+        return { data: [{ promoted: true, previous_id: previous?.id ?? null }], error: null };
+      }
       // Mesma semântica das funções SQL public.save_thematic_map / confirm_thematic_map (validadas em Postgres real).
       if (name === "save_thematic_map") {
         const maps = db.tables.thematic_maps.filter((row) => row.owner_id === userId && row.notebook_id === args.p_notebook_id);

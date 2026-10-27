@@ -1,11 +1,12 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { isVadeDiscipline } from "@/lib/vade";
 import { readAll } from "@/lib/content/repository";
+import type { Toc, TocItem } from "@/lib/reader/toc";
+
+export { chapterBreaks, type Toc, type TocItem } from "@/lib/reader/toc";
 
 // lastReadAt: quando o aluno abriu pela última vez a seção lastSectionId (só existe junto com ela).
 export type DisciplineCard = { id: string; slug: string; title: string; versionId: string; versionLabel: string; publishedAt: string; updatedSinceLastVisit: boolean; lastSectionId: string | null; lastReadAt: string | null };
-export type TocItem = { id: string; level: number; numbering: string | null; title: string | null; path: string[]; chars?: number };
-export type Toc = TocItem[];
 export type ReaderParagraph = { id: string; kind: "body" | "table" | "footnote" | "tip"; text: string };
 // intro: o texto de abertura do documento (antes do primeiro título), mostrado no topo da primeira seção.
 export type ReaderSection = { id: string; numbering: string | null; title: string | null; path: string[]; paragraphs: ReaderParagraph[] };
@@ -76,19 +77,6 @@ export async function loadToc(supabase: SupabaseClient, versionId: string): Prom
     TOC_CACHE.set(versionId, toc);
   }
   return toc;
-}
-
-// Capítulos sem texto próprio não são seções, mas aparecem no caminho das subseções: o sumário mostra o nome deles.
-export function chapterBreaks(toc: Toc): Map<string, string> {
-  const titles = new Set(toc.map((item) => item.title));
-  const breaks = new Map<string, string>();
-  let previous: string | undefined;
-  for (const item of toc) {
-    const chapter = item.path[0];
-    if (chapter && !titles.has(chapter) && chapter !== previous) breaks.set(item.id, chapter);
-    previous = chapter;
-  }
-  return breaks;
 }
 
 // O trecho antes do primeiro título (sem número nem título: a antiga "Introdução") não vira página própria —

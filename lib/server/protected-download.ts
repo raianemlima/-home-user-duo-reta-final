@@ -1,13 +1,17 @@
 import "server-only";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/server/admin";
 import { SIGNED_URL_TTL_SECONDS } from "@/lib/server/documents";
 import { protectPdf } from "@/lib/server/protect-pdf";
+import { enforceRateLimit } from "@/lib/server/rate-limit";
 
 // Entrega um PDF do curso já protegido para quem pediu (marca com o e-mail + criptografia sem cópia).
 // O arquivo protegido fica numa pasta privada do aluno (um por material, substituído a cada download) e sai por URL
 // assinada de vida curta: assim PDFs maiores que o limite de resposta do servidor também funcionam.
-export async function deliverProtectedPdf(input: { bucket: string; path: string; fileName: string; key: string; user: { id: string; email?: string | null }; inline?: boolean }): Promise<NextResponse> {
+// Gerar o arquivo pesa no servidor: cada download conta na cota de PDFs do aluno (supabase = a sessão dele).
+export async function deliverProtectedPdf(input: { supabase: SupabaseClient; bucket: string; path: string; fileName: string; key: string; user: { id: string; email?: string | null }; inline?: boolean }): Promise<NextResponse> {
+  await enforceRateLimit(input.supabase, "pdf");
   const admin = createAdminClient();
   const original = await admin.storage.from(input.bucket).download(input.path);
   if (original.error || !original.data) throw new Error(`Falha ao ler o PDF: ${original.error?.message ?? "vazio"}`);
