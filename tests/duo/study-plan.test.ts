@@ -50,14 +50,31 @@ describe("studyPlanPath", () => {
 });
 
 describe("/api/cronograma", () => {
-  it("POST prepara o envio na pasta do aluno e apaga o arquivo anterior", async () => {
+  it("POST prepara o envio na pasta do aluno sem apagar o arquivo anterior (um envio que falha não perde o cronograma)", async () => {
     storage.list.mockResolvedValue({ data: [{ name: "antigo.png" }], error: null });
     storage.createSignedUploadUrl.mockResolvedValue({ data: { path: "u1/plano.pdf", token: "tk" }, error: null });
     const response = await POST(new Request("http://x/api/cronograma", { method: "POST", body: JSON.stringify({ fileName: "plano.pdf", size: 2048 }) }));
     expect(await response.json()).toEqual({ path: "u1/plano.pdf", token: "tk", contentType: "application/pdf" });
-    expect(storage.list).toHaveBeenCalledWith("u1", { limit: 20 });
-    expect(storage.remove).toHaveBeenCalledWith(["u1/antigo.png"]);
+    expect(storage.remove).not.toHaveBeenCalled();
     expect(storage.createSignedUploadUrl).toHaveBeenCalledWith("u1/plano.pdf", { upsert: true });
+  });
+  it("depois do envio, escolher \"proprio\" deixa só o arquivo mais recente; escolher um oficial não mexe nos arquivos", async () => {
+    storage.list.mockResolvedValue({ data: [{ name: "antigo.png", updated_at: "2026-10-01T10:00:00Z" }, { name: "plano.pdf", updated_at: "2026-10-22T10:00:00Z" }], error: null });
+    const put = (plano: string) => choosePlan(new Request("http://x/api/cronograma/plano", { method: "PUT", body: JSON.stringify({ plano }) }));
+    expect((await put("6h")).status).toBe(200);
+    expect(storage.remove).not.toHaveBeenCalled();
+    expect((await put("proprio")).status).toBe(200);
+    expect(storage.remove).toHaveBeenCalledWith(["u1/antigo.png"]);
+  });
+  it("com dois arquivos (troca em andamento), todas as rotas usam o mais recente", async () => {
+    storage.list.mockImplementation(async (folder: string) => ({ data: folder === "oficiais" ? [] : [{ name: "antigo.png", updated_at: "2026-10-01T10:00:00Z" }, { name: "novo.docx", updated_at: "2026-10-22T10:00:00Z", metadata: { size: 10 } }], error: null }));
+    storage.createSignedUrl.mockResolvedValue({ data: { signedUrl: "https://s/novo?t=1" }, error: null });
+    expect((await (await GET()).json()).file.name).toBe("novo.docx");
+    await openPlan();
+    expect(storage.createSignedUrl).toHaveBeenCalledWith("u1/novo.docx", 60);
+    storage.download.mockResolvedValue({ data: null, error: { message: "not found" } });
+    await planContent();
+    expect(storage.download).toHaveBeenCalledWith("u1/novo.docx");
   });
   it("POST recusa formato não aceito", async () => {
     expect((await POST(new Request("http://x/api/cronograma", { method: "POST", body: JSON.stringify({ fileName: "a.exe", size: 10 }) }))).status).toBe(400);
