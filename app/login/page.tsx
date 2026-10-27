@@ -3,14 +3,13 @@
 import { FormEvent, Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { LOGIN_FAILED_MESSAGE, LOGIN_REASONS } from "@/lib/auth/messages";
+import { safeNextPath } from "@/lib/auth/next-path";
 import { createClient } from "@/lib/supabase/client";
-
-// Só caminhos internos: evita redirecionamento aberto via ?next=.
-const safeNext = (value: string | null) => (value && value.startsWith("/") && !value.startsWith("//") ? value : "/");
 
 function LoginForm() {
   const router = useRouter(); const params = useSearchParams();
-  const next = safeNext(params.get("next")); const reason = LOGIN_REASONS[params.get("motivo") ?? ""];
+  // Só caminhos internos: evita redirecionamento aberto via ?next=.
+  const next = safeNextPath(params.get("next")); const reason = LOGIN_REASONS[params.get("motivo") ?? ""];
   const [email, setEmail] = useState(""); const [password, setPassword] = useState(""); const [error, setError] = useState(""); const [busy, setBusy] = useState(false);
   async function signIn(event: FormEvent) {
     event.preventDefault(); setBusy(true); setError("");

@@ -2,7 +2,8 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { isVadeDiscipline } from "@/lib/vade";
 import { readAll } from "@/lib/content/repository";
 
-export type DisciplineCard = { id: string; slug: string; title: string; versionId: string; versionLabel: string; publishedAt: string; updatedSinceLastVisit: boolean; lastSectionId: string | null };
+// lastReadAt: quando o aluno abriu pela última vez a seção lastSectionId (só existe junto com ela).
+export type DisciplineCard = { id: string; slug: string; title: string; versionId: string; versionLabel: string; publishedAt: string; updatedSinceLastVisit: boolean; lastSectionId: string | null; lastReadAt: string | null };
 export type TocItem = { id: string; level: number; numbering: string | null; title: string | null; path: string[]; chars?: number };
 export type Toc = TocItem[];
 export type ReaderParagraph = { id: string; kind: "body" | "table" | "footnote" | "tip"; text: string };
@@ -35,8 +36,14 @@ export async function listDisciplines(supabase: SupabaseClient, userId: string):
     if (!version) return [];
     const position = positionOf.get(discipline.id);
     const lastSectionId = position && sectionVersion.get(position.section_id) === version.id ? (position.section_id as string) : null;
-    return [{ id: discipline.id, slug: discipline.slug, title: discipline.title, versionId: version.id, versionLabel: version.label, publishedAt: version.published_at, updatedSinceLastVisit: Boolean(position && version.published_at && position.updated_at < version.published_at), lastSectionId }];
+    return [{ id: discipline.id, slug: discipline.slug, title: discipline.title, versionId: version.id, versionLabel: version.label, publishedAt: version.published_at, updatedSinceLastVisit: Boolean(position && version.published_at && position.updated_at < version.published_at), lastSectionId, lastReadAt: lastSectionId ? (position?.updated_at as string) : null }];
   });
+}
+
+// "Continuar de onde parei": a disciplina lida por último, entre as que têm uma seção para retomar.
+export function lastRead(cards: DisciplineCard[]): DisciplineCard | null {
+  const time = (card: DisciplineCard) => Date.parse(card.lastReadAt ?? "") || 0;
+  return cards.reduce<DisciplineCard | null>((best, card) => (card.lastSectionId && (!best || time(card) > time(best)) ? card : best), null);
 }
 
 async function publishedVersion(supabase: SupabaseClient, slug: string) {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AppTips } from "@/components/AppTips";
 import { StudyPlan } from "@/components/StudyPlan";
 import { daysUntilExam, EXAM_LABEL, examCountdown } from "@/lib/exam";
-import { listDisciplines } from "@/lib/reader/queries";
+import { lastRead, listDisciplines } from "@/lib/reader/queries";
 import { studentSession } from "@/lib/reader/session";
 import { isVadeDiscipline } from "@/lib/vade";
 
@@ -14,8 +14,8 @@ export default async function Home() {
   // Os Vade Espertos publicados no leitor ficam na página Vade Esperto, não na lista de ebooks.
   const disciplines = (await listDisciplines(supabase, userId)).filter((discipline) => !isVadeDiscipline(discipline.slug));
   const fresh = disciplines.filter((discipline) => discipline.updatedSinceLastVisit);
-  // "Continuar" é a ação mais comum: a disciplina em andamento (a mais recente da lista) ganha destaque.
-  const resume = disciplines.find((discipline) => discipline.lastSectionId) ?? null;
+  // "Continuar" é a ação mais comum: a disciplina lida por último ganha destaque.
+  const resume = lastRead(disciplines);
   const others = disciplines.filter((discipline) => discipline !== resume);
   const now = new Date(), days = daysUntilExam(now);
   return <div className="home">

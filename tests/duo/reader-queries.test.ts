@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { firstSectionId, listDisciplines, loadSection, readingPages, searchDiscipline } from "@/lib/reader/queries";
+import { firstSectionId, lastRead, listDisciplines, loadSection, readingPages, searchDiscipline } from "@/lib/reader/queries";
 import { FakeDb, makeFakeSupabase } from "../phase2/fake-supabase";
 
 const student = vi.fn();
@@ -45,6 +45,22 @@ describe("listDisciplines", () => {
     expect((await listDisciplines(sb(), "aluno"))[0].lastSectionId).toBeNull();
     db.tables.reading_positions[0].section_id = "s2";
     expect((await listDisciplines(sb(), "aluno"))[0].lastSectionId).toBe("s2");
+  });
+  it("\"Continuar de onde parei\" é a disciplina lida por último, não a primeira da lista", async () => {
+    db.tables.sections.push({ id: "c1", version_id: "v-civ", position: 1, level: 1, numbering: "1", title: "CONTRATOS", path: [] });
+    db.tables.reading_positions.push({ user_id: "aluno", discipline_id: PENAL, section_id: "s2", updated_at: "2026-10-22T08:00:00Z" }, { user_id: "aluno", discipline_id: CIVIL, section_id: "c1", updated_at: "2026-10-23T09:30:00.5+00:00" });
+    const cards = await listDisciplines(sb(), "aluno");
+    expect(cards.map((card) => [card.slug, card.lastReadAt])).toEqual([["penal", "2026-10-22T08:00:00Z"], ["civil", "2026-10-23T09:30:00.5+00:00"]]);
+    expect(lastRead(cards)?.slug).toBe("civil");
+    db.tables.reading_positions[0].updated_at = "2026-10-24T00:00:00Z";
+    expect(lastRead(await listDisciplines(sb(), "aluno"))?.slug).toBe("penal");
+  });
+  it("sem seção para retomar (nunca leu, ou leu só a versão antiga), não há \"Continuar\"", async () => {
+    expect(lastRead(await listDisciplines(sb(), "aluno"))).toBeNull();
+    db.tables.reading_positions.push({ user_id: "aluno", discipline_id: PENAL, section_id: "old-s1", updated_at: "2026-10-25T00:00:00Z" });
+    const cards = await listDisciplines(sb(), "aluno");
+    expect(cards[0].lastReadAt).toBeNull();
+    expect(lastRead(cards)).toBeNull();
   });
   it("disciplina sem versão publicada não aparece", async () => {
     db.tables.disciplines.push({ id: "f0000000-0000-4000-8000-000000000003", slug: "nova", title: "Nova", position: 0 });

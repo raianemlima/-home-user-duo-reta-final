@@ -74,6 +74,9 @@ export async function proxy(request: NextRequest) {
   return pass({ id: user.id, email: user.email, role: profile?.role === "equipe" ? "equipe" : "aluno" });
 }
 
+// Ficam de fora só os arquivos estáticos de verdade. Pular por extensão (".png", ".js"…) deixava qualquer endereço
+// terminado assim ("/disciplinas/x/y.png") sem o proxy e, portanto, sem a limpeza dos cabeçalhos de identidade:
+// a identidade forjada pelo navegador chegava ao layout, às páginas e às rotas.
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest|brand/|icons/|.*\\.(?:svg|png|jpg|jpeg|gif|webp|css|js|woff2?)$).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest|sw.js|brand/|icons/).*)"],
 };

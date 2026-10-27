@@ -1,3 +1,4 @@
+import { AsyncLocalStorage } from "node:async_hooks";
 import { NextRequest } from "next/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { LOGIN_FAILED_MESSAGE } from "@/lib/auth/messages";
@@ -11,7 +12,7 @@ vi.mock("@supabase/ssr", () => ({
   }),
 }));
 
-import { proxy } from "@/proxy";
+import { config, proxy } from "@/proxy";
 
 const go = (path: string) => proxy(new NextRequest(new URL(path, "http://app.duo")));
 const location = (response: Response) => { const value = response.headers.get("location"); return value ? new URL(value).pathname + new URL(value).search : null; };
@@ -73,6 +74,21 @@ describe("proxy", () => {
   it("logado e ativo no /login vai para o início", async () => {
     user = { id: "a" }; profile = { role: "aluno", active: true };
     expect(location(await go("/login"))).toBe("/");
+  });
+});
+
+describe("onde o proxy roda", () => {
+  // O utilitário de teste do Next aplica o matcher como na hospedagem; fora do servidor ele precisa do AsyncLocalStorage.
+  const runs = async (url: string) => {
+    (globalThis as { AsyncLocalStorage?: unknown }).AsyncLocalStorage ??= AsyncLocalStorage;
+    const { unstable_doesMiddlewareMatch } = await import("next/experimental/testing/server");
+    return unstable_doesMiddlewareMatch({ config, url });
+  };
+  it("em toda página e rota, mesmo com endereço terminado em .png ou .js (senão a identidade forjada passaria)", async () => {
+    for (const url of ["/", "/caderno", "/disciplinas/penal/x.png", "/api/destaques/x.js", "/nada.css", "/brand"]) expect(await runs(url), url).toBe(true);
+  });
+  it("não nos arquivos estáticos, que a tela de login também usa", async () => {
+    for (const url of ["/_next/static/chunks/app.js", "/_next/image", "/brand/pena-branca.png", "/icons/icon-192.png", "/sw.js", "/manifest.webmanifest", "/favicon.ico"]) expect(await runs(url), url).toBe(false);
   });
 });
 

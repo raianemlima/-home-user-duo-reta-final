@@ -5,7 +5,7 @@ import { ApiError, handleRoute, readJson } from "@/lib/server/http";
 
 export const dynamic = "force-dynamic";
 
-// O aluno marca uma alternativa: o servidor corrige, guarda a resposta e só então devolve o gabarito.
+// O aluno marca uma alternativa: a tela já corrigiu; o servidor corrige de novo pelo próprio gabarito e guarda a resposta.
 export function POST(request: Request) {
   return handleRoute("questoes.responder", async () => {
     const { supabase, user } = await requireStudent();
