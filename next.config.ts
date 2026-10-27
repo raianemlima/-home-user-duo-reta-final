@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
     // Exportação do caderno: fontes e logo são lidas do disco pelo gerador de PDF.
     "/api/caderno/exportar": ["./node_modules/@fontsource/arimo/files/arimo-latin-{400,700}-{normal,italic}.woff", "./node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff", "./public/brand/pena-verde.png"],
   },
+  // Em toda resposta: o navegador respeita o tipo declarado (não "adivinha" que um arquivo é script) e, ao abrir um
+  // link externo do material ou do cronograma, envia só o domínio do app, nunca o endereço com ids de seção.
+  async headers() {
+    return [{ source: "/:path*", headers: [{ key: "X-Content-Type-Options", value: "nosniff" }, { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" }] }];
+  },
 };
 
 export default nextConfig;

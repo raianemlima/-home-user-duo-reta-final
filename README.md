@@ -16,7 +16,7 @@ npm run dev
 ```
 
 - Testes: `npm test` · tipos: `npx tsc --noEmit` · lint: `npm run lint`
-- Banco (Postgres descartável): `bash tests/db/verify.sh`
+- Banco (Postgres descartável): `bash tests/db/verify.sh` — aplica, reverte e reaplica as migrações e confere o isolamento por RLS entre alunos, aluno inativo e equipe
 
 ## Variáveis
 
@@ -35,7 +35,7 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
 
 ## Publicar (Supabase + Vercel)
 
-1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0009`, sem os arquivos `.down`
+1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0018`, sem os arquivos `.down`
    e **sem a 0005**, que o próprio atelie marca como não aplicada: ela exige que o envio de documentos use a chave de serviço).
    Projeto atual: `duo-reta-final` (`https://xslqdunmykikmslgntqz.supabase.co`, região São Paulo), já com 0001–0004 e 0006–0009.
 2. **Auth** (Authentication → Providers/Settings):
