@@ -5,6 +5,7 @@ import { renderPdf } from "@/lib/export/pdf";
 import { parseNotebookFilter } from "@/lib/notebook/filters";
 import { loadNotebook } from "@/lib/notebook/queries";
 import { requireStudent } from "@/lib/server/auth";
+import { enforceRateLimit } from "@/lib/server/rate-limit";
 import { ApiError, handleRoute } from "@/lib/server/http";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +20,7 @@ export function GET(request: Request) {
     const total = countItems(notebook);
     if (!total) throw new ApiError(404, "empty", "Não há trechos no caderno com esses filtros.");
     if (total > MAX_EXPORT_ITEMS) throw new ApiError(413, "too_large", "Seu caderno ficou grande demais para um arquivo só. Filtre por disciplina e exporte em partes.");
+    await enforceRateLimit(supabase, "export");
     const now = new Date();
     const model = buildNotebookExport(notebook, user.email ?? "aluno", now);
     const bytes = docx ? await renderDocx(model) : await renderPdf(model);

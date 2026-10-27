@@ -17,6 +17,6 @@ export function GET(request: Request, context: { params: Promise<{ slug: string 
     if (!data) throw new ApiError(404, "not_found", "Este Vade Esperto ainda não foi publicado.");
     // Aberto no navegador ou baixado: sempre o PDF protegido (identificado e sem cópia), nunca o arquivo original.
     const inline = !new URL(request.url).searchParams.has("baixar");
-    return deliverProtectedPdf({ bucket: VADE_BUCKET, path: `${slug}.pdf`, fileName: `Vade Esperto - ${material.titulo}.pdf`, key: `vade-${slug}`, user, inline });
+    return deliverProtectedPdf({ supabase, bucket: VADE_BUCKET, path: `${slug}.pdf`, fileName: `Vade Esperto - ${material.titulo}.pdf`, key: `vade-${slug}`, user, inline });
   });
 }

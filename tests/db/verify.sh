@@ -76,13 +76,26 @@ test "$("${PSQL[@]}" -d "$DB" -Atc "select count(*) from information_schema.tabl
 apply supabase/migrations/0009_duo_core.sql
 echo "OK  0009: aplica, reverte (sem afetar o pipeline) e reaplica"
 "${PSQL[@]}" -d "$DB" -f tests/db/assertions-duo.sql | grep -E "OK|FALHA"
-# 0010–0018: PDF original, avisos, troca de senha, RLS por consulta, cronogramas, questões e Vade Esperto
-LATER=(0010_source_pdf 0011_push_subscriptions 0012_must_change_password 0013_rls_initplan 0014_study_plans 0015_question_answers 0016_study_plan_choices 0017_vade_esperto 0018_study_plan_3h)
+# 0010–0020: PDF original, avisos, troca de senha, RLS por consulta, cronogramas, questões, Vade Esperto,
+# publicação atômica e limite de uso
+LATER=(0010_source_pdf 0011_push_subscriptions 0012_must_change_password 0013_rls_initplan 0014_study_plans 0015_question_answers 0016_study_plan_choices 0017_vade_esperto 0018_study_plan_3h 0019_publish_version 0020_rate_limits)
 for f in "${LATER[@]}"; do apply "supabase/migrations/$f.sql"; done
 for ((i = ${#LATER[@]} - 1; i >= 0; i--)); do apply "supabase/migrations/${LATER[$i]}.down.sql"; done
-test "$("${PSQL[@]}" -d "$DB" -Atc "select count(*) from information_schema.tables where table_schema='public' and table_name in ('push_subscriptions','question_answers','study_plan_choices','vade_esperto')")" = "0"
+test "$("${PSQL[@]}" -d "$DB" -Atc "select count(*) from information_schema.tables where table_schema='public' and table_name in ('push_subscriptions','question_answers','study_plan_choices','vade_esperto','rate_limits')")" = "0"
+test "$("${PSQL[@]}" -d "$DB" -Atc "select count(*) from pg_proc where proname in ('publish_content_version','take_rate_limit')")" = "0"
 test "$("${PSQL[@]}" -d "$DB" -Atc "select count(*) from public.highlights")" = "1"
 for f in "${LATER[@]}"; do apply "supabase/migrations/$f.sql"; done
-echo "OK  0010-0018: aplicam, revertem (sem afetar os grifos) e reaplicam"
+echo "OK  0010-0020: aplicam, revertem (sem afetar os grifos) e reaplicam"
 "${PSQL[@]}" -d "$DB" -f tests/db/assertions-later.sql | grep -E "OK|FALHA"
+"${PSQL[@]}" -d "$DB" -f tests/db/assertions-publish.sql | grep -E "OK|FALHA"
+# Concorrência real: dois rascunhos da mesma disciplina publicados ao mesmo tempo. A segunda publicação espera a primeira
+# e a substitui; no fim há uma única versão publicada e nenhuma das duas falha.
+SERVICE='set local role service_role;'
+( "${PSQL[@]}" -d "$DB" -At -c "begin; $SERVICE select promoted from public.publish_content_version('f1000000-0000-4000-8000-0000000000a3'); select pg_sleep(1.5); commit;" > /tmp/pub1.out 2>&1 ) &
+sleep 0.5
+"${PSQL[@]}" -d "$DB" -At -c "begin; $SERVICE select promoted from public.publish_content_version('f1000000-0000-4000-8000-0000000000a4'); commit;" > /tmp/pub2.out 2>&1 || true
+wait || true
+states=$("${PSQL[@]}" -d "$DB" -Atc "select string_agg(label || '=' || status, ',' order by label) from public.content_versions where discipline_id = 'f0000000-0000-4000-8000-0000000000a1'")
+if grep -qx t /tmp/pub1.out && grep -qx t /tmp/pub2.out && [ "$states" = "d1=archived,d2=archived,d3=published,p1=archived" ]; then echo "OK  concorrência real: duas publicações simultâneas, a segunda espera e fica no ar ($states)"; else echo "FALHA concorrência de publicação: $(cat /tmp/pub1.out /tmp/pub2.out | tr '\n' ' ') $states"; exit 1; fi
+rm -f /tmp/pub1.out /tmp/pub2.out
 echo "TODAS AS VERIFICAÇÕES DE BANCO PASSARAM"
