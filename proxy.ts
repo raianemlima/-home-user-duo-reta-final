@@ -1,11 +1,24 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextRequest, NextResponse } from "next/server";
+import { contentSecurityPolicy, newNonce, NONCE_HEADER } from "@/lib/csp";
 import { getSupabaseConfig } from "@/lib/supabase/config";
 
 // Mesmos nomes de lib/server/identity.ts (que não pode ser importado aqui por ser "server-only").
 const IDENTITY = { id: "x-duo-uid", email: "x-duo-email", role: "x-duo-role" } as const;
 
 const PUBLIC_PATHS = ["/login", "/configuracao", "/privacidade"];
+
+// Segue a requisição com a política de conteúdo desta resposta. O nonce vai para a página no cabeçalho interno e na
+// própria política (é dela que o Next o lê para marcar os scripts que gera); o valor vindo do navegador é sobrescrito.
+function forward(headers: Headers, supabaseUrl: string | undefined): NextResponse {
+  const nonce = newNonce();
+  const policy = contentSecurityPolicy(nonce, supabaseUrl);
+  headers.set(NONCE_HEADER, nonce);
+  headers.set("content-security-policy", policy);
+  const response = NextResponse.next({ request: { headers } });
+  response.headers.set("content-security-policy", policy);
+  return response;
+}
 
 export async function proxy(request: NextRequest) {
   const { url, key } = getSupabaseConfig();
@@ -14,7 +27,7 @@ export async function proxy(request: NextRequest) {
   const isApi = pathname.startsWith("/api/");
 
   if (!url || !key) {
-    if (isPublic) return NextResponse.next();
+    if (isPublic) return forward(new Headers(request.headers), url);
     return NextResponse.redirect(new URL("/configuracao", request.url));
   }
 
@@ -38,7 +51,7 @@ export async function proxy(request: NextRequest) {
   const pass = (identity?: { id: string; email: string; role: string }) => {
     const forwarded = new Headers(request.headers);
     if (identity) { forwarded.set(IDENTITY.id, identity.id); forwarded.set(IDENTITY.email, identity.email); forwarded.set(IDENTITY.role, identity.role); }
-    const next = NextResponse.next({ request: { headers: forwarded } });
+    const next = forward(forwarded, url);
     refreshed.forEach(({ name, value, options }) => next.cookies.set(name, value, options));
     return next;
   };

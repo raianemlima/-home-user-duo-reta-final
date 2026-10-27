@@ -2,6 +2,7 @@ import { AsyncLocalStorage } from "node:async_hooks";
 import { NextRequest } from "next/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { LOGIN_FAILED_MESSAGE } from "@/lib/auth/messages";
+import { contentSecurityPolicy } from "@/lib/csp";
 
 let user: { id: string } | null = null;
 let profile: { role: string; active: boolean; must_change_password?: boolean } | null = null;
@@ -74,6 +75,35 @@ describe("proxy", () => {
   it("logado e ativo no /login vai para o início", async () => {
     user = { id: "a" }; profile = { role: "aluno", active: true };
     expect(location(await go("/login"))).toBe("/");
+  });
+});
+
+describe("política de conteúdo (CSP)", () => {
+  const directive = (policy: string, name: string) => policy.split("; ").find((item) => item.startsWith(`${name} `)) ?? "";
+  it("cada resposta leva um nonce novo, na política e no cabeçalho interno; o que vier do navegador é descartado", async () => {
+    user = { id: "a" }; profile = { role: "aluno", active: true };
+    const forged = new NextRequest(new URL("/caderno", "http://app.duo"), { headers: { "x-duo-nonce": "forjado" } });
+    const [first, second] = [await proxy(forged), await go("/caderno")];
+    const nonce = first.headers.get("x-middleware-request-x-duo-nonce") as string;
+    expect(nonce).toMatch(/^[A-Za-z0-9+/]+={0,2}$/);
+    expect(nonce).not.toBe("forjado");
+    expect(second.headers.get("x-middleware-request-x-duo-nonce")).not.toBe(nonce);
+    expect(directive(first.headers.get("content-security-policy") as string, "script-src")).toBe(`script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`);
+    // O Next lê o nonce da política que chega na requisição para marcar os scripts que ele gera.
+    expect(first.headers.get("x-middleware-request-content-security-policy")).toBe(first.headers.get("content-security-policy"));
+  });
+  it("vale também nas páginas públicas e sem o Supabase configurado", async () => {
+    expect((await go("/login")).headers.get("content-security-policy")).toContain("frame-ancestors 'none'");
+    vi.stubEnv("NEXT_PUBLIC_SUPABASE_URL", "");
+    expect((await go("/configuracao")).headers.get("content-security-policy")).toContain("connect-src 'self';");
+  });
+  it("script só com nonce (nada inline nem eval em produção); conexões só com o app e o Supabase; sem iframe", () => {
+    const policy = contentSecurityPolicy("abc", "https://x.supabase.co/", false);
+    expect(directive(policy, "script-src")).toBe("script-src 'self' 'nonce-abc' 'strict-dynamic'");
+    expect(directive(policy, "connect-src")).toBe("connect-src 'self' https://x.supabase.co wss://x.supabase.co");
+    for (const rule of ["object-src 'none'", "base-uri 'self'", "form-action 'self'", "frame-ancestors 'none'", "worker-src 'self'"]) expect(policy).toContain(rule);
+    expect(directive(contentSecurityPolicy("abc", "https://x.supabase.co", true), "script-src")).toContain("'unsafe-eval'");
+    expect(directive(contentSecurityPolicy("abc", "não é url", false), "connect-src")).toBe("connect-src 'self'");
   });
 });
 
