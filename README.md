@@ -16,7 +16,10 @@ npm run dev
 ```
 
 - Testes: `npm test` · tipos: `npx tsc --noEmit` · lint: `npm run lint`
-- Banco (Postgres descartável): `bash tests/db/verify.sh` — aplica, reverte e reaplica as migrações e confere o isolamento por RLS entre alunos, aluno inativo e equipe
+- Banco (Postgres descartável): `bash tests/db/verify.sh` — aplica, reverte e reaplica as migrações e confere o isolamento por RLS entre alunos, aluno inativo e equipe, a publicação atômica e o limite de uso
+- Navegador: `npm run build && npm run test:e2e`. Com o Supabase simulado (telas do aluno sob a política de conteúdo),
+  construa com `NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321` e rode `E2E_SUPABASE_MOCK=1 npm run test:e2e`.
+  A CI (`.github/workflows/ci.yml`) roda os três em cada PR.
 
 ## Variáveis
 
@@ -35,9 +38,12 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
 
 ## Publicar (Supabase + Vercel)
 
-1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0018`, sem os arquivos `.down`
+1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0020`, sem os arquivos `.down`
    e **sem a 0005**, que o próprio atelie marca como não aplicada: ela exige que o envio de documentos use a chave de serviço).
-   Projeto atual: `duo-reta-final` (`https://xslqdunmykikmslgntqz.supabase.co`, região São Paulo), já com 0001–0004 e 0006–0009.
+   Projeto atual: `duo-reta-final` (`https://xslqdunmykikmslgntqz.supabase.co`, região São Paulo). Para conferir até onde ele
+   está, rode no SQL Editor `select to_regclass('public.vade_esperto') as m0017, to_regprocedure('public.publish_content_version(uuid)') as m0019, to_regclass('public.rate_limits') as m0020;`
+   (vazio = migração ainda não aplicada). A 0019 (publicação atômica) e a 0020 (limite de uso) podem ser aplicadas antes ou
+   depois do deploy: sem elas o app continua funcionando, publicando em dois passos e sem o limite.
 2. **Auth** (Authentication → Providers/Settings):
    - desligue o cadastro aberto ("Allow new users to sign up");
    - em URL Configuration, adicione `https://SEU_DOMINIO/auth/confirm` às Redirect URLs;
@@ -62,6 +68,16 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
    segredo `VERCEL_TOKEN` existe (sem ele o workflow termina avisando, sem publicar).
 5. Entre como equipe → **Equipe › Conteúdo**: crie as disciplinas, envie os ebooks (PDF), confira a prévia e publique.
    **Equipe › Alunos**: cole a lista de e-mails.
+
+## Segurança
+
+- **Sessão e papéis** são conferidos no proxy (`proxy.ts`) a cada requisição; o acesso aos dados é limitado pela RLS.
+- **Política de conteúdo** (`lib/csp.ts`): cada resposta tem um nonce novo, e só roda script com ele (o Next o põe nos
+  scripts que gera). O navegador só conversa com o app e o Supabase, e o app não abre dentro de outro site
+  (`frame-ancestors 'none'` e `X-Frame-Options: DENY`). Um serviço novo que o navegador precise acessar entra em
+  `connect-src`; um componente do navegador não pode importar módulos de servidor (o `tests/e2e/csp.spec.ts` acusa).
+- **Limite de uso** (migração 0020): por aluno, 30 PDFs protegidos e 10 exportações do caderno a cada 10 minutos.
+- **Publicação** (migração 0019): a versão anterior é arquivada e a nova publicada na mesma transação.
 
 ## Ensaio com os ebooks reais
 
