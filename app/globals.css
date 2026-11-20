@@ -292,6 +292,10 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .q-alt.is-wrong .q-letter { background: var(--danger); border-color: var(--danger); color: var(--surface); }
 .q-alt.is-wrong .q-mark { color: var(--danger); }
 .q-alt.is-dim { opacity: .7; }
+.q-alt.is-picked { border-color: var(--accent); border-width: 2.5px; background: var(--surface-2); }
+.q-alt.is-picked .q-letter { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.q-confirm { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.q-confirm .button:disabled { opacity: .55; cursor: not-allowed; }
 .q-result { margin: 0; display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap; font-weight: 700; }
 .q-result.ok { color: var(--accent); }
 .q-result.bad { color: var(--danger); }
