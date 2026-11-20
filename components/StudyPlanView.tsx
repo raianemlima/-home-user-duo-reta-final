@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { bankDisciplinesFor, questionBankHref } from "@/lib/questions/day-link";
 import { WEEKDAY_NAMES } from "@/lib/study-plan";
+import { activityKeys, weekDates } from "@/lib/study-progress";
 import { vadeFor, vadeMaterial } from "@/lib/vade";
 
 type Activity = { titulo: string; tempo: string; links: { href: string; rotulo: string }[] };
@@ -38,6 +39,27 @@ function annexFor(title: string, annexes: { titulo: string; index: number }[]) {
 export function StudyPlanView() {
   const [content, setContent] = useState<Content | null>(null); const [error, setError] = useState("");
   const [day, setDay] = useState(() => new Date().getDay()); const [open, setOpen] = useState<number | null>(null);
+  // Atividades concluídas nesta semana, por "data|atividade". null: a marcação não está disponível.
+  const week = useMemo(() => weekDates(new Date()), []);
+  const [done, setDone] = useState<Set<string> | null>(null); const [saving, setSaving] = useState<string | null>(null); const [progressError, setProgressError] = useState("");
+  useEffect(() => {
+    fetch(`/api/cronograma/progresso?de=${week[1]}&ate=${week[0]}`).then(async (response) => {
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok || !payload.disponivel) return;
+      setDone(new Set((payload.feitas as { dia: string; atividade: string }[]).map((item) => `${item.dia}|${item.atividade}`)));
+    }).catch(() => undefined);
+  }, [week]);
+  const toggle = useCallback(async (dia: string, atividade: string) => {
+    const key = `${dia}|${atividade}`; const concluida = !done?.has(key);
+    const apply = (on: boolean) => setDone((current) => { const next = new Set(current ?? []); if (on) next.add(key); else next.delete(key); return next; });
+    apply(concluida); setSaving(key); setProgressError("");
+    try {
+      const response = await fetch("/api/cronograma/progresso", { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ dia, atividade, concluida }) });
+      if (!response.ok) throw new Error((await response.json().catch(() => ({})))?.error?.message ?? "Não foi possível salvar.");
+    } catch (failure) {
+      apply(!concluida); setProgressError(failure instanceof Error ? failure.message : "Não foi possível salvar.");
+    } finally { setSaving(null); }
+  }, [done]);
   useEffect(() => {
     fetch("/api/cronograma/conteudo").then(async (response) => {
       const payload = await response.json().catch(() => ({}));
@@ -62,19 +84,35 @@ export function StudyPlanView() {
   // Disciplinas do dia, tiradas das trilhas e do Vade Esperto, para o atalho do banco de questões do app.
   const isStudy = (title: string) => !/^(quest[oõ]es|s[uú]mulas|temas|revis)/i.test(fold(title).trim());
   const dayDisciplines = [...new Set(activities.filter((activity) => isStudy(activity.titulo)).flatMap((activity) => bankDisciplinesFor(activity.titulo)))];
+  // Progresso: do dia aberto e da semana inteira (só dias com atividades separadas).
+  const keysOf = (item: Day) => activityKeys((item.atividades ?? []).map((activity) => activity.titulo));
+  const doneIn = (item: Day) => keysOf(item).filter((key) => done?.has(`${week[item.dia]}|${key}`)).length;
+  const dayKeys = current ? keysOf(current) : [];
+  const dayDone = current ? doneIn(current) : 0;
+  const weekTotal = days.reduce((sum, item) => sum + (item.atividades?.length ?? 0), 0);
+  const weekDone = days.reduce((sum, item) => sum + doneIn(item), 0);
   const show = (index: number) => { setOpen(index); requestAnimationFrame(() => document.getElementById(`anexo-${index}`)?.scrollIntoView({ behavior: "smooth", block: "start" })); };
   return <div className="plan-view">
     <p className="eyebrow">{content.titulo}</p>
     <h1>{isToday ? `Hoje · ${WEEKDAY_NAMES[day]}` : WEEKDAY_NAMES[day]}</h1>
-    {days.length > 0 && <nav className="plan-days" aria-label="Dias da semana">{days.map((item) => <button key={item.dia} type="button" className={`plan-day${item.dia === day ? " is-on" : ""}`} aria-pressed={item.dia === day} onClick={() => setDay(item.dia)}>{WEEKDAY_NAMES[item.dia].slice(0, 3)}{item.dia === new Date().getDay() ? " ·hoje" : ""}</button>)}</nav>}
+    {days.length > 0 && <nav className="plan-days" aria-label="Dias da semana">{days.map((item) => <button key={item.dia} type="button" className={`plan-day${item.dia === day ? " is-on" : ""}`} aria-pressed={item.dia === day} onClick={() => setDay(item.dia)}>{WEEKDAY_NAMES[item.dia].slice(0, 3)}{item.dia === new Date().getDay() ? " ·hoje" : ""}{done && (item.atividades?.length ?? 0) > 0 && doneIn(item) === item.atividades!.length ? <span className="plan-day-done" aria-label=", concluído"> ✓</span> : null}</button>)}</nav>}
+    {done && current && activities.length > 0 && <section className="plan-progress" aria-label="Seu progresso">
+      <div className="plan-progress-row"><strong>{dayDone === activities.length ? "Dia concluído! 🎉" : `${dayDone} de ${activities.length} atividades concluídas`}</strong><span className="muted">Semana: {weekDone} de {weekTotal}</span></div>
+      <div className="plan-progress-bar" role="progressbar" aria-label={`Atividades concluídas em ${WEEKDAY_NAMES[day].toLowerCase()}`} aria-valuemin={0} aria-valuemax={activities.length} aria-valuenow={dayDone}><span style={{ width: `${Math.round((100 * dayDone) / activities.length)}%` }} /></div>
+      {progressError && <p className="auth-error" role="alert">{progressError}</p>}
+    </section>}
     {current && activities.length > 0 && <ol className="plan-activities" aria-label="Atividades do dia">{activities.map((activity, position) => {
       const trail = annexFor(activity.titulo, annexes);
       // "Questões do dia" abre primeiro o banco do app nas disciplinas do dia; a trilha de cada disciplina, as questões dela.
       const isQuestions = /^quest/i.test(fold(activity.titulo).trim());
       const vade = /^vade/i.test(fold(activity.titulo).trim()) ? vadeFor(activity.titulo).filter((slug) => content.vade?.includes(slug)) : [];
       const ownBank = isQuestions ? dayDisciplines : /^trilha/i.test(fold(activity.titulo).trim()) ? bankDisciplinesFor(activity.titulo) : [];
-      return <li key={position} className="plan-activity">
-        <div className="plan-activity-head"><span className="plan-activity-n">{position + 1}</span><strong>{activity.titulo}</strong>{activity.tempo && <span className="badge">{activity.tempo}</span>}</div>
+      const doneKey = `${week[day]}|${dayKeys[position]}`; const isDone = Boolean(done?.has(doneKey));
+      return <li key={position} className={`plan-activity${isDone ? " is-done" : ""}`}>
+        <div className="plan-activity-head"><span className="plan-activity-n" aria-hidden={isDone || undefined}>{isDone ? "✓" : position + 1}</span><strong>{activity.titulo}</strong>{activity.tempo && <span className="badge">{activity.tempo}</span>}</div>
+        {done && <button type="button" className={`plan-check${isDone ? " is-on" : ""}`} aria-pressed={isDone} disabled={saving === doneKey} onClick={() => void toggle(week[day], dayKeys[position])}>
+          <span className="plan-check-box" aria-hidden="true">{isDone ? "✓" : ""}</span>Atividade concluída
+        </button>}
         {(activity.links.length > 0 || trail !== null || ownBank.length > 0 || vade.length > 0) && <div className="plan-links">
           {vade.map((slug) => {
             // No leitor do app quando o Vade Esperto já foi publicado lá; senão, o PDF.

@@ -31,12 +31,14 @@ const tables = {
   paragraphs: [
     { id: P1, section_id: S1, version_id: V1, position: 1, kind: "body", text: "Crime é fato típico, ilícito e culpável.", hash: "a" },
     { id: "b0000000-0000-4000-8000-000000000002", section_id: S1, version_id: V1, position: 2, kind: "tip", text: "DICA DUO cai muito na prova.", hash: "b" },
+    // Tabela do material com célula mesclada na vertical (U+2062) e quebra dentro da célula (U+2028).
+    { id: "b0000000-0000-4000-8000-000000000005", section_id: S1, version_id: V1, position: 3, kind: "table", text: "ERRO | ESPÉCIE | EFEITO\nERRO DE TIPO | ESSENCIAL | Exclui o dolo\u2028Permite a culpa\n\u2062 | ACIDENTAL | Não exclui o dolo", hash: "e" },
     { id: "b0000000-0000-4000-8000-000000000003", section_id: S2, version_id: V1, position: 1, kind: "body", text: "A pena é a consequência do crime. ".repeat(60), hash: "c" },
     { id: "b0000000-0000-4000-8000-000000000004", section_id: S3, version_id: V2, position: 1, kind: "body", text: "Art. 1º Não há crime sem lei anterior que o defina.", hash: "d" },
   ],
   highlights: [{ id: "a0000000-0000-4000-8000-000000000001", user_id: U, discipline_id: D1, version_id: V1, start_paragraph_id: P1, start_offset: 0, end_paragraph_id: P1, end_offset: 5, quote: "Crime", prefix: "", suffix: " é fato", color: "importante", note: "Conceito analítico", status: "active", orphaned_at: null, reviewed_at: null }],
   reading_positions: [{ user_id: U, discipline_id: D1, section_id: S1, updated_at: now }],
-  question_answers: [], study_plan_choices: [], push_subscriptions: [],
+  question_answers: [], study_plan_choices: [], push_subscriptions: [], study_activity_done: [],
   vade_esperto: [{ slug: "penal", versao: "atualizado em 14.09.26", updated_at: now }],
 };
 

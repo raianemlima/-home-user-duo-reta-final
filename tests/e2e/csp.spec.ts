@@ -63,6 +63,8 @@ test("telas do aluno funcionam sem nenhum script bloqueado", async ({ page }) =>
   // Leitor: grifos carregados pela API, editor do grifo e navegação pelo sumário (no PC, fixo; no celular, gaveta).
   await page.goto("/disciplinas/direito-penal", { waitUntil: "networkidle" });
   await expect(page.locator("mark.hl").first()).toHaveText("Crime");
+  // Tabela do material: célula mesclada na vertical ocupa duas linhas.
+  await expect(page.locator(".material-table td[rowspan='2']")).toHaveText(/ERRO DE TIPO/);
   await page.locator("mark.hl").first().click();
   await expect(page.getByRole("dialog", { name: "Editar grifo" })).toBeVisible();
   await page.getByRole("button", { name: "Fechar" }).click();
@@ -82,5 +84,40 @@ test("telas do aluno funcionam sem nenhum script bloqueado", async ({ page }) =>
   await expect(page.getByRole("link", { name: "Ler no app" })).toHaveAttribute("href", "/disciplinas/vade-esperto-codigo-penal");
   await page.goto("/cronograma", { waitUntil: "networkidle" });
   await expect(page.getByText("Escolha um cronograma ou envie o seu.")).toBeVisible();
+  expect(problems).toEqual([]);
+});
+
+test("cronograma: marcar e desmarcar atividade concluída", async ({ page }) => {
+  test.skip(!MOCK, "Sem o Supabase simulado (E2E_SUPABASE_MOCK=1): telas do aluno não verificadas.");
+  const problems = await watch(page);
+  const today = new Date().getDay();
+  const activity = (titulo: string, tempo: string) => ({ titulo, tempo, links: [] });
+  await page.route("**/api/cronograma/conteudo", (route) => route.fulfill({ json: { plano: "6h", titulo: "Cronograma 6h", tipo: "docx", geral: "", anexos: [], dias: [{ dia: today, titulo: "HOJE", html: "<p>Orientações</p>", atividades: [activity("Questões do dia", "1h"), activity("Trilha de Direito Penal", "2h")] }] } }));
+  const saved: unknown[] = [];
+  await page.route("**/api/cronograma/progresso*", async (route) => {
+    if (route.request().method() === "PUT") { saved.push(route.request().postDataJSON()); return route.fulfill({ json: {} }); }
+    return route.fulfill({ json: { disponivel: true, feitas: [] } });
+  });
+  await page.goto("/login", { waitUntil: "networkidle" });
+  await page.getByLabel("E-mail da sua matrícula").fill("ana@duo.test");
+  await page.getByLabel("Senha").fill("senha-do-teste");
+  await page.getByRole("button", { name: "Entrar" }).click();
+  await page.waitForURL(/\/$/);
+  await page.goto("/cronograma", { waitUntil: "networkidle" });
+  await expect(page.getByText("0 de 2 atividades concluídas")).toBeVisible();
+  const first = page.getByRole("button", { name: "Atividade concluída" }).first();
+  await expect(first).toHaveAttribute("aria-pressed", "false");
+  await first.click();
+  await expect(first).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByText("1 de 2 atividades concluídas")).toBeVisible();
+  await page.getByRole("button", { name: "Atividade concluída" }).nth(1).click();
+  await expect(page.getByText("Dia concluído!")).toBeVisible();
+  await first.click();
+  await expect(page.getByText("1 de 2 atividades concluídas")).toBeVisible();
+  expect(saved).toEqual([
+    expect.objectContaining({ atividade: "Questões do dia", concluida: true }),
+    expect.objectContaining({ atividade: "Trilha de Direito Penal", concluida: true }),
+    expect.objectContaining({ atividade: "Questões do dia", concluida: false }),
+  ]);
   expect(problems).toEqual([]);
 });
