@@ -13,6 +13,7 @@ update public.profiles set active = false where user_id = :I;
 set role authenticated; select set_config('request.jwt.claim.sub', :A, false);
 insert into public.question_answers(question_id, choice, correct) values ('q1', 'A', true);
 insert into public.study_plan_choices(plano) values ('3h');
+insert into public.study_activity_done(dia, atividade) values ('2026-11-16', 'Trilha de Direito Penal');
 insert into public.push_subscriptions(endpoint, p256dh, auth) values ('https://push.example/a', 'k', 's');
 do $$ declare n int; begin
   update public.profiles set must_change_password = false where user_id = auth.uid(); get diagnostics n = row_count;
@@ -20,6 +21,10 @@ do $$ declare n int; begin
   begin
     insert into public.study_plan_choices(user_id, plano) values (auth.uid(), '8h') on conflict (user_id) do update set plano = excluded.plano;
     raise exception 'FALHA: aceitou cronograma inexistente';
+  exception when check_violation then null; end;
+  begin
+    insert into public.study_activity_done(dia, atividade) values ('2026-11-16', '');
+    raise exception 'FALHA: aceitou atividade sem título';
   exception when check_violation then null; end;
 end $$;
 select 'OK  0012/0016/0018: aluno não baixa o aviso de troca de senha; só cronogramas de 3h, 4h, 6h ou próprio';
@@ -30,6 +35,12 @@ do $$ declare n int; begin
   select count(*) into n from public.question_answers; if n <> 0 then raise exception 'FALHA: B vê % respostas de A', n; end if;
   select count(*) into n from public.study_plan_choices; if n <> 0 then raise exception 'FALHA: B vê a escolha de cronograma de A'; end if;
   select count(*) into n from public.push_subscriptions; if n <> 0 then raise exception 'FALHA: B vê o aparelho de A'; end if;
+  select count(*) into n from public.study_activity_done; if n <> 0 then raise exception 'FALHA: B vê as atividades concluídas de A'; end if;
+  delete from public.study_activity_done; get diagnostics n = row_count; if n <> 0 then raise exception 'FALHA: B desmarcou atividade de A'; end if;
+  begin
+    insert into public.study_activity_done(user_id, dia, atividade) values ('a2222222-2222-4222-8222-222222222222', '2026-11-16', 'Questões do dia');
+    raise exception 'FALHA: B marcou atividade em nome de A';
+  exception when insufficient_privilege then null; end;
   update public.question_answers set correct = false; get diagnostics n = row_count; if n <> 0 then raise exception 'FALHA: B alterou respostas de A'; end if;
   delete from public.push_subscriptions; get diagnostics n = row_count; if n <> 0 then raise exception 'FALHA: B removeu o aparelho de A'; end if;
   begin
@@ -37,7 +48,7 @@ do $$ declare n int; begin
     raise exception 'FALHA: B gravou resposta em nome de A';
   exception when insufficient_privilege then null; end;
 end $$;
-select 'OK  0011/0015/0016: respostas, cronograma e avisos isolados por aluno';
+select 'OK  0011/0015/0016/0021: respostas, cronograma, atividades concluídas e avisos isolados por aluno';
 
 -- Aluno inativo não grava nada
 reset role; set role authenticated; select set_config('request.jwt.claim.sub', :I, false);
@@ -46,8 +57,12 @@ do $$ begin
     insert into public.question_answers(question_id, choice, correct) values ('q1', 'A', true);
     raise exception 'FALHA: aluno inativo gravou resposta';
   exception when insufficient_privilege then null; end;
+  begin
+    insert into public.study_activity_done(dia, atividade) values ('2026-11-16', 'Questões do dia');
+    raise exception 'FALHA: aluno inativo marcou atividade';
+  exception when insufficient_privilege then null; end;
 end $$;
-select 'OK  0015: aluno desativado não grava respostas';
+select 'OK  0015/0021: aluno desativado não grava respostas nem atividades';
 
 -- Vade Esperto: a equipe publica; aluno ativo só lê
 reset role; set role authenticated; select set_config('request.jwt.claim.sub', :E, false);

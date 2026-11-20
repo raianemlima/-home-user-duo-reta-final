@@ -38,12 +38,13 @@ Os ebooks do curso **não** são versionados neste repositório (direitos autora
 
 ## Publicar (Supabase + Vercel)
 
-1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0020`, sem os arquivos `.down`
+1. **Supabase**: crie um projeto só para o DUO. Aplique as migrações em ordem (`supabase/migrations/0001…0021`, sem os arquivos `.down`
    e **sem a 0005**, que o próprio atelie marca como não aplicada: ela exige que o envio de documentos use a chave de serviço).
    Projeto atual: `duo-reta-final` (`https://xslqdunmykikmslgntqz.supabase.co`, região São Paulo). Para conferir até onde ele
-   está, rode no SQL Editor `select to_regclass('public.vade_esperto') as m0017, to_regprocedure('public.publish_content_version(uuid)') as m0019, to_regclass('public.rate_limits') as m0020;`
+   está, rode no SQL Editor `select to_regclass('public.vade_esperto') as m0017, to_regprocedure('public.publish_content_version(uuid)') as m0019, to_regclass('public.rate_limits') as m0020, to_regclass('public.study_activity_done') as m0021;`
    (vazio = migração ainda não aplicada). A 0019 (publicação atômica) e a 0020 (limite de uso) podem ser aplicadas antes ou
-   depois do deploy: sem elas o app continua funcionando, publicando em dois passos e sem o limite.
+   depois do deploy: sem elas o app continua funcionando, publicando em dois passos e sem o limite. O mesmo vale para a 0021
+   (atividades concluídas do cronograma): sem ela, o cronograma só não mostra o botão "Atividade concluída".
 2. **Auth** (Authentication → Providers/Settings):
    - desligue o cadastro aberto ("Allow new users to sign up");
    - em URL Configuration, adicione `https://SEU_DOMINIO/auth/confirm` às Redirect URLs;
@@ -101,6 +102,12 @@ Resultado em 22/10/2026, com os 11 ebooks do Reta Final DPE-SP (PDF):
 | Teses Institucionais | 162 | 344 | 0 | (sem sumário) |
 
 - Todos os ebooks atingiram o critério (≥ 90%), então a equipe pode enviar **o PDF**; o DOCX não foi necessário.
+- **Tabelas do PDF (20/11/2026)**: antes, só 1 das 37 tabelas do Constitucional era reconhecida; o resto chegava como texto
+  embaralhado e o título da tabela virava seção do sumário. Agora a tabela é remontada pelas bordas que o PDF desenha
+  (`lib/extraction/pdf-tables.ts`): células mescladas na horizontal e na vertical, tabela que atravessa a página e palavra
+  partida dentro da célula. No Constitucional e no Penal, as tabelas do PDF batem com as do Word, sem perder nenhum
+  caractere. **Para os ebooks já publicados mudarem, reenvie o PDF em Equipe › Conteúdo e publique** (os grifos são
+  reposicionados); a etapa de extração está na versão 5, então o reenvio não reaproveita a leitura antiga.
   Os títulos restantes sem seção são, em geral, subtítulos muito longos que quebram em várias linhas.
 - **Atualização do Penal (21/10/2026)**: dos 50 grifos sorteados na versão anterior, **50 foram reposicionados** e 0 ficaram
   como "trecho alterado".
@@ -145,6 +152,11 @@ Em `/cronograma` o Word é lido no app (`lib/study-plan-view.ts`): o HTML é lim
 http/https, que abrem fora do app), dividido pelos títulos dos dias ("SEGUNDA-FEIRA"… "DOMINGO · SIMULADO") e, depois
 dos dias, cada título vira um anexo (as trilhas por disciplina). As tabelas "ATIVIDADE n | TEMPO" viram a lista do dia,
 com os links de cada atividade; "Questões do dia" abre primeiro o banco de questões do app nas disciplinas do dia.
+
+Cada atividade tem o botão **Atividade concluída**: a tela mostra quantas o aluno fez no dia e na semana, e o dia
+todo feito ganha ✓ na aba. Como o cronograma se repete toda semana, a marcação vale para a data daquele dia na semana
+atual e recomeça na segunda-feira seguinte. Fica em `study_activity_done` (migração 0021), pela rota
+`/api/cronograma/progresso`.
 
 ## Vade Esperto
 
