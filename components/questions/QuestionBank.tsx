@@ -55,6 +55,8 @@ function LegalBasis({ questionId }: { questionId: string }) {
 
 function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnswered: (id: string, choice: Letter, correct: boolean) => void }) {
   const [error, setError] = useState(""); const [retry, setRetry] = useState(false);
+  // Alternativa marcada, ainda sem confirmar: o aluno pode trocar antes de ver a correção.
+  const [picked, setPicked] = useState<Letter | null>(null);
   const answer = retry ? null : question.resposta;
   // Corrige na hora, no aparelho; a resposta é salva em seguida sem prender a tela.
   function save(choice: Letter) {
@@ -63,10 +65,11 @@ function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnsw
       .then(async (response) => { if (!response.ok) { const payload = await response.json().catch(() => ({})); throw new Error(payload?.error?.message ?? ""); } })
       .catch((failure: Error) => setError(`Sua resposta não foi salva${failure.message ? ` (${failure.message})` : ""}. Confira a conexão e responda de novo.`));
   }
-  function choose(choice: Letter) {
-    if (answer) return;
+  function confirm() {
+    if (answer || !picked) return;
+    const choice = picked;
     const correct = question.anulada || choice === question.gabarito;
-    setRetry(false); onAnswered(question.id, choice, correct); save(choice);
+    setRetry(false); setPicked(null); onAnswered(question.id, choice, correct); save(choice);
   }
   const letters = Object.keys(question.alternativas) as Letter[];
   return <article className="q-card" aria-labelledby={`q-${question.id}`}>
@@ -75,15 +78,16 @@ function QuestionCard({ question, onAnswered }: { question: QuestionView; onAnsw
     {question.anulada && <p className="q-note">Questão anulada pela banca: qualquer alternativa conta como acerto.</p>}
     <ol className="q-alts" aria-label="Alternativas">
       {letters.map((letter) => {
-        const chosen = answer?.choice === letter, isAnswer = Boolean(answer) && question.gabarito === letter;
-        const state = !answer ? "" : isAnswer ? "is-answer" : chosen ? "is-wrong" : "is-dim";
-        return <li key={letter}><button type="button" className={`q-alt ${state}`.trim()} onClick={() => choose(letter)} disabled={Boolean(answer)} aria-pressed={chosen}>
+        const chosen = answer ? answer.choice === letter : picked === letter, isAnswer = Boolean(answer) && question.gabarito === letter;
+        const state = !answer ? (chosen ? "is-picked" : "") : isAnswer ? "is-answer" : chosen ? "is-wrong" : "is-dim";
+        return <li key={letter}><button type="button" className={`q-alt ${state}`.trim()} onClick={() => setPicked(letter)} disabled={Boolean(answer)} aria-pressed={chosen}>
           <span className="q-letter" aria-hidden="true">{letter}</span><span>{question.alternativas[letter]}</span>
           {answer && isAnswer && <span className="q-mark">✓ gabarito</span>}{answer && chosen && !isAnswer && <span className="q-mark">✗ sua resposta</span>}
         </button></li>;
       })}
     </ol>
-    {answer && <p className={answer.correct ? "q-result ok" : "q-result bad"} role="status">{answer.correct ? "Você acertou!" : `Você marcou ${answer.choice}. Gabarito: ${question.gabarito ?? "anulada"}.`} <button type="button" className="button ghost" onClick={() => setRetry(true)}>Responder de novo</button></p>}
+    {!answer && <div className="q-confirm"><button type="button" className="button primary" onClick={confirm} disabled={!picked}>Confirmar resposta</button>{!picked && <span className="muted">Escolha uma alternativa e confirme para ver a correção.</span>}</div>}
+    {answer && <p className={answer.correct ? "q-result ok" : "q-result bad"} role="status">{answer.correct ? "Você acertou!" : `Você marcou ${answer.choice}. Gabarito: ${question.gabarito ?? "anulada"}.`} <button type="button" className="button ghost" onClick={() => { setRetry(true); setPicked(null); }}>Responder de novo</button></p>}
     {answer && !answer.correct && question.gabarito && <p className="q-right"><strong>Alternativa correta ({question.gabarito}):</strong> {question.alternativas[question.gabarito]}</p>}
     {answer && question.comentario && <details className="q-comment" open><summary>Gabarito comentado</summary>{question.comentario.split(/\n{2,}/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</details>}
     {answer && <LegalBasis questionId={question.id} />}
@@ -97,6 +101,11 @@ export function QuestionBank() {
   const [bank, setBank] = useState<Bank | null>(null); const [error, setError] = useState("");
   const [search, setSearch] = useState(params.get("busca") ?? "");
   const query = params.toString();
+  // Questões respondidas desde que o aluno abriu esta seleção, com a situação de antes: continuam na tela, com a
+  // correção, até ele mudar os filtros (trocar de página não conta, senão a próxima página pularia questões).
+  const selection = (() => { const next = new URLSearchParams(query); next.delete("pagina"); return next.toString(); })();
+  const [frozen, setFrozen] = useState<{ selection: string; before: Map<string, Answer | null> }>({ selection, before: new Map() });
+  const before = useMemo(() => (frozen.selection === selection ? frozen.before : new Map<string, Answer | null>()), [frozen, selection]);
 
   useEffect(() => {
     let alive = true;
@@ -108,7 +117,7 @@ export function QuestionBank() {
     return () => { alive = false; };
   }, []);
 
-  const result = useMemo(() => (bank ? searchQuestions(bank.questions, parseQuestionFilter(new URLSearchParams(query)), bank.answers) : null), [bank, query]);
+  const result = useMemo(() => (bank ? searchQuestions(bank.questions, parseQuestionFilter(new URLSearchParams(query)), bank.answers, before) : null), [bank, query, before]);
   const update = useCallback((changes: Record<string, string>) => {
     const next = new URLSearchParams(params.toString());
     for (const [key, value] of Object.entries(changes)) { if (value) next.set(key, value); else next.delete(key); }
@@ -119,6 +128,7 @@ export function QuestionBank() {
   const onSelect = (name: string, value: string) => update({ [name]: value });
   function submitSearch(event: FormEvent) { event.preventDefault(); update({ busca: search.trim() }); }
   function onAnswered(id: string, choice: Letter, correct: boolean) {
+    if (bank && !before.has(id)) setFrozen({ selection, before: new Map(before).set(id, bank.answers.get(id) ?? null) });
     setBank((current) => current && { ...current, answers: new Map(current.answers).set(id, { choice, correct }) });
   }
 
@@ -135,6 +145,7 @@ export function QuestionBank() {
     try {
       const response = await fetch("/api/questoes", { method: "DELETE", headers: { "content-type": "application/json" }, body: JSON.stringify(ids ? { ids } : {}) });
       if (!response.ok) throw new Error((await response.json().catch(() => ({})))?.error?.message ?? "Não foi possível apagar as respostas.");
+      setFrozen({ selection, before: new Map() });
       setBank((current) => { if (!current) return current; const answers = new Map(current.answers); for (const id of ids ?? [...answers.keys()]) answers.delete(id); return { ...current, answers }; });
       setError("");
     } catch (failure) { setError(failure instanceof Error ? failure.message : "Não foi possível apagar as respostas."); }

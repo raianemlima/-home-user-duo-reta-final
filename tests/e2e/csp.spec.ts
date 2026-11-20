@@ -78,8 +78,23 @@ test("telas do aluno funcionam sem nenhum script bloqueado", async ({ page }) =>
   await page.goto("/caderno", { waitUntil: "networkidle" });
   await expect(page.locator(".note-item blockquote").first()).toHaveText("Crime");
   await page.goto("/questoes", { waitUntil: "networkidle" });
-  await page.locator(".q-card .q-alt").first().click();
-  await expect(page.locator(".q-card .q-result").first()).toBeVisible();
+  // Marcar a alternativa não corrige: o aluno pode trocar e só vê a correção ao confirmar.
+  const card = page.locator(".q-card").first();
+  await expect(card.getByRole("button", { name: "Confirmar resposta" })).toBeDisabled();
+  await card.locator(".q-alt").nth(1).click();
+  await card.locator(".q-alt").first().click();
+  await expect(card.locator(".q-alt").first()).toHaveAttribute("aria-pressed", "true");
+  await expect(card.locator(".q-alt").nth(1)).toHaveAttribute("aria-pressed", "false");
+  await expect(card.locator(".q-result")).toHaveCount(0);
+  await card.getByRole("button", { name: "Confirmar resposta" }).click();
+  await expect(card.locator(".q-result")).toBeVisible();
+  // Pelo atalho do cronograma ("Não respondidas"), a questão respondida continua na tela com a correção.
+  await page.goto("/questoes?situacao=nao-respondidas", { waitUntil: "networkidle" });
+  const firstQuestion = await page.locator(".q-card .q-text").first().textContent();
+  await page.locator(".q-card").first().locator(".q-alt").first().click();
+  await page.locator(".q-card").first().getByRole("button", { name: "Confirmar resposta" }).click();
+  await expect(page.locator(".q-card").first().locator(".q-text")).toHaveText(firstQuestion ?? "");
+  await expect(page.locator(".q-card").first().locator(".q-result")).toBeVisible();
   await page.goto("/vade-esperto", { waitUntil: "networkidle" });
   await expect(page.getByRole("link", { name: "Ler no app" })).toHaveAttribute("href", "/disciplinas/vade-esperto-codigo-penal");
   await page.goto("/cronograma", { waitUntil: "networkidle" });
