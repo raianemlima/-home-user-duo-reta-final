@@ -22,7 +22,8 @@ function previousOutput(stages: StageContext["stages"], stage: string, subjectId
 export const extractionHandlerV2: StageHandler = {
   stage: "extraction",
   scope: "document",
-  version: "4",
+  // 5: tabelas do PDF reconstruídas pelas bordas; mesclagem vertical nas tabelas do Word e do PDF.
+  version: "5",
   async inputKey({ stage, deps }) {
     const document = stage.subjectId ? await deps.loadDocument(stage.subjectId) : null;
     if (!document) throw new StageError("Documento da fonte não encontrado.", false);

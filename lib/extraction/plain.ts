@@ -29,6 +29,8 @@ export const CELL_BREAK = "\u2028";
 // Célula vazia (U+2060) e célula que ocupa mais colunas (um U+2063 por coluna a mais, no começo): invisíveis na tela.
 export const TABLE_EMPTY = "\u2060";
 export const TABLE_SPAN = "\u2063";
+// Célula que continua a de cima (mesclagem vertical no Word, "vMerge"): só a marca U+2062, invisível.
+export const TABLE_ROWSPAN = "\u2062";
 
 // Número de nota de rodapé no texto, como no Word ("culposo¹"): o texto da nota vem logo depois do parágrafo.
 const SUPERSCRIPT = "⁰¹²³⁴⁵⁶⁷⁸⁹";
@@ -101,12 +103,12 @@ export async function extractDocx(bytes: Uint8Array): Promise<DocumentExtraction
       // Quadro de uma coluna (questão comentada, caixa de destaque): cada parágrafo do Word numa linha, como no arquivo.
       // Tabela de verdade: uma linha da tabela por linha do texto, células separadas por " | ".
       const rows = (part.match(/<w:tr[ >][\s\S]*?<\/w:tr>/g) ?? []).map((row) => (row.match(/<w:tc>[\s\S]*?<\/w:tc>/g) ?? [])
-        .map((cell) => ({ span: Number(/<w:gridSpan w:val="(\d+)"/.exec(cell)?.[1] ?? 1), lines: (cell.match(/<w:p[ >][\s\S]*?<\/w:p>/g) ?? []).flatMap((paragraph) => [runText(paragraph, reference), ...boxesOf(paragraph)]).filter(Boolean) })));
+        .map((cell) => ({ span: Number(/<w:gridSpan w:val="(\d+)"/.exec(cell)?.[1] ?? 1), continues: /<w:vMerge\s*\/>|<w:vMerge w:val="continue"\s*\/>/.test(cell), lines: (cell.match(/<w:p[ >][\s\S]*?<\/w:p>/g) ?? []).flatMap((paragraph) => [runText(paragraph, reference), ...boxesOf(paragraph)]).filter(Boolean) })));
       const singleColumn = rows.every((cells) => cells.length <= 1);
       // Célula vazia e célula mesclada levam marcas invisíveis (não aparecem nem mudam a leitura): sem elas, a limpeza
       // de espaços some com a célula vazia e a tabela "anda" uma coluna; com elas, o leitor remonta a tabela do Word.
-      const cellText = (cell: { span: number; lines: string[] }) => TABLE_SPAN.repeat(Math.max(0, cell.span - 1)) + (cell.lines.join(CELL_BREAK) || TABLE_EMPTY);
-      const lines = singleColumn ? rows.flatMap((cells) => cells[0]?.lines ?? []) : rows.map((cells) => cells.map(cellText).join(" | ")).filter((row) => row.replace(/[\s|\u2060\u2063]/g, ""));
+      const cellText = (cell: { span: number; continues: boolean; lines: string[] }) => TABLE_SPAN.repeat(Math.max(0, cell.span - 1)) + (cell.lines.join(CELL_BREAK) || (cell.continues ? TABLE_ROWSPAN : TABLE_EMPTY));
+      const lines = singleColumn ? rows.flatMap((cells) => cells[0]?.lines ?? []) : rows.map((cells) => cells.map(cellText).join(" | ")).filter((row) => row.replace(/[\s|\u2060\u2062\u2063]/g, ""));
       push(lines.join("\n"), "table");
       flushNotes();
       continue;

@@ -1,4 +1,5 @@
 import { collapseSpaces, joinLines } from "@/lib/extraction/text-utils";
+import type { PdfTable } from "@/lib/extraction/pdf-tables";
 import type { LayoutBlock, RawItem } from "@/lib/extraction/types";
 
 type Cell = { x0: number; x1: number; text: string };
@@ -100,7 +101,9 @@ function lowerQuartile(values: number[]): number {
 // Itens que abrem um parágrafo próprio em texto jurídico e em listas, mesmo sem espaço extra entre as linhas.
 const NEW_ITEM = /^(?:Art(?:igos?)?\.?\s*\d|§|Par[áa]grafo\s+[úu]nico|[IVXLC]{1,6}\s*[-–—)]\s|[a-z]\)\s|\d{1,2}(?:\.\d{1,2})*[.)]\s+\p{Lu}|\d{1,2}(?:\.\d{1,2})+\s+\p{Lu}|DICA DUO\b)/u;
 
-const isTabular = (line: Line) => line.cells.length >= 2 && line.cells.every((cell) => cell.text.length <= 40);
+// Marcador de lista seguido do texto ("i.   Consciência", "•   65% são negros") não é tabela: é o recuo da lista.
+const LIST_MARK = /^(?:[•●▪■◦○➢➤►▶✓✔\-–]|[ivxlc]{1,6}[.)]|[a-z][.)]|\d{1,2}[.)])$/i;
+const isTabular = (line: Line) => line.cells.length >= 2 && line.cells.every((cell) => cell.text.length <= 40) && !LIST_MARK.test(line.cells[0].text);
 const sameColumns = (a: Line, b: Line) => a.cells.filter((cell) => b.cells.some((other) => Math.abs(other.x0 - cell.x0) <= 4)).length >= 2;
 
 type Piece = { kind: "paragraph" | "table"; lines: Line[]; column: 0 | 1 | null };
@@ -109,7 +112,11 @@ function groupPieces(segment: Segment): Piece[] {
   const pieces: Piece[] = [];
   const lines = segment.lines;
   // Quartil inferior (não a mediana): quando a maioria dos parágrafos tem uma linha só, a mediana vira o espaço entre parágrafos.
-  const spacing = lowerQuartile(lines.slice(1).map((line, i) => lines[i].y - line.y).filter((gap) => gap > 0));
+  // Com poucas linhas (página quase toda tomada por tabela), o espaço entre elas não diz o que é linha e o que é
+  // parágrafo: vale o entrelinhas típico do material (1,6 × o corpo da letra).
+  const gaps = lines.slice(1).map((line, i) => lines[i].y - line.y).filter((gap) => gap > 0);
+  const typical = median(lines.map((line) => line.fontSize)) * 1.6;
+  const spacing = gaps.length >= 3 ? lowerQuartile(gaps) : Math.min(lowerQuartile(gaps) || typical, typical);
   let current: Piece | null = null;
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
@@ -129,9 +136,10 @@ function groupPieces(segment: Segment): Piece[] {
   return pieces;
 }
 
-export function buildLayout(items: RawItem[], page: { width: number; height: number }): LayoutBlock[] {
+export function buildLayout(items: RawItem[], page: { width: number; height: number }, tables: PdfTable[] = []): LayoutBlock[] {
   const lines = buildLines(items, page.height);
-  if (!lines.length) return [];
+  const tableBlocks: LayoutBlock[] = tables.map((table) => ({ kind: "table", text: table.text, fontSize: table.fontSize, y: table.top, column: null, heading: false, source: "text-layer" }));
+  if (!lines.length) return tableBlocks;
   const bodyCandidates = lines.filter((line) => line.zone === "body");
   const weighted = bodyCandidates.flatMap((line) => Array.from({ length: Math.max(1, Math.round(line.chars / 10)) }, () => line.fontSize));
   const bodyFont = median(weighted) || median(lines.map((line) => line.fontSize));
@@ -154,6 +162,11 @@ export function buildLayout(items: RawItem[], page: { width: number; height: num
       const heading = isHeadingText(text, fontSize, piece.lines.length);
       blocks.push({ kind: "body", text, fontSize, y: piece.lines[0].y, column: piece.column, heading, source: "text-layer" });
     }
+  }
+  // Cada tabela entra no ponto da leitura em que aparece na página: antes do primeiro bloco que fica abaixo dela.
+  for (const table of tableBlocks) {
+    const at = blocks.findIndex((block) => block.kind === "body" || block.kind === "table" ? block.y < table.y : false);
+    if (at === -1) blocks.push(table); else blocks.splice(at, 0, table);
   }
   if (footnotes.length) {
     const grouped: Line[][] = [];
