@@ -80,6 +80,12 @@ test("telas do aluno funcionam sem nenhum script bloqueado", async ({ page }) =>
   await page.goto("/questoes", { waitUntil: "networkidle" });
   await page.locator(".q-card .q-alt").first().click();
   await expect(page.locator(".q-card .q-result").first()).toBeVisible();
+  // Pelo atalho do cronograma ("Não respondidas"), a questão respondida continua na tela com a correção.
+  await page.goto("/questoes?situacao=nao-respondidas", { waitUntil: "networkidle" });
+  const firstQuestion = await page.locator(".q-card .q-text").first().textContent();
+  await page.locator(".q-card").first().locator(".q-alt").first().click();
+  await expect(page.locator(".q-card").first().locator(".q-text")).toHaveText(firstQuestion ?? "");
+  await expect(page.locator(".q-card").first().locator(".q-result")).toBeVisible();
   await page.goto("/vade-esperto", { waitUntil: "networkidle" });
   await expect(page.getByRole("link", { name: "Ler no app" })).toHaveAttribute("href", "/disciplinas/vade-esperto-codigo-penal");
   await page.goto("/cronograma", { waitUntil: "networkidle" });

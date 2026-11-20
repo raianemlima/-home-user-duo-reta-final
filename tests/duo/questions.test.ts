@@ -36,6 +36,17 @@ describe("searchQuestions", () => {
     expect(searchQuestions(bank, filter("situacao=errei"), answers).items.map((item) => item.id)).toEqual(["2"]);
     expect(searchQuestions(bank, filter("situacao=nao-respondidas"), answers).items.map((item) => item.id)).toEqual(["3"]);
   });
+  it("questão respondida agora não some da seleção: fica na tela com a correção, acertando ou errando", () => {
+    const answers = new Map<string, Answer>([["2", { choice: "A", correct: false }], ["3", { choice: "B", correct: true }]]);
+    // 2 e 3 foram respondidas nesta tela; antes, nenhuma das duas tinha resposta.
+    const frozen = new Map<string, Answer | null>([["2", null], ["3", null]]);
+    const open = searchQuestions(bank, filter("situacao=nao-respondidas"), answers, frozen);
+    expect(open.items.map((item) => [item.id, item.resposta?.correct ?? null])).toEqual([["1", null], ["2", false], ["3", true]]);
+    expect(open.stats).toEqual({ respondidas: 2, acertos: 1, total: 3 });
+    // "Errei": a questão que o aluno refez e acertou continua na tela, agora com a correção nova.
+    const retried = searchQuestions(bank, filter("situacao=errei"), new Map<string, Answer>([["2", { choice: "B", correct: true }]]), new Map([["2", { choice: "A", correct: false }]]));
+    expect(retried.items.map((item) => [item.id, item.resposta?.correct])).toEqual([["2", true]]);
+  });
   it("pagina de 10 em 10", () => {
     const many = Array.from({ length: 23 }, (_, i) => q(String(i)));
     const page = searchQuestions(many, filter("pagina=3"), new Map());

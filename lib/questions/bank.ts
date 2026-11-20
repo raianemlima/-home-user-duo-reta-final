@@ -43,7 +43,12 @@ export function matches(question: Question, filter: QuestionFilter, answers: Map
 }
 
 // Filtra, conta as opções de cada filtro (cada contagem respeita os outros filtros) e devolve uma página.
-export function searchQuestions(bank: Question[], filter: QuestionFilter & { pagina: number }, answers: Map<string, Answer>) {
+// "frozen": questões respondidas agora, na tela aberta, com a situação de antes da resposta. A seleção usa essa
+// situação, para a questão não sumir ao ser respondida (filtro "Não respondidas") e o aluno ver a correção;
+// a correção e as contagens usam a resposta atual.
+export function searchQuestions(bank: Question[], filter: QuestionFilter & { pagina: number }, current: Map<string, Answer>, frozen: Map<string, Answer | null> = new Map()) {
+  const answers = new Map(current);
+  for (const [id, before] of frozen) { if (before) answers.set(id, before); else answers.delete(id); }
   const found = bank.filter((question) => matches(question, filter, answers));
   const facet = (key: keyof QuestionFilter, pick: (question: Question) => string | null) => count(bank.filter((question) => matches(question, filter, answers, key)).map(pick));
   const facets: Facets = {
@@ -55,9 +60,9 @@ export function searchQuestions(bank: Question[], filter: QuestionFilter & { pag
   };
   const start = (filter.pagina - 1) * PAGE_SIZE;
   const items: QuestionView[] = found.slice(start, start + PAGE_SIZE).map((question) => {
-    const resposta = answers.get(question.id) ?? null;
+    const resposta = current.get(question.id) ?? null;
     return { ...question, resposta };
   });
-  const answered = bank.filter((question) => answers.has(question.id));
-  return { total: found.length, pagina: filter.pagina, paginas: Math.max(1, Math.ceil(found.length / PAGE_SIZE)), items, facets, stats: { respondidas: answered.length, acertos: answered.filter((question) => answers.get(question.id)?.correct).length, total: bank.length } };
+  const answered = bank.filter((question) => current.has(question.id));
+  return { total: found.length, pagina: filter.pagina, paginas: Math.max(1, Math.ceil(found.length / PAGE_SIZE)), items, facets, stats: { respondidas: answered.length, acertos: answered.filter((question) => current.get(question.id)?.correct).length, total: bank.length } };
 }

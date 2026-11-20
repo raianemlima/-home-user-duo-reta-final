@@ -97,6 +97,11 @@ export function QuestionBank() {
   const [bank, setBank] = useState<Bank | null>(null); const [error, setError] = useState("");
   const [search, setSearch] = useState(params.get("busca") ?? "");
   const query = params.toString();
+  // Questões respondidas desde que o aluno abriu esta seleção, com a situação de antes: continuam na tela, com a
+  // correção, até ele mudar os filtros (trocar de página não conta, senão a próxima página pularia questões).
+  const selection = (() => { const next = new URLSearchParams(query); next.delete("pagina"); return next.toString(); })();
+  const [frozen, setFrozen] = useState<{ selection: string; before: Map<string, Answer | null> }>({ selection, before: new Map() });
+  const before = useMemo(() => (frozen.selection === selection ? frozen.before : new Map<string, Answer | null>()), [frozen, selection]);
 
   useEffect(() => {
     let alive = true;
@@ -108,7 +113,7 @@ export function QuestionBank() {
     return () => { alive = false; };
   }, []);
 
-  const result = useMemo(() => (bank ? searchQuestions(bank.questions, parseQuestionFilter(new URLSearchParams(query)), bank.answers) : null), [bank, query]);
+  const result = useMemo(() => (bank ? searchQuestions(bank.questions, parseQuestionFilter(new URLSearchParams(query)), bank.answers, before) : null), [bank, query, before]);
   const update = useCallback((changes: Record<string, string>) => {
     const next = new URLSearchParams(params.toString());
     for (const [key, value] of Object.entries(changes)) { if (value) next.set(key, value); else next.delete(key); }
@@ -119,6 +124,7 @@ export function QuestionBank() {
   const onSelect = (name: string, value: string) => update({ [name]: value });
   function submitSearch(event: FormEvent) { event.preventDefault(); update({ busca: search.trim() }); }
   function onAnswered(id: string, choice: Letter, correct: boolean) {
+    if (bank && !before.has(id)) setFrozen({ selection, before: new Map(before).set(id, bank.answers.get(id) ?? null) });
     setBank((current) => current && { ...current, answers: new Map(current.answers).set(id, { choice, correct }) });
   }
 
@@ -135,6 +141,7 @@ export function QuestionBank() {
     try {
       const response = await fetch("/api/questoes", { method: "DELETE", headers: { "content-type": "application/json" }, body: JSON.stringify(ids ? { ids } : {}) });
       if (!response.ok) throw new Error((await response.json().catch(() => ({})))?.error?.message ?? "Não foi possível apagar as respostas.");
+      setFrozen({ selection, before: new Map() });
       setBank((current) => { if (!current) return current; const answers = new Map(current.answers); for (const id of ids ?? [...answers.keys()]) answers.delete(id); return { ...current, answers }; });
       setError("");
     } catch (failure) { setError(failure instanceof Error ? failure.message : "Não foi possível apagar as respostas."); }
