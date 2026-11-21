@@ -427,3 +427,28 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .flash-home:hover { background: var(--surface-2); }
 .flash-home-go { margin-left: auto; font-weight: 700; color: var(--link); white-space: nowrap; }
 .flash-unit { white-space: nowrap; }
+
+/* Formatação do PDF (paragraphs.format): negrito, itálico, sublinhado, cor, recuo, marcador e caixa. Só muda a
+   aparência; o texto (e as posições dos grifos) é o mesmo. As cores já chegam ajustadas para cada tema. */
+.fx-b { font-weight: 700; }
+.fx-i { font-style: italic; }
+.fx-u { text-decoration: underline; text-underline-offset: .15em; }
+.fx-c { color: var(--fx-l); }
+.paragraph.fx-indent-1 { padding-left: 1.5em; }
+.paragraph.fx-indent-2 { padding-left: 3em; }
+.paragraph.fx-indent-3 { padding-left: 4.5em; }
+.paragraph.fx-indent-4 { padding-left: 6em; }
+@media (max-width: 600px) { .paragraph.fx-indent-3, .paragraph.fx-indent-4 { padding-left: 2.25em; } .paragraph.fx-indent-2 { padding-left: 1.5em; } }
+.paragraph.fx-bullet { position: relative; }
+.paragraph.fx-bullet::before { content: attr(data-bullet); position: absolute; margin-left: -1.3em; color: var(--accent-strong); font-weight: 700; user-select: none; }
+.paragraph.fx-bullet:not([class*="fx-indent"]) { padding-left: 1.5em; }
+.paragraph.fx-box { background: var(--bx-l); border-left: 4px solid var(--bx-b); padding: .75rem 1rem; border-radius: 0 var(--r-md) var(--r-md) 0; color: #231F1E; }
+.paragraph.fx-box + .paragraph.fx-box { margin-top: -1em; padding-top: 0; border-radius: 0 0 var(--r-md) 0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .fx-c { color: var(--fx-d); }
+  :root:not([data-theme="light"]) .paragraph.fx-box { background: var(--bx-d); color: var(--text); }
+}
+:root[data-theme="dark"] .fx-c { color: var(--fx-d); }
+:root[data-theme="dark"] .paragraph.fx-box { background: var(--bx-d); color: var(--text); }
+/* Títulos das seções como no PDF: verde, com letras espaçadas. */
+.section-head h1, .section-subhead { color: var(--brand); letter-spacing: .04em; }

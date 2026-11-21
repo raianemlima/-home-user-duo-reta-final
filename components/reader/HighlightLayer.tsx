@@ -5,6 +5,7 @@ import { Floating } from "@/components/reader/Floating";
 import { type CardDraft, FlashcardSheet } from "@/components/flashcards/FlashcardSheet";
 import { ColorLegend, HighlightToolbar } from "@/components/reader/HighlightToolbar";
 import { paragraphSpans, rangeToPoints, segmentText } from "@/lib/highlights/dom";
+import { type Fmt, paragraphProps, spanProps, withMarks } from "@/lib/formatting/render";
 import { markLead, paragraphFormat, tipRoles } from "@/lib/reader/format";
 import { HIGHLIGHT_COLORS, type HighlightColor, type Point } from "@/lib/highlights/types";
 import type { ReaderParagraph } from "@/lib/reader/queries";
@@ -104,11 +105,15 @@ export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { v
       {paragraphs.map((paragraph) => {
         const format = paragraphFormat(paragraph.text, paragraph.kind);
         const segments = markLead(segmentText(paragraph.text, spans.get(paragraph.id) ?? []), format.lead);
-        const renderSegment = (segment: (typeof segments)[number], index: number | string) => segment.marks.length
+        // Formatação do PDF (negrito, itálico, sublinhado, cor): só muda as tags em volta do texto, nunca o texto.
+        const formatted = paragraph.kind === "table" ? segments : withMarks(segments, paragraph.format?.m);
+        const fx = paragraph.kind === "table" ? { className: "" } : paragraphProps(paragraph.format);
+        const inner = (segment: { text: string; fmt?: Fmt | null }) => segment.fmt ? <span {...spanProps(segment.fmt)}>{segment.text}</span> : segment.text;
+        const renderSegment = (segment: (typeof segments)[number] & { fmt?: Fmt | null }, index: number | string) => segment.marks.length
           ? <mark key={index} className={`hl hl-${segment.marks[segment.marks.length - 1].color}${segment.lead ? " lead" : ""}${noteOf(segment.marks[segment.marks.length - 1].id) ? " has-note" : ""}`} title={noteOf(segment.marks[segment.marks.length - 1].id) ?? undefined} data-highlight-id={segment.marks[segment.marks.length - 1].id} tabIndex={0} role="button" aria-label="Grifo: abrir opções"
               onClick={() => { const id = segment.marks[segment.marks.length - 1].id; if (!id.startsWith("tmp-")) { const found = highlights.find((item) => item.id === id); setEditing({ id, note: found?.note ?? "", color: found?.color ?? "importante" }); }; }}
-              onKeyDown={(event) => { if (event.key === "Enter") (event.currentTarget as HTMLElement).click(); }}>{segment.text}</mark>
-          : <span key={index} className={segment.lead ? "lead" : undefined}>{segment.text}</span>;
+              onKeyDown={(event) => { if (event.key === "Enter") (event.currentTarget as HTMLElement).click(); }}>{inner(segment)}</mark>
+          : <span key={index} className={segment.lead ? "lead" : undefined}>{inner(segment)}</span>;
         const table = paragraph.kind === "table" ? tableLayout(paragraph.text) : null;
         const subheads = breaks?.[paragraph.id] ?? [];
         return <Fragment key={paragraph.id}>{subheads.map((subhead) => subhead.hidden ? <span key={subhead.sectionId} className="section-anchor" id={`s-${subhead.sectionId}`} /> : <h2 key={subhead.sectionId} className="section-subhead" id={`s-${subhead.sectionId}`}>{subhead.label}</h2>)}{table
@@ -119,8 +124,8 @@ export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { v
                 if (cell.merged) return <td key={c} className="tsep">{paragraph.text.slice(cell.from, cell.sepTo)}</td>;
                 return <Cell key={c} colSpan={cell.span > 1 ? cell.span : undefined} rowSpan={cell.rowSpan > 1 ? cell.rowSpan : undefined}>{piecesOf(segments, cell.from, cell.to).flatMap((piece, k) => piece.text.split("\u2028").map((part, n) => <Fragment key={`${c}-${k}-${n}`}>{n > 0 && <><span className="tsep">{"\u2028"}</span><br /></>}{part && renderSegment({ ...piece, text: part }, `${c}-${k}-${n}`)}</Fragment>))}{cell.sepTo > cell.to && <span className="tsep">{paragraph.text.slice(cell.to, cell.sepTo)}</span>}</Cell>; })}</tr>)}
             </tbody></table></div>
-          : <p id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind} ${format.className} ${tips.get(paragraph.id) ?? ""}`.trim()} data-paragraph-id={paragraph.id}>
-              {segments.map((segment, index) => renderSegment(segment, index))}
+          : <p id={`p-${paragraph.id}`} className={`paragraph paragraph-${paragraph.kind} ${format.className} ${tips.get(paragraph.id) ?? ""} ${fx.className}`.trim()} style={fx.style as React.CSSProperties | undefined} data-bullet={fx.bullet} data-paragraph-id={paragraph.id}>
+              {formatted.map((segment, index) => renderSegment(segment, index))}
             </p>}
       {notesOf(paragraph.id).map((item) => <aside key={item.id} className="para-note" style={{ borderColor: swatch(item.color) }} role="button" tabIndex={0} aria-label="Abrir anotação"
           onClick={() => { if (!item.id.startsWith("tmp-")) setEditing({ id: item.id, note: item.note ?? "", color: item.color }); }}

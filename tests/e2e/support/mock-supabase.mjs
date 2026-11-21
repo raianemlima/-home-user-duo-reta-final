@@ -29,10 +29,12 @@ const tables = {
     { id: S3, version_id: V2, position: 1, level: 1, numbering: "Art. 1º", title: null, path: [] },
   ],
   paragraphs: [
-    { id: P1, section_id: S1, version_id: V1, position: 1, kind: "body", text: "Crime é fato típico, ilícito e culpável.", hash: "a" },
+    { id: P1, section_id: S1, version_id: V1, position: 1, kind: "body", text: "Crime é fato típico, ilícito e culpável.", hash: "a", format: { m: [[13, 19, "b"], [21, 28, "iu", "#1a7a3c"]] } },
     { id: "b0000000-0000-4000-8000-000000000002", section_id: S1, version_id: V1, position: 2, kind: "tip", text: "DICA DUO cai muito na prova.", hash: "b" },
     // Tabela do material com célula mesclada na vertical (U+2062) e quebra dentro da célula (U+2028).
     { id: "b0000000-0000-4000-8000-000000000005", section_id: S1, version_id: V1, position: 3, kind: "table", text: "ERRO | ESPÉCIE | EFEITO\nERRO DE TIPO | ESSENCIAL | Exclui o dolo\u2028Permite a culpa\n\u2062 | ACIDENTAL | Não exclui o dolo", hash: "e" },
+    { id: "b0000000-0000-4000-8000-000000000006", section_id: S1, version_id: V1, position: 4, kind: "body", text: "É assegurado o direito à nacionalidade brasileira originária. STF. RE 1.163.774.", hash: "f", format: { indent: 3, m: [[25, 60, "b"]] } },
+    { id: "b0000000-0000-4000-8000-000000000007", section_id: S1, version_id: V1, position: 5, kind: "body", text: "DE OLHO NO EXAMINADOR: tema recorrente na prova.", hash: "g", format: { box: "#c3fdbb", m: [[0, 21, "b"]] } },
     { id: "b0000000-0000-4000-8000-000000000003", section_id: S2, version_id: V1, position: 1, kind: "body", text: "A pena é a consequência do crime. ".repeat(60), hash: "c" },
     { id: "b0000000-0000-4000-8000-000000000004", section_id: S3, version_id: V2, position: 1, kind: "body", text: "Art. 1º Não há crime sem lei anterior que o defina.", hash: "d" },
   ],

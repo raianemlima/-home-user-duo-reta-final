@@ -101,4 +101,30 @@ do $$ declare n int; begin
   select count(*) into n from public.vade_esperto; if n <> 0 then raise exception 'FALHA: aluno inativo vê o Vade Esperto'; end if;
 end $$;
 select 'OK  0017: Vade Esperto publicado pela equipe, lido só por aluno ativo';
+-- 0023: formatação do PDF. A equipe grava; o aluno lê e não altera; reaplicar substitui; formato inválido é recusado.
+reset role; set role authenticated; select set_config('request.jwt.claim.sub', :E, false);
+do $$ declare n int; begin
+  n := public.set_paragraph_formats('f1000000-0000-4000-8000-000000000001', '{"f3000000-0000-4000-8000-000000000001": {"m": [[0, 5, "b"]]}}');
+  if n <> 1 then raise exception 'FALHA: equipe não gravou a formatação (%)', n; end if;
+  begin
+    update public.paragraphs set format = '[1]' where id = 'f3000000-0000-4000-8000-000000000001';
+    raise exception 'FALHA: aceitou formato que não é objeto';
+  exception when check_violation then null; end;
+end $$;
+reset role; set role authenticated; select set_config('request.jwt.claim.sub', :A, false);
+do $$ declare n int; f jsonb; begin
+  select format into f from public.paragraphs where id = 'f3000000-0000-4000-8000-000000000001';
+  if f is distinct from '{"m": [[0, 5, "b"]]}'::jsonb then raise exception 'FALHA: aluno não lê a formatação (%)', f; end if;
+  n := public.set_paragraph_formats('f1000000-0000-4000-8000-000000000001', '{}');
+  if n <> 0 then raise exception 'FALHA: aluno alterou a formatação'; end if;
+  select format into f from public.paragraphs where id = 'f3000000-0000-4000-8000-000000000001';
+  if f is null then raise exception 'FALHA: aluno apagou a formatação'; end if;
+end $$;
+reset role; set role authenticated; select set_config('request.jwt.claim.sub', :E, false);
+do $$ declare f jsonb; begin
+  perform public.set_paragraph_formats('f1000000-0000-4000-8000-000000000001', '{}');
+  select format into f from public.paragraphs where id = 'f3000000-0000-4000-8000-000000000001';
+  if f is not null then raise exception 'FALHA: reaplicar não limpou a formatação antiga'; end if;
+end $$;
+select 'OK  0023: formatação do PDF gravada pela equipe, lida pelo aluno, sem alteração por aluno; reaplicar substitui';
 reset role;

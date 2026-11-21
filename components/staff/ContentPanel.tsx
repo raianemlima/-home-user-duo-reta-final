@@ -106,6 +106,31 @@ export function DisciplineRow({ discipline, onChange }: { discipline: Discipline
   </li>;
 }
 
+// Formatação do PDF (negrito, itálico, cores, recuos e caixas) nos ebooks já publicados: um ebook por vez.
+function FormattingPanel({ disciplines }: { disciplines: Discipline[] }) {
+  const targets = disciplines.filter((discipline) => discipline.published);
+  const [busy, setBusy] = useState(false); const [lines, setLines] = useState<string[]>([]);
+  async function run() {
+    setBusy(true); setLines([]);
+    for (const discipline of targets) {
+      setLines((current) => [...current, `${discipline.title}: processando…`]);
+      let line: string;
+      try {
+        const result = await api<{ formatted: number; matched: number; total: number; skipped?: string }>("/api/equipe/formatacao", { method: "POST", body: JSON.stringify({ versionId: discipline.published!.id }) });
+        line = result.skipped === "not_pdf" ? `${discipline.title}: enviado em Word, fica para depois` : result.skipped ? `${discipline.title}: sem o arquivo original` : `${discipline.title}: ${result.matched} de ${result.total} parágrafos encontrados no PDF, ${result.formatted} com formatação ✓`;
+      } catch (failure) { line = `${discipline.title}: ${failure instanceof Error ? failure.message : "falhou"}`; }
+      setLines((current) => [...current.slice(0, -1), line]);
+    }
+    setBusy(false);
+  }
+  return <section className="staff-row">
+    <strong>Formatação do PDF</strong>
+    <p className="muted">Leva para a leitura no app o negrito, o itálico, o sublinhado, as cores, os recuos das citações e as caixas do PDF de cada ebook publicado. O texto não muda: os grifos dos alunos continuam no lugar. Pode repetir quando quiser.</p>
+    <button className="button primary" onClick={run} disabled={busy || !targets.length}>{busy ? "Aplicando…" : "Aplicar formatação do PDF"}</button>
+    {lines.length > 0 && <ul className="formatting-log" role="status">{lines.map((line, index) => <li key={index}>{line}</li>)}</ul>}
+  </section>;
+}
+
 export function ContentPanel() {
   const [disciplines, setDisciplines] = useState<Discipline[] | null>(null); const [title, setTitle] = useState(""); const [slug, setSlug] = useState(""); const [error, setError] = useState("");
   const load = useCallback(() => { api<{ disciplines: Discipline[] }>("/api/equipe/disciplinas").then((payload) => setDisciplines(payload.disciplines)).catch((failure: Error) => setError(failure.message)); }, []);
@@ -120,6 +145,7 @@ export function ContentPanel() {
     <p className="muted">Cada disciplina tem uma versão publicada. Envie o ebook, confira a prévia e publique; os grifos dos alunos são reposicionados automaticamente.</p>
     <form className="notebook-filters" onSubmit={create}><label>Nova disciplina<input value={title} onChange={(event) => { setTitle(event.target.value); setSlug(slugify(event.target.value)); }} placeholder="Direito Penal" required /></label><label>Endereço<input value={slug} onChange={(event) => setSlug(event.target.value)} placeholder="direito-penal" /></label><button className="button primary" type="submit">Criar</button></form>
     {error && <p className="auth-error" role="alert">{error}</p>}
+    {disciplines && <FormattingPanel disciplines={disciplines} />}
     {!disciplines ? <p className="muted">Carregando…</p> : <ul className="staff-list">{disciplines.map((discipline) => <DisciplineRow key={discipline.id} discipline={discipline} onChange={load} />)}</ul>}
   </div>;
 }
