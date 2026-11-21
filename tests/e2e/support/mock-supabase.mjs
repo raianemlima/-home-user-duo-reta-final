@@ -39,6 +39,8 @@ const tables = {
   highlights: [{ id: "a0000000-0000-4000-8000-000000000001", user_id: U, discipline_id: D1, version_id: V1, start_paragraph_id: P1, start_offset: 0, end_paragraph_id: P1, end_offset: 5, quote: "Crime", prefix: "", suffix: " é fato", color: "importante", note: "Conceito analítico", status: "active", orphaned_at: null, reviewed_at: null }],
   reading_positions: [{ user_id: U, discipline_id: D1, section_id: S1, updated_at: now }],
   question_answers: [], study_plan_choices: [], push_subscriptions: [], study_activity_done: [],
+  // Um flashcard de lacuna vencido hoje (o mesmo trecho do primeiro parágrafo de Direito Penal).
+  flashcards: [{ id: "f1000000-0000-4000-8000-000000000001", user_id: U, discipline_id: D1, section_id: S1, origem: "Direito Penal › CRIMES", tipo: "lacuna", texto: "Crime é fato típico, ilícito e culpável.", pergunta: null, lacunas: [[13, 19]], due_on: new Date().toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" }), interval_days: 0, ease: 2.5, reps: 0, lapses: 0, created_at: now }],
   vade_esperto: [{ slug: "penal", versao: "atualizado em 14.09.26", updated_at: now }],
 };
 
@@ -57,6 +59,8 @@ function matches(row, key, raw) {
   const cell = row[key];
   if (op === "eq") return String(cell) === value;
   if (op === "neq") return String(cell) !== value;
+  if (op === "lte") return String(cell) <= value;
+  if (op === "gte") return String(cell) >= value;
   if (op === "is") return value === "null" ? cell == null : String(cell) === value;
   if (op === "in") return value.replace(/^\(|\)$/g, "").split(",").map((item) => item.replace(/^"|"$/g, "")).includes(String(cell));
   if (op === "like" || op === "ilike") return new RegExp(`^${value.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/[%*]/g, ".*")}$`, op === "ilike" ? "i" : "").test(String(cell));
@@ -84,6 +88,10 @@ const server = http.createServer(async (req, res) => {
   if (url.pathname.startsWith("/storage/v1/")) return send(404, { statusCode: "404", error: "not_found", message: "Object not found" });
   const table = url.pathname.match(/^\/rest\/v1\/([a-z_]+)$/)?.[1];
   if (!table) return send(404, { message: "rota desconhecida" });
+  if (req.method === "HEAD") {
+    const total = (tables[table] || []).filter((row) => [...url.searchParams].every(([key, raw]) => RESERVED.has(key) || matches(row, key, raw))).length;
+    res.writeHead(200, { "content-range": `*/${total}` }); return res.end();
+  }
   if (req.method !== "GET") {
     const rows = body ? [].concat(JSON.parse(body)) : [];
     return send(req.method === "DELETE" ? 200 : 201, (req.headers.prefer || "").includes("return=representation") ? rows : undefined);

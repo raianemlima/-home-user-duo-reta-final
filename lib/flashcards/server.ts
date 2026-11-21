@@ -1,13 +1,11 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { EXAM_DATE } from "@/lib/exam";
 import type { Gap } from "@/lib/flashcards/cloze";
 import type { Sched } from "@/lib/flashcards/schedule";
 import { UUID_PATTERN } from "@/lib/server/documents";
 import { ApiError } from "@/lib/server/http";
 
-// Data da prova usada como teto da agenda (nenhum cartão fica para depois dela).
-export const FLASHCARD_EXAM_DATE: string | null = EXAM_DATE;
+export { FLASHCARD_EXAM_DATE } from "@/lib/flashcards/config";
 export const MAX_TEXTO = 1500, MAX_PERGUNTA = 300, MAX_CARDS = 3000;
 export const CARD_COLUMNS = "id, discipline_id, section_id, origem, tipo, texto, pergunta, lacunas, due_on, interval_days, ease, reps, lapses";
 

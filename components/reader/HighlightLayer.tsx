@@ -2,6 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Floating } from "@/components/reader/Floating";
+import { type CardDraft, FlashcardSheet } from "@/components/flashcards/FlashcardSheet";
 import { ColorLegend, HighlightToolbar } from "@/components/reader/HighlightToolbar";
 import { paragraphSpans, rangeToPoints, segmentText } from "@/lib/highlights/dom";
 import { markLead, paragraphFormat, tipRoles } from "@/lib/reader/format";
@@ -29,6 +30,7 @@ export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { v
   const [editing, setEditing] = useState<{ id: string | null; note: string; color: HighlightColor } | null>(null);
   const [notice, setNotice] = useState("");
   const [toast, setToast] = useState("");
+  const [card, setCard] = useState<{ selection: Selection; texto: string } | null>(null);
   useEffect(() => { if (!toast) return; const timer = window.setTimeout(() => setToast(""), 2500); return () => window.clearTimeout(timer); }, [toast]);
 
   useEffect(() => {
@@ -68,6 +70,26 @@ export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { v
     try { await call(`/api/destaques/${id}`, "DELETE"); } catch { setHighlights(before); setNotice("Não foi possível excluir o grifo."); }
   }
 
+  // Trecho do cartão: o mesmo texto que o servidor recalcula (parágrafos da seção unidos por "\n").
+  function selectedText(range: Selection): string {
+    const from = paragraphs.findIndex((paragraph) => paragraph.id === range.start.paragraphId), to = paragraphs.findIndex((paragraph) => paragraph.id === range.end.paragraphId);
+    if (from < 0 || to < from) return "";
+    if (from === to) return paragraphs[from].text.slice(range.start.offset, range.end.offset);
+    return [paragraphs[from].text.slice(range.start.offset), ...paragraphs.slice(from + 1, to).map((paragraph) => paragraph.text), paragraphs[to].text.slice(0, range.end.offset)].join("\n");
+  }
+  function openCard() {
+    if (!selection) return;
+    const texto = selectedText(selection);
+    if (!texto.trim()) { setNotice("Selecione um trecho com texto para criar o cartão."); return; }
+    if (texto.length > 1500) { setNotice("O trecho do cartão pode ter até 1500 caracteres. Selecione um trecho menor."); return; }
+    setCard({ selection, texto }); setSelection(null); window.getSelection()?.removeAllRanges();
+  }
+  async function saveCard(draft: CardDraft) {
+    if (!card) return;
+    await call("/api/flashcards", "POST", { versionId, ...card.selection, ...draft });
+    setCard(null); setToast("Cartão criado ✓ Revise em Flashcards");
+  }
+
   const tips = useMemo(() => tipRoles(paragraphs), [paragraphs]);
   const order = useMemo(() => paragraphs.map((paragraph) => paragraph.id), [paragraphs]);
   const spans = useMemo(() => paragraphSpans(order, highlights), [order, highlights]);
@@ -104,7 +126,7 @@ export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { v
           onClick={() => { if (!item.id.startsWith("tmp-")) setEditing({ id: item.id, note: item.note ?? "", color: item.color }); }}
           onKeyDown={(event) => { if (event.key === "Enter") (event.currentTarget as HTMLElement).click(); }}><span aria-hidden="true">✎</span> {item.note}</aside>)}</Fragment>; })}
     </div>
-    {selection && !editing && <HighlightToolbar onPick={(color) => save(color)} onNote={() => setEditing({ id: null, note: "", color: "importante" })} onCancel={() => { setSelection(null); window.getSelection()?.removeAllRanges(); }} />}
+    {selection && !editing && !card && <HighlightToolbar onPick={(color) => save(color)} onNote={() => setEditing({ id: null, note: "", color: "importante" })} onFlashcard={openCard} onCancel={() => { setSelection(null); window.getSelection()?.removeAllRanges(); }} />}
     {editing && <Floating className="sheet" role="dialog" aria-label={open ? "Editar grifo" : "Novo grifo com anotação"}>
       <label>Anotação<textarea rows={3} maxLength={2000} autoFocus value={editing.note} onChange={(event) => setEditing({ ...editing, note: event.target.value })} /></label>
       <div className="sheet-colors" role="radiogroup" aria-label="Cor do grifo">{HIGHLIGHT_COLORS.map((color) => <button key={color.key} role="radio" aria-checked={editing.color === color.key} className={editing.color === color.key ? "swatch-button selected" : "swatch-button"} onClick={() => setEditing({ ...editing, color: color.key })}><span className="swatch" style={{ background: color.swatch }} aria-hidden="true" />{color.label}</button>)}</div>
@@ -114,6 +136,7 @@ export function HighlightLayer({ versionId, sectionId, paragraphs, breaks }: { v
         <button className="button ghost" onClick={() => { setEditing(null); setSelection(null); }}>Fechar</button>
       </div>
     </Floating>}
+    {card && <FlashcardSheet texto={card.texto} onSave={saveCard} onClose={() => setCard(null)} />}
     {toast && <p className="toast" role="status">{toast}</p>}
   </>;
 }

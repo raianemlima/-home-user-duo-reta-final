@@ -17,10 +17,23 @@ const point = (value: unknown): Point | null => {
 };
 
 // Cartões do aluno, com a disciplina e o link para a seção de origem (se ela ainda existir).
-export function GET() {
+export function GET(request: Request) {
   return handleRoute("flashcards.listar", async () => {
     const { supabase, user } = await requireStudent();
     const hoje = todayBR(new Date());
+    // Resumo para o Início: só as contagens, sem baixar os cartões.
+    if (new URL(request.url).searchParams.get("resumo") === "1") {
+      const [due, all] = await Promise.all([
+        supabase.from("flashcards").select("id", { count: "exact", head: true }).eq("user_id", user.id).lte("due_on", hoje),
+        supabase.from("flashcards").select("id", { count: "exact", head: true }).eq("user_id", user.id),
+      ]);
+      const failed = due.error ?? all.error;
+      if (failed) {
+        if (missingTable(failed)) return NextResponse.json({ disponivel: false, hoje, paraHoje: 0, total: 0 });
+        throw new Error(`Falha ao contar os flashcards: ${failed.message}`);
+      }
+      return NextResponse.json({ disponivel: true, hoje, paraHoje: due.count ?? 0, total: all.count ?? 0 }, { headers: { "cache-control": "private, no-store" } });
+    }
     const { rows, error } = await listCards(supabase, user.id);
     if (error) {
       if (missingTable(error)) return NextResponse.json({ disponivel: false, hoje, cards: [] });

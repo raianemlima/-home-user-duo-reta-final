@@ -66,9 +66,9 @@ describe("POST /api/flashcards", () => {
 describe("lista, revisão, edição e exclusão", () => {
   it("lista só os cartões do aluno; seção que sumiu na republicação perde o link", async () => {
     await lacuna();
-    as("aluno-b"); expect((await (await list()).json()).cards).toEqual([]);
+    as("aluno-b"); expect((await (await list(new Request("http://x/api/flashcards"))).json()).cards).toEqual([]);
     as("aluno-a"); db.tables.content_versions[0].status = "archived";
-    const payload = await (await list()).json();
+    const payload = await (await list(new Request("http://x/api/flashcards"))).json();
     expect(payload).toMatchObject({ disponivel: true, hoje: todayBR(new Date()) });
     expect(payload.cards).toHaveLength(1);
     expect(payload.cards[0]).toMatchObject({ texto: TEXT, sectionId: null, dueOn: todayBR(new Date()) });
@@ -100,13 +100,22 @@ describe("lista, revisão, edição e exclusão", () => {
   });
 });
 
+describe("resumo do Início", () => {
+  it("conta os cartões para hoje e o total", async () => {
+    await lacuna(); const outro = await lacuna();
+    await review(req({ nota: "facil" }), ctx(outro.id));
+    expect(await (await list(new Request("http://x/api/flashcards?resumo=1"))).json()).toMatchObject({ disponivel: true, paraHoje: 1, total: 2 });
+  });
+});
+
 describe("sem a migração 0022", () => {
   it("a lista diz 'indisponível' e as escritas respondem 503", async () => {
     const fake = makeFakeSupabase(db, "aluno-a");
-    const broken = { select: () => broken, eq: () => broken, order: () => broken, range: () => broken, maybeSingle: () => broken, insert: () => broken, single: () => broken,
+    const broken = { select: () => broken, eq: () => broken, lte: () => broken, order: () => broken, range: () => broken, maybeSingle: () => broken, insert: () => broken, single: () => broken,
       then: (resolve: (value: unknown) => unknown) => Promise.resolve({ data: null, count: null, error: { code: "PGRST205", message: "Could not find the table 'public.flashcards'" } }).then(resolve) };
     student.mockResolvedValue({ supabase: { ...fake, from: (table: string) => table === "flashcards" ? broken : fake.from(table) }, user: { id: "aluno-a" } });
-    expect(await (await list()).json()).toMatchObject({ disponivel: false, cards: [] });
+    expect(await (await list(new Request("http://x/api/flashcards"))).json()).toMatchObject({ disponivel: false, cards: [] });
+    expect(await (await list(new Request("http://x/api/flashcards?resumo=1"))).json()).toMatchObject({ disponivel: false, paraHoje: 0 });
     expect((await create(req({ ...sel(0, 10), tipo: "pergunta", pergunta: "x" }))).status).toBe(503);
     expect((await review(req({ nota: "bom" }), ctx("f9000000-0000-4000-8000-000000000001"))).status).toBe(503);
   });
