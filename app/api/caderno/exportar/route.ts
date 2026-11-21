@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { buildNotebookExport, countItems, MAX_EXPORT_ITEMS } from "@/lib/export/model";
-import { renderDocx } from "@/lib/export/docx";
 import { renderPdf } from "@/lib/export/pdf";
 import { parseNotebookFilter } from "@/lib/notebook/filters";
 import { loadNotebook } from "@/lib/notebook/queries";
@@ -16,7 +15,6 @@ export function GET(request: Request) {
   return handleRoute("caderno.exportar", async () => {
     const { supabase, user } = await requireStudent();
     const params = new URL(request.url).searchParams;
-    const docx = params.get("formato") === "docx";
     const notebook = await loadNotebook(supabase, user.id, parseNotebookFilter(params));
     const total = countItems(notebook);
     if (!total) throw new ApiError(404, "empty", "Não há trechos no caderno com esses filtros.");
@@ -24,10 +22,10 @@ export function GET(request: Request) {
     await enforceRateLimit(supabase, "export");
     const now = new Date();
     const model = buildNotebookExport(notebook, user.email ?? "aluno", now);
-    // O PDF leva trechos do material: sai com a mesma proteção dos ebooks (e-mail do aluno em cada página, sem cópia).
-    const bytes = docx ? await renderDocx(model) : await protectPdf(await renderPdf(model), { email: user.email || `aluno ${user.id.slice(0, 8)}` });
+    // Só PDF: o caderno leva trechos do material e sai com a mesma proteção dos ebooks (e-mail do aluno em cada página,
+    // sem cópia). O Word não aceita essa proteção, por isso não é oferecido.
+    const bytes = await protectPdf(await renderPdf(model), { email: user.email || `aluno ${user.id.slice(0, 8)}` });
     const day = now.toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
-    const type = docx ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document" : "application/pdf";
-    return new NextResponse(bytes as unknown as BodyInit, { headers: { "content-type": type, "content-disposition": `attachment; filename="caderno-duo-${day}.${docx ? "docx" : "pdf"}"`, "cache-control": "private, no-store" } });
+    return new NextResponse(bytes as unknown as BodyInit, { headers: { "content-type": "application/pdf", "content-disposition": `attachment; filename="caderno-duo-${day}.pdf"`, "cache-control": "private, no-store" } });
   });
 }
