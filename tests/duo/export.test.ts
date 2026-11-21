@@ -84,6 +84,8 @@ describe("GET /api/caderno/exportar", () => {
     expect(response.headers.get("content-disposition")).toMatch(/^attachment; filename="caderno-duo-\d{4}-\d{2}-\d{2}\.pdf"$/);
     expect(load).toHaveBeenCalledWith(session, "u", { disciplines: ["penal"], colors: ["revisar"], reviewed: "pending" });
     expect(quota).toHaveBeenCalledWith("take_rate_limit", { p_bucket: "export" });
+    // Trechos do material: o PDF sai criptografado (sem cópia), como os ebooks.
+    expect(new TextDecoder("latin1").decode(new Uint8Array(await response.arrayBuffer()))).toContain("/Encrypt");
   }, 60_000);
   it("formato=docx devolve o Word como anexo", async () => {
     load.mockResolvedValue(notebook);
