@@ -85,6 +85,8 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .exam-days { font-size: 2rem; font-weight: 700; line-height: 1; color: var(--accent-text); font-variant-numeric: tabular-nums; }
 .exam-card p { margin: 0; }
 .exam-card > div { flex: 1; min-width: 12rem; }
+.frase-card { display: flex; gap: var(--s-3); align-items: flex-start; margin: 0 0 var(--s-4); padding: var(--s-3) var(--s-4); background: var(--tip-bg); border: 1px solid var(--tip-border); border-radius: var(--r-md); font-size: 1.02rem; line-height: 1.5; }
+.frase-card .eyebrow { display: block; margin: 0 0 var(--s-1); }
 .exam-chip { display: block; font-size: .8125rem; color: var(--muted); margin: -.75rem 0 0; }
 /* Cronograma do aluno */
 .plan-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--s-4); margin: var(--s-4) 0 0; display: grid; gap: var(--s-2); }
