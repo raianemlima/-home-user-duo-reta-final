@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/server/admin";
 import { requireStaff } from "@/lib/server/auth";
 import { ApiError, handleRoute, readJson } from "@/lib/server/http";
-import { listVade } from "@/lib/server/vade";
+import { ensureVadeReaders, listVade } from "@/lib/server/vade";
 import { MAX_VADE_BYTES, VADE_BUCKET, vadeMaterial } from "@/lib/vade";
 
 export const dynamic = "force-dynamic";
@@ -10,6 +10,7 @@ export const dynamic = "force-dynamic";
 export function GET() {
   return handleRoute("equipe.vade.listar", async () => {
     const { supabase } = await requireStaff();
+    await ensureVadeReaders(supabase);
     return NextResponse.json({ materiais: await listVade(supabase) });
   });
 }
