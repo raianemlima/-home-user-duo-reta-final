@@ -16,8 +16,9 @@ export function VadePanel() {
   const [message, setMessage] = useState(""); const [error, setError] = useState("");
   const [disciplines, setDisciplines] = useState<Discipline[]>([]);
   const load = useCallback(() => {
-    api<{ materiais: Material[] }>("/api/equipe/vade-esperto").then((payload) => setMaterials(payload.materiais)).catch((failure: Error) => setError(failure.message));
-    api<{ disciplines: Discipline[] }>("/api/equipe/disciplinas").then((payload) => setDisciplines(payload.disciplines)).catch((failure: Error) => setError(failure.message));
+    // Primeiro o catálogo (que cria as disciplinas do leitor que faltarem), depois as disciplinas.
+    api<{ materiais: Material[] }>("/api/equipe/vade-esperto").then((payload) => { setMaterials(payload.materiais); return api<{ disciplines: Discipline[] }>("/api/equipe/disciplinas"); })
+      .then((payload) => setDisciplines(payload.disciplines)).catch((failure: Error) => setError(failure.message));
   }, []);
   useEffect(load, [load]);
 
@@ -47,7 +48,7 @@ export function VadePanel() {
         <h2 className="section-title">{material.titulo}</h2>
         <div className="vade-staff-part">
           <p><strong>1. Leitor do app (Word)</strong> — {reader?.published ? `publicado: ${reader.published.label}` : "ainda não publicado"}</p>
-          {reader ? <DisciplineRow discipline={reader} onChange={load} /> : <p className="muted">Carregando…</p>}
+          {reader ? <DisciplineRow discipline={reader} onChange={load} /> : <p className="muted">{error ? "Não foi possível preparar o envio do Word." : "Carregando…"}</p>}
         </div>
         <div className="vade-staff-part">
           <p><strong>2. PDF para abrir ou baixar</strong> — {material.disponivel ? material.versao || "publicado" : "ainda não enviado"}</p>

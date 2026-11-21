@@ -21,6 +21,18 @@ export async function vadeReaders(supabase: SupabaseClient): Promise<Map<string,
   return readers;
 }
 
+// Cada matéria do Vade Esperto tem uma disciplina no leitor ("Vade Esperto – <matéria>"), onde a equipe envia o Word.
+// Num banco novo ela ainda não existe e o painel não teria onde receber o arquivo: cria as que faltarem.
+export async function ensureVadeReaders(supabase: SupabaseClient): Promise<void> {
+  const { data, error } = await supabase.from("disciplines").select("slug").like("slug", "vade-esperto%");
+  if (error) throw new Error(`Falha ao ler o Vade Esperto no leitor: ${error.message}`);
+  const existing = new Set((data ?? []).map((row: { slug: string }) => row.slug));
+  const missing = VADE_MATERIALS.map((material, index) => ({ slug: `vade-esperto-${material.slug}`, title: `Vade Esperto – ${material.titulo}`, position: 101 + index })).filter((row) => !existing.has(row.slug));
+  if (!missing.length) return;
+  const { error: insertError } = await supabase.from("disciplines").insert(missing);
+  if (insertError) throw new Error(`Falha ao preparar o Vade Esperto no leitor: ${insertError.message}`);
+}
+
 // O catálogo com o que a equipe já publicou (a tabela só tem linha para o PDF enviado).
 export async function listVade(supabase: SupabaseClient): Promise<VadeEntry[]> {
   const { data, error } = await supabase.from("vade_esperto").select("slug, versao, updated_at");
