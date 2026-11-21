@@ -26,6 +26,7 @@ create table if not exists public.flashcards (
   )
 );
 create index if not exists flashcards_user_due_idx on public.flashcards (user_id, due_on);
+create index if not exists flashcards_discipline_idx on public.flashcards (discipline_id);
 drop trigger if exists flashcards_touch on public.flashcards;
 create trigger flashcards_touch before update on public.flashcards for each row execute function public.touch_updated_at();
 alter table public.flashcards enable row level security;
