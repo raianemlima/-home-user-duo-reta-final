@@ -7,7 +7,9 @@ export { chapterBreaks, type Toc, type TocItem } from "@/lib/reader/toc";
 
 // lastReadAt: quando o aluno abriu pela última vez a seção lastSectionId (só existe junto com ela).
 export type DisciplineCard = { id: string; slug: string; title: string; versionId: string; versionLabel: string; publishedAt: string; updatedSinceLastVisit: boolean; lastSectionId: string | null; lastReadAt: string | null };
-export type ReaderParagraph = { id: string; kind: "body" | "table" | "footnote" | "tip"; text: string };
+import type { ParagraphFormat } from "@/lib/formatting/types";
+
+export type ReaderParagraph = { id: string; kind: "body" | "table" | "footnote" | "tip"; text: string; format?: ParagraphFormat | null };
 // intro: o texto de abertura do documento (antes do primeiro título), mostrado no topo da primeira seção.
 export type ReaderSection = { id: string; numbering: string | null; title: string | null; path: string[]; paragraphs: ReaderParagraph[] };
 // Uma página de leitura junta seções curtas seguidas (section = a primeira; more = as demais, com título próprio no texto).
@@ -111,10 +113,23 @@ export async function firstSectionId(supabase: SupabaseClient, slug: string): Pr
   return splitIntro(await loadToc(supabase, found.version.id)).reading[0]?.id ?? null;
 }
 
+// Formatação do PDF (coluna paragraphs.format, migração 0023): banco ainda sem a coluna lê só o texto, como antes.
+let formatColumn = true;
+async function withFormat<T>(run: (columns: string) => Promise<T>): Promise<T> {
+  if (formatColumn) {
+    try { return await run(", format"); }
+    catch (error) { const message = String(error instanceof Error ? error.message : error); if (/format/.test(message) && /(does not exist|could not find|42703|PGRST204)/i.test(message)) formatColumn = false; else throw error; }
+  }
+  return run("");
+}
+const readerParagraph = ({ id, kind, text, format }: ReaderParagraph): ReaderParagraph => (format ? { id, kind, text, format } : { id, kind, text });
+
 async function loadParagraphs(supabase: SupabaseClient, sectionId: string): Promise<ReaderParagraph[]> {
-  const { data, error } = await supabase.from("paragraphs").select("id, kind, text, position").eq("section_id", sectionId).order("position");
-  check(error, "Falha ao ler os parágrafos");
-  return ((data ?? []) as (ReaderParagraph & { position: number })[]).sort((a, b) => a.position - b.position).map(({ id, kind, text }) => ({ id, kind, text }));
+  return withFormat(async (columns) => {
+    const { data, error } = await supabase.from("paragraphs").select(`id, kind, text, position${columns}`).eq("section_id", sectionId).order("position");
+    check(error, "Falha ao ler os parágrafos");
+    return ((data ?? []) as unknown as (ReaderParagraph & { position: number })[]).sort((a, b) => a.position - b.position).map(readerParagraph);
+  });
 }
 
 export async function loadSection(supabase: SupabaseClient, slug: string, sectionId: string): Promise<SectionView | null> {
@@ -130,7 +145,7 @@ export async function loadSection(supabase: SupabaseClient, slug: string, sectio
   const ids = pages[pageIndex];
   const [{ data: sections, error }, paragraphs, introParagraphs] = await Promise.all([
     supabase.from("sections").select("id, numbering, title, path").in("id", ids).eq("version_id", found.version.id),
-    readAll<ReaderParagraph & { position: number; section_id: string }>((from, to) => supabase.from("paragraphs").select("id, section_id, kind, text, position").in("section_id", ids).order("id").range(from, to), "Falha ao ler os parágrafos"),
+    withFormat((columns) => readAll<ReaderParagraph & { position: number; section_id: string }>((from, to) => supabase.from("paragraphs").select(`id, section_id, kind, text, position${columns}`).in("section_id", ids).order("id").range(from, to), "Falha ao ler os parágrafos")),
     intro && pageIndex === 0 ? loadParagraphs(supabase, intro.id) : Promise.resolve([]),
   ]);
   check(error, "Falha ao ler a seção");
@@ -139,7 +154,7 @@ export async function loadSection(supabase: SupabaseClient, slug: string, sectio
   const ordered: ReaderSection[] = ids.flatMap((id) => {
     const row = byId.get(id);
     if (!row) return [];
-    const own = paragraphs.filter((paragraph) => paragraph.section_id === id).sort((a, b) => a.position - b.position).map(({ id: paragraphId, kind, text }) => ({ id: paragraphId, kind, text }));
+    const own = paragraphs.filter((paragraph) => paragraph.section_id === id).sort((a, b) => a.position - b.position).map(readerParagraph);
     return [{ id: row.id, numbering: row.numbering, title: row.title, path: row.path ?? [], paragraphs: own }];
   });
   return {
