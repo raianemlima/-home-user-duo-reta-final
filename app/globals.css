@@ -85,6 +85,11 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .exam-days { font-size: 2rem; font-weight: 700; line-height: 1; color: var(--accent-text); font-variant-numeric: tabular-nums; }
 .exam-card p { margin: 0; }
 .exam-card > div { flex: 1; min-width: 12rem; }
+.sp-cover { position: relative; overflow: hidden; display: grid; justify-items: center; text-align: center; gap: var(--s-2); margin: 0 0 var(--s-4); padding: var(--s-6) var(--s-4) var(--s-5); border-radius: var(--r-lg); color: #FFFFFF; box-shadow: var(--e-2);
+  background: radial-gradient(120% 90% at 50% 0%, #3A3333 0%, #1C1818 60%, #141111 100%); }
+.sp-cover-title { font-family: var(--font-brand); font-weight: 900; font-size: clamp(2.8rem, 10vw, 4.4rem); line-height: .88; text-transform: uppercase; color: #FF3B3F; letter-spacing: .01em; }
+.sp-cover-band { display: inline-block; padding: .15rem .9rem; background: #C8161D; color: #FFFFFF; font-family: var(--font-brand); font-weight: 600; font-size: clamp(.8rem, 2.6vw, 1rem); letter-spacing: .18em; text-transform: uppercase; border-radius: 3px; }
+.sp-cover-state { font-family: var(--font-brand); font-weight: 900; font-size: clamp(4.5rem, 18vw, 7.5rem); line-height: .85; letter-spacing: -.02em; color: #FFFFFF; }
 .frase-card { display: flex; gap: var(--s-3); align-items: flex-start; margin: 0 0 var(--s-4); padding: var(--s-3) var(--s-4); background: var(--tip-bg); border: 1px solid var(--tip-border); border-radius: var(--r-md); font-size: 1.02rem; line-height: 1.5; }
 .frase-card .eyebrow { display: block; margin: 0 0 var(--s-1); }
 .exam-chip { display: block; font-size: .8125rem; color: var(--muted); margin: -.75rem 0 0; }
