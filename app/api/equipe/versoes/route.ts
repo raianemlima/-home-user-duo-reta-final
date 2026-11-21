@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { buildDraft } from "@/lib/content/build";
 import { materialDate } from "@/lib/content/material-date";
 import { saveDraft } from "@/lib/content/repository";
+import { applyFormatting } from "@/lib/formatting/apply";
 import { requireStaff } from "@/lib/server/auth";
 import { UUID_PATTERN } from "@/lib/server/documents";
 import { ApiError, handleRoute, readJson } from "@/lib/server/http";
@@ -9,6 +10,8 @@ import type { DocumentExtraction } from "@/lib/extraction/types";
 import type { SegmentationResult } from "@/lib/segmentation/types";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+export const maxDuration = 300;
 const NO_DATE_LABEL = "Data de atualização não informada no material";
 
 // Transforma a saída da etapa de segmentação de um job concluído num rascunho de versão da disciplina.
@@ -41,6 +44,9 @@ export function POST(request: Request) {
     const sections = buildDraft(stages[0].output as SegmentationResult);
     if (!sections.length) throw new ApiError(422, "empty_content", "Nenhum conteúdo foi encontrado no arquivo.");
     const { versionId } = await saveDraft(supabase, { disciplineId, label, sourceSha256: (document?.sha256 as string | undefined) ?? "", sourcePath: (document?.storage_path as string | undefined) ?? null, sourceFileName: (document?.file_name as string | undefined) ?? null, jobId, sections });
+    // Formatação do PDF (negrito, cores, recuos): um extra. Se falhar, o rascunho segue como sempre.
+    try { await applyFormatting(supabase, versionId); }
+    catch (error) { console.warn(JSON.stringify({ at: new Date().toISOString(), route: "equipe.versoes.criar", stage: "formatacao", status: "skipped", detail: error instanceof Error ? error.message : String(error) })); }
     return NextResponse.json({ versionId }, { status: 201 });
   });
 }
