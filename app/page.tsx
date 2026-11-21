@@ -20,7 +20,13 @@ export default async function Home() {
   const others = disciplines.filter((discipline) => discipline !== resume);
   const now = new Date(), days = daysUntilExam(now);
   return <div className="home">
-    <header className="grid-paper"><p className="eyebrow">Reta Final DPE-SP</p><h1>Início</h1></header>
+    {/* Faixa de capa no estilo da capa dos ebooks do Reta Final DPE-SP (fundo escuro, RETA FINAL em vermelho, SP em branco). */}
+    <header className="sp-cover">
+      <h1 className="visually-hidden">Início</h1>
+      <span className="sp-cover-title" aria-hidden="true">Reta<br />Final</span>
+      <span className="sp-cover-band">Defensoria Pública de</span>
+      <span className="sp-cover-state" aria-label="São Paulo">SP</span>
+    </header>
     <section className="exam-card" aria-label="Data da prova">
       {days > 1 && <span className="exam-days">{days}</span>}
       <div><p><strong>{days > 1 ? "dias para a prova da DPE-SP" : examCountdown(now)}</strong></p><p className="muted">Prova: domingo, {EXAM_LABEL}</p></div>
