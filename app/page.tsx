@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AppTips } from "@/components/AppTips";
+import { HomeFlashcards } from "@/components/flashcards/HomeFlashcards";
 import { StudyPlan } from "@/components/StudyPlan";
 import { fraseDoDia } from "@/lib/frases";
 import { daysUntilExam, EXAM_LABEL, examCountdown } from "@/lib/exam";
@@ -34,6 +35,7 @@ export default async function Home() {
     {/* Frase do dia: a mesma para todos, muda à meia-noite. */}
     <p className="frase-card"><span aria-hidden="true">💬</span> <span><span className="eyebrow">Frase do dia</span>{fraseDoDia(now)}</span></p>
     {/* O cronograma vem primeiro: é por ele que o aluno sabe o que estudar hoje. */}
+    <HomeFlashcards />
     <StudyPlan />
     <h2 className="section-title">Ebooks</h2>
     {fresh.length > 0 && <p className="new-banner" role="status">🆕 Material novo: {fresh.map((discipline, index) => <span key={discipline.id}>{index > 0 && ", "}<Link href={`/disciplinas/${discipline.slug}`}>{discipline.title}</Link></span>)}. O PDF original está disponível dentro da disciplina.</p>}

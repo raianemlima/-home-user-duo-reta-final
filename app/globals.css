@@ -374,3 +374,56 @@ label { display: grid; gap: .35rem; font-weight: 600; font-size: .9rem; }
 .tsep { display: none; }
 .section-subhead { font-size: 1.15rem; margin: 1.75rem 0 .75rem; scroll-margin-top: 1rem; }
 .section-anchor { display: block; height: 0; scroll-margin-top: 1rem; }
+
+/* Flashcards */
+.flash-sheet { max-height: 88vh; overflow-y: auto; }
+.flash-sheet-title { margin: 0; }
+.flash-tabs { display: flex; gap: var(--s-1); padding: var(--s-1); background: var(--surface-2); border-radius: var(--r-md); }
+.flash-tab { flex: 1; min-height: 40px; border: 0; border-radius: var(--r-sm); background: transparent; color: var(--text); font: 600 .95rem var(--font-text); cursor: pointer; }
+.flash-tab.is-on { background: var(--surface); box-shadow: var(--e-1); color: var(--text); outline: 2px solid var(--accent-strong); outline-offset: -2px; }
+.flash-help { margin: 0; font-size: .92rem; }
+.flash-pick { max-height: 40vh; overflow-y: auto; padding: var(--s-3); border: 1px solid var(--border); border-radius: var(--r-md); line-height: 2.1; font-size: var(--reading-size); white-space: pre-line; }
+.flash-word { display: inline; padding: .1rem .1rem; margin: 0; border: 1px dashed transparent; border-radius: var(--r-sm); background: transparent; color: var(--text); font: inherit; line-height: inherit; cursor: pointer; }
+.flash-word:hover { border-color: var(--border-strong); }
+.flash-word.is-on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.flash-label { display: grid; gap: var(--s-1); font-weight: 600; }
+.flash-label textarea { font: inherit; padding: var(--s-2); border: 1.5px solid var(--border-strong); border-radius: var(--r-md); background: var(--surface); color: var(--text); resize: vertical; }
+.flash-quote { margin: 0; padding: var(--s-2) var(--s-3); border-left: 3px solid var(--accent-strong); background: var(--surface-2); border-radius: 0 var(--r-sm) var(--r-sm) 0; white-space: pre-wrap; max-height: 30vh; overflow-y: auto; }
+.flash-text { margin: 0; font-size: var(--reading-size); line-height: 1.7; white-space: pre-wrap; }
+.flash-question { font-weight: 700; }
+.flash-gap { display: inline-block; padding: 0 .4rem; border-bottom: 2px solid var(--accent-text); color: var(--accent-text); font-weight: 700; }
+.flash-answer { background: var(--hl-importante); color: var(--hl-ink); font-weight: 700; padding: 0 .15rem; border-radius: 3px; }
+.flash-summary { display: grid; gap: var(--s-3); justify-items: start; padding: var(--s-4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); margin-bottom: var(--s-4); }
+.flash-summary p { margin: 0; }
+.flash-due { font-size: 1.6rem; color: var(--accent-text); }
+.flash-filter { display: flex; gap: var(--s-2); align-items: center; font-weight: 600; }
+.flash-filter select, .flash-search input { min-height: 44px; padding: 0 var(--s-3); border: 1.5px solid var(--border-strong); border-radius: var(--r-md); background: var(--surface); color: var(--text); font: inherit; }
+.flash-search { display: block; margin-bottom: var(--s-3); }
+.flash-search input { width: 100%; }
+.flash-list { list-style: none; padding: 0; margin: 0 0 var(--s-4); display: grid; gap: var(--s-3); }
+.flash-item { display: grid; gap: var(--s-2); padding: var(--s-3) var(--s-4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); }
+.flash-item .eyebrow, .flash-card .eyebrow { margin: 0; }
+.flash-item .flash-text { font-size: 1rem; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.flash-item-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-2); }
+.flash-item-foot .badge { margin-left: 0; }
+.flash-item-actions { display: flex; flex-wrap: wrap; gap: var(--s-1); }
+.flash-item-actions .button { min-height: 40px; padding: 0 .7rem; }
+.flash-delete { color: var(--danger); }
+.flash-empty { display: grid; gap: var(--s-2); justify-items: start; }
+.flash-empty p { margin: 0; }
+.flash-review { display: grid; gap: var(--s-3); max-width: 720px; }
+.flash-review-head { display: flex; justify-content: space-between; align-items: center; gap: var(--s-2); }
+.flash-card { display: grid; gap: var(--s-3); padding: var(--s-5) var(--s-4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); box-shadow: var(--e-2); min-height: 180px; align-content: start; }
+.flash-source { font-weight: 600; color: var(--link); }
+.flash-rates { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-2); }
+.flash-rate { flex-direction: column; gap: 0; min-height: 56px; padding: var(--s-1); }
+.flash-rate small { font-weight: 400; font-size: .8rem; color: var(--muted); }
+.flash-errei { border-color: var(--danger); color: var(--danger); }
+.flash-bom { border-color: var(--accent-strong); }
+.flash-done { justify-items: start; padding: var(--s-5) var(--s-4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); }
+.flash-done p { margin: 0; }
+.flash-done-title { font-size: 1.4rem; font-weight: 800; }
+.flash-home { display: flex; align-items: center; gap: var(--s-3); margin: 0 0 var(--s-4); padding: var(--s-3) var(--s-4); background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent-strong); border-radius: var(--r-md); color: var(--text); text-decoration: none; }
+.flash-home:hover { background: var(--surface-2); }
+.flash-home-go { margin-left: auto; font-weight: 700; color: var(--link); white-space: nowrap; }
+.flash-unit { white-space: nowrap; }

@@ -7,6 +7,7 @@ import { loadNotebook } from "@/lib/notebook/queries";
 import { requireStudent } from "@/lib/server/auth";
 import { enforceRateLimit } from "@/lib/server/rate-limit";
 import { ApiError, handleRoute } from "@/lib/server/http";
+import { protectPdf } from "@/lib/server/protect-pdf";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -23,7 +24,8 @@ export function GET(request: Request) {
     await enforceRateLimit(supabase, "export");
     const now = new Date();
     const model = buildNotebookExport(notebook, user.email ?? "aluno", now);
-    const bytes = docx ? await renderDocx(model) : await renderPdf(model);
+    // O PDF leva trechos do material: sai com a mesma proteção dos ebooks (e-mail do aluno em cada página, sem cópia).
+    const bytes = docx ? await renderDocx(model) : await protectPdf(await renderPdf(model), { email: user.email || `aluno ${user.id.slice(0, 8)}` });
     const day = now.toLocaleDateString("sv-SE", { timeZone: "America/Sao_Paulo" });
     const type = docx ? "application/vnd.openxmlformats-officedocument.wordprocessingml.document" : "application/pdf";
     return new NextResponse(bytes as unknown as BodyInit, { headers: { "content-type": type, "content-disposition": `attachment; filename="caderno-duo-${day}.${docx ? "docx" : "pdf"}"`, "cache-control": "private, no-store" } });

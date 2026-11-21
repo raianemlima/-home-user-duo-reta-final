@@ -37,13 +37,15 @@ class Query implements PromiseLike<Result> {
   private upsertOptions: { onConflict?: string; ignoreDuplicates?: boolean } = {};
   constructor(private readonly db: FakeDb, private readonly userId: string, private readonly table: string) {}
 
-  select() { if (this.op === "select") this.op = "select"; else this.returning = true; return this; }
+  private counting = false;
+  select(_columns?: string, options: { count?: string; head?: boolean } = {}) { if (this.op === "select") { this.op = "select"; this.counting = Boolean(options.count); } else this.returning = true; return this; }
   insert(payload: Row | Row[]) { this.op = "insert"; this.payload = payload; return this; }
   update(payload: Row) { this.op = "update"; this.payload = payload; return this; }
   delete() { this.op = "delete"; return this; }
   upsert(payload: Row, options: { onConflict?: string; ignoreDuplicates?: boolean } = {}) { this.op = "upsert"; this.payload = payload; this.upsertOptions = options; return this; }
   eq(column: string, value: unknown) { this.filters.push((row) => row[column] === value); return this; }
   in(column: string, values: unknown[]) { this.filters.push((row) => values.includes(row[column])); return this; }
+  lte(column: string, value: unknown) { this.filters.push((row) => String(row[column]) <= String(value)); return this; }
   neq(column: string, value: unknown) { this.filters.push((row) => row[column] !== value); return this; }
   is(column: string, value: null) { this.filters.push((row) => (row[column] ?? null) === value); return this; }
   ilike(column: string, pattern: string) { const re = new RegExp(`^${pattern.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/(?<!\\)%/g, ".*").replace(/(?<!\\)_/g, ".").replace(/\\\\([%_])/g, "$1")}$`, "is"); this.filters.push((row) => re.test(String(row[column]))); return this; }
@@ -66,7 +68,7 @@ class Query implements PromiseLike<Result> {
 
   private execute(): Result {
     const table = this.db.tables[this.table];
-    if (this.op === "select") return this.finish(this.rows());
+    if (this.op === "select") { const rows = this.rows(); return this.counting ? { ...this.finish(rows), count: rows.length } as Result : this.finish(rows); }
     if (this.op === "update") {
       const rows = this.rows();
       const before = rows.map((row) => ({ ...row }));
